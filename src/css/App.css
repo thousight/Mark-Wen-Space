@@ -1,0 +1,108 @@
+body {
+  /*Set base font*/
+  font-family: 'Lato', 'Arial', sans-serif;
+  font-weight: 300;
+  text-rendering: optimizeLegibility;
+  margin: 0;
+}
+
+.background {
+  /*Gradient animation*/
+  background: linear-gradient(270deg, #1d6ab9, #43cea2, #1ec7ac, #52adcb, #9182FF, #6FA8FE);
+  background-size: 800% 800%;
+
+  -webkit-animation: background 30s ease infinite;
+  -moz-animation: background 30s ease infinite;
+  -o-animation: background 30s ease infinite;
+  animation: background 30s ease infinite;
+
+  /*Size of animation*/
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+
+  /*Effects*/
+  filter: brightness(90%) blur(1px);
+}
+
+@-webkit-keyframes background {
+  0% {background-position:0 50%}
+  50% {background-position:100% 50%}
+  100% {background-position:0 50%}
+}
+@-moz-keyframes background {
+  0% {background-position:0 50%}
+  50% {background-position:100% 50%}
+  100% {background-position:0 50%}
+}
+@-o-keyframes background {
+  0% {background-position:0 50%}
+  50% {background-position:100% 50%}
+  100% {background-position:0 50%}
+}
+@keyframes background {
+  0% {background-position:0 50%}
+  50% {background-position:100% 50%}
+  100% {background-position:0 50%}
+}
+
+.content-wrapper {
+  /*Position content*/
+  position: absolute;
+  top: 0;
+  width: 100vw;
+}
+
+.logo {
+  /*Size of image*/
+  width: 300px;
+  height: 300px;
+  /*Horizontal centering*/
+  margin: 0 auto;
+  display: block;
+  /*Vertical position*/
+  padding-top: 100px;
+}
+
+.title {
+  /*Styling*/
+  font-size: 34px;
+  color: white;
+  /*Positioning*/
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.construction-wrapper {
+  width: 179px;
+  display: block;
+  margin: 0 auto;
+}
+
+.construction {
+  font-size: 19px;
+  color: white;
+}
+
+.construction:after {
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: bottom;
+  -webkit-animation: ellipsis steps(4, end) 1.5s infinite;
+  animation: ellipsis steps(4, end) 1.5s infinite;
+  content: "\2026"; /* ascii code for the ellipsis character */
+  width: 0;
+}
+
+@keyframes ellipsis {
+  to {
+    width: 1.25em;
+  }
+}
+
+@-webkit-keyframes ellipsis {
+  to {
+    width: 1.25em;
+  }
+}

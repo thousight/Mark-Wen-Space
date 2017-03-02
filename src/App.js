@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import WhiteLogoTransparentBG from './img/logo/WhiteLogoTransparentBG.png';
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
+	render() {
+		return (
+			<div>
+				<div className="background" />
+				<div className="content-wrapper">
+					<img className="logo" src={WhiteLogoTransparentBG} role="presentation" />
+					<p className="title">Mark Wen Space</p>
+					<div className="construction-wrapper">
+						<p className="construction">Under construction</p>
+					</div>
+				</div>
+			</div>
+		);
+	}
 }
 
 export default App;
