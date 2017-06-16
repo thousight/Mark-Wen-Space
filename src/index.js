@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import App from './App';
-import { Home, Resume } from './js';
+import { Home, Resume, Portfolio, Contact } from './js';
 import './index.css';
 
 ReactDOM.render(

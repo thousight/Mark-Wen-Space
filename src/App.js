@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Resume, Home } from './js';
+import { Home, Resume, Portfolio, Contact } from './js';
 import { ResponsiveSidebar } from './js/components';
 
 class App extends Component {
