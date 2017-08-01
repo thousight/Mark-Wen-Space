@@ -9,6 +9,7 @@ import WhiteLogoTransparentBG from '../../img/logo/WhiteLogoTransparentBG.png'
 * Top navbar, change transparency based on scroll
 */
 class NavigationBar extends Component {
+
 	constructor(props) {
 		super(props);
 
@@ -16,6 +17,8 @@ class NavigationBar extends Component {
 		this.state = {
 			isOpen: false
 		};
+
+		this.onNavItemClick(window.location.pathname);
 	}
 
 	/**
@@ -32,7 +35,14 @@ class NavigationBar extends Component {
 	* swap background image
 	*/
 	onNavItemClick(background) {
-		document.body.className = background;
+		switch(background) {
+			case "/":
+				document.body.className = "home-background";
+				break;
+			default:
+				document.body.className = background;
+				break;
+		}
 	}
 
 	render() {
@@ -45,10 +55,10 @@ class NavigationBar extends Component {
 				{/* Links */}
 				<Collapse isOpen={this.state.isOpen} navbar>
 					<Nav className="ml-auto" navbar>
-						<NavItem><Link to="/" onClick={this.onNavItemClick("home-background")}>Home</Link></NavItem>
-						<NavItem><Link to="/Resume" onClick={this.onNavItemClick("resume-background")}>Resume</Link></NavItem>
-						<NavItem><Link to="/Portfolio" onClick={this.onNavItemClick("portfolio-background")}>Portfolio</Link></NavItem>
-						<NavItem><Link to="/Contact" onClick={this.onNavItemClick("contact-background")}>Contact</Link></NavItem>
+						<NavItem><Link to="/" onClick={() => {this.onNavItemClick("home-background")}}>Home</Link></NavItem>
+						<NavItem><Link to="/Resume" onClick={() => {this.onNavItemClick("resume-background")}}>Resume</Link></NavItem>
+						<NavItem><Link to="/Portfolio" onClick={() => {this.onNavItemClick("portfolio-background")}}>Portfolio</Link></NavItem>
+						<NavItem><Link to="/Contact" onClick={() => {this.onNavItemClick("contact-background")}}>Contact</Link></NavItem>
 					</Nav>
 				</Collapse>
 			</Navbar>

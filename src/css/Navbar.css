@@ -17,7 +17,7 @@
 }
 
 .home-background {
-	background: #FCFCFC url(/static/media/home-gradient.jpg) top center no-repeat scroll;
+	background: #FCFCFC url(../img/home-gradient.jpg) top center no-repeat scroll;
 	background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -25,7 +25,7 @@
 }
 
 .resume-background {
-	background: #FCFCFC url(../img/home-gradient.jpg) top center no-repeat scroll;
+	background: #FCFCFC url(../img/resume-gradient.jpg) top center no-repeat scroll;
 	background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
