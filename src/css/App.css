@@ -1,7 +1,17 @@
 body {
 	/*Set base font*/
   font-family: 'Segoe UI', 'Open Sans', 'Lato', 'Arial', sans-serif;
-	background-color: #FBFBFB;
+	background-color: #FCFCFC;
   color: #333333;
 	margin: 0;
+}
+
+h1 {
+	color: #FFFFFF;
+	font-size: 3rem;
+	font-weight: 400;
+}
+
+a:focus, a:hover {
+	text-decoration: none;
 }

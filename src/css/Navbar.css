@@ -1,3 +1,49 @@
 .navbar {
-	
+	background-color: rgb(255, 255, 255);
+	background-color: rgba(255, 255, 255, 0);
+	padding: 0 10%;
+}
+
+.navbar-logo {
+	width: 54px;
+	height: 54px;
+}
+
+.nav-item {
+	margin: 0 10px;
+}
+.nav-item > a {
+	color: #FFFFFF;
+}
+
+.home-background {
+	background: #FCFCFC url(/static/media/home-gradient.jpg) top center no-repeat scroll;
+	background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	-webkit-background-size: cover;
+}
+
+.resume-background {
+	background: #FCFCFC url(../img/home-gradient.jpg) top center no-repeat scroll;
+	background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	-webkit-background-size: cover;
+}
+
+.portfolio-background {
+	background: #FCFCFC url(../img/home-gradient.jpg) top center no-repeat scroll;
+	background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	-webkit-background-size: cover;
+}
+
+.contact-background {
+	background: #FCFCFC url(../img/home-gradient.jpg) top center no-repeat scroll;
+	background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	-webkit-background-size: cover;
 }

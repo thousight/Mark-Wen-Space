@@ -1,0 +1,23 @@
+.home {
+
+}
+
+.home-landing {
+	height: 50vh;
+}
+
+.home-title {
+	text-align: center;
+	margin-top: 15vh;
+	cursor: default;
+	user-select: none;
+}
+
+.home-title > h1 {
+	margin-bottom: 0;
+}
+
+.home-title > p {
+	color: #FFFFFF;
+	font-weight: 400;
+}
