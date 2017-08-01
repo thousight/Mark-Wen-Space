@@ -1,18 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, IndexRoute, hashHistory } from 'react-router';
+import { BrowserRouter as Router } from 'react-router-dom';
+
 import App from './App';
-import { Home, Resume, Portfolio, Contact } from './js';
 import './index.css';
 
+/**
+* Index file where it renders all the JSX into public/index.html
+*/
 ReactDOM.render(
-	<Router history={hashHistory}>
-    <Route path="/" component={App}>
-      <IndexRoute component={Home} />
-			<Route path="resume" component={Resume} />
-			<Route path="portfolio" component={Portfolio} />
-      <Route path="contact" component={Contact} />
-    </Route>
+	<Router>
+		<App />
   </Router>,
   document.getElementById('root')
 );

@@ -1,12 +1,25 @@
 import React, { Component } from 'react';
-import { Home, Resume, Portfolio, Contact } from './js';
-import { ResponsiveSidebar } from './js/components';
+import { Route } from 'react-router-dom';
 
+import { Home, Resume, Portfolio, Contact } from './js';
+import { NavigationBar, Footer } from './js/components';
+
+/**
+* Root view where it includes the constant navbar and footer
+* and the changing components based on routing
+*/
 class App extends Component {
 	render() {
 		return (
-			<div>
-
+			<div className="root-view">
+				<NavigationBar />
+				<div>
+					<Route exact path="/" component={Home} />
+					<Route path="/resume" component={Resume} />
+					<Route path="/portfolio" component={Portfolio} />
+		      <Route path="/contact" component={Contact} />
+				</div>
+				<Footer />
 			</div>
 		);
 	}
