@@ -6,14 +6,14 @@
 	border-width: 0;
 }
 
+/*2 theme*/
 .navbar-transparent {
 	background-color: rgb(255, 255, 255);
 	background-color: rgba(255, 255, 255, 0);
 }
-
 .navbar-white {
 	background-color: rgb(255, 255, 255);
-	background-color: rgba(255, 255, 255, 0.93);
+	background-color: rgba(255, 255, 255, 0.97);
 }
 
 .navbar-brand {
@@ -27,18 +27,30 @@
 }
 
 /*Navbar links*/
-.navbar-default .navbar-nav > li > a,
-.navbar-default .navbar-nav > li > a:focus,
-.navbar-default .navbar-nav > li > a:hover {
+.navbar-transparent .navbar-nav > li > a,
+.navbar-transparent .navbar-nav > li > a:focus,
+.navbar-transparent .navbar-nav > li > a:hover {
 	color: #FFFFFF;
 }
+.navbar-white .navbar-nav > li > a,
+.navbar-white .navbar-nav > li > a:focus,
+.navbar-white .navbar-nav > li > a:hover {
+	color: #008EFF;
+}
 
+/*Navbar toggle*/
 .navbar-default .navbar-toggle {
 	border: 0;
 	margin-top: -42px;
 }
 .navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
 	background-color: transparent;
+}
+.navbar-default .navbar-toggle-white .icon-bar {
+	background-color: #FFFFFF;
+}
+.navbar-default .navbar-toggle-dark .icon-bar {
+	background-color: #666666;
 }
 
 .sidebar {

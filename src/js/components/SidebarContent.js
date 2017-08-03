@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { stack as Menu } from 'react-burger-menu';
 
 class SidebarContent extends Component {
 	render() {
 		return (
-			<div className="sidebar-content">
-				<Link to="/" onClick={() => {this.onNavItemClick("home-background")}}>Home</Link>
-				<Link to="/Resume" onClick={() => {this.onNavItemClick("resume-background")}}>Resume</Link>
-				<Link to="/Portfolio" onClick={() => {this.onNavItemClick("portfolio-background")}}>Portfolio</Link>
-				<Link to="/Contact" onClick={() => {this.onNavItemClick("contact-background")}}>Contact</Link>
-			</div>
+			<Menu right width="20%" isOpen={this.props.sidebarOpen}>
+				<Link to="/">Home</Link>
+				<Link to="/Resume">Resume</Link>
+				<Link to="/Portfolio">Portfolio</Link>
+				<Link to="/Contact">Contact</Link>
+			</Menu>
 		);
 	}
 }

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
-import Sidebar from 'react-sidebar';
 
 import { Home, Resume, Portfolio, Contact } from './js';
 import { NavigationBar, Footer, SidebarContent } from './js/components';
@@ -12,38 +11,33 @@ import { NavigationBar, Footer, SidebarContent } from './js/components';
 class App extends Component {
 
 	constructor(props) {
-    super(props);
+		super(props);
+		this.states = {
+			isSidebarOpened: false
+		}
 
-    this.state = {
-      sidebarOpen: false
-    }
-
-    this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
+		this.openSidebar = this.openSidebar.bind(this);
   }
 
-	onSetSidebarOpen() {
-    this.setState({sidebarOpen: !this.state.sidebarOpen});
-  }
+	openSidebar() {
+		this.setState({
+			isSidebarOpened: !this.states.isSidebarOpened
+		});
+	}
 
 	render() {
 		return (
-			<Sidebar
-				sidebarClassName="sidebar"
-				sidebar={SidebarContent}
-				pullRight
-				open={this.state.sidebarOpen}
-				onSetOpen={this.onSetSidebarOpen}>
-				<div className="root-view">
-					<NavigationBar toggleOnClick={this.onSetSidebarOpen} />
+			<div id="root-view">
+				<SidebarContent sidebarOpen={this.states.isSidebarOpened}/>
+				<NavigationBar openSidebar={this.openSidebar} />
 
-					<Route exact path="/" component={Home} />
-					<Route path="/resume" component={Resume} />
-					<Route path="/portfolio" component={Portfolio} />
-					<Route path="/contact" component={Contact} />
+				<Route exact path="/" component={Home} />
+				<Route path="/resume" component={Resume} />
+				<Route path="/portfolio" component={Portfolio} />
+				<Route path="/contact" component={Contact} />
 
-					<Footer />
-				</div>
-			</Sidebar>
+				<Footer />
+			</div>
 		);
 	}
 }
