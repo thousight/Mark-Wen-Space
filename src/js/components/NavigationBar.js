@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { Collapse, Navbar, NavbarToggler, Nav, NavItem } from 'reactstrap';
+import React, { Component} from 'react';
+import { withRouter } from 'react-router';
+import { Navbar, Nav, NavItem, Row, Col } from 'react-bootstrap';
 
 import BlueLogoTransparentBG from '../../img/logo/BlueLogoTransparentBG.png'
 import WhiteLogoTransparentBG from '../../img/logo/WhiteLogoTransparentBG.png'
@@ -12,58 +12,46 @@ class NavigationBar extends Component {
 
 	constructor(props) {
 		super(props);
-
-		this.toggle = this.toggle.bind(this);
-		this.state = {
-			isOpen: false
-		};
-
-		this.onNavItemClick(window.location.pathname);
+		this.handleScroll = this.handleScroll.bind(this);
 	}
 
-	/**
-	* On dropdown toggle click
-	*/
-	toggle() {
-		this.setState({
-			isOpen: !this.state.isOpen
-		});
+	componentDidMount() {
+		window.addEventListener('scroll', this.handleScroll);
 	}
 
-	/**
-	* On navbar item click
-	* swap background image
-	*/
-	onNavItemClick(background) {
-		switch(background) {
-			case "/":
-				document.body.className = "home-background";
-				break;
-			default:
-				document.body.className = background;
-				break;
-		}
+	componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
+	}
+
+	handleScroll() {
+		console.log('scroll');
+	}
+
+	navigateTo(address) {
+		this.props.history.push(address);
 	}
 
 	render() {
 		return (
-			<Navbar color="faded" light toggleable>
-				{/* Collapse button */}
-				<NavbarToggler right onClick={this.toggle} />
-				{/* Logo */}
-				<Link to="/"><img className="navbar-logo" src={WhiteLogoTransparentBG} alt="MW Logo"/></Link>
-				{/* Links */}
-				<Collapse isOpen={this.state.isOpen} navbar>
-					<Nav className="ml-auto" navbar>
-						<NavItem><Link to="/" onClick={() => {this.onNavItemClick("home-background")}}>Home</Link></NavItem>
-						<NavItem><Link to="/Resume" onClick={() => {this.onNavItemClick("resume-background")}}>Resume</Link></NavItem>
-						<NavItem><Link to="/Portfolio" onClick={() => {this.onNavItemClick("portfolio-background")}}>Portfolio</Link></NavItem>
-						<NavItem><Link to="/Contact" onClick={() => {this.onNavItemClick("contact-background")}}>Contact</Link></NavItem>
-					</Nav>
-				</Collapse>
+			<Navbar id="navbar" collapseOnSelect>
+				<Row>
+					<Col xs={12} sm={10} smOffset={1}>
+						<Navbar.Header>
+							{/* Logo */}
+							<a onClick={() => {this.navigateTo("/")}}><img className="navbar-logo" src={WhiteLogoTransparentBG} alt="MW Logo"/></a>
+							<Navbar.Toggle onClick={this.props.toggleOnClick} />
+						</Navbar.Header>
+						<Nav pullRight>
+							<NavItem className="navbar-links" eventKey={1} onClick={() => {this.navigateTo("/")}}>Home</NavItem>
+							<NavItem className="navbar-links" eventKey={2} onClick={() => {this.navigateTo("/Resume")}}>Resume</NavItem>
+							<NavItem className="navbar-links" eventKey={3} onClick={() => {this.navigateTo("/Portfolio")}}>Portfolio</NavItem>
+							<NavItem className="navbar-links" eventKey={4} onClick={() => {this.navigateTo("/Contact")}}>Contact</NavItem>
+						</Nav>
+					</Col>
+				</Row>
 			</Navbar>
 		);
 	}
 }
 
-export default NavigationBar;
+export default withRouter(NavigationBar);

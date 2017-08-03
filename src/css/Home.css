@@ -1,19 +1,24 @@
 .home {
-
+	background: #FCFCFC url(../img/home-gradient.jpg) top center no-repeat scroll;
+	background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	-webkit-background-size: cover;
 }
 
 .home-landing {
-	height: 50vh;
+	min-height: 100vh;
 }
 
 .home-title {
 	text-align: center;
-	margin-top: 15vh;
+	padding-top: 15vh;
 	cursor: default;
 	user-select: none;
 }
 
 .home-title > h1 {
+	color: #FFFFFF;
 	margin-bottom: 0;
 }
 
