@@ -15,6 +15,7 @@ class NavigationBar extends Component {
 
 		// Bind functions
 		this.handleScroll = this.handleScroll.bind(this);
+		// this.getLinkClassNames = this.getLinkClassNames.bind(this);
 	}
 
 	componentDidMount() {
@@ -66,6 +67,13 @@ class NavigationBar extends Component {
 		this.props.history.push(address);
 	}
 
+	/**
+	* Set active link
+	*/
+	getLinkClassNames(address) {
+		return 'navbar-links' + this.props.location.pathname === address ? ' navbar-links-active' : '';
+	}
+
 	render() {
 		return (
 			<Navbar id="navbar" className="navbar-transparent" collapseOnSelect>
@@ -77,10 +85,10 @@ class NavigationBar extends Component {
 							<Navbar.Toggle id="navbar-toggle" onClick={this.props.openSidebar} />
 						</Navbar.Header>
 						<Nav pullRight>
-							<NavItem className="navbar-links" eventKey={1} onClick={() => {this.navigateTo("/")}}>Home</NavItem>
-							<NavItem className="navbar-links" eventKey={2} onClick={() => {this.navigateTo("/Resume")}}>Resume</NavItem>
-							<NavItem className="navbar-links" eventKey={3} onClick={() => {this.navigateTo("/Portfolio")}}>Portfolio</NavItem>
-							<NavItem className="navbar-links" eventKey={4} onClick={() => {this.navigateTo("/Contact")}}>Contact</NavItem>
+							<NavItem className={this.getLinkClassNames('/')} eventKey={1} onClick={() => {this.navigateTo("/")}}>Home</NavItem>
+							<NavItem className={'navbar-links' + this.props.location.pathname === '/resume' ? ' navbar-links-active' : ''} eventKey={2} onClick={() => {this.navigateTo("/Resume")}}>Resume</NavItem>
+							<NavItem className={'navbar-links' + this.props.location.pathname === '/portfolio' ? ' navbar-links-active' : ''} eventKey={3} onClick={() => {this.navigateTo("/Portfolio")}}>Portfolio</NavItem>
+							<NavItem className={'navbar-links' + this.props.location.pathname === '/contact' ? ' navbar-links-active' : ''} eventKey={4} onClick={() => {this.navigateTo("/Contact")}}>Contact</NavItem>
 						</Nav>
 					</Col>
 				</Row>

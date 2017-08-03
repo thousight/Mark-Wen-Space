@@ -19,6 +19,9 @@ class App extends Component {
 		this.openSidebar = this.openSidebar.bind(this);
   }
 
+	/**
+	* Trigger sidebar to open
+	*/
 	openSidebar() {
 		this.setState({
 			isSidebarOpened: !this.states.isSidebarOpened
