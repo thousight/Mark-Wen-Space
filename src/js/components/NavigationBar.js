@@ -2,7 +2,7 @@ import React, { Component} from 'react';
 import { withRouter } from 'react-router';
 import { Navbar, Nav, NavItem, Row, Col } from 'react-bootstrap';
 import { connect } from 'react-redux'
-import { toggleSidebar } from '../redux/actions'
+import { toggleSidebar } from '../redux/actions';
 import { bindActionCreators } from 'redux';
 
 import BlueLogoTransparentBG from '../../img/logo/BlueLogoTransparentBG.png'
@@ -98,7 +98,7 @@ class NavigationBar extends Component {
 							</a>
 
 							{/* Toggle */}
-							<a className="navbar-toggle" id="navbar-toggle" onClick={this.toggleOnClick}>
+							<a className="navbar-toggle navbar-toggle-white" id="navbar-toggle" onClick={this.toggleOnClick}>
 								<span className="icon-bar" />
 								<span className="icon-bar" />
 								<span className="icon-bar" />

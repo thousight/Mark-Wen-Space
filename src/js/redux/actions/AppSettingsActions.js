@@ -1,7 +1,7 @@
 import { SIDEBAR_STATE } from './actionTypes';
 
 // Static values
-let isSidebarOpen = true;
+let isSidebarOpen = false;
 
 export const toggleSidebar = () => {
   return {
