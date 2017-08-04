@@ -1,9 +1,9 @@
 import Footer from './Footer';
 import NavigationBar from './NavigationBar';
-import SidebarContent from './SidebarContent';
+import Sidebar from './Sidebar';
 
 export {
 	Footer,
 	NavigationBar,
-	SidebarContent
+	Sidebar
 }

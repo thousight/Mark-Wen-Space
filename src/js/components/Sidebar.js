@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { slide as Menu } from 'react-burger-menu';
+import { connect } from 'react-redux'
 
-class SidebarContent extends Component {
+class Sidebar extends Component {
 	render() {
 		return (
 			<Menu
 				right
 				width="60%"
-				isOpen={this.props.sidebarOpen}
-				// burgerButtonClassName="navbar-toggle"
+				isOpen={this.props.appSettings.isSidebarOpen}
 				customBurgerIcon={false}
 				customCrossIcon={false}>
 				<Link to="/">Home</Link>
@@ -21,4 +21,10 @@ class SidebarContent extends Component {
 	}
 }
 
-export default SidebarContent;
+const mapStateToProps = state => {
+	return {
+		appSettings: state.appSettings
+	}
+}
+
+export default connect(mapStateToProps)(Sidebar);

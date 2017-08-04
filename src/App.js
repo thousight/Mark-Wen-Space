@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 
 import { Home, Resume, Portfolio, Contact } from './js';
-import { NavigationBar, Footer, SidebarContent } from './js/components';
+import { NavigationBar, Footer, Sidebar } from './js/components';
 
 /**
 * Root view where it includes the constant navbar and footer
@@ -10,29 +10,11 @@ import { NavigationBar, Footer, SidebarContent } from './js/components';
 */
 class App extends Component {
 
-	constructor(props) {
-		super(props);
-		this.states = {
-			isSidebarOpened: false
-		}
-
-		this.openSidebar = this.openSidebar.bind(this);
-  }
-
-	/**
-	* Trigger sidebar to open
-	*/
-	openSidebar() {
-		this.setState({
-			isSidebarOpened: !this.states.isSidebarOpened
-		});
-	}
-
 	render() {
 		return (
 			<div id="root-view">
-				<SidebarContent sidebarOpen={this.states.isSidebarOpened}/>
-				<NavigationBar openSidebar={this.openSidebar} />
+				<Sidebar />
+				<NavigationBar />
 
 				<Route exact path="/" component={Home} />
 				<Route path="/resume" component={Resume} />

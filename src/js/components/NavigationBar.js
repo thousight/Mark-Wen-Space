@@ -1,6 +1,9 @@
 import React, { Component} from 'react';
 import { withRouter } from 'react-router';
 import { Navbar, Nav, NavItem, Row, Col } from 'react-bootstrap';
+import { connect } from 'react-redux'
+import { toggleSidebar } from '../redux/actions'
+import { bindActionCreators } from 'redux';
 
 import BlueLogoTransparentBG from '../../img/logo/BlueLogoTransparentBG.png'
 import WhiteLogoTransparentBG from '../../img/logo/WhiteLogoTransparentBG.png'
@@ -15,6 +18,7 @@ class NavigationBar extends Component {
 
 		// Bind functions
 		this.handleScroll = this.handleScroll.bind(this);
+		this.toggleOnClick = this.toggleOnClick.bind(this);
 		// this.getLinkClassNames = this.getLinkClassNames.bind(this);
 	}
 
@@ -51,11 +55,11 @@ class NavigationBar extends Component {
 			this.navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.97)';
 			this.toggle.classList.add('navbar-toggle-dark');
 			this.toggle.classList.remove('navbar-toggle-white');
+			this.logo.src = BlueLogoTransparentBG;
 		}
 
 		if (window.scrollY > 0 && window.scrollY <= 10) {
 			// Smoothing background color transition
-			this.logo.src = BlueLogoTransparentBG;
 			this.navbar.style.backgroundColor = 'rgba(255, 255, 255, ' + window.scrollY / 10 * 0.97 + ')';
 		}
 	}
@@ -74,6 +78,14 @@ class NavigationBar extends Component {
 		return 'navbar-links' + this.props.location.pathname === address ? ' navbar-links-active' : '';
 	}
 
+	/**
+	* Open sidebar on click
+	*/
+	toggleOnClick(event) {
+		event.preventDefault();
+		this.props.toggleSidebar();
+	}
+
 	render() {
 		return (
 			<Navbar id="navbar" className="navbar-transparent" collapseOnSelect>
@@ -81,8 +93,16 @@ class NavigationBar extends Component {
 					<Col xs={12} sm={10} smOffset={1}>
 						<Navbar.Header>
 							{/* Logo */}
-							<a onClick={() => {this.navigateTo("/")}}><img id="navbar-logo" className="navbar-logo" src={WhiteLogoTransparentBG} alt="MW Logo"/></a>
-							<Navbar.Toggle id="navbar-toggle" onClick={this.props.openSidebar} />
+							<a onClick={() => {this.navigateTo("/")}}>
+								<img id="navbar-logo" className="navbar-logo" src={window.scrollY === 0 ? WhiteLogoTransparentBG : BlueLogoTransparentBG} alt="MW Logo"/>
+							</a>
+
+							{/* Toggle */}
+							<a className="navbar-toggle" id="navbar-toggle" onClick={this.toggleOnClick}>
+								<span className="icon-bar" />
+								<span className="icon-bar" />
+								<span className="icon-bar" />
+							</a>
 						</Navbar.Header>
 						<Nav pullRight>
 							<NavItem className={this.getLinkClassNames('/')} eventKey={1} onClick={() => {this.navigateTo("/")}}>Home</NavItem>
@@ -97,4 +117,16 @@ class NavigationBar extends Component {
 	}
 }
 
-export default withRouter(NavigationBar);
+const mapDispatchToProps = dispatch => {
+	return bindActionCreators({
+		toggleSidebar
+	}, dispatch);
+}
+
+const mapStateToProps = state => {
+	return {
+		isSidebarOpen: state.appSettings
+	}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(NavigationBar));

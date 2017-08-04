@@ -21,9 +21,11 @@
 	color: #FFFFFF;
 	margin-bottom: 0;
 	font-size: 3.3em;
+	text-shadow: 1px 1px 3px rgba(150, 150, 150, 1);
 }
 
 .home-title > p {
 	color: #FFFFFF;
 	font-weight: 400;
+	text-shadow: 1px 1px 3px rgba(150, 150, 150, 1);
 }

@@ -32,6 +32,7 @@
 .navbar-transparent .navbar-nav > li > a:focus,
 .navbar-transparent .navbar-nav > li > a:hover {
 	color: #FFFFFF;
+	text-shadow: 1px 1px 3px rgba(150, 150, 150, 1);
 }
 .navbar-white .navbar-nav > li > a,
 .navbar-white .navbar-nav > li > a:focus,
@@ -39,7 +40,7 @@
 	color: #008EFF;
 }
 .navbar-links-active {
-	
+
 }
 
 /*Navbar toggle*/
@@ -53,6 +54,9 @@
 .navbar-default .navbar-toggle .icon-bar,
 .navbar-default .navbar-toggle-white .icon-bar {
 	background-color: #FFFFFF;
+}
+.navbar-default .navbar-toggle-white .icon-bar {
+	box-shadow: 1px 1px 3px rgba(150, 150, 150, 1);
 }
 .navbar-default .navbar-toggle-dark .icon-bar {
 	background-color: #666666;
