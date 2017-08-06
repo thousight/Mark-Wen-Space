@@ -3,12 +3,12 @@
 }
 
 .home-landing {
-	background: #FCFCFC url(../img/home-gradient.jpg) center center no-repeat scroll;
+	background: #FCFCFC url(../img/home.jpg) center center no-repeat scroll;
 	background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	-webkit-background-size: cover;
-	min-height: 95vh;
+	min-height: 90vh;
 }
 
 .home-title {
@@ -43,24 +43,38 @@
 	display: inline-block;
 	margin: 0 5px;
 	user-select: none;
-
-	/*Hover Transition*/
-  transition: all 0.25s ease-in-out;
-  -webkit-transition: all 0.25s ease-in-out;
-  -o-transition: all 0.25s ease-in-out;
-  -moz-transition: all 0.25s ease-in-out;
 }
 
-.home-landing-icon:hover {
-	/*Hover link position change*/
-  transform: scale(1.1);
-  -webkit-transform: scale(1.1);
-  -o-transform: scale(1.1);
-  -moz-transform: scale(1.1);
+.home-landing-icon-file {
+	background: url(../img/icons/file.svg) center center no-repeat scroll;
+}
+.home-landing-icon-file:hover {
+	background: url(../img/icons/file-colored.svg) center center no-repeat scroll;
+}
+
+.home-landing-icon-linkedin {
+	background: url(../img/icons/linkedin.svg) center center no-repeat scroll;
+}
+.home-landing-icon-linkedin:hover {
+	background: url(../img/icons/linkedin-colored.svg) center center no-repeat scroll;
+}
+
+.home-landing-icon-github {
+	background: url(../img/icons/github.svg) center center no-repeat scroll;
+}
+.home-landing-icon-github:hover {
+	background: url(../img/icons/github-colored.svg) center center no-repeat scroll;
+}
+
+.home-landing-icon-500px {
+	background: url(../img/icons/500px.svg) center center no-repeat scroll;
+}
+.home-landing-icon-500px:hover {
+	background: url(../img/icons/500px-colored.svg) center center no-repeat scroll;
 }
 
 .home-cards {
-	margin-top: -65px;
+	margin-top: -45px;
 }
 
 .home-intro-card {
@@ -75,6 +89,7 @@
 	box-shadow: 0 3px 10px 0 rgba(0,0,0,.16);
 	display: block;
 	margin: 0 auto;
+	margin-top: 10px;
 	user-select: none;
 }
 

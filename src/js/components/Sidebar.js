@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { slide as Menu } from 'react-burger-menu';
 import { connect } from 'react-redux'
-import { toggleSidebar } from '../redux/actions';
+import { toggleSidebar, setNavbarCurrentItem } from '../redux/actions';
 import { bindActionCreators } from 'redux';
 
 /**
@@ -18,7 +18,7 @@ class Sidebar extends Component {
 	}
 
 	linkOnClick() {
-		this.props.toggleSidebar();
+		this.props.toggleSidebar(false);
 	}
 
 	render() {
@@ -40,7 +40,8 @@ class Sidebar extends Component {
 
 const mapDispatchToProps = dispatch => {
 	return bindActionCreators({
-		toggleSidebar
+		toggleSidebar,
+		setNavbarCurrentItem
 	}, dispatch);
 }
 

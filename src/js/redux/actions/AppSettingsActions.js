@@ -1,11 +1,15 @@
-import { SIDEBAR_STATE } from './actionTypes';
+import { SIDEBAR_STATE, NAVBAR_SELECTED_ITEM } from './actionTypes';
 
-// Static values
-let isSidebarOpen = false;
-
-export const toggleSidebar = () => {
+export const toggleSidebar = (payload) => {
   return {
 		type: SIDEBAR_STATE,
-		payload: !this.isSidebarOpen
+		payload
+	}
+};
+
+export const setNavbarCurrentItem = (payload) => {
+  return {
+		type: NAVBAR_SELECTED_ITEM,
+		payload
 	}
 };
