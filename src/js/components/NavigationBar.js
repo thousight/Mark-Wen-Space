@@ -47,14 +47,14 @@ class NavigationBar extends Component {
 			this.navbar.classList.remove('navbar-white');
 			this.logo.src = WhiteLogoTransparentBG;
 			this.navbar.style.backgroundColor = 'rgba(255, 255, 255, 0)';
-			this.toggle.classList.add('navbar-toggle-white');
-			this.toggle.classList.remove('navbar-toggle-dark');
+			// this.toggle.classList.add('navbar-toggle-white');
+			// this.toggle.classList.remove('navbar-toggle-dark');
 		} else {
 			this.navbar.classList.add('navbar-white');
 			this.navbar.classList.remove('navbar-transparent');
 			this.navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.96)';
-			this.toggle.classList.add('navbar-toggle-dark');
-			this.toggle.classList.remove('navbar-toggle-white');
+			// this.toggle.classList.add('navbar-toggle-dark');
+			// this.toggle.classList.remove('navbar-toggle-white');
 			this.logo.src = BlueLogoTransparentBG;
 		}
 
@@ -98,18 +98,18 @@ class NavigationBar extends Component {
 							</a>
 
 							{/* Toggle */}
-							<a className="navbar-toggle navbar-toggle-white" id="navbar-toggle" onClick={this.toggleOnClick}>
+							{/* <a className="navbar-toggle navbar-toggle-white" id="navbar-toggle" onClick={this.toggleOnClick}>
 								<span className="icon-bar" />
 								<span className="icon-bar" />
 								<span className="icon-bar" />
-							</a>
+							</a> */}
 						</Navbar.Header>
-						<Nav pullRight>
+						{/* <Nav pullRight>
 							<NavItem className={this.getLinkClassNames('/')} eventKey={1} onClick={() => {this.navigateTo("/")}}>Home</NavItem>
 							<NavItem className={'navbar-links' + this.props.location.pathname === '/resume' ? ' navbar-links-active' : ''} eventKey={2} onClick={() => {this.navigateTo("/Resume")}}>Resume</NavItem>
 							<NavItem className={'navbar-links' + this.props.location.pathname === '/portfolio' ? ' navbar-links-active' : ''} eventKey={3} onClick={() => {this.navigateTo("/Portfolio")}}>Portfolio</NavItem>
 							<NavItem className={'navbar-links' + this.props.location.pathname === '/contact' ? ' navbar-links-active' : ''} eventKey={4} onClick={() => {this.navigateTo("/Contact")}}>Contact</NavItem>
-						</Nav>
+						</Nav> */}
 					</Col>
 				</Row>
 			</Navbar>
