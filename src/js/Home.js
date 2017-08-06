@@ -24,10 +24,18 @@ class Home extends Component {
 						<p>Web and Android Developer</p>
 					</div>
 					<div className="home-landing-icons-wrapper">
-						<a href="https://www.dropbox.com/s/ilyktq99v71774m/Guojie%20Wen%20Resume.pdf?dl=0" target="_blank"><img className="home-landing-icon" alt="file" src={file} /></a>
-						<a href="https://www.linkedin.com/in/guojiewen" target="_blank"><img className="home-landing-icon" alt="linkedin" src={linkedin} /></a>
-						<a href="https://www.github.com/thousight" target="_blank"><img className="home-landing-icon" alt="github" src={github} /></a>
-						<a href="https://500px.com/markwenguojie94" target="_blank"><img className="home-landing-icon" alt="500px" src={fiveHundredPixels} /></a>
+						<a href="https://www.dropbox.com/s/ilyktq99v71774m/Guojie%20Wen%20Resume.pdf?dl=0" target="_blank" rel="noopener noreferrer">
+							<img className="home-landing-icon" alt="file" src={file} />
+						</a>
+						<a href="https://www.linkedin.com/in/guojiewen" target="_blank" rel="noopener noreferrer">
+							<img className="home-landing-icon" alt="linkedin" src={linkedin} />
+						</a>
+						<a href="https://www.github.com/thousight" target="_blank" rel="noopener noreferrer">
+							<img className="home-landing-icon" alt="github" src={github} />
+						</a>
+						<a href="https://500px.com/markwenguojie94" target="_blank" rel="noopener noreferrer">
+							<img className="home-landing-icon" alt="500px" src={fiveHundredPixels} />
+						</a>
 					</div>
 				</div>
 
