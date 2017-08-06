@@ -1,0 +1,14 @@
+.footer {
+	background-color: #303030;
+	display: block;
+	position: relative;
+	margin-top: 30px;
+}
+
+.legal-text {
+	margin: 0;
+	padding-top: 25px;
+	padding-bottom: 25px;
+	text-align: center;
+	color: #FFFFFF;
+}

@@ -1,0 +1,7 @@
+.resume {
+	background: #FCFCFC url(../img/resume-gradient.jpg) top center no-repeat scroll;
+	background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	-webkit-background-size: cover;
+}
