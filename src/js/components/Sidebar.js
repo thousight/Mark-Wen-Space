@@ -25,7 +25,7 @@ class Sidebar extends Component {
 		return (
 			<Menu
 				right
-				width="70%"
+				width="60%"
 				isOpen={this.props.appSettings.isSidebarOpen}
 				customBurgerIcon={false}
 				customCrossIcon={false}>
