@@ -1,13 +1,14 @@
 .home {
-	background: #FCFCFC url(../img/home-gradient.jpg) top center no-repeat scroll;
+	background-color: #FCFCFC;
+}
+
+.home-landing {
+	background: #FCFCFC url(../img/home-gradient.jpg) center center no-repeat scroll;
 	background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	-webkit-background-size: cover;
-}
-
-.home-landing {
-	min-height: 100vh;
+	min-height: 90vh;
 }
 
 .home-title {
@@ -20,12 +21,55 @@
 .home-title > h1 {
 	color: #FFFFFF;
 	margin-bottom: 0;
-	font-size: 3.3em;
+	font-size: 3.6em;
 	text-shadow: 1px 1px 3px rgba(150, 150, 150, 1);
 }
 
 .home-title > p {
 	color: #FFFFFF;
 	font-weight: 400;
+	font-size: 16px;
 	text-shadow: 1px 1px 3px rgba(150, 150, 150, 1);
+}
+
+.home-cards {
+	margin-top: -65px;
+}
+
+.home-intro-card {
+	text-align: center;
+	padding: 20px;
+}
+
+.home-profile-pic {
+	width: 125px;
+	height: 125px;
+	border-radius: 100px;
+	box-shadow: 0 3px 10px 0 rgba(0,0,0,.16);
+	display: block;
+	margin: 0 auto;
+	user-select: none;
+}
+
+.home-intro-card > h3 {
+	margin-bottom: 20px;
+}
+
+.home-hobbies-card {
+	background-color: #008EFF;
+	color: #FFFFFF;
+	text-align: center;
+}
+
+
+/*On mobile size*/
+@media only screen and (max-width: 767px) {
+	.home-title > h1 {
+		font-size: 3.3em;
+	}
+
+	.home-title > p {
+		font-size: 14px;
+	}
+
 }
