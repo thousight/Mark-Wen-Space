@@ -1,7 +1,7 @@
 # Mark Wen Space v4
 Mark Wen's 4th version personal website, but this time, it is way more than a resume.
 
-## Planned Features (There's a lot...)
+## Planned Features (there's a lot...)
 
 - **Dashboard**: home page contains different widgets
 	- **Now**: current system time and current location's weather, use open weather map API
@@ -21,7 +21,7 @@ Mark Wen's 4th version personal website, but this time, it is way more than a re
 - **Analytics**: showing website usage data and graphs
 - **About**: purpose, platforms, and technology references of this website
 
-## Implementation Plan (Ranked in order)
+## Implementation Plan (ranked in order)
 
 - Home landing page
 - Resume, contact, and about

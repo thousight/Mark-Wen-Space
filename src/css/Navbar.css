@@ -64,7 +64,10 @@
 }
 
 
-/*Sidebar styles*/
+/**
+ * Sidebar styles
+ */
+
 /* General sidebar styles */
 .bm-menu {
   background: #FFFFFF;
@@ -76,6 +79,12 @@
 /* List item */
 .bm-item-list > a {
   padding: 5px;
+	color: #008EFF;
+}
+.bm-item-list > a:focus,
+.bm-item-list > a:hover {
+  padding: 5px;
+	color: #008EFF;
 }
 
 /* Styling of overlay */

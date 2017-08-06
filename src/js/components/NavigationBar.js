@@ -83,7 +83,7 @@ class NavigationBar extends Component {
 	*/
 	toggleOnClick(event) {
 		event.preventDefault();
-		this.props.toggleSidebar();
+		this.props.toggleSidebar(true);
 	}
 
 	render() {

@@ -1,11 +1,8 @@
 import { SIDEBAR_STATE } from './actionTypes';
 
-// Static values
-let isSidebarOpen = false;
-
-export const toggleSidebar = () => {
+export const toggleSidebar = (payload) => {
   return {
 		type: SIDEBAR_STATE,
-		payload: !this.isSidebarOpen
+		payload
 	}
 };

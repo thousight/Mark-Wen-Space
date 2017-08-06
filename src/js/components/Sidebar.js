@@ -18,7 +18,7 @@ class Sidebar extends Component {
 	}
 
 	linkOnClick() {
-		this.props.toggleSidebar();
+		this.props.toggleSidebar(false);
 	}
 
 	render() {
