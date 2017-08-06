@@ -72,20 +72,23 @@
 /* General sidebar styles */
 .bm-menu {
   background: #FFFFFF;
-  padding: 2.5em 1.5em 0;
+  padding-top: 2.5em;
   font-size: 1.3em;
 	box-shadow: -4px 0 10px 0 rgba(0,0,0,.14);
 }
 
 /* List item */
 .bm-item-list > a {
-  padding: 5px;
+  padding: 10px 2em;
 	color: #008EFF;
 }
 .bm-item-list > a:focus,
 .bm-item-list > a:hover {
-  padding: 5px;
+	padding: 5px;
 	color: #008EFF;
+}
+.sidebar-active {
+	background-color: #CCCCCC;
 }
 
 /* Styling of overlay */

@@ -17,8 +17,25 @@ class Sidebar extends Component {
 		this.linkOnClick = this.linkOnClick.bind(this);
 	}
 
-	linkOnClick() {
+	/**
+	* Handle sidebar NavItem click action
+	*/
+	linkOnClick(address) {
 		this.props.toggleSidebar(false);
+		if (address === '/') {
+			// Sets active item in Redux and triggers navbar render()
+			this.props.setNavbarCurrentItem('Home');
+		} else {
+			// Since address would be '/Resume' format, take out '/'
+			this.props.setNavbarCurrentItem(address.substr(1, address.length - 1));
+		}
+	}
+
+	/**
+	* Set active link
+	*/
+	getLinkClassNames(address) {
+		return this.props.appSettings.navbarSelectedItem === address ? 'sidebar-active' : '';
 	}
 
 	render() {
@@ -29,10 +46,10 @@ class Sidebar extends Component {
 				isOpen={this.props.appSettings.isSidebarOpen}
 				customBurgerIcon={false}
 				customCrossIcon={false}>
-				<Link to="/" onClick={this.linkOnClick}>Home</Link>
-				<Link to="/Resume" onClick={this.linkOnClick}>Resume</Link>
-				<Link to="/Portfolio" onClick={this.linkOnClick}>Portfolio</Link>
-				<Link to="/Contact" onClick={this.linkOnClick}>Contact</Link>
+				<Link className={this.getLinkClassNames('Home')} to="/" onClick={() => {this.linkOnClick('/')}}>Home</Link>
+				<Link className={this.getLinkClassNames('Resume')} to="/Resume" onClick={() => {this.linkOnClick('/Resume')}}>Resume</Link>
+				<Link className={this.getLinkClassNames('Portfolio')} to="/Portfolio" onClick={() => {this.linkOnClick('/Portfolio')}}>Portfolio</Link>
+				<Link className={this.getLinkClassNames('Contact')} to="/Contact" onClick={() => {this.linkOnClick('/Contact')}}>Contact</Link>
 			</Menu>
 		);
 	}
