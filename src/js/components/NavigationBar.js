@@ -120,9 +120,12 @@ class NavigationBar extends Component {
 					<Col xs={12} sm={10} smOffset={1}>
 						<Navbar.Header>
 							{/* Logo */}
-							<a onClick={() => {this.navItemOnClick("/")}}>
-								<img id="navbar-logo" className="navbar-logo" src={window.scrollY === 0 ? WhiteLogoTransparentBG : BlueLogoTransparentBG} alt="MW Logo"/>
-							</a>
+							<img
+								id="navbar-logo"
+								className="navbar-logo"
+								src={window.scrollY === 0 ? WhiteLogoTransparentBG : BlueLogoTransparentBG}
+								alt="MW Logo"
+								onClick={() => {this.navItemOnClick("/")}}/>
 
 							{/* Toggle */}
 							<a className="navbar-toggle navbar-toggle-white" id="navbar-toggle" onClick={this.toggleOnClick}>

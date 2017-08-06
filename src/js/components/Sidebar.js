@@ -38,19 +38,31 @@ class Sidebar extends Component {
 		return this.props.appSettings.navbarSelectedItem === address ? 'sidebar-active' : '';
 	}
 
+	/**
+	* Handle on overlay clicked
+	*/
+	overlayOnClick(e) {
+		e.preventDefault();
+		this.props.toggleSidebar(false);
+	}
+
 	render() {
 		return (
-			<Menu
-				right
-				width="60%"
-				isOpen={this.props.appSettings.isSidebarOpen}
-				customBurgerIcon={false}
-				customCrossIcon={false}>
-				<Link className={this.getLinkClassNames('Home')} to="/" onClick={() => {this.linkOnClick('/')}}>Home</Link>
-				<Link className={this.getLinkClassNames('Resume')} to="/Resume" onClick={() => {this.linkOnClick('/Resume')}}>Resume</Link>
-				<Link className={this.getLinkClassNames('Portfolio')} to="/Portfolio" onClick={() => {this.linkOnClick('/Portfolio')}}>Portfolio</Link>
-				<Link className={this.getLinkClassNames('Contact')} to="/Contact" onClick={() => {this.linkOnClick('/Contact')}}>Contact</Link>
-			</Menu>
+			<div>
+				<div id="sidebarOverlay" onClick={e => {this.overlayOnClick(e);}} style={{display: this.props.appSettings.isSidebarOpen ? 'block' : 'none'}} />
+				<Menu
+					right
+					noOverlay
+					width="60%"
+					isOpen={this.props.appSettings.isSidebarOpen}
+					customBurgerIcon={false}
+					customCrossIcon={false}>
+					<Link className={this.getLinkClassNames('Home')} to="/" onClick={() => {this.linkOnClick('/')}}>Home</Link>
+					<Link className={this.getLinkClassNames('Resume')} to="/Resume" onClick={() => {this.linkOnClick('/Resume')}}>Resume</Link>
+					<Link className={this.getLinkClassNames('Portfolio')} to="/Portfolio" onClick={() => {this.linkOnClick('/Portfolio')}}>Portfolio</Link>
+					<Link className={this.getLinkClassNames('Contact')} to="/Contact" onClick={() => {this.linkOnClick('/Contact')}}>Contact</Link>
+				</Menu>
+			</div>
 		);
 	}
 }
