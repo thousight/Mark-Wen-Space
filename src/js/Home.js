@@ -51,19 +51,19 @@ class Home extends Component {
 							<div className="card home-hobbies-card">
 								<h3>Hobbies</h3>
 								<Row className="home-hobbies-icons-wrapper">
-									<Col xs={3}>
+									<Col xs={6} sm={3}>
 										<img className="home-hobbies-icon" alt="smartphone" src={smartphone} />
 										<h4>Smartphone</h4>
 									</Col>
-									<Col xs={3}>
+									<Col xs={6} sm={3}>
 										<img className="home-hobbies-icon" alt="camera" src={camera} />
 										<h4>Photography</h4>
 									</Col>
-									<Col xs={3}>
+									<Col xs={6} sm={3}>
 										<img className="home-hobbies-icon" alt="car" src={car} />
 										<h4>Road Trips</h4>
 									</Col>
-									<Col xs={3}>
+									<Col xs={6} sm={3}>
 										<img className="home-hobbies-icon" alt="badminton" src={badminton} />
 										<h4>Badminton</h4>
 									</Col>
