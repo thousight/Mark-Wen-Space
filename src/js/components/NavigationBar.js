@@ -19,10 +19,14 @@ class NavigationBar extends Component {
 		// Bind functions
 		this.handleScroll = this.handleScroll.bind(this);
 		this.toggleOnClick = this.toggleOnClick.bind(this);
-		// this.getLinkClassNames = this.getLinkClassNames.bind(this);
+		this.getLinkClassNames = this.getLinkClassNames.bind(this);
+		this.navItemOnClick = this.navItemOnClick.bind(this);
 	}
 
 	componentDidMount() {
+		// Select the currently selected nav item based on url
+		this.navItemOnClick(this.props.location.pathname);
+
 		// Get elements
 		this.navbar = document.getElementById('navbar');
 		this.logo = document.getElementById('navbar-logo');
@@ -40,6 +44,8 @@ class NavigationBar extends Component {
 	* Animate navbar background transparency change
 	*/
 	handleScroll() {
+		this.activeNavItem = document.getElementsByClassName('navbar-links-active');
+
 		if (window.scrollY === 0) {
 			// If user scrolls to the top
 			// swap navbar theme
@@ -49,6 +55,9 @@ class NavigationBar extends Component {
 			this.navbar.style.backgroundColor = 'rgba(255, 255, 255, 0)';
 			this.toggle.classList.add('navbar-toggle-white');
 			this.toggle.classList.remove('navbar-toggle-dark');
+			for (let i = 0; i < this.activeNavItem.length; i++) {
+				this.activeNavItem[i].childNodes[0].style.borderColor = "#FFFFFF";
+			}
 		} else {
 			this.navbar.classList.add('navbar-white');
 			this.navbar.classList.remove('navbar-transparent');
@@ -56,26 +65,38 @@ class NavigationBar extends Component {
 			this.toggle.classList.add('navbar-toggle-dark');
 			this.toggle.classList.remove('navbar-toggle-white');
 			this.logo.src = BlueLogoTransparentBG;
+			for (let i = 0; i < this.activeNavItem.length; i++) {
+				this.activeNavItem[i].childNodes[0].style.borderColor = "#008EFF";
+			}
 		}
 
-		if (window.scrollY > 0 && window.scrollY <= 10) {
+		if (window.scrollY > 0 && window.scrollY <= 30) {
 			// Smoothing background color transition
-			this.navbar.style.backgroundColor = 'rgba(255, 255, 255, ' + window.scrollY / 10 * 0.96 + ')';
+			this.navbar.style.backgroundColor = 'rgba(255, 255, 255, ' + window.scrollY / 30 * 0.96 + ')';
 		}
-	}
-
-	/**
-	* Bring user to specific address
-	*/
-	navigateTo(address) {
-		this.props.history.push(address);
 	}
 
 	/**
 	* Set active link
 	*/
 	getLinkClassNames(address) {
-		return 'navbar-links' + this.props.location.pathname === address ? ' navbar-links-active' : '';
+		return this.props.appSettings.navbarSelectedItem === address ? 'navbar-links-active' : '';
+	}
+
+	/**
+	* Make NavItem active and direct user to the page
+	*/
+	navItemOnClick(address) {
+		if (address === '/') {
+			// Sets active item in Redux and triggers navbar render()
+			this.props.setNavbarCurrentItem('Home');
+		} else {
+			// Since address would be '/Resume' format, take out '/'
+			this.props.setNavbarCurrentItem(address.substr(1, address.length - 1));
+		}
+
+		// Navigate user to address
+		this.props.history.push(address);
 	}
 
 	/**
@@ -93,7 +114,7 @@ class NavigationBar extends Component {
 					<Col xs={12} sm={10} smOffset={1}>
 						<Navbar.Header>
 							{/* Logo */}
-							<a onClick={() => {this.navigateTo("/")}}>
+							<a onClick={() => {this.navItemOnClick("/")}}>
 								<img id="navbar-logo" className="navbar-logo" src={window.scrollY === 0 ? WhiteLogoTransparentBG : BlueLogoTransparentBG} alt="MW Logo"/>
 							</a>
 
@@ -105,10 +126,10 @@ class NavigationBar extends Component {
 							</a>
 						</Navbar.Header>
 						<Nav pullRight>
-							<NavItem className={this.getLinkClassNames('/')} eventKey={1} onClick={() => {this.navigateTo("/")}}>Home</NavItem>
-							<NavItem className={'navbar-links' + this.props.location.pathname === '/resume' ? ' navbar-links-active' : ''} eventKey={2} onClick={() => {this.navigateTo("/Resume")}}>Resume</NavItem>
-							<NavItem className={'navbar-links' + this.props.location.pathname === '/portfolio' ? ' navbar-links-active' : ''} eventKey={3} onClick={() => {this.navigateTo("/Portfolio")}}>Portfolio</NavItem>
-							<NavItem className={'navbar-links' + this.props.location.pathname === '/contact' ? ' navbar-links-active' : ''} eventKey={4} onClick={() => {this.navigateTo("/Contact")}}>Contact</NavItem>
+							<NavItem className={this.getLinkClassNames('Home')} eventKey={1} onClick={() => {this.navItemOnClick('/')}}>Home</NavItem>
+							<NavItem className={this.getLinkClassNames('Resume')} eventKey={2} onClick={() => {this.navItemOnClick('/Resume')}}>Resume</NavItem>
+							<NavItem className={this.getLinkClassNames('Portfolio')} eventKey={3} onClick={() => {this.navItemOnClick('/Portfolio')}}>Portfolio</NavItem>
+							<NavItem className={this.getLinkClassNames('Contact')} eventKey={4} onClick={() => {this.navItemOnClick('/Contact')}}>Contact</NavItem>
 						</Nav>
 					</Col>
 				</Row>
@@ -126,7 +147,7 @@ const mapDispatchToProps = dispatch => {
 
 const mapStateToProps = state => {
 	return {
-		isSidebarOpen: state.appSettings
+		appSettings: state.appSettings
 	}
 }
 

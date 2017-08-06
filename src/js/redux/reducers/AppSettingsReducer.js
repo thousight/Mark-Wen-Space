@@ -1,7 +1,7 @@
 import {
   SIDEBAR_STATE,
   NAVBAR_SELECTED_ITEM
-} from '../actions/actionTypes'
+} from '../actions'
 
 const initialState = {
   isSidebarOpen: false,

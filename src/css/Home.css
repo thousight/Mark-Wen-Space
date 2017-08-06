@@ -43,12 +43,14 @@
 	display: inline-block;
 	margin: 0 5px;
 	user-select: none;
+	color: transparent;
 }
 
 .home-landing-icon-file {
 	background: url(../img/icons/file.svg) center center no-repeat scroll;
 }
 .home-landing-icon-file:hover {
+	color: transparent;
 	background: url(../img/icons/file-colored.svg) center center no-repeat scroll;
 }
 
@@ -56,6 +58,7 @@
 	background: url(../img/icons/linkedin.svg) center center no-repeat scroll;
 }
 .home-landing-icon-linkedin:hover {
+	color: transparent;
 	background: url(../img/icons/linkedin-colored.svg) center center no-repeat scroll;
 }
 
@@ -63,6 +66,7 @@
 	background: url(../img/icons/github.svg) center center no-repeat scroll;
 }
 .home-landing-icon-github:hover {
+	color: transparent;
 	background: url(../img/icons/github-colored.svg) center center no-repeat scroll;
 }
 
@@ -70,6 +74,7 @@
 	background: url(../img/icons/500px.svg) center center no-repeat scroll;
 }
 .home-landing-icon-500px:hover {
+	color: transparent;
 	background: url(../img/icons/500px-colored.svg) center center no-repeat scroll;
 }
 

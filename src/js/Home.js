@@ -22,16 +22,16 @@ class Home extends Component {
 					<div className="home-landing-icons-wrapper">
 						<a className="home-landing-icon home-landing-icon-file"
 							href="https://www.dropbox.com/s/ilyktq99v71774m/Guojie%20Wen%20Resume.pdf?dl=0"
-							target="_blank" rel="noopener noreferrer" />
+							target="_blank" rel="noopener noreferrer">Resume</a>
 						<a className="home-landing-icon home-landing-icon-linkedin"
 							href="https://www.dropbox.com/s/ilyktq99v71774m/Guojie%20Wen%20Resume.pdf?dl=0"
-							target="_blank" rel="noopener noreferrer" />
+							target="_blank" rel="noopener noreferrer">LinkedIn</a>
 						<a className="home-landing-icon home-landing-icon-github"
 							href="https://www.dropbox.com/s/ilyktq99v71774m/Guojie%20Wen%20Resume.pdf?dl=0"
-							target="_blank" rel="noopener noreferrer" />
+							target="_blank" rel="noopener noreferrer">Github</a>
 						<a className="home-landing-icon home-landing-icon-500px"
 							href="https://www.dropbox.com/s/ilyktq99v71774m/Guojie%20Wen%20Resume.pdf?dl=0"
-							target="_blank" rel="noopener noreferrer" />
+							target="_blank" rel="noopener noreferrer">500px</a>
 					</div>
 				</div>
 
