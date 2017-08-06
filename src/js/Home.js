@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 import { Row, Col } from 'react-bootstrap';
 
 import profilePic from '../img/profilePic.jpg';
-import file from '../img/icons/file.svg';
-import linkedin from '../img/icons/linkedin.svg';
-import github from '../img/icons/github.svg';
-import fiveHundredPixels from '../img/icons/500px.svg';
 import smartphone from '../img/icons/smartphone.svg';
 import camera from '../img/icons/camera.svg';
 import car from '../img/icons/car.svg';
@@ -24,18 +20,18 @@ class Home extends Component {
 						<p>Web and Android Developer</p>
 					</div>
 					<div className="home-landing-icons-wrapper">
-						<a href="https://www.dropbox.com/s/ilyktq99v71774m/Guojie%20Wen%20Resume.pdf?dl=0" target="_blank" rel="noopener noreferrer">
-							<img className="home-landing-icon" alt="file" src={file} />
-						</a>
-						<a href="https://www.linkedin.com/in/guojiewen" target="_blank" rel="noopener noreferrer">
-							<img className="home-landing-icon" alt="linkedin" src={linkedin} />
-						</a>
-						<a href="https://www.github.com/thousight" target="_blank" rel="noopener noreferrer">
-							<img className="home-landing-icon" alt="github" src={github} />
-						</a>
-						<a href="https://500px.com/markwenguojie94" target="_blank" rel="noopener noreferrer">
-							<img className="home-landing-icon" alt="500px" src={fiveHundredPixels} />
-						</a>
+						<a className="home-landing-icon home-landing-icon-file"
+							href="https://www.dropbox.com/s/ilyktq99v71774m/Guojie%20Wen%20Resume.pdf?dl=0"
+							target="_blank" rel="noopener noreferrer" />
+						<a className="home-landing-icon home-landing-icon-linkedin"
+							href="https://www.dropbox.com/s/ilyktq99v71774m/Guojie%20Wen%20Resume.pdf?dl=0"
+							target="_blank" rel="noopener noreferrer" />
+						<a className="home-landing-icon home-landing-icon-github"
+							href="https://www.dropbox.com/s/ilyktq99v71774m/Guojie%20Wen%20Resume.pdf?dl=0"
+							target="_blank" rel="noopener noreferrer" />
+						<a className="home-landing-icon home-landing-icon-500px"
+							href="https://www.dropbox.com/s/ilyktq99v71774m/Guojie%20Wen%20Resume.pdf?dl=0"
+							target="_blank" rel="noopener noreferrer" />
 					</div>
 				</div>
 
