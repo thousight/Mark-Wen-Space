@@ -8,7 +8,7 @@
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	-webkit-background-size: cover;
-	min-height: 90vh;
+	min-height: 100vh;
 }
 
 .home-title {
@@ -33,7 +33,7 @@
 }
 
 .home-cards {
-	margin-top: -65px;
+	margin-top: -90px;
 }
 
 .home-intro-card {

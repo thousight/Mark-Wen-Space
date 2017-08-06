@@ -27,9 +27,12 @@ class Home extends Component {
 								<img className="home-profile-pic" alt="profile" src={profilePic} />
 								<h3>Hi, I'm Mark!</h3>
 								<p>
-									My legal name is Guojie Wen, since my Chinese name is 温国杰. I'm pursuing my bachelor degree as a 4th-year
-									Computer and Information Technology major in Purdue University. I'm passionate in developing and designing
-									websites and applications. I personally believe that every detail worths tweaking, and it's always an enjoyable process.
+									My legal name is Guojie Wen, since my Chinese name is 温国杰.
+									I'm pursuing my bachelor degree as a 4th-year Computer and
+									Information Technology major in Purdue University. I'm passionate
+									in developing and designing websites and mobile applications.
+									I personally believe that every detail worths tweaking, and
+									it's always an enjoyable process.
 								</p>
 							</div>
 						</Col>

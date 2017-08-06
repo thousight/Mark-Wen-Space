@@ -52,7 +52,7 @@ class NavigationBar extends Component {
 		} else {
 			this.navbar.classList.add('navbar-white');
 			this.navbar.classList.remove('navbar-transparent');
-			this.navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.97)';
+			this.navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.96)';
 			this.toggle.classList.add('navbar-toggle-dark');
 			this.toggle.classList.remove('navbar-toggle-white');
 			this.logo.src = BlueLogoTransparentBG;
@@ -60,7 +60,7 @@ class NavigationBar extends Component {
 
 		if (window.scrollY > 0 && window.scrollY <= 10) {
 			// Smoothing background color transition
-			this.navbar.style.backgroundColor = 'rgba(255, 255, 255, ' + window.scrollY / 10 * 0.97 + ')';
+			this.navbar.style.backgroundColor = 'rgba(255, 255, 255, ' + window.scrollY / 10 * 0.96 + ')';
 		}
 	}
 
