@@ -8,7 +8,7 @@
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	-webkit-background-size: cover;
-	min-height: 100vh;
+	min-height: 95vh;
 }
 
 .home-title {
@@ -21,7 +21,7 @@
 .home-title > h1 {
 	color: #FFFFFF;
 	margin-bottom: 0;
-	font-size: 3.6em;
+	font-size: 3.7em;
 	text-shadow: 1px 1px 3px rgba(150, 150, 150, 1);
 }
 
@@ -32,8 +32,35 @@
 	text-shadow: 1px 1px 3px rgba(150, 150, 150, 1);
 }
 
+.home-landing-icons-wrapper {
+	text-align: center;
+	margin-top: 15px;
+}
+
+.home-landing-icon {
+	width: 30px;
+	height: 30px;
+	display: inline-block;
+	margin: 0 5px;
+	user-select: none;
+
+	/*Hover Transition*/
+  transition: all 0.25s ease-in-out;
+  -webkit-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+}
+
+.home-landing-icon:hover {
+	/*Hover link position change*/
+  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -o-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+}
+
 .home-cards {
-	margin-top: -90px;
+	margin-top: -65px;
 }
 
 .home-intro-card {
@@ -59,6 +86,16 @@
 	background-color: #008EFF;
 	color: #FFFFFF;
 	text-align: center;
+}
+
+.home-hobbies-icons-wrapper {
+	margin: 25px;
+}
+
+.home-hobbies-icon {
+	width: 50px;
+	height: 50px;
+	display: inline-block;
 }
 
 

@@ -2,6 +2,14 @@ import React, { Component } from 'react';
 import { Row, Col } from 'react-bootstrap';
 
 import profilePic from '../img/profilePic.jpg';
+import file from '../img/icons/file.svg';
+import linkedin from '../img/icons/linkedin.svg';
+import github from '../img/icons/github.svg';
+import fiveHundredPixels from '../img/icons/500px.svg';
+import smartphone from '../img/icons/smartphone.svg';
+import camera from '../img/icons/camera.svg';
+import car from '../img/icons/car.svg';
+import badminton from '../img/icons/badminton.svg';
 
 /**
 * Static Home page
@@ -15,8 +23,11 @@ class Home extends Component {
 						<h1>Mark Wen</h1>
 						<p>Web and Android Developer</p>
 					</div>
-					<div className="home-logos">
-
+					<div className="home-landing-icons-wrapper">
+						<a href="https://www.dropbox.com/s/ilyktq99v71774m/Guojie%20Wen%20Resume.pdf?dl=0" target="_blank"><img className="home-landing-icon" alt="file" src={file} /></a>
+						<a href="https://www.linkedin.com/in/guojiewen" target="_blank"><img className="home-landing-icon" alt="linkedin" src={linkedin} /></a>
+						<a href="https://www.github.com/thousight" target="_blank"><img className="home-landing-icon" alt="github" src={github} /></a>
+						<a href="https://500px.com/markwenguojie94" target="_blank"><img className="home-landing-icon" alt="500px" src={fiveHundredPixels} /></a>
 					</div>
 				</div>
 
@@ -39,6 +50,24 @@ class Home extends Component {
 						<Col xs={12} sm={10} smOffset={1}>
 							<div className="card home-hobbies-card">
 								<h3>Hobbies</h3>
+								<Row className="home-hobbies-icons-wrapper">
+									<Col xs={3}>
+										<img className="home-hobbies-icon" alt="smartphone" src={smartphone} />
+										<h4>Smartphone</h4>
+									</Col>
+									<Col xs={3}>
+										<img className="home-hobbies-icon" alt="camera" src={camera} />
+										<h4>Photography</h4>
+									</Col>
+									<Col xs={3}>
+										<img className="home-hobbies-icon" alt="car" src={car} />
+										<h4>Road Trips</h4>
+									</Col>
+									<Col xs={3}>
+										<img className="home-hobbies-icon" alt="badminton" src={badminton} />
+										<h4>Badminton</h4>
+									</Col>
+								</Row>
 							</div>
 						</Col>
 					</Row>
