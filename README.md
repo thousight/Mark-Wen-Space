@@ -19,12 +19,11 @@ Mark Wen's 4th version personal website, but this time, it is way more than a re
 - **Gallery**: showcase all my photos in 500px
 - **Collections**: design element collections, including web elements, pictures, color palettes, mockups, etc. Categorize and search
 - **Analytics**: showing website usage data and graphs
-- **About**: purpose, platforms, and technology references of this website
 
 ## Implementation Plan (ranked in order)
 
 - Home landing page
-- Resume, contact, and about
+- Resume and contact
 - Portfolio
 - Gallery
 - Blogs and CMS
