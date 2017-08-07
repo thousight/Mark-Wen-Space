@@ -78,6 +78,7 @@ class NavigationBar extends Component {
 
 	/**
 	* Set active link
+	* @param: address(String)
 	*/
 	getLinkClassNames(address) {
 		return this.props.appSettings.navbarSelectedItem === address ? 'navbar-links-active' : '';
@@ -85,6 +86,7 @@ class NavigationBar extends Component {
 
 	/**
 	* Make NavItem active and direct user to the page
+	* @param: address(String)
 	*/
 	navItemOnClick(address) {
 		if (address === '/') {
@@ -107,6 +109,7 @@ class NavigationBar extends Component {
 
 	/**
 	* Open sidebar on click
+	* @param: event(JS click event object)
 	*/
 	toggleOnClick(event) {
 		event.preventDefault();
