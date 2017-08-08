@@ -30,3 +30,7 @@ button:focus {
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
+
+.unclickable {
+	pointer-events: none;
+}

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Recaptcha from 'react-recaptcha';
-import { Row, Col } from 'react-bootstrap';
+import { Row, Col, Modal } from 'react-bootstrap';
 
 import envelope from '../img/icons/envelope.svg';
 import home from '../img/icons/home.svg';
@@ -13,23 +13,76 @@ import navigation from '../img/icons/navigation.svg';
 */
 class Contact extends Component {
 
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			isShowRecaptchaModal: false
+		}
+
+		this.sendEmail = this.sendEmail.bind(this);
+		this.hanleEmailSubmit = this.hanleEmailSubmit.bind(this);
+	}
+
+	componentDidMount() {
+		// Grab variables
+		this.nameInput = document.getElementById("name");
+		this.fromEmailInput = document.getElementById("fromEmail");
+		this.subjectInput = document.getElementById("subject");
+		this.messageInput = document.getElementById("message");
+		this.submitButton = document.getElementById("submitButton");
+		this.submitText = document.getElementById("submitText");
+	}
+
+	/**
+	* Dismis modal and send email through API
+	*/
 	sendEmail() {
+		this.setState({ isShowRecaptchaModal: false });
+
 		axios.post('http://mark-wen-space-v3-server.herokuapp.com/sendEmail', {
-			fromEmail: '"Mark Wen" <wen56@purdue.edu>',
-			subject: 'test',
-			textBody: 'testtesttest'
+			fromEmail: `"${this.nameInput.value}" <${this.fromEmailInput.value}>`,
+			subject: this.subjectInput.value,
+			textBody: this.messageInput.value
 		})
 		.then(res => {
-			console.log(res);
+			// Clear fields
+			this.nameInput.value = "";
+			this.fromEmailInput.value = "";
+			this.subjectInput.value = "";
+			this.messageInput.value = "";
+
+			this.setSubmitButtonMessage(true, "Email sent");
 		})
 		.catch(error => {
 			console.log(error);
+			this.setSubmitButtonMessage(false, "Error, see console");
 		});
 	}
 
+	/**
+	* Show modal when submit email
+	*/
 	hanleEmailSubmit() {
-		
+		this.setState({ isShowRecaptchaModal: true });
 	}
+
+	/**
+	* Show message in submit button to tell user if email is sent successfully or not
+	* @param: status(boolean), message(String)
+	*/
+	setSubmitButtonMessage(status, message) {
+		this.submitButton.style.background = status ? '#4caf50' : '#f44336';
+		this.submitButton.classList.add('unclickable');
+		this.submitText.innerHTML = message;
+
+		setTimeout(() => {
+			this.submitButton.style.background = '#008EFF';
+			this.submitButton.classList.remove('unclickable');
+			this.submitText.innerHTML = 'Submit';
+		}, 3000);
+	}
+
 
 	render() {
 		return (
@@ -69,14 +122,22 @@ class Contact extends Component {
 								<input className="contact-email-form" id="subject" type="text" placeholder="Subject" />
 								<textarea className="contact-email-form" id="message" type="text" placeholder="Message" />
 								<div className="contact-email-form-submit-wrapper">
-									<a className="contact-email-submit" onClick={this.hanleEmailSubmit}>
-										<img className="contact-email-submit-icon" alt="submit" src={navigation} /><p>Submit</p>
+									<a id="submitButton" className="contact-email-submit" onClick={this.hanleEmailSubmit}>
+										<img className="contact-email-submit-icon" alt="submit" src={navigation} /><p id="submitText">Submit</p>
 									</a>
 								</div>
 							</div>
 						</Col>
 					</Row>
 				</div>
+
+				<Modal show={this.state.isShowRecaptchaModal} onHide={() => { this.setState({ isShowRecaptchaModal: false }) }}>
+					<Recaptcha
+						className="recaptcha"
+						sitekey="6LcbFywUAAAAAPcecjPRbVVqzaR4vBQUqVRihzs_"
+						verifyCallback={this.sendEmail}
+					/>
+				</Modal>
 			</div>
 		);
 	}
