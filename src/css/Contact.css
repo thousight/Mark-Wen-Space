@@ -1,7 +1,64 @@
 .contact {
-	background: #FCFCFC url(../img/resume-gradient.jpg) top center no-repeat scroll;
+	background-color: #FCFCFC;
+}
+
+.contact-title {
+	background: #FCFCFC url(../img/contact.jpg) bottom center no-repeat scroll;
 	background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	-webkit-background-size: cover;
+	min-height: 550px;
+	overflow: hidden;
+	width: 100%;
+}
+
+.contact-title > h1 {
+	text-align: center;
+	padding-top: 200px;
+	margin-top: 0;
+}
+
+.contact-content {
+	margin-top: -80px;
+}
+
+.contact-info {
+	background-color: #008EFF;
+	padding-top: 25px;
+	padding-bottom: 25px;
+	position: relative;
+}
+
+.contact-info-line {
+	display: block;
+	margin: 15px auto;
+	width: 250px;
+}
+
+.contact-info-line > a {
+	margin-left: 10px;
+}
+
+.contact-info-line > a, .contact-info-line-address > a {
+	color: #FFFFFF;
+	vertical-align: middle;
+}
+
+.contact-info-icon {
+	width: 25px;
+	height: 25px;
+	display: inline-block;
+}
+
+.contact-info-line-address {
+	display: inline-block;
+	width: 200px;
+	margin-left: 10px;
+	color: #FFFFFF;
+	vertical-align: middle;
+}
+
+.contact-email {
+
 }
