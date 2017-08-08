@@ -1,0 +1,94 @@
+.fullscreen-loading {
+  background-color: #FCFCFC;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+}
+
+.fullscreen-loading-logo {
+  width: 230px;
+  height: 230px;
+  position: absolute;
+  top: 43%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/*Icon animation*/
+.fullscreen-loading-logo-animation {
+  /*animation*/
+  background: linear-gradient(90deg, #0A81DF, #81D2FF, #0A81DF, #81D2FF);
+  background-size: 400% 400%;
+
+  -webkit-animation: SignInBackgroundAnimation 8s ease infinite;
+  -moz-animation: SignInBackgroundAnimation 8s ease infinite;
+  -o-animation: SignInBackgroundAnimation 8s ease infinite;
+  animation: SignInBackgroundAnimation 8s ease infinite;
+
+  /*positioning*/
+  width: 230px;
+  height: 230px;
+  mix-blend-mode: overlay;
+  position: absolute;
+  top: 43%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@-webkit-keyframes SignInBackgroundAnimation {
+    0% {background-position:0 50%}
+    50% {background-position:100% 50%}
+    100% {background-position:0 50%}
+}
+@-moz-keyframes SignInBackgroundAnimation {
+    0% {background-position:0 50%}
+    50% {background-position:100% 50%}
+    100% {background-position:0 50%}
+}
+@-o-keyframes SignInBackgroundAnimation {
+    0% {background-position:0 50%}
+    50% {background-position:100% 50%}
+    100% {background-position:0 50%}
+}
+@keyframes SignInBackgroundAnimation {
+    0% {background-position:0 50%}
+    50% {background-position:100% 50%}
+    100% {background-position:0 50%}
+}
+
+
+/*Loading animation*/
+.fullscreen-loading-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.fullscreen-loading-text span {
+  font-size: 26px;
+  animation-name: blink;
+  animation-duration: 1.4s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+}
+
+.fullscreen-loading-text span:nth-child(2) {
+  animation-delay: .2s;
+}
+
+.fullscreen-loading-text span:nth-child(3) {
+  animation-delay: .4s;
+}
+
+@keyframes blink {
+  0% {
+    opacity: .2;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: .2;
+  }
+}

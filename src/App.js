@@ -31,7 +31,8 @@ class App extends Component {
 					this.props.setStaticSkillsContent(res.data.Skills);
 					this.props.setStaticPortfolioContent(res.data.Portfolio);
 
-					this.props.isStaticAPIFetched(true);
+					// Dismiss full screen loading
+					setTimeout(() => {this.props.isStaticAPIFetched(true)}, 500);
 		    })
 		    .catch(error => {
 					this.props.isStaticAPIFetched(false);

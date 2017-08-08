@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
+
+import BlueLogoTransparentBG from '../../img/logo/BlueLogoTransparentBG.png'
 
 /**
 * Loading screen when app starts
@@ -7,17 +8,13 @@ import { connect } from 'react-redux'
 class FullScreenLoading extends Component {
 	render() {
 		return (
-			<div>
-				<h1>Loading...</h1>
+			<div className="fullscreen-loading">
+				<img className="fullscreen-loading-logo" alt="MW logo" src={BlueLogoTransparentBG} />
+				<div className="fullscreen-loading-logo-animation" />
+				<h4 className="fullscreen-loading-text">Loading, please wait <span>.</span><span>.</span><span>.</span></h4>
 			</div>
 		);
 	}
 }
 
-const mapStateToProps = state => {
-	return {
-		appSettings: state.appSettings
-	}
-}
-
-export default connect(mapStateToProps)(FullScreenLoading);
+export default FullScreenLoading;
