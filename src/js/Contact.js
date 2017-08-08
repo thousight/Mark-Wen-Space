@@ -6,6 +6,7 @@ import { Row, Col } from 'react-bootstrap';
 import envelope from '../img/icons/envelope.svg';
 import home from '../img/icons/home.svg';
 import phone from '../img/icons/phone.svg';
+import navigation from '../img/icons/navigation.svg';
 
 /**
 * Static Contact page, able to send email to Mark
@@ -14,7 +15,7 @@ class Contact extends Component {
 
 	sendEmail() {
 		axios.post('http://mark-wen-space-v3-server.herokuapp.com/sendEmail', {
-			fromEmail: 'wen56@purdue.edu',
+			fromEmail: '"Mark Wen" <wen56@purdue.edu>',
 			subject: 'test',
 			textBody: 'testtesttest'
 		})
@@ -24,6 +25,10 @@ class Contact extends Component {
 		.catch(error => {
 			console.log(error);
 		});
+	}
+
+	hanleEmailSubmit() {
+		
 	}
 
 	render() {
@@ -58,12 +63,16 @@ class Contact extends Component {
 
 						<Col xs={12} sm={7}>
 							<div className="card contact-email">
-								<Recaptcha
-									className="contact-recaptcha"
-									siteKey="6LcbFywUAAAAAPcecjPRbVVqzaR4vBQUqVRihzs_"
-									onloadCallback={this.sendEmail}
-									type="image"
-									/>
+								<h4>Shoot me a message!</h4>
+								<input className="contact-email-form" id="name" type="text" placeholder="Name" />
+								<input className="contact-email-form" id="fromEmail" type="email" placeholder="Email" />
+								<input className="contact-email-form" id="subject" type="text" placeholder="Subject" />
+								<textarea className="contact-email-form" id="message" type="text" placeholder="Message" />
+								<div className="contact-email-form-submit-wrapper">
+									<a className="contact-email-submit" onClick={this.hanleEmailSubmit}>
+										<img className="contact-email-submit-icon" alt="submit" src={navigation} /><p>Submit</p>
+									</a>
+								</div>
 							</div>
 						</Col>
 					</Row>

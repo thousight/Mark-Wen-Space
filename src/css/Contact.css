@@ -53,12 +53,104 @@
 
 .contact-info-line-address {
 	display: inline-block;
-	width: 200px;
+	width: 193px;
 	margin-left: 10px;
 	color: #FFFFFF;
 	vertical-align: middle;
 }
 
 .contact-email {
+	padding-top: 25px;
+	padding-bottom: 70px;
+}
 
+.contact-email > h4 {
+	text-align: center;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.contact-email-form,
+.contact-email-form:focus {
+	width: 90%;
+	display: block;
+	margin: 15px auto;
+	border: 0;
+	border-bottom: #008EFF 2px solid;
+	outline: none;
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.contact-email-form::placeholder {
+	color: #008EFF;
+	font-size: 13px;
+}
+.contact-email-form::-webkit-input-placeholder {
+	color: #008EFF;
+	font-size: 13px;
+}
+.contact-email-form::-moz-placeholder {
+	color: #008EFF;
+	font-size: 13px;
+}
+.contact-email-form::-ms-input-placeholder {
+	color: #008EFF;
+	font-size: 13px;
+}
+.contact-email-form:-moz-placeholder {
+	color: #008EFF;
+	font-size: 13px;
+}
+
+.contact-email-form-submit-wrapper {
+	width: 90%;
+	margin: 0 auto;
+}
+
+.contact-email-submit {
+	float: right;
+	background-color: #008EFF;
+	color: #FFFFFF;
+	border-radius: 2.5px;
+	box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12), 0 3px 1px -2px rgba(0,0,0,.2);
+	padding: 5px;
+}
+
+.contact-email-submit:hover,
+.contact-email-submit:focus {
+	color: #FFFFFF;
+	cursor: pointer;
+}
+
+.contact-email-submit-icon {
+	width: 22px;
+	height: 22px;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.contact-email-submit > p {
+	display: inline-block;
+	vertical-align: middle;
+	margin: 0 5px;
+}
+
+/*Disable grammarly-ghost*/
+grammarly-ghost {
+	visibility: hidden;
+}
+
+/*On mobile size*/
+@media only screen and (max-width: 767px) {
+	.contact-email {
+		padding-bottom: 25px;
+	}
+	.contact-email-submit {
+		float: none;
+		display: block;
+		margin: 0 auto;
+		width: 86px;
+		text-align: center;
+	}
 }
