@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import { Switch, Route } from 'react-router-dom';
+import { withRouter } from 'react-router';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
 import axios from 'axios';
@@ -39,22 +41,37 @@ class App extends Component {
 	render() {
 		return (
 			<div id="root-view">
-				{
-					this.props.appSettings.isStaticAPIFetched ?
-						<div>
-							<Sidebar />
-							<NavigationBar />
+				<ReactCSSTransitionGroup
+					transitionName="fade"
+					transitionEnterTimeout={700}
+					transitionLeaveTimeout={700}>
+					{
+						this.props.appSettings.isStaticAPIFetched ?
+							<div key={1} >
+								<Sidebar />
+								<NavigationBar />
 
-							<Route exact path="/" component={Home} />
-							<Route path="/resume" component={Resume} />
-							<Route path="/portfolio" component={Portfolio} />
-							<Route path="/contact" component={Contact} />
+								<ReactCSSTransitionGroup
+									transitionName="fade"
+									transitionEnterTimeout={500}
+									transitionLeaveTimeout={500}>
 
-							<Footer />
-						</div>
-						:
-						<FullScreenLoading />
-				}
+									<Switch key={this.props.location.pathname} location={this.props.location}>
+										<Route exact path="/" component={Home} />
+										<Route path="/resume" component={Resume} />
+										<Route path="/portfolio" component={Portfolio} />
+										<Route path="/contact" component={Contact} />
+									</Switch>
+
+								</ReactCSSTransitionGroup>
+
+								<Footer />
+							</div>
+							:
+							<FullScreenLoading key={2} />
+					}
+				</ReactCSSTransitionGroup>
+
 			</div>
 		);
 	}
@@ -76,4 +93,4 @@ const mapStateToProps = state => {
 	}
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(App));
