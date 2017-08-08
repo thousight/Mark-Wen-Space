@@ -92,3 +92,12 @@
     opacity: .2;
   }
 }
+
+/*Loading error text */
+.fullscreen-loading-error-text {
+  color: #f44336;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

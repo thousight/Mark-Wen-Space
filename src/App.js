@@ -22,9 +22,17 @@ import {
 */
 class App extends Component {
 
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			loadingError: ''
+		}
+	}
+
 	componentDidMount() {
 		// Fetch all static data from API
-		axios.get('http://mark-wen-space-v3-server.herokuapp.com/allStaticContent')
+		axios.get('http://mark-wen-space-v3-server.herokuapp.com/allStaticContent', { timeout: 5000 })
 		    .then(res => {
 					this.props.setStaticEDUContent(res.data.Edu);
 					this.props.setStaticEXPContent(res.data.Exp);
@@ -36,6 +44,7 @@ class App extends Component {
 		    })
 		    .catch(error => {
 					this.props.isStaticAPIFetched(false);
+					this.setState({loadingError: error.message});
 		    });
 	}
 
@@ -69,7 +78,7 @@ class App extends Component {
 								<Footer />
 							</div>
 							:
-							<FullScreenLoading key={2} />
+							<FullScreenLoading key={2} errorText={this.state.loadingError}/>
 					}
 				</ReactCSSTransitionGroup>
 
