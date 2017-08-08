@@ -9,8 +9,9 @@ body {
 
 h1 {
 	color: #FFFFFF;
-	font-size: 3rem;
+	font-size: 3.2em;
 	font-weight: 400;
+	text-shadow: 1px 1px 3px rgba(150, 150, 150, 1);
 }
 
 a:focus, a:hover {
