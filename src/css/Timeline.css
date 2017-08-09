@@ -1,0 +1,42 @@
+.timeline {
+
+}
+
+.timeline-dot {
+	width: 50px;
+	height: 50px;
+	display: block;
+	position: relative;
+}
+
+.timeline-outer-dot {
+	width: 50px;
+	height: 50px;
+	border-radius: 50px;
+	box-shadow: 0 3px 6px 0 rgba(0,0,0,.16);
+}
+
+.timeline-inner-dot {
+	width: 35px;
+	height: 35px;
+	border-radius: 50px;
+	margin: auto;
+  position: absolute;
+  top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
+
+.timeline-center-dot {
+	width: 20px;
+	height: 20px;
+	border-radius: 50px;
+	background-color: #FFFFFF;
+	margin: auto;
+  position: absolute;
+  top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}

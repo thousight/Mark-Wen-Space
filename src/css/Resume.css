@@ -16,3 +16,24 @@
 	text-align: center;
 	padding-top: 200px;
 }
+
+.resume-content {
+	margin-top: -85px;
+}
+
+.resume-subtitle {
+	text-align: center;
+	margin: 40px 0;
+}
+
+.resume-subtitle-img {
+	width: 30px;
+	height: 30px;
+	display: inline-block;
+}
+
+.resume-subtitle > h4 {
+	display: inline-block;
+	vertical-align: middle;
+	margin-left: 8px;
+}
