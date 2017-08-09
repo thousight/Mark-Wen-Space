@@ -3,8 +3,6 @@
 }
 
 .timeline-dot {
-	width: 50px;
-	height: 50px;
 	display: block;
 	position: relative;
 }
@@ -39,4 +37,12 @@
 	left: 0;
 	bottom: 0;
 	right: 0;
+}
+
+
+/*On mobile size*/
+@media only screen and (max-width: 767px) {
+	.timeline-dot-col {
+		display: none;
+	}
 }

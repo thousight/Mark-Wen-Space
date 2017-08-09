@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Timeline extends Component {
+class TimelineDot extends Component {
 	render() {
 		return (
 			<div className="timeline-dot">
@@ -12,4 +12,4 @@ class Timeline extends Component {
 	}
 }
 
-export default Timeline;
+export default TimelineDot;

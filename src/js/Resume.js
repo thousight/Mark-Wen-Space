@@ -20,29 +20,24 @@ class Resume extends Component {
 					<h1>Resume</h1>
 				</div>
 
+				{/* Experience */}
 				<div className="resume-content container">
 					<div className="resume-subtitle">
 						<img className="resume-subtitle-img" alt="Experience" src={suitcase} />
 						<h4>Experience</h4>
 					</div>
 
-					<Row>
-						<Col xs={12} sm={10} smOffset={1}>
-							<Timeline data={this.props.expContent} />
-						</Col>
-					</Row>
+					<Timeline data={this.props.expContent} />
 
+					{/* Education */}
 					<div className="resume-subtitle">
 						<img className="resume-subtitle-img" alt="Experience" src={graduationCap} />
 						<h4>Education</h4>
 					</div>
 
-					<Row>
-						<Col xs={12} sm={10} smOffset={1}>
-							<Timeline data={this.props.eduContent} />
-						</Col>
-					</Row>
+					<Timeline data={this.props.eduContent} />
 
+					{/* Skills */}
 					<div className="resume-subtitle">
 						<img className="resume-subtitle-img" alt="Experience" src={code} />
 						<h4>Skills</h4>
@@ -51,7 +46,7 @@ class Resume extends Component {
 					<Row>
 						<Col xs={12} sm={10} smOffset={1}>
 							<div className="card">
-								
+
 							</div>
 						</Col>
 					</Row>
