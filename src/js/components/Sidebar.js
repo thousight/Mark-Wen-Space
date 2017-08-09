@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { slide as Menu } from 'react-burger-menu';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 import { toggleSidebar, setNavbarCurrentItem } from '../redux/actions';
 import { bindActionCreators } from 'redux';
 

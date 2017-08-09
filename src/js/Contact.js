@@ -84,8 +84,6 @@ class Contact extends Component {
 		}, 3000);
 	}
 
-
-
 	render() {
 		const GetGoogleMaps = withGoogleMap(props => (
 			<GoogleMap
