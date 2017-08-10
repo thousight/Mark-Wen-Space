@@ -14,10 +14,20 @@ class Timeline extends Component {
 							return(
 								<Row key={obj._id}>
 									<Col className="timeline-dot-col" xs={2}>
-										<TimelineDot  />
+										<TimelineDot primaryColor={obj.style.primaryColor} secondaryColor={obj.style.secondaryColor} />
 									</Col>
 									<Col className="timeline-card-col" xs={12} sm={10}>
-										<TimelineCard />
+										<TimelineCard
+											organization={obj.organization}
+											title={obj.title === null ? obj.degree : obj.title}
+											location={obj.city + ', ' + obj.state}
+											time={obj.time}
+										 	content={obj.desc}
+										 	icon={obj.image}
+										 	bannerImage={obj.style.bannerImage === null ?
+												`linear-gradient(135deg, ${obj.style.primaryColor}, ${obj.style.secondaryColor})`
+												:
+												obj.style.bannerImage} />
 									</Col>
 								</Row>
 							);
