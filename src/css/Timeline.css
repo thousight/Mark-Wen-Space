@@ -2,9 +2,16 @@
 
 }
 
+.timeline-dot-col {
+	display: inline-block;
+	vertical-align: middle;
+	float: none;
+}
+
 .timeline-dot {
 	display: block;
 	position: relative;
+
 }
 
 .timeline-outer-dot {
@@ -22,8 +29,8 @@
 	height: 35px;
 	border-radius: 50px;
 	margin: auto;
-  position: absolute;
-  top: 0;
+	position: absolute;
+	top: 0;
 	left: 0;
 	bottom: 0;
 	right: 0;
@@ -35,11 +42,17 @@
 	border-radius: 50px;
 	background-color: #FFFFFF;
 	margin: auto;
-  position: absolute;
-  top: 0;
+	position: absolute;
+	top: 0;
 	left: 0;
 	bottom: 0;
 	right: 0;
+}
+
+.timeline-card-col {
+	display: inline-block;
+	vertical-align: middle;
+	float: none;
 }
 
 

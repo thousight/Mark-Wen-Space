@@ -44,10 +44,27 @@ class Resume extends Component {
 					</div>
 
 					<Row>
-						<Col xs={12} sm={10} smOffset={1}>
-							<div className="card">
+						<Col className="card" xs={12} sm={10} smOffset={1}>
+							{this.props.skillsContent.sort((a, b) => {return a.order - b.order}).map(category => {
+								return (
+									<div key={category._id}>
+										<h4>
+											{category.skillsCat}
+										</h4>
+										<Row>
+											{category.skill.map(skill => {
+												return (
+													<Col key={skill.skillName} xs={12} sm={4}>
+														<h6>{skill.skillName}</h6>
+														<p>{skill.percent}</p>
+													</Col>
+												)
+											})}
 
-							</div>
+										</Row>
+									</div>
+								)
+							})}
 						</Col>
 					</Row>
 

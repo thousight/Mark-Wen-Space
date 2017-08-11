@@ -24,7 +24,7 @@ class Timeline extends Component {
 											time={obj.time}
 										 	content={obj.desc}
 										 	icon={obj.image}
-										 	bannerImage={obj.style.bannerImage === null ?
+										 	bannerImage={obj.style.bannerImage == null ?
 												`linear-gradient(135deg, ${obj.style.primaryColor}, ${obj.style.secondaryColor})`
 												:
 												obj.style.bannerImage} />
