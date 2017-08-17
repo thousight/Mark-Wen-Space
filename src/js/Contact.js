@@ -115,7 +115,7 @@ class Contact extends Component {
 									<img className="contact-info-icon" alt="Address" src={home} />
 									<div className="contact-info-line-address">
 										<a href="https://goo.gl/maps/f843LXUZbTL2" target="_blank" rel="noopener noreferrer">
-											2120 McCormick Rd. Apt. 721b West Lafayette, IN 47906
+											2120 McCormick Rd. Apt. 721b <br />West Lafayette, IN 47906
 										</a>
 									</div>
 								</div>

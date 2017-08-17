@@ -9,7 +9,13 @@ class Timeline extends Component {
 		return (
 			<div className="timeline">
 				<Row>
+
 					<Col xs={12} sm={10} smOffset={1}>
+						<div className="row">
+							<div className="col-xs-2 timeline-line-wrapper">
+								<div className="timeline-line" />
+							</div>
+						</div>
 						{this.props.data.sort((a, b) => {return a.order - b.order}).map(obj => {
 							return(
 								<Row key={obj._id}>
