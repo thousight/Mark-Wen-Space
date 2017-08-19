@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 
+/**
+* Dot on timeline
+*/
 class TimelineDot extends Component {
 	render() {
 		return (

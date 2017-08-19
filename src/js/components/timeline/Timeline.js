@@ -4,6 +4,9 @@ import { Row, Col } from 'react-bootstrap';
 import TimelineDot from './TimelineDot';
 import TimelineCard from './TimelineCard';
 
+/**
+* Main timeline component that works with both Exp and Edu data
+*/
 class Timeline extends Component {
 	render() {
 		return (
@@ -33,7 +36,7 @@ class Timeline extends Component {
 										 	bannerImage={obj.style.bannerImage == null ?
 												`linear-gradient(135deg, ${obj.style.primaryColor}, ${obj.style.secondaryColor})`
 												:
-												obj.style.bannerImage} />
+												`url(${obj.style.bannerImage})`} />
 									</Col>
 								</Row>
 							);

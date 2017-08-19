@@ -69,6 +69,25 @@
 	margin: 0 auto;
 }
 
+.timeline-card {
+	padding: 0;
+}
+
+.timeline-card-banner {
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-attachment: scroll;
+	background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	-webkit-background-size: cover;
+	min-height: 125px;
+}
+
+.timeline-card-desc {
+	padding-bottom: 10px;
+	padding-right: 10px;
+}
 
 /*On mobile size*/
 @media only screen and (max-width: 767px) {
