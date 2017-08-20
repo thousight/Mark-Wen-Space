@@ -115,25 +115,11 @@
 .bm-item-list > a {
 	padding: 10px 2em;
 	color: #008EFF;
-	background: linear-gradient(90deg, #0A81DF, #3cb9ff);
-	-webkit-background-clip: text;
-	-moz-background-clip: text;
-	-o-background-clip: text;
-	-webkit-text-fill-color: transparent;
-	-moz-text-fill-color: transparent;
-	-o-text-fill-color: transparent;
 }
 .bm-item-list > a:focus,
 .bm-item-list > a:hover {
 	padding: 5px;
 	color: #008EFF;
-	background: linear-gradient(90deg, #0A81DF, #3cb9ff);
-	-webkit-background-clip: text;
-	-moz-background-clip: text;
-	-o-background-clip: text;
-	-webkit-text-fill-color: transparent;
-	-moz-text-fill-color: transparent;
-	-o-text-fill-color: transparent;
 }
 .bm-item-list > a:focus, .bm-item-list > a:hover {
 	padding: 10px 2em;

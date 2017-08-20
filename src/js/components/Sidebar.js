@@ -29,6 +29,8 @@ class Sidebar extends Component {
 			// Since address would be '/Resume' format, take out '/'
 			this.props.setNavbarCurrentItem(address.substr(1, address.length - 1));
 		}
+		// Scroll to the top of the page
+		window.scrollTo(0, 0);
 	}
 
 	/**
