@@ -24,21 +24,21 @@ class Resume extends Component {
 				<div className="resume-content container">
 					<div className="resume-subtitle">
 						<img className="resume-subtitle-img" alt="Experience" src={suitcase} />
-						<h4>Experience</h4>
+						<h3>Experience</h3>
 					</div>
 					<Timeline data={this.props.expContent} />
 
 					{/* Education */}
 					<div className="resume-subtitle">
 						<img className="resume-subtitle-img" alt="Experience" src={graduationCap} />
-						<h4>Education</h4>
+						<h3>Education</h3>
 					</div>
 					<Timeline data={this.props.eduContent} />
 
 					{/* Skills */}
 					<div className="resume-subtitle">
 						<img className="resume-subtitle-img" alt="Experience" src={code} />
-						<h4>Skills</h4>
+						<h3>Skills</h3>
 					</div>
 					<Row>
 						<Col xs={12} sm={10} smOffset={1}>

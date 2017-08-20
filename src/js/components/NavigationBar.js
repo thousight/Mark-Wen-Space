@@ -55,9 +55,9 @@ class NavigationBar extends Component {
 			this.navbar.style.backgroundColor = 'rgba(255, 255, 255, 0)';
 			this.toggle.classList.add('navbar-toggle-white');
 			this.toggle.classList.remove('navbar-toggle-dark');
-			for (let i = 0; i < this.activeNavItem.length; i++) {
-				this.activeNavItem[i].childNodes[0].style.borderColor = "#FFFFFF";
-			}
+			// for (let i = 0; i < this.activeNavItem.length; i++) {
+			// 	this.activeNavItem[i].childNodes[0].style.borderColor = "#FFFFFF";
+			// }
 		} else {
 			this.navbar.classList.add('navbar-white');
 			this.navbar.classList.remove('navbar-transparent');
@@ -65,9 +65,9 @@ class NavigationBar extends Component {
 			this.toggle.classList.add('navbar-toggle-dark');
 			this.toggle.classList.remove('navbar-toggle-white');
 			this.logo.src = BlueLogoTransparentBG;
-			for (let i = 0; i < this.activeNavItem.length; i++) {
-				this.activeNavItem[i].childNodes[0].style.borderColor = "#008EFF";
-			}
+			// for (let i = 0; i < this.activeNavItem.length; i++) {
+			// 	this.activeNavItem[i].childNodes[0].style.borderColor = "#008EFF";
+			// }
 		}
 
 		if (window.scrollY > 0 && window.scrollY <= 30) {

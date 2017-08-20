@@ -87,7 +87,7 @@
 
 .timeline-card-banner {
 	background-repeat: no-repeat;
-	background-position: center center;
+	background-position: center bottom;
 	background-attachment: scroll;
 	background-size: cover;
 	-moz-background-size: cover;

@@ -27,15 +27,17 @@
 }
 
 .resume-subtitle-img {
-	width: 30px;
-	height: 30px;
+	width: 35px;
+	height: 35px;
 	display: inline-block;
 }
 
-.resume-subtitle > h4 {
+.resume-subtitle > h3 {
 	display: inline-block;
 	vertical-align: middle;
 	margin-left: 8px;
+	margin-top: 0;
+	margin-bottom: 0;
 }
 
 .resume-skills-card {
