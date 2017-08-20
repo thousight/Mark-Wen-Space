@@ -103,7 +103,7 @@
 }
 
 .home-hobbies-card {
-	background-color: #008EFF;
+	background: linear-gradient(135deg, #0A81DF, #3cb9ff);
 	color: #FFFFFF;
 	text-align: center;
 }

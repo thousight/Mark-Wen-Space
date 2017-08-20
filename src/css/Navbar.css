@@ -40,7 +40,7 @@
 .navbar-white .navbar-nav > li > a:focus,
 .navbar-white .navbar-nav > li > a:hover {
 	color: #008EFF;
-	background: linear-gradient(90deg, #0A81DF, #73cafa);
+	background: linear-gradient(90deg, #0A81DF, #3cb9ff);
 	-webkit-background-clip: text;
 	-moz-background-clip: text;
 	-o-background-clip: text;
@@ -55,13 +55,13 @@
 
 .navbar-white .navbar-nav > .navbar-links-active > a {
 	-webkit-border-image:
-	-webkit-linear-gradient(90deg, #0A81DF, #73cafa);
+	-webkit-linear-gradient(90deg, #0A81DF, #3cb9ff);
 	-moz-border-image:
-	-moz-linear-gradient(90deg, #0A81DF, #73cafa);
+	-moz-linear-gradient(90deg, #0A81DF, #3cb9ff);
 	-o-border-image:
-	-o-linear-gradient(90deg, #0A81DF, #73cafa);
+	-o-linear-gradient(90deg, #0A81DF, #3cb9ff);
 	border-image:
-	linear-gradient(90deg, #0A81DF, #73cafa);
+	linear-gradient(90deg, #0A81DF, #3cb9ff);
 	border-image-slice: 1;
 }
 
@@ -115,7 +115,7 @@
 .bm-item-list > a {
 	padding: 10px 2em;
 	color: #008EFF;
-	background: linear-gradient(90deg, #0A81DF, #73cafa);
+	background: linear-gradient(90deg, #0A81DF, #3cb9ff);
 	-webkit-background-clip: text;
 	-moz-background-clip: text;
 	-o-background-clip: text;
@@ -127,7 +127,7 @@
 .bm-item-list > a:hover {
 	padding: 5px;
 	color: #008EFF;
-	background: linear-gradient(90deg, #0A81DF, #73cafa);
+	background: linear-gradient(90deg, #0A81DF, #3cb9ff);
 	-webkit-background-clip: text;
 	-moz-background-clip: text;
 	-o-background-clip: text;
