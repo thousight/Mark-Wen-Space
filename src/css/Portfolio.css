@@ -1,7 +1,18 @@
 .portfolio {
-	background: #FCFCFC url(../img/resume-gradient.jpg) top center no-repeat scroll;
+	background-color: #FCFCFC;
+}
+
+.portfolio-title {
+	background: #FCFCFC url(../img/portfolio.png) bottom center no-repeat scroll;
 	background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	-webkit-background-size: cover;
+	min-height: 550px;
+}
+
+.portfolio-title > h1 {
+	margin-top: 0;
+	text-align: center;
+	padding-top: 200px;
 }

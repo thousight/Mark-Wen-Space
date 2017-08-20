@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="4547 642.561 64 54.856">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #333;
+      }
+    </style>
+  </defs>
+  <g id="suitcase-with-white-details" transform="translate(4547 642.561)">
+    <g id="Group_85" data-name="Group 85" transform="translate(0 0)">
+      <path id="Path_39" data-name="Path 39" class="cls-1" d="M2.357,111.991A7.7,7.7,0,0,0,0,117.634v29.714a7.7,7.7,0,0,0,2.357,5.643A7.7,7.7,0,0,0,8,155.348h2.286V109.634H8A7.7,7.7,0,0,0,2.357,111.991Z" transform="translate(0 -100.492)"/>
+      <path id="Path_40" data-name="Path 40" class="cls-1" d="M141.636,39.976a3.414,3.414,0,0,0-3.428-3.428H117.636a3.414,3.414,0,0,0-3.428,3.428V45.69h-4.571V91.4h36.572V45.69h-4.572Zm-4.571,5.714H118.779V41.119h18.286Z" transform="translate(-95.922 -36.548)"/>
+      <path id="Path_41" data-name="Path 41" class="cls-1" d="M437.329,111.991a7.7,7.7,0,0,0-5.643-2.357H429.4v45.714h2.286a8.048,8.048,0,0,0,8-8V117.634A7.7,7.7,0,0,0,437.329,111.991Z" transform="translate(-375.686 -100.492)"/>
+    </g>
+  </g>
+</svg>

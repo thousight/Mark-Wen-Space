@@ -21,17 +21,17 @@ class Home extends Component {
 					</div>
 					<div className="home-landing-icons-wrapper">
 						<a className="home-landing-icon home-landing-icon-file"
-							href="https://www.dropbox.com/s/ilyktq99v71774m/Guojie%20Wen%20Resume.pdf?dl=0"
-							target="_blank" rel="noopener noreferrer" />
+							href="https://drive.google.com/file/d/0B3-82hcS8hjnSkdOaXREQWJQY2M/view?usp=sharing"
+							target="_blank" rel="noopener noreferrer">Resume</a>
 						<a className="home-landing-icon home-landing-icon-linkedin"
 							href="https://linkedin.com/in/guojiewen"
-							target="_blank" rel="noopener noreferrer" />
+							target="_blank" rel="noopener noreferrer">LinkedIn</a>
 						<a className="home-landing-icon home-landing-icon-github"
 							href="https://github.com/thousight"
-							target="_blank" rel="noopener noreferrer" />
+							target="_blank" rel="noopener noreferrer">Github</a>
 						<a className="home-landing-icon home-landing-icon-500px"
 							href="https://500px.com/markwenguojie94"
-							target="_blank" rel="noopener noreferrer" />
+							target="_blank" rel="noopener noreferrer">500px</a>
 					</div>
 				</div>
 
