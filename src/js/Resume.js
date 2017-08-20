@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Row, Col } from 'react-bootstrap';
 
-import { Timeline } from './components';
+import { Timeline, ProgressBar } from './components';
 
 import suitcase from '../img/icons/suitcase.svg';
 import graduationCap from '../img/icons/graduationCap.svg';
@@ -26,7 +26,6 @@ class Resume extends Component {
 						<img className="resume-subtitle-img" alt="Experience" src={suitcase} />
 						<h4>Experience</h4>
 					</div>
-
 					<Timeline data={this.props.expContent} />
 
 					{/* Education */}
@@ -34,7 +33,6 @@ class Resume extends Component {
 						<img className="resume-subtitle-img" alt="Experience" src={graduationCap} />
 						<h4>Education</h4>
 					</div>
-
 					<Timeline data={this.props.eduContent} />
 
 					{/* Skills */}
@@ -42,29 +40,30 @@ class Resume extends Component {
 						<img className="resume-subtitle-img" alt="Experience" src={code} />
 						<h4>Skills</h4>
 					</div>
-
 					<Row>
-						<Col className="card" xs={12} sm={10} smOffset={1}>
-							{this.props.skillsContent.sort((a, b) => {return a.order - b.order}).map(category => {
-								return (
-									<div key={category._id}>
-										<h4>
-											{category.skillsCat}
-										</h4>
-										<Row>
-											{category.skill.map(skill => {
-												return (
-													<Col key={skill.skillName} xs={12} sm={4}>
-														<h6>{skill.skillName}</h6>
-														<p>{skill.percent}</p>
-													</Col>
-												)
-											})}
+						<Col xs={12} sm={10} smOffset={1}>
+							<div className="card resume-skills-card">
+								{this.props.skillsContent.sort((a, b) => {return a.order - b.order}).map(category => {
+									return (
+										<div key={category._id}>
+											<h4 className="resume-skill-category-title">
+												{category.skillsCat}
+											</h4>
+											<Row>
+												{category.skill.map(skill => {
+													return (
+														<Col key={skill.skillName} xs={12} sm={4}>
+															<h5>{skill.skillName}</h5>
+															<ProgressBar percentage={skill.percent} color={category.color} />
+														</Col>
+													)
+												})}
 
-										</Row>
-									</div>
-								)
-							})}
+											</Row>
+										</div>
+									)
+								})}
+							</div>
 						</Col>
 					</Row>
 

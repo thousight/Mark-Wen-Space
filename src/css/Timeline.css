@@ -1,7 +1,3 @@
-.timeline {
-
-}
-
 .timeline-dot-col {
 	display: inline-block;
 	vertical-align: middle;
@@ -97,12 +93,12 @@
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	-webkit-background-size: cover;
-	min-height: 135px;
+	min-height: 130px;
 }
 
 .timeline-card-banner-title {
 	margin: 0;
-	padding-top: 60px;
+	padding-top: 55px;
 	color: #FFFFFF;
 	text-shadow: 1px 1px 3px rgba(150, 150, 150, 1);
 }

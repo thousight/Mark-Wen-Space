@@ -37,3 +37,15 @@
 	vertical-align: middle;
 	margin-left: 8px;
 }
+
+.resume-skills-card {
+	padding-bottom: 30px;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.resume-skill-category-title {
+	text-align: center;
+	margin-top: 40px;
+	margin-bottom: 10px;
+}

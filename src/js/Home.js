@@ -21,7 +21,7 @@ class Home extends Component {
 					</div>
 					<div className="home-landing-icons-wrapper">
 						<a className="home-landing-icon home-landing-icon-file"
-							href="https://www.dropbox.com/s/ilyktq99v71774m/Guojie%20Wen%20Resume.pdf?dl=0"
+							href="https://drive.google.com/file/d/0B3-82hcS8hjnSkdOaXREQWJQY2M/view?usp=sharing"
 							target="_blank" rel="noopener noreferrer">Resume</a>
 						<a className="home-landing-icon home-landing-icon-linkedin"
 							href="https://linkedin.com/in/guojiewen"
