@@ -13,9 +13,6 @@ class TimelineCard extends Component {
 		return (
 			<div className="card timeline-card">
 
-				{/* Icon */}
-
-
 				{/* Banner */}
 				<Row>
 					<Col xs={12}>
@@ -45,7 +42,11 @@ class TimelineCard extends Component {
 
 				{/* Descriptions */}
 				<Row className="timeline-card-desc">
-					<Col xs={12} sm={10} smOffset={2}>
+					<Col className="timeline-card-icon-wrapper" sm={2}>
+						{/* Icon */}
+						<img className="timeline-card-icon" alt={this.props.title} src={this.props.icon} />
+					</Col>
+					<Col xs={12} sm={10}>
 						{this.props.content.map(item => {
 							return (
 								<p key={item}>
