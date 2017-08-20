@@ -11,7 +11,6 @@
 .timeline-dot {
 	display: block;
 	position: relative;
-
 }
 
 .timeline-outer-dot {
@@ -81,12 +80,50 @@
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	-webkit-background-size: cover;
-	min-height: 125px;
+	min-height: 135px;
+}
+
+.timeline-card-banner-title {
+	margin: 0;
+	padding-top: 60px;
+	color: #FFFFFF;
+	text-shadow: 1px 1px 3px rgba(150, 150, 150, 1);
+}
+
+.timeline-card-banner-list {
+	color: #FFFFFF;
+	list-style-type: none;
+	overflow: hidden;
+	padding-left: 0;
+	margin-top: 10px;
+	margin-bottom: 0;
+	text-shadow: 1px 1px 3px rgba(150, 150, 150, 1);
+}
+
+.timeline-card-banner-list-item {
+	display: inline-block;
+	padding-right: 10px;
+	margin: 5px 0;
+}
+
+.timeline-card-banner-list-item > p {
+	display: inline;
+	margin-left: 5px;
+	vertical-align: middle;
+	font-size: 13px;
+}
+
+.timeline-card-banner-icons {
+	width: 20px;
+	height: 20px;
+	display: inline-block;
 }
 
 .timeline-card-desc {
+	margin-top: 10px;
 	padding-bottom: 10px;
 	padding-right: 10px;
+	min-height: 60px;
 }
 
 /*On mobile size*/
@@ -97,5 +134,17 @@
 
 	.timeline-line-wrapper  {
 		display: none;
+	}
+
+	.timeline-card-banner-list {
+		overflow: visible;
+	}
+
+	.timeline-card-banner-list-item {
+		display: block;
+	}
+
+	.timeline-card-banner, .timeline-card-desc {
+		padding: 10px;
 	}
 }

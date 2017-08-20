@@ -12,7 +12,6 @@ class Timeline extends Component {
 		return (
 			<div className="timeline">
 				<Row>
-
 					<Col xs={12} sm={10} smOffset={1}>
 						<div className="row">
 							<div className="col-xs-2 timeline-line-wrapper">
@@ -28,7 +27,7 @@ class Timeline extends Component {
 									<Col className="timeline-card-col" xs={12} sm={10}>
 										<TimelineCard
 											organization={obj.organization}
-											title={obj.title === null ? obj.degree : obj.title}
+											title={obj.title == null ? obj.degree : obj.title}
 											location={obj.city + ', ' + obj.state}
 											time={obj.time}
 										 	content={obj.desc}
