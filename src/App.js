@@ -69,7 +69,7 @@ class App extends Component {
 									<Switch key={this.props.location.pathname} location={this.props.location}>
 										<Route exact path="/" component={Home} />
 										<Route path="/resume" component={Resume} />
-										{/* <Route path="/portfolio" component={Portfolio} /> */}
+										<Route path="/portfolio" component={Portfolio} />
 										<Route path="/contact" component={Contact} />
 									</Switch>
 
