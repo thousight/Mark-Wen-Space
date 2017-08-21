@@ -135,7 +135,7 @@ class NavigationBar extends Component {
 						<Nav pullRight>
 							<NavItem className={this.getLinkClassNames('Home')} eventKey={1} onClick={() => {this.navItemOnClick('/')}}>Home</NavItem>
 							<NavItem className={this.getLinkClassNames('Resume')} eventKey={2} onClick={() => {this.navItemOnClick('/Resume')}}>Resume</NavItem>
-							<NavItem className={this.getLinkClassNames('Portfolio')} eventKey={3} onClick={() => {this.navItemOnClick('/Portfolio')}}>Portfolio</NavItem>
+							{/* <NavItem className={this.getLinkClassNames('Portfolio')} eventKey={3} onClick={() => {this.navItemOnClick('/Portfolio')}}>Portfolio</NavItem> */}
 							<NavItem className={this.getLinkClassNames('Contact')} eventKey={4} onClick={() => {this.navItemOnClick('/Contact')}}>Contact</NavItem>
 						</Nav>
 					</Col>
