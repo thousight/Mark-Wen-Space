@@ -54,6 +54,7 @@
 }
 
 .navbar-white .navbar-nav > .navbar-links-active > a {
+	border-bottom: 6px solid #0A81DF;
 	-webkit-border-image:
 	-webkit-linear-gradient(90deg, #0A81DF, #3cb9ff);
 	-moz-border-image:
@@ -66,6 +67,7 @@
 }
 
 .navbar-transparent .navbar-nav > .navbar-links-active > a {
+	border-bottom: 6px solid #FFFFFF;
 	-webkit-border-image:
 	-webkit-linear-gradient(90deg, #FFFFFF, #FFFFFF);
 	-moz-border-image:
