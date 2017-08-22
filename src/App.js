@@ -32,7 +32,11 @@ class App extends Component {
 		super(props);
 
 		this.state = {
-			loadingError: ''
+			loadingError: '',
+			homeBackgroundImageLoading: false,
+			resumeBackgroundImageLoading: false,
+			portfolioBackgroundImageLoading: false,
+			contactBackgroundImageLoading: false
 		}
 	}
 
@@ -40,15 +44,27 @@ class App extends Component {
 		// Variables to load background images
 		this.homeBackgroundImage = new Image();
 		this.homeBackgroundImage.src = homeBackground;
+		this.homeBackgroundImage.onload = () => {
+			this.setState({homeBackgroundImageLoading: true});
+		};
 
 		this.resumeBackgroundImage = new Image();
 		this.resumeBackgroundImage.src = resumeBackground;
+		this.resumeBackgroundImage.onload = () => {
+			this.setState({resumeBackgroundImageLoading: true});
+		};
 
 		this.portfolioBackgroundImage = new Image();
 		this.portfolioBackgroundImage.src = portfolioBackground;
+		this.portfolioBackgroundImage.onload = () => {
+			this.setState({portfolioBackgroundImageLoading: true});
+		};
 
 		this.contactBackgroundImage = new Image();
 		this.contactBackgroundImage.src = contactBackground;
+		this.contactBackgroundImage.onload = () => {
+			this.setState({contactBackgroundImageLoading: true});
+		};
 	}
 
 	componentDidMount() {
@@ -80,10 +96,10 @@ class App extends Component {
 						// Check if API content are fetched and background images are loaded
 						(
 							this.props.appSettings.isStaticAPIFetched &&
-							this.homeBackgroundImage.complete &&
-							this.resumeBackgroundImage.complete &&
-							this.portfolioBackgroundImage.complete &&
-							this.contactBackgroundImage.complete
+							this.state.homeBackgroundImageLoading &&
+							this.state.resumeBackgroundImageLoading &&
+							this.state.portfolioBackgroundImageLoading &&
+							this.state.contactBackgroundImageLoading
 						) ?
 							<div key={1} >
 								<Sidebar />
