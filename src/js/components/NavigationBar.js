@@ -5,8 +5,9 @@ import { connect } from 'react-redux'
 import { toggleSidebar, setNavbarCurrentItem } from '../redux/actions';
 import { bindActionCreators } from 'redux';
 
-import BlueLogoTransparentBG from '../../img/logo/BlueLogoTransparentBG.png'
-import WhiteLogoTransparentBG from '../../img/logo/WhiteLogoTransparentBG.png'
+import BlueLogoTransparentBG from '../../img/logo/BlueLogoTransparentBG.png';
+import WhiteLogoTransparentBG from '../../img/logo/WhiteLogoTransparentBG.png';
+
 
 /**
 * Top navbar, change transparency based on scroll

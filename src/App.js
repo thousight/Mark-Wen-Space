@@ -16,6 +16,12 @@ import {
 	setStaticPortfolioContent
   } from './js/redux/actions';
 
+import homeBackground from './img/home.jpg';
+import resumeBackground from './img/resume.jpg';
+import portfolioBackground from './img/portfolio.png';
+import contactBackground from './img/contact.jpg';
+
+
 /**
 * Root view where it includes the constant navbar and footer
 * and the changing components based on routing
@@ -26,8 +32,39 @@ class App extends Component {
 		super(props);
 
 		this.state = {
-			loadingError: ''
+			loadingError: '',
+			homeBackgroundImageLoading: false,
+			resumeBackgroundImageLoading: false,
+			portfolioBackgroundImageLoading: false,
+			contactBackgroundImageLoading: false
 		}
+	}
+
+	componentWillMount() {
+		// Variables to load background images
+		this.homeBackgroundImage = new Image();
+		this.homeBackgroundImage.src = homeBackground;
+		this.homeBackgroundImage.onload = () => {
+			this.setState({homeBackgroundImageLoading: true});
+		};
+
+		this.resumeBackgroundImage = new Image();
+		this.resumeBackgroundImage.src = resumeBackground;
+		this.resumeBackgroundImage.onload = () => {
+			this.setState({resumeBackgroundImageLoading: true});
+		};
+
+		this.portfolioBackgroundImage = new Image();
+		this.portfolioBackgroundImage.src = portfolioBackground;
+		this.portfolioBackgroundImage.onload = () => {
+			this.setState({portfolioBackgroundImageLoading: true});
+		};
+
+		this.contactBackgroundImage = new Image();
+		this.contactBackgroundImage.src = contactBackground;
+		this.contactBackgroundImage.onload = () => {
+			this.setState({contactBackgroundImageLoading: true});
+		};
 	}
 
 	componentDidMount() {
@@ -56,7 +93,14 @@ class App extends Component {
 					transitionEnterTimeout={700}
 					transitionLeaveTimeout={700}>
 					{
-						this.props.appSettings.isStaticAPIFetched ?
+						// Check if API content are fetched and background images are loaded
+						(
+							this.props.appSettings.isStaticAPIFetched &&
+							this.state.homeBackgroundImageLoading &&
+							this.state.resumeBackgroundImageLoading &&
+							this.state.portfolioBackgroundImageLoading &&
+							this.state.contactBackgroundImageLoading
+						) ?
 							<div key={1} >
 								<Sidebar />
 								<NavigationBar />
