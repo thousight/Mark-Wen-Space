@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 
+
+/**
+* Portfolio page rendering data dynamically
+*/
 class Portfolio extends Component {
 	render() {
 		return (

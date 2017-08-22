@@ -16,6 +16,12 @@ import {
 	setStaticPortfolioContent
   } from './js/redux/actions';
 
+import homeBackground from './img/home.jpg';
+import resumeBackground from './img/resume.jpg';
+import portfolioBackground from './img/portfolio.png';
+import contactBackground from './img/contact.jpg';
+
+
 /**
 * Root view where it includes the constant navbar and footer
 * and the changing components based on routing
@@ -28,6 +34,21 @@ class App extends Component {
 		this.state = {
 			loadingError: ''
 		}
+	}
+
+	componentWillMount() {
+		// Variables to load background images
+		this.homeBackgroundImage = new Image();
+		this.homeBackgroundImage.src = homeBackground;
+
+		this.resumeBackgroundImage = new Image();
+		this.resumeBackgroundImage.src = resumeBackground;
+
+		this.portfolioBackgroundImage = new Image();
+		this.portfolioBackgroundImage.src = portfolioBackground;
+
+		this.contactBackgroundImage = new Image();
+		this.contactBackgroundImage.src = contactBackground;
 	}
 
 	componentDidMount() {
@@ -56,7 +77,14 @@ class App extends Component {
 					transitionEnterTimeout={700}
 					transitionLeaveTimeout={700}>
 					{
-						this.props.appSettings.isStaticAPIFetched ?
+						// Check if API content are fetched and background images are loaded
+						(
+							this.props.appSettings.isStaticAPIFetched &&
+							this.homeBackgroundImage.complete &&
+							this.resumeBackgroundImage.complete &&
+							this.portfolioBackgroundImage.complete &&
+							this.contactBackgroundImage.complete
+						) ?
 							<div key={1} >
 								<Sidebar />
 								<NavigationBar />
