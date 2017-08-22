@@ -18,7 +18,7 @@ import {
 
 import homeBackground from './img/home.jpg';
 import resumeBackground from './img/resume.jpg';
-import portfolioBackground from './img/portfolio.png';
+// import portfolioBackground from './img/portfolio.png';
 import contactBackground from './img/contact.jpg';
 
 
@@ -35,7 +35,7 @@ class App extends Component {
 			loadingError: '',
 			homeBackgroundImageLoading: false,
 			resumeBackgroundImageLoading: false,
-			portfolioBackgroundImageLoading: false,
+			// portfolioBackgroundImageLoading: false,
 			contactBackgroundImageLoading: false
 		}
 	}
@@ -54,11 +54,11 @@ class App extends Component {
 			this.setState({resumeBackgroundImageLoading: true});
 		};
 
-		this.portfolioBackgroundImage = new Image();
-		this.portfolioBackgroundImage.src = portfolioBackground;
-		this.portfolioBackgroundImage.onload = () => {
-			this.setState({portfolioBackgroundImageLoading: true});
-		};
+		// this.portfolioBackgroundImage = new Image();
+		// this.portfolioBackgroundImage.src = portfolioBackground;
+		// this.portfolioBackgroundImage.onload = () => {
+		// 	this.setState({portfolioBackgroundImageLoading: true});
+		// };
 
 		this.contactBackgroundImage = new Image();
 		this.contactBackgroundImage.src = contactBackground;
@@ -98,7 +98,7 @@ class App extends Component {
 							this.props.appSettings.isStaticAPIFetched &&
 							this.state.homeBackgroundImageLoading &&
 							this.state.resumeBackgroundImageLoading &&
-							this.state.portfolioBackgroundImageLoading &&
+							// this.state.portfolioBackgroundImageLoading &&
 							this.state.contactBackgroundImageLoading
 						) ?
 							<div key={1} >
