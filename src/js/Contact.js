@@ -125,10 +125,12 @@ class Contact extends Component {
 						<Col xs={12} sm={7}>
 							<div className="card contact-email">
 								<h4>Shoot me a message!</h4>
-								<input className="contact-email-form" id="name" type="text" placeholder="Name" />
-								<input className="contact-email-form" id="fromEmail" type="email" placeholder="Email" />
-								<input className="contact-email-form" id="subject" type="text" placeholder="Subject" />
-								<textarea className="contact-email-form" id="message" type="text" placeholder="Message" />
+
+								<input className="contact-email-form" id="name" type="text" placeholder="Name" aria-label="Name input field" />
+								<input className="contact-email-form" id="fromEmail" type="email" placeholder="Email" aria-label="Email input field" />
+								<input className="contact-email-form" id="subject" type="text" placeholder="Subject" aria-label="Subject input field" />
+								<textarea className="contact-email-form" id="message" type="text" placeholder="Message" aria-label="Message input field" />
+
 								<div className="contact-email-form-submit-wrapper">
 									<a id="submitButton" className="contact-email-submit" onClick={this.hanleEmailSubmit}>
 										<img className="contact-email-submit-icon" alt="submit" src={navigation} /><p id="submitText">Submit</p>
@@ -140,6 +142,7 @@ class Contact extends Component {
 						<Col xs={12}>
 							<div className="card contact-map">
 								<GetGoogleMaps
+									alt="Google Maps"
 									containerElement={
 										<div style={{ height: `100%` }} />
 									}
