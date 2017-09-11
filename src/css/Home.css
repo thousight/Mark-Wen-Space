@@ -49,7 +49,7 @@
 .home-landing-icon-file {
 	background: url(../img/icons/file.svg) center center no-repeat scroll;
 }
-.home-landing-icon-file:hover {
+.home-landing-icon-file:hover, .home-landing-icon-file:focus {
 	color: transparent;
 	background: url(../img/icons/file-colored.svg) center center no-repeat scroll;
 }
@@ -57,7 +57,7 @@
 .home-landing-icon-linkedin {
 	background: url(../img/icons/linkedin.svg) center center no-repeat scroll;
 }
-.home-landing-icon-linkedin:hover {
+.home-landing-icon-linkedin:hover, .home-landing-icon-linkedin:focus {
 	color: transparent;
 	background: url(../img/icons/linkedin-colored.svg) center center no-repeat scroll;
 }
@@ -65,7 +65,7 @@
 .home-landing-icon-github {
 	background: url(../img/icons/github.svg) center center no-repeat scroll;
 }
-.home-landing-icon-github:hover {
+.home-landing-icon-github:hover, .home-landing-icon-github:focus {
 	color: transparent;
 	background: url(../img/icons/github-colored.svg) center center no-repeat scroll;
 }
@@ -73,7 +73,7 @@
 .home-landing-icon-500px {
 	background: url(../img/icons/500px.svg) center center no-repeat scroll;
 }
-.home-landing-icon-500px:hover {
+.home-landing-icon-500px:hover, .home-landing-icon-500px:focus {
 	color: transparent;
 	background: url(../img/icons/500px-colored.svg) center center no-repeat scroll;
 }
