@@ -61,7 +61,7 @@ class Sidebar extends Component {
 					customCrossIcon={false}>
 					<Link className={this.getLinkClassNames('Home')} to="/" onClick={() => {this.linkOnClick('/')}}>Home</Link>
 					<Link className={this.getLinkClassNames('Resume')} to="/Resume" onClick={() => {this.linkOnClick('/Resume')}}>Resume</Link>
-					<Link className={this.getLinkClassNames('Portfolio')} to="/Portfolio" onClick={() => {this.linkOnClick('/Portfolio')}}>Portfolio</Link>
+					{/* <Link className={this.getLinkClassNames('Portfolio')} to="/Portfolio" onClick={() => {this.linkOnClick('/Portfolio')}}>Portfolio</Link> */}
 					<Link className={this.getLinkClassNames('Contact')} to="/Contact" onClick={() => {this.linkOnClick('/Contact')}}>Contact</Link>
 				</Menu>
 			</div>
