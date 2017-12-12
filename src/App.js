@@ -99,7 +99,7 @@ class App extends Component {
 							this.state.homeBackgroundImageLoading &&
 							this.state.resumeBackgroundImageLoading &&
 							// this.state.portfolioBackgroundImageLoading &&
-							this.state.contactBackgroundImageLoading && false
+							this.state.contactBackgroundImageLoading
 						) ?
 							<div key={1} >
 								<Sidebar />
