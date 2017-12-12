@@ -99,7 +99,7 @@ class App extends Component {
 							this.state.homeBackgroundImageLoading &&
 							this.state.resumeBackgroundImageLoading &&
 							// this.state.portfolioBackgroundImageLoading &&
-							this.state.contactBackgroundImageLoading
+							this.state.contactBackgroundImageLoading && false
 						) ?
 							<div key={1} >
 								<Sidebar />
@@ -121,8 +121,8 @@ class App extends Component {
 
 								<Footer />
 							</div>
-							:
-							<FullScreenLoading key={2} errorText={this.state.loadingError}/>
+						:
+						<FullScreenLoading key={2} errorText={this.state.loadingError}/>
 					}
 				</ReactCSSTransitionGroup>
 

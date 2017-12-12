@@ -45,7 +45,7 @@ class NavigationBar extends Component {
 	* Animate navbar background transparency change
 	*/
 	handleScroll() {
-		if (window.scrollY === 0) {
+		if (window.scrollY <= 0) {
 			// If user scrolls to the top
 			// swap navbar theme
 			this.navbar.classList.add('navbar-transparent');

@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { Router } from 'react-router-dom';
+import createHistory from 'history/createBrowserHistory'
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 
@@ -13,11 +14,12 @@ import './index.css';
 /**
 * Index file where it renders all the JSX into public/index.html
 */
-let store = createStore(rootReducer);
+const store = createStore(rootReducer);
+const history = createHistory();
 
 ReactDOM.render(
 	<Provider store={store}>
-		<Router>
+		<Router history={history}>
 			<App />
 	  </Router>
 	</Provider>,
