@@ -17,13 +17,13 @@
 /*Icon animation*/
 .fullscreen-loading-logo-animation {
   /*animation*/
-  background: linear-gradient(90deg, #0A81DF, #81D2FF, #0A81DF, #81D2FF);
+  background: linear-gradient(90deg, #0A81DF, #81D2FF, #0A81DF, #81D2FF, #0A81DF, #81D2FF, #0A81DF, #81D2FF);
   background-size: 400% 400%;
 
-  -webkit-animation: SignInBackgroundAnimation 8s ease infinite;
-  -moz-animation: SignInBackgroundAnimation 8s ease infinite;
-  -o-animation: SignInBackgroundAnimation 8s ease infinite;
-  animation: SignInBackgroundAnimation 8s ease infinite;
+  -webkit-animation: SignInBackgroundAnimation 12s ease infinite;
+  -moz-animation: SignInBackgroundAnimation 12s ease infinite;
+  -o-animation: SignInBackgroundAnimation 12s ease infinite;
+  animation: SignInBackgroundAnimation 12s ease infinite;
 
   /*positioning*/
   width: 230px;
@@ -63,6 +63,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  width: 100%;
+  text-align: center;
 }
 
 .fullscreen-loading-text span {

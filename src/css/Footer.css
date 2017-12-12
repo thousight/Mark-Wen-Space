@@ -12,3 +12,15 @@
 	text-align: center;
 	color: #FFFFFF;
 }
+
+/*iPhone X Optimization*/
+@media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
+  .footer {
+    padding-bottom: 24px;
+  }
+}
+@media only screen and (device-height: 375px) and (device-width: 812px) and (-webkit-device-pixel-ratio: 3) {
+  .footer {
+    padding-bottom: 24px;
+  }
+}
