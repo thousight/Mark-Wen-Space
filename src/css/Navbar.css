@@ -49,15 +49,15 @@
 	-o-text-fill-color: transparent;
 }
 .navbar-nav > .navbar-links-active > a {
-	padding-bottom: 9px;
+	padding-bottom: 11px;
 	border-top: 0px solid transparent;
 	border-left: 0px solid transparent;
 	border-right: 0px solid transparent;
-	border-bottom: 6px solid transparent;
+	border-bottom: 4px solid transparent;
 }
 
 .navbar-white .navbar-nav > .navbar-links-active > a {
-	border-bottom: 6px solid #0A81DF;
+	border-bottom: 4px solid #0A81DF;
 	-webkit-border-image:
 	-webkit-linear-gradient(90deg, #0A81DF, #3cb9ff);
 	-moz-border-image:
@@ -70,7 +70,7 @@
 }
 
 .navbar-transparent .navbar-nav > .navbar-links-active > a {
-	border-bottom: 6px solid #FFFFFF;
+	border-bottom: 4px solid #FFFFFF;
 	-webkit-border-image:
 	-webkit-linear-gradient(90deg, #FFFFFF, #FFFFFF);
 	-moz-border-image:

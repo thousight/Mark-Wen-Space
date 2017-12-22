@@ -93,6 +93,8 @@
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	-webkit-background-size: cover;
+	border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
 	min-height: 130px;
 }
 
