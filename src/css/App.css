@@ -30,10 +30,14 @@ button:focus {
 	padding: 10px;
 	margin-top: 10px;
 	margin-bottom: 10px;
+}
+
+.clickable-card {
+  box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24), 0 1.5px 6px rgba(0, 0, 0, 0.12);
   transition: 0.25s;
 }
 
-.card:hover {
+.clickable-card:hover {
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.23), 0 10px 40px rgba(0, 0, 0, 0.19);
 }
 
