@@ -18,7 +18,7 @@ import {
 
 import homeBackground from './img/home.jpg';
 import resumeBackground from './img/resume.jpg';
-// import portfolioBackground from './img/portfolio.png';
+import portfolioBackground from './img/portfolio.png';
 import contactBackground from './img/contact.jpg';
 
 
@@ -54,11 +54,11 @@ class App extends Component {
 			this.setState({resumeBackgroundImageLoading: true});
 		};
 
-		// this.portfolioBackgroundImage = new Image();
-		// this.portfolioBackgroundImage.src = portfolioBackground;
-		// this.portfolioBackgroundImage.onload = () => {
-		// 	this.setState({portfolioBackgroundImageLoading: true});
-		// };
+		this.portfolioBackgroundImage = new Image();
+		this.portfolioBackgroundImage.src = portfolioBackground;
+		this.portfolioBackgroundImage.onload = () => {
+			this.setState({portfolioBackgroundImageLoading: true});
+		};
 
 		this.contactBackgroundImage = new Image();
 		this.contactBackgroundImage.src = contactBackground;
@@ -113,7 +113,7 @@ class App extends Component {
 									<Switch key={this.props.location.pathname} location={this.props.location}>
 										<Route exact path="/" component={Home} />
 										<Route path="/resume" component={Resume} />
-										{/* <Route path="/portfolio" component={Portfolio} /> */}
+										<Route path="/portfolio" component={Portfolio} />
 										<Route path="/contact" component={Contact} />
 									</Switch>
 
