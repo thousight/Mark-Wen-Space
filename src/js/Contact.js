@@ -102,7 +102,7 @@ class Contact extends Component {
 				<div className="container contact-content">
 					<Row>
 						<Col xs={12} sm={5}>
-							<div className="card contact-info">
+							<div className="card clickable-card contact-info">
 								<div className="contact-info-line">
 									<img className="contact-info-icon" alt="Email" src={envelope} />
 									<a href="mailto:markwenguojie94@gmail.com">markwenguojie94@gmail.com</a>
@@ -123,7 +123,7 @@ class Contact extends Component {
 						</Col>
 
 						<Col xs={12} sm={7}>
-							<div className="card contact-email">
+							<div className="card clickable-card contact-email">
 								<h4>Shoot me a message!</h4>
 
 								<input className="contact-email-form" id="name" type="text" placeholder="Name" aria-label="Name input field" />
@@ -140,7 +140,7 @@ class Contact extends Component {
 						</Col>
 
 						<Col xs={12}>
-							<div className="card contact-map">
+							<div className="card clickable-card contact-map">
 								<GetGoogleMaps
 									alt="Google Maps"
 									containerElement={
