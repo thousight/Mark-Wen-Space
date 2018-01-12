@@ -22,6 +22,13 @@ class Portfolio extends Component {
 		this.setState({currentCat: category});
 	}
 
+	getItemsOfCategory(category) {
+		if (category === 'All') {
+			return this.props.portfolioContent.sort((a, b) => a.order - b.order);
+		}
+		return this.props.portfolioContent.filter(a => a.categories.includes(category)).sort((a, b) => a.order - b.order);
+	}
+
 	render() {
 		return (
 			<div className="portfolio">
@@ -32,6 +39,7 @@ class Portfolio extends Component {
 				<div className="portfolio-content container">
 					<Row>
 						<Col xs={12} sm={10} smOffset={1}>
+							{/* Category Control */}
 							<div className="portfolio-cat-control card clickable-card">
 								{
 									this.categories.map((item, index) => {
@@ -46,6 +54,7 @@ class Portfolio extends Component {
 								}
 							</div>
 
+							{/* Items Display */}
 							<Grid className="portfolio-items">
 
 							</Grid>
