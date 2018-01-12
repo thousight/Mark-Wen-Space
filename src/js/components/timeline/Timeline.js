@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Row, Col } from 'react-bootstrap';
 
 import TimelineDot from './TimelineDot';
@@ -7,7 +7,12 @@ import TimelineCard from './TimelineCard';
 /**
 * Main timeline component that works with both Exp and Edu data
 */
-class Timeline extends Component {
+class Timeline extends PureComponent {
+
+	shouldComponentUpdate(nextProps, nextState) {
+		return false;
+	}
+	
 	render() {
 		return (
 			<div className="timeline">

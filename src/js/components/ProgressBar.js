@@ -1,9 +1,14 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
 /**
 * Progress bar that shows only percentage
 */
-class ProgressBar extends Component {
+class ProgressBar extends PureComponent {
+
+	shouldComponentUpdate(nextProps, nextState) {
+		return false;
+	}
+
 	render() {
 		return (
 			<div className="progress-bar-wrapper">

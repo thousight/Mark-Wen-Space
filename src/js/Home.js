@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Row, Col } from 'react-bootstrap';
 
 import profilePic from '../img/profilePic.jpg';
@@ -10,7 +10,12 @@ import badminton from '../img/icons/badminton.svg';
 /**
 * Static Home page
 */
-class Home extends Component {
+class Home extends PureComponent {
+	
+	shouldComponentUpdate(nextProps, nextState) {
+		return false;
+	}
+
 	render() {
 		return (
 			<div className="home">

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Row, Col } from 'react-bootstrap';
 
 import calendar from '../../../img/icons/calendar-time.svg';
@@ -8,7 +8,12 @@ import occupation from '../../../img/icons/occupation.svg';
 /**
 * Individual card item on the timeline
 */
-class TimelineCard extends Component {
+class TimelineCard extends PureComponent {
+
+	shouldComponentUpdate(nextProps, nextState) {
+		return false;
+	}
+
 	render() {
 		return (
 			<div className="card timeline-card">
