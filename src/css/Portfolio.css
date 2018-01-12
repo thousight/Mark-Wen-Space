@@ -2,7 +2,7 @@
 	background-color: #FCFCFC;
 }
 
-.portfolio-title {
+.portfolio-title-banner {
 	background: #FCFCFC url(../img/portfolio.png) bottom center no-repeat scroll;
 	background-size: cover;
 	-moz-background-size: cover;
@@ -11,8 +11,41 @@
 	min-height: 550px;
 }
 
-.portfolio-title > h1 {
+.portfolio-title {
 	margin-top: 0;
 	text-align: center;
 	padding-top: 200px;
+}
+
+.portfolio-content {
+	margin-top: -50px;
+}
+
+.portfolio-cat-control {
+	text-align: right;
+}
+
+.portfolio-cat-link {
+	color: #008EFF;
+	cursor: pointer;
+	display: inline-block;
+	margin: 0 13px;
+	padding: 7px;
+}
+
+.portfolio-cat-link-active, .portfolio-cat-link:hover {
+	border-bottom: 2px solid #008EFF;
+	color: #008EFF;
+	padding-bottom: 5px;
+}
+
+
+@media only screen and (max-width: 767px) {
+	.portfolio-cat-control {
+		text-align: center;
+	}
+
+	.portfolio-cat-link {
+		margin: 0 2px;
+	}
 }
