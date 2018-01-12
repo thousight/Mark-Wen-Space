@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Row, Col } from 'react-bootstrap';
 import { CSSGrid, measureItems, makeResponsive } from 'react-stonecutter';
 
@@ -56,5 +57,10 @@ class Portfolio extends Component {
 		);
 	}
 }
+const mapStateToProps = state => {
+	return {
+		portfolioContent: state.staticContent.portfolioContent
+	}
+}
 
-export default Portfolio;
+export default connect(mapStateToProps)(Portfolio);
