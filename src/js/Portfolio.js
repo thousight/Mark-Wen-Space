@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Row, Col } from 'react-bootstrap';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 /**
 * Portfolio page rendering data dynamically
@@ -38,7 +39,7 @@ class Portfolio extends Component {
 					<Row>
 						<Col xs={12} sm={10} smOffset={1}>
 							{/* Category Control */}
-							<div className="portfolio-cat-control card clickable-card">
+							<div className="portfolio-cat-control card">
 								{
 									this.categories.map((item, index) => {
 										return (
@@ -54,21 +55,26 @@ class Portfolio extends Component {
 
 							{/* Items Display */}
               <Row>
-                {
-                  this.state.items.map((item, index) => {
-                    return (
-                      <Col className="portfolio-item-wrapper" xs={6} sm={4} md={3}>
-                        <div className="portfolio-item card clickable-card"
-                          style={{
-                            backgroundImage: `linear-gradient(-135deg, ${item.style.primaryColor}, ${item.style.secondaryColor})`
-                          }}>
-                          <img alt="logo" src={item.logo} />
-                          <h5>{item.title}</h5>
-                        </div>
-                      </Col>
-                    )
-                  })
-                }
+                <ReactCSSTransitionGroup
+                  transitionName="portfolio-item-animation"
+                  transitionEnterTimeout={500}
+                  transitionLeaveTimeout={300}>
+                  {
+                    this.state.items.map((item, index) => {
+                      return (
+                        <Col className="portfolio-item-wrapper" xs={6} sm={4} md={3}>
+                          <div className="portfolio-item card clickable-card"
+                            style={{
+                              backgroundImage: `linear-gradient(-135deg, ${item.style.primaryColor}, ${item.style.secondaryColor})`
+                            }}>
+                            <img alt="logo" src={item.logo} />
+                            <h5>{item.title}</h5>
+                          </div>
+                        </Col>
+                      )
+                    })
+                  }
+                </ReactCSSTransitionGroup>
               </Row>
 
 						</Col>

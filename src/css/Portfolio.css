@@ -80,6 +80,26 @@
 	user-select: none;
 }
 
+.portfolio-item-animation-enter {
+  opacity: 0.01;
+}
+
+.portfolio-item-animation-enter.portfolio-item-animation-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.portfolio-item-animation-leave {
+  opacity: 1;
+}
+
+.portfolio-item-animation-leave.portfolio-item-animation-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}
+
+
+
 
 @media only screen and (max-width: 767px) {
 	.portfolio-cat-control {
