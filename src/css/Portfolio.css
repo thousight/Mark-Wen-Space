@@ -64,6 +64,7 @@
 	height: 110px;
 	margin: 0 auto;
 	padding: 5px;
+	user-select: none;
 	transition: 0.25s;
 }
 
@@ -98,7 +99,52 @@
   transition: opacity 300ms ease-in;
 }
 
+.modal {
+  text-align: center;
+  padding: 0!important;
+}
 
+.modal:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -4px;
+}
+
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.portfolio-modal {
+	color: #FFFFFF;
+	border-radius: 10px;
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	background-attachment: scroll;
+	background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	-webkit-background-size: cover;
+}
+
+.portfolio-modal .modal-header {
+	border-bottom: none;
+	padding-top: 5px;
+	padding-bottom: 0;
+}
+
+.portfolio-modal .modal-header .close {
+	color: #FFFFFF;
+	opacity: 0;
+	transition: 0.25s;
+}
+
+.portfolio-modal .modal-header:hover .close {
+	opacity: 1;
+}
 
 
 @media only screen and (max-width: 767px) {
