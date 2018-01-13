@@ -95,14 +95,6 @@ class NavigationBar extends Component {
 
 		// Navigate user to address
 		this.props.history.push(address);
-
-		// Highlight currently selected item on Navbar
-		// this.activeNavItem = document.getElementsByClassName('navbar-links-active');
-		// for (let i = 0; i < this.activeNavItem.length; i++) {
-		// 	this.activeNavItem[i].childNodes[0].style.borderColor = "#FFFFFF";
-		// }
-
-
 	}
 
 	/**
