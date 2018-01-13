@@ -1,12 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Row, Col } from 'react-bootstrap';
-import { CSSGrid, measureItems, makeResponsive } from 'react-stonecutter';
-
-const Grid = makeResponsive(measureItems(CSSGrid), {
-  maxWidth: 1920,
-  minPadding: 100
-});
 
 /**
 * Portfolio page rendering data dynamically
@@ -14,12 +8,16 @@ const Grid = makeResponsive(measureItems(CSSGrid), {
 class Portfolio extends Component {
 	categories = ['All', 'Web', 'Android', 'Design', 'Backend'];
 	state = {
-		currentCat: 'All'
+		currentCat: 'All',
+    items: this.getItemsOfCategory('All')
 	}
 
 	handleCategoryOnClick(e, category) {
 		e.preventDefault();
-		this.setState({currentCat: category});
+		this.setState({
+      currentCat: category,
+      items: this.getItemsOfCategory(category)
+    });
 	}
 
 	getItemsOfCategory(category) {
@@ -55,9 +53,23 @@ class Portfolio extends Component {
 							</div>
 
 							{/* Items Display */}
-							<Grid className="portfolio-items">
-
-							</Grid>
+              <Row>
+                {
+                  this.state.items.map((item, index) => {
+                    return (
+                      <Col className="portfolio-item-wrapper" xs={6} sm={4} md={3}>
+                        <div className="portfolio-item card clickable-card"
+                          style={{
+                            backgroundImage: `linear-gradient(-135deg, ${item.style.primaryColor}, ${item.style.secondaryColor})`
+                          }}>
+                          <img alt="logo" src={item.logo} />
+                          <h5>{item.title}</h5>
+                        </div>
+                      </Col>
+                    )
+                  })
+                }
+              </Row>
 
 						</Col>
 					</Row>
