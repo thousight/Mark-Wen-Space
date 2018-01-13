@@ -19,6 +19,7 @@
 
 .portfolio-content {
 	margin-top: -70px;
+	padding-bottom: 30px;
 }
 
 .portfolio-cat-control {
@@ -31,13 +32,15 @@
 	display: inline-block;
 	margin: 0 13px;
 	padding: 7px;
+	padding-bottom: 5px;
+	border-bottom: 2px solid transparent;
 	user-select: none;
+	transition: 0.25s;
 }
 
 .portfolio-cat-link-active, .portfolio-cat-link:hover {
 	border-bottom: 2px solid #008EFF;
 	color: #008EFF;
-	padding-bottom: 5px;
 }
 
 .portfolio-item {

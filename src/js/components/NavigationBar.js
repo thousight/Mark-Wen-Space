@@ -82,6 +82,9 @@ class NavigationBar extends Component {
 	* @param: address(String)
 	*/
 	navItemOnClick(address) {
+		// Scroll to the top of the page
+		window.scrollTo(0, 0);
+
 		if (address === '/') {
 			// Sets active item in Redux and triggers navbar render()
 			this.props.setNavbarCurrentItem('Home');
@@ -94,13 +97,12 @@ class NavigationBar extends Component {
 		this.props.history.push(address);
 
 		// Highlight currently selected item on Navbar
-		this.activeNavItem = document.getElementsByClassName('navbar-links-active');
-		for (let i = 0; i < this.activeNavItem.length; i++) {
-			this.activeNavItem[i].childNodes[0].style.borderColor = "#FFFFFF";
-		}
+		// this.activeNavItem = document.getElementsByClassName('navbar-links-active');
+		// for (let i = 0; i < this.activeNavItem.length; i++) {
+		// 	this.activeNavItem[i].childNodes[0].style.borderColor = "#FFFFFF";
+		// }
 
-		// Scroll to the top of the page
-		window.scrollTo(0, 0);
+
 	}
 
 	/**
