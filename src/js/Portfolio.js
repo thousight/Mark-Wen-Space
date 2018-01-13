@@ -62,7 +62,7 @@ class Portfolio extends Component {
                   {
                     this.state.items.map((item, index) => {
                       return (
-                        <Col className="portfolio-item-wrapper" xs={6} sm={4} md={3}>
+                        <Col className="portfolio-item-wrapper" xs={6} sm={4} md={3} key={index}>
                           <div className="portfolio-item card clickable-card"
                             style={{
                               backgroundImage: `linear-gradient(-135deg, ${item.style.primaryColor}, ${item.style.secondaryColor})`
