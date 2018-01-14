@@ -61,7 +61,7 @@ class Portfolio extends Component {
                     return (
                       <a className={`portfolio-cat-link ${this.state.currentCat === item ? 'portfolio-cat-link-active' : ''}`}
                         key={index}
-                        onClick={event => this.handleCategoryOnClick(event, index)} >
+                        onClick={event => this.handleCategoryOnClick(event, item)} >
                         {item}
                       </a>
                     )

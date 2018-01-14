@@ -64,6 +64,7 @@
 	height: 110px;
 	margin: 0 auto;
 	padding: 5px;
+	padding-top: 10px;
 	user-select: none;
 	transition: 0.25s;
 }
