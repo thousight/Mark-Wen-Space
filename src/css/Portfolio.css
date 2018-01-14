@@ -8,13 +8,6 @@
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	-webkit-background-size: cover;
-	min-height: 550px;
-}
-
-.portfolio-title {
-	margin-top: 0;
-	text-align: center;
-	padding-top: 200px;
 }
 
 .portfolio-content {

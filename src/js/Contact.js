@@ -95,7 +95,7 @@ class Contact extends Component {
 
 		return (
 			<div className="contact">
-				<div className="contact-title">
+				<div className="contact-title banner-title">
 					<h1>Contact</h1>
 				</div>
 

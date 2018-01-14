@@ -16,7 +16,7 @@ class Resume extends Component {
 	render() {
 		return (
 			<div className="resume">
-				<div className="resume-title">
+				<div className="resume-title banner-title">
 					<h1>Resume</h1>
 				</div>
 
