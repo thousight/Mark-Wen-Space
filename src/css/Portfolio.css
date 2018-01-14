@@ -173,7 +173,7 @@
 /* Blur modal background */
 body.modal-open #root-view {
 	filter: blur(8px);
-	margin: -8px -10px;
+	margin: -1px -7px;
 }
 
 .portfolio-modal-body-cat-icons {
@@ -264,8 +264,16 @@ body.modal-open #root-view {
 		text-align: center;
 	}
 
+	.portfolio-modal .modal-header .close {
+		opacity: 1;
+	}
+
 	.portfolio-cat-link {
 		margin: 0 2px;
+	}
+
+	.portfolio-modal-link {
+		width: 140px;
 	}
 }
 
