@@ -72,7 +72,7 @@ class Portfolio extends Component {
               {/* Items Display */}
               <Row>
                 <ReactCSSTransitionGroup
-                  transitionName="portfolio-item-animation"
+                  transitionName="fade"
                   transitionEnterTimeout={500}
                   transitionLeaveTimeout={300}>
                   {
@@ -98,9 +98,10 @@ class Portfolio extends Component {
           </Row>
         </div>
 
-        <Modal show={this.state.showModal}
+        <Modal containerClassName="portfolio-modal-wrapper"
+          show={this.state.showModal}
           onHide={this.handleModalOnHide.bind(this)}
-          dialogClassName="portfolio-modal-wrapper">
+          bsStyle="lg">
           {this.state.selectedItem ?
             <div className="portfolio-modal card"
               style={{
@@ -109,8 +110,21 @@ class Portfolio extends Component {
               <Modal.Header closeButton>
                 <Modal.Title />
               </Modal.Header>
-              <Modal.Body>
-                <p>{this.state.selectedItem.desc}</p>
+              <Modal.Body className="portfolio-modal-body">
+                <Row>
+                  <Col className="portfolio-modal-body-col" xs={12} sm={4} md={3} mdOffset={1}>
+                    <img alt="logo" src={this.state.selectedItem.logo} />
+                  </Col>
+                  <Col className="portfolio-modal-body-col" xs={12} sm={8} md={7}>
+                    <h2>{this.state.selectedItem.title}</h2>
+                    <h5>{this.state.selectedItem.time}</h5>
+                    <div>
+                      <p className="portfolio-modal-body-desc">{this.state.selectedItem.desc}</p>
+                      <p>Keywords:</p>
+                      <p>{this.state.selectedItem.keywords}</p>
+                    </div>
+                  </Col>
+                </Row>
               </Modal.Body>
             </div>
             :

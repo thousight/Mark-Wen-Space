@@ -75,20 +75,20 @@
 	user-select: none;
 }
 
-.portfolio-item-animation-enter {
+.fade-enter {
   opacity: 0.01;
 }
 
-.portfolio-item-animation-enter.portfolio-item-animation-enter-active {
+.fade-enter.fade-enter-active {
   opacity: 1;
   transition: opacity 500ms ease-in;
 }
 
-.portfolio-item-animation-leave {
+.fade-leave {
   opacity: 1;
 }
 
-.portfolio-item-animation-leave.portfolio-item-animation-leave-active {
+.fade-leave.fade-leave-active {
   opacity: 0.01;
   transition: opacity 300ms ease-in;
 }
@@ -140,9 +140,40 @@
 	opacity: 1;
 }
 
+.portfolio-modal-body .row {
+	margin-bottom: 30px;
+}
+
+.portfolio-modal-body .portfolio-modal-body-col {
+	padding: 0 10px;
+}
+
+.portfolio-modal-body img {
+	display: block;
+	object-fit: contain;
+	width: 130px;
+	height: 130px;
+	margin: 25px auto;
+	user-select: none;
+}
+
+.portfolio-modal-body h2 {
+	font-size: 34px;
+}
+
+.portfolio-modal-body-desc {
+	padding: 25px 0;
+}
+
+body.modal-open #root-view {
+	filter: blur(8px);
+	margin: -8px -10px;
+}
+
 
 @media only screen and (max-width: 767px) {
-	.portfolio-cat-control {
+	.portfolio-cat-control,
+	.portfolio-modal-body {
 		text-align: center;
 	}
 
