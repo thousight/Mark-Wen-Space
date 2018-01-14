@@ -215,7 +215,7 @@ body.modal-open #root-view {
 	margin-right: auto;
 	padding: 10px;
 	transition: 0.25s;
-	width: 90%;
+	width: 85%;
 	user-select: none;
 }
 
