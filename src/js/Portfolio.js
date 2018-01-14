@@ -55,10 +55,10 @@ class Portfolio extends Component {
     return `linear-gradient(-135deg, ${item.style.primaryColor}, ${item.style.secondaryColor})`;
   }
 
-  getCategoryIcons(categories) {
+  renderCategoryIcons(categories) {
     return categories.map((category, index) => {
       let icon, popover = (
-        <Tooltip className="portfolio-modal-cat-icon-popover">
+        <Tooltip id="category" className="portfolio-modal-cat-icon-popover">
           {category}
         </Tooltip>
       );
@@ -79,10 +79,58 @@ class Portfolio extends Component {
           icon = null;
       }
       return (
-        <OverlayTrigger trigger="hover" placement="bottom" overlay={popover}>
-          <img key={index} alt={`${category} icon`} src={icon} />
+        <OverlayTrigger trigger={['hover', 'focus']} placement="bottom" overlay={popover} key={index}>
+          <img alt={`${category} icon`} src={icon} />
         </OverlayTrigger>
       )
+    })
+  }
+
+  renderItemLinkButtons(links) {
+    return Object.keys(links).map((name, index) => {
+      let obj = links[name];
+      console.log(obj.style);
+      switch (obj.style) {
+        case 'Website':
+          return (
+            <a className="web-link"
+              href={obj.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              key={index}>
+              {name}
+            </a>
+          );
+        case 'Github':
+          return (
+            <a className="github-link"
+              href={obj.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              key={index}>
+              {name}
+            </a>
+          );
+        case 'Github Private':
+          return (
+            <a className="github-private-link"
+              key={index}>
+              Github Private
+            </a>
+          );
+        case 'PlayStore':
+          return (
+            <a className="play-store-link"
+              href={obj.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              key={index}>
+              Play Store
+            </a>
+          );
+        default:
+          return null;
+      }
     })
   }
 
@@ -158,7 +206,10 @@ class Portfolio extends Component {
                   <Col className="portfolio-modal-body-col" xs={12} sm={4} md={3} mdOffset={1}>
                     <img alt="logo" src={this.state.selectedItem.logo} />
                     <div className="portfolio-modal-body-cat-icons">
-                      {this.getCategoryIcons(this.state.selectedItem.categories)}
+                      {this.renderCategoryIcons(this.state.selectedItem.categories)}
+                    </div>
+                    <div className="portfolio-modal-body-links">
+                      {this.renderItemLinkButtons(this.state.selectedItem.links)}
                     </div>
                   </Col>
                   <Col className="portfolio-modal-body-col" xs={12} sm={8} md={7}>
