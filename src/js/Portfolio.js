@@ -93,7 +93,7 @@ class Portfolio extends Component {
       switch (obj.style) {
         case 'Website':
           return (
-            <a className="portfolio-modal-link web-link"
+            <a className="portfolio-modal-link web-link card clickable-card"
               href={obj.url}
               target="_blank"
               rel="noopener noreferrer"
@@ -103,7 +103,7 @@ class Portfolio extends Component {
           );
         case 'Github':
           return (
-            <a className="portfolio-modal-link github-link"
+            <a className="portfolio-modal-link github-link card clickable-card"
               href={obj.url}
               target="_blank"
               rel="noopener noreferrer"
@@ -113,14 +113,14 @@ class Portfolio extends Component {
           );
         case 'Github Private':
           return (
-            <a className="portfolio-modal-link github-private-link"
+            <a className="portfolio-modal-link github-private-link card clickable-card"
               key={index}>
               <span><img alt="link logo" src={githubBlackIcon} />{name}</span>
             </a>
           );
         case 'PlayStore':
           return (
-            <a className="portfolio-modal-link play-store-link"
+            <a className="portfolio-modal-link play-store-link card clickable-card"
               href={obj.url}
               target="_blank"
               rel="noopener noreferrer"
