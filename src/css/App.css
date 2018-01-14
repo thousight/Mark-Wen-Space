@@ -31,6 +31,8 @@ button:focus {
   text-shadow: 1px 1px 3px rgba(150, 150, 150, 1);
 	padding-top: 150px;
   padding-bottom: 200px;
+  user-select: none;
+  cursor: default;
 }
 
 .card {
