@@ -57,7 +57,7 @@
 	height: 110px;
 	margin: 0 auto;
 	padding: 5px;
-	padding-top: 10px;
+	padding-top: 15px;
 	user-select: none;
 	transition: 0.25s;
 }
@@ -93,6 +93,7 @@
   transition: opacity 300ms ease-in;
 }
 
+/* Vertically Center Modal */
 .modal {
   text-align: center;
   padding: 0!important;
@@ -161,13 +162,46 @@
 	font-size: 34px;
 }
 
+.portfolio-modal-body h5 {
+	font-size: 17px;
+}
+
 .portfolio-modal-body-desc {
 	padding: 25px 0;
 }
 
+/* Blur modal background */
 body.modal-open #root-view {
 	filter: blur(8px);
 	margin: -8px -10px;
+}
+
+.portfolio-modal-body-cat-icons {
+	margin-top: 40px;
+	position: relative;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.portfolio-modal-cat-icon-popover {
+	user-select: none;
+	cursor: default;
+}
+
+.portfolio-modal-cat-icon-popover .tooltip-inner {
+	box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24), 0 1.5px 6px rgba(0, 0, 0, 0.12);
+}
+
+.portfolio-modal-body-cat-icons > img {
+	display: inline-block;
+	width: 25px;
+	height: auto;
+	margin: 0 5px;
+}
+
+.github-link {
+	background-color: #24292E;
+	color: #FFFFFF;
 }
 
 

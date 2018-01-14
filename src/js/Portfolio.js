@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Row, Col, Modal } from 'react-bootstrap';
+import { Row, Col, Modal, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+
+import androidIcon from '../img/icons/android.svg';
+import designIcon from '../img/icons/design.svg';
+import serverIcon from '../img/icons/server.svg';
+import webIcon from '../img/icons/web.svg';
+import playIcon from '../img/icons/google-play.svg';
+import githubIcon from '../img/icons/github.svg';
 
 /**
 * Portfolio page rendering data dynamically
@@ -44,6 +51,41 @@ class Portfolio extends Component {
     });
   }
 
+  getBackgroundImageStyle(item) {
+    return `linear-gradient(-135deg, ${item.style.primaryColor}, ${item.style.secondaryColor})`;
+  }
+
+  getCategoryIcons(categories) {
+    return categories.map((category, index) => {
+      let icon, popover = (
+        <Tooltip className="portfolio-modal-cat-icon-popover">
+          {category}
+        </Tooltip>
+      );
+      switch (category) {
+        case 'Web':
+          icon = webIcon;
+          break;
+        case 'Android':
+          icon = androidIcon;
+          break;
+        case 'Design':
+          icon = designIcon;
+          break;
+        case 'Backend':
+          icon = serverIcon;
+          break;
+        default:
+          icon = null;
+      }
+      return (
+        <OverlayTrigger trigger="hover" placement="bottom" overlay={popover}>
+          <img key={index} alt={`${category} icon`} src={icon} />
+        </OverlayTrigger>
+      )
+    })
+  }
+
   render() {
     return (
       <div className="portfolio">
@@ -82,7 +124,7 @@ class Portfolio extends Component {
                           <div className="portfolio-item card clickable-card"
                             onClick={e => this.handleItemOnClick(item)}
                             style={{
-                              backgroundImage: `linear-gradient(-135deg, ${item.style.primaryColor}, ${item.style.secondaryColor})`
+                              backgroundImage: this.getBackgroundImageStyle(item)
                             }}>
                             <img alt="logo" src={item.logo} />
                             <h5>{item.title}</h5>
@@ -98,6 +140,7 @@ class Portfolio extends Component {
           </Row>
         </div>
 
+        {/* Item Details Modal */}
         <Modal containerClassName="portfolio-modal-wrapper"
           show={this.state.showModal}
           onHide={this.handleModalOnHide.bind(this)}
@@ -105,7 +148,7 @@ class Portfolio extends Component {
           {this.state.selectedItem ?
             <div className="portfolio-modal card"
               style={{
-                backgroundImage: `linear-gradient(-135deg, ${this.state.selectedItem.style.primaryColor}, ${this.state.selectedItem.style.secondaryColor})`
+                backgroundImage: this.getBackgroundImageStyle(this.state.selectedItem)
               }}>
               <Modal.Header closeButton>
                 <Modal.Title />
@@ -114,6 +157,9 @@ class Portfolio extends Component {
                 <Row>
                   <Col className="portfolio-modal-body-col" xs={12} sm={4} md={3} mdOffset={1}>
                     <img alt="logo" src={this.state.selectedItem.logo} />
+                    <div className="portfolio-modal-body-cat-icons">
+                      {this.getCategoryIcons(this.state.selectedItem.categories)}
+                    </div>
                   </Col>
                   <Col className="portfolio-modal-body-col" xs={12} sm={8} md={7}>
                     <h2>{this.state.selectedItem.title}</h2>
