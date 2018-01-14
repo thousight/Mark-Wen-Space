@@ -95,13 +95,13 @@ class Contact extends Component {
 
 		return (
 			<div className="contact">
-				<div className="contact-title">
+				<div className="contact-title banner-title">
 					<h1>Contact</h1>
 				</div>
 
 				<div className="container contact-content">
 					<Row>
-						<Col xs={12} sm={5}>
+						<Col xs={12} sm={4} smOffset={1}>
 							<div className="card clickable-card contact-info">
 								<div className="contact-info-line">
 									<img className="contact-info-icon" alt="Email" src={envelope} />
@@ -122,7 +122,7 @@ class Contact extends Component {
 							</div>
 						</Col>
 
-						<Col xs={12} sm={7}>
+						<Col xs={12} sm={6}>
 							<div className="card clickable-card contact-email">
 								<h4>Shoot me a message!</h4>
 
@@ -139,7 +139,7 @@ class Contact extends Component {
 							</div>
 						</Col>
 
-						<Col xs={12}>
+						<Col xs={12} sm={10} smOffset={1}>
 							<div className="card clickable-card contact-map">
 								<GetGoogleMaps
 									alt="Google Maps"

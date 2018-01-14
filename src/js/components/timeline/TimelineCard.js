@@ -23,7 +23,7 @@ class TimelineCard extends PureComponent {
 					<Col xs={12}>
 						<div className="timeline-card-banner" style={{ backgroundImage: this.props.bannerImage }}>
 							<Row>
-								<Col xs={12} sm={10} smOffset={2}>
+								<Col xs={12} sm={9} smOffset={3} lg={10} lgOffset={2}>
 									<h3 className="timeline-card-banner-title">{this.props.organization}</h3>
 									<ul className="timeline-card-banner-list">
 										<li className="timeline-card-banner-list-item">
@@ -47,11 +47,11 @@ class TimelineCard extends PureComponent {
 
 				{/* Descriptions */}
 				<Row className="timeline-card-desc">
-					<Col className="timeline-card-icon-wrapper" sm={2}>
+					<Col className="timeline-card-icon-wrapper" sm={3} lg={2}>
 						{/* Icon */}
 						<img className="timeline-card-icon" alt={this.props.title} src={this.props.icon} />
 					</Col>
-					<Col xs={12} sm={10}>
+					<Col xs={12} sm={9} lg={10}>
 						{this.props.content.map(item => {
 							return (
 								<p key={item}>
@@ -61,20 +61,6 @@ class TimelineCard extends PureComponent {
 						})}
 					</Col>
 				</Row>
-
-				{/* <h6>{this.props.organization}</h6>
-				<h6>{this.props.title}</h6>
-				<h6>{this.props.location}</h6>
-				<h6>{this.props.time}</h6>
-				{this.props.content.map(item => {
-					return (
-						<h6 key={item}>
-							{item}
-						</h6>
-					)
-				})}
-				<h6>{this.props.icon}</h6>
-				<h6>{this.props.bannerImage}</h6> */}
 			</div>
 		);
 	}

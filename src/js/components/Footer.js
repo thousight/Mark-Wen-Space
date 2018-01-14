@@ -7,7 +7,7 @@ class Footer extends PureComponent {
 	render() {
 		return (
 			<div className="footer">
-				<p className="legal-text">Mark Wen © 2017. ALL RIGHT RESERVED</p>
+				<p className="legal-text">Mark Wen © 2018. ALL RIGHT RESERVED</p>
 			</div>
 		);
 	}

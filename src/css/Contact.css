@@ -8,19 +8,10 @@
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	-webkit-background-size: cover;
-	min-height: 550px;
-	overflow: hidden;
-	width: 100%;
-}
-
-.contact-title > h1 {
-	text-align: center;
-	padding-top: 200px;
-	margin-top: 0;
 }
 
 .contact-content {
-	margin-top: -85px;
+	margin-top: -70px;
 }
 
 
