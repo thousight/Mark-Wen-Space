@@ -50,6 +50,7 @@ button:focus {
 
 .clickable-card:hover {
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.23), 0 10px 40px rgba(0, 0, 0, 0.19);
+  transform: scale(1.03);
 }
 
 .unclickable {

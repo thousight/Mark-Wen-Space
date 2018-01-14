@@ -9,6 +9,7 @@ import serverIcon from '../img/icons/server.svg';
 import webIcon from '../img/icons/web.svg';
 import playIcon from '../img/icons/google-play.svg';
 import githubIcon from '../img/icons/github.svg';
+import githubBlackIcon from '../img/icons/github-colored.svg';
 
 /**
 * Portfolio page rendering data dynamically
@@ -89,43 +90,42 @@ class Portfolio extends Component {
   renderItemLinkButtons(links) {
     return Object.keys(links).map((name, index) => {
       let obj = links[name];
-      console.log(obj.style);
       switch (obj.style) {
         case 'Website':
           return (
-            <a className="web-link"
+            <a className="portfolio-modal-link web-link"
               href={obj.url}
               target="_blank"
               rel="noopener noreferrer"
               key={index}>
-              {name}
+              <span><img alt="link logo" src={webIcon} />{name}</span>
             </a>
           );
         case 'Github':
           return (
-            <a className="github-link"
+            <a className="portfolio-modal-link github-link"
               href={obj.url}
               target="_blank"
               rel="noopener noreferrer"
               key={index}>
-              {name}
+              <span><img alt="link logo" src={githubIcon} />{name}</span>
             </a>
           );
         case 'Github Private':
           return (
-            <a className="github-private-link"
+            <a className="portfolio-modal-link github-private-link"
               key={index}>
-              Github Private
+              <span><img alt="link logo" src={githubBlackIcon} />{name}</span>
             </a>
           );
         case 'PlayStore':
           return (
-            <a className="play-store-link"
+            <a className="portfolio-modal-link play-store-link"
               href={obj.url}
               target="_blank"
               rel="noopener noreferrer"
               key={index}>
-              Play Store
+              <span><img alt="link logo" src={playIcon} />Play Store</span>
             </a>
           );
         default:

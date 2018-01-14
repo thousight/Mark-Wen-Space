@@ -177,7 +177,8 @@ body.modal-open #root-view {
 }
 
 .portfolio-modal-body-cat-icons {
-	margin-top: 40px;
+	margin-top: 30px;
+	margin-bottom: 20px;
 	position: relative;
 	text-align: center;
 	vertical-align: middle;
@@ -199,9 +200,66 @@ body.modal-open #root-view {
 	margin: 0 5px;
 }
 
-.github-link {
-	background-color: #24292E;
+.portfolio-modal-body-links {
+	text-align: left;
+}
+
+.portfolio-modal-link,
+.portfolio-modal-link:focus {
 	color: #FFFFFF;
+	border-radius: 5px;
+	box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24), 0 1.5px 6px rgba(0, 0, 0, 0.12);
+	display: block;
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 10px;
+	transition: 0.25s;
+	width: 90%;
+	user-select: none;
+}
+
+.portfolio-modal-link:hover {
+	color: #FFFFFF;
+	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.23), 0 10px 40px rgba(0, 0, 0, 0.19);
+	transform: scale(1.03);
+}
+
+.portfolio-modal-link span {
+	display: block;
+	width: 132px;
+	margin: 0 auto;
+	text-align: left;
+}
+
+.portfolio-modal-link img {
+	display: inline-block;
+	width: 20px;
+	height: auto;
+	margin-right: 10px;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.web-link, .web-link:hover {
+	background: linear-gradient(-135deg, #9C60D8, #5A52B6);
+}
+
+.github-link, .github-link:hover {
+	background-color: #24292E;
+}
+
+.github-private-link, .github-private-link:hover {
+	background-color: #FFFFFF;
+	color: #333333;
+	cursor: not-allowed;
+	transition: 0;
+	transform: none;
+	box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24), 0 1.5px 6px rgba(0, 0, 0, 0.12);
+}
+
+.play-store-link, .play-store-link:hover {
+	background: linear-gradient(-135deg, #01E0BC, #83CF3F);
 }
 
 
