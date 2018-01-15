@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Row, Col, Modal, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import ReactCSSTransitionReplace from 'react-css-transition-replace';
 
 import androidIcon from '../img/icons/android.svg';
 import arrowLeftIcon from '../img/icons/arrow_left.svg';
@@ -163,7 +164,19 @@ class Portfolio extends Component {
     })
   }
 
+  handleModalLeftArrowClick() {
+    const { items, selectedItem } = this.state;
+    this.setState({selectedItem: items[items.indexOf(selectedItem) - 1]});
+  }
+
+  handleModalRightArrowClick() {
+    const { items, selectedItem } = this.state;
+    this.setState({selectedItem: items[items.indexOf(selectedItem) + 1]});
+  }
+
   render() {
+    const { items, selectedItem, currentCat, showModal, isSmallScreen } = this.state;
+
     return (
       <div className="portfolio">
         <div className="portfolio-title-banner banner-title">
@@ -178,7 +191,7 @@ class Portfolio extends Component {
                 {
                   this.categories.map((item, index) => {
                     return (
-                      <a className={`portfolio-cat-link ${this.state.currentCat === item ? 'portfolio-cat-link-active' : ''}`}
+                      <a className={`portfolio-cat-link ${currentCat === item ? 'portfolio-cat-link-active' : ''}`}
                         key={index}
                         onClick={event => this.handleCategoryOnClick(event, item)} >
                         {item}
@@ -192,10 +205,10 @@ class Portfolio extends Component {
               <Row>
                 <ReactCSSTransitionGroup
                   transitionName="fade"
-                  transitionEnterTimeout={500}
-                  transitionLeaveTimeout={300}>
+                  transitionEnterTimeout={250}
+                  transitionLeaveTimeout={250}>
                   {
-                    this.state.items.map((item, index) => {
+                    items.map((item, index) => {
                       return (
                         <Col className="portfolio-item-wrapper" xs={6} sm={4} md={3} key={index}>
                           <div className="portfolio-item card clickable-card"
@@ -219,17 +232,22 @@ class Portfolio extends Component {
 
         {/* Item Details Modal */}
         <Modal containerClassName="portfolio-modal-wrapper"
-          show={this.state.showModal}
+          show={showModal}
           onHide={this.handleModalOnHide.bind(this)}
           bsStyle="lg">
-          {this.state.selectedItem ?
+          {selectedItem ?
             <Row className="portfolio-modal portfolio-modal-nav-button-vertical-aligner card"
               style={{
-                backgroundImage: this.getBackgroundImageStyle(this.state.selectedItem)
+                backgroundImage: this.getBackgroundImageStyle(selectedItem)
               }}>
               <Col xs={1}>
-                <button className="portfolio-modal-nav-button modal-left-button">
-                  <img alt="left arrow" src={this.state.isSmallScreen ? arrowLeftWhiteIcon : arrowLeftIcon} />
+                <button className="portfolio-modal-nav-button modal-left-button"
+                  style={{
+                    display: items.indexOf(selectedItem) <= 0 ? 'none' : 'block'
+                  }}
+                  onClick={this.handleModalLeftArrowClick.bind(this)}>
+                  <img alt="left arrow"
+                    src={isSmallScreen ? arrowLeftWhiteIcon : arrowLeftIcon} />
                 </button>
               </Col>
 
@@ -237,33 +255,43 @@ class Portfolio extends Component {
                 <Modal.Header closeButton>
                   <Modal.Title />
                 </Modal.Header>
-                <Modal.Body className="portfolio-modal-body">
-                  <Row>
-                    <Col className="portfolio-modal-body-col" xs={12} sm={4}>
-                      <img alt="logo" src={this.state.selectedItem.logo} />
-                      <div className="portfolio-modal-body-cat-icons">
-                        {this.renderCategoryIcons(this.state.selectedItem.categories)}
-                      </div>
-                      <div className="portfolio-modal-body-links">
-                        {this.renderItemLinkButtons(this.state.selectedItem.links)}
-                      </div>
-                    </Col>
-                    <Col className="portfolio-modal-body-col" xs={12} sm={8}>
-                      <h2>{this.state.selectedItem.title}</h2>
-                      <h5>{this.state.selectedItem.time}</h5>
-                      <div>
-                        <p className="portfolio-modal-body-desc">{this.state.selectedItem.desc}</p>
-                        <p>Keywords:</p>
-                        <p>{this.state.selectedItem.keywords}</p>
-                      </div>
-                    </Col>
-                  </Row>
-                </Modal.Body>
+                <ReactCSSTransitionReplace transitionName="fade-up"
+                  transitionEnterTimeout={250}
+                  transitionLeaveTimeout={250}>
+                  <Modal.Body className="portfolio-modal-body" key={selectedItem.order}>
+                    <Row>
+                      <Col className="portfolio-modal-body-col" xs={12} sm={4}>
+                        <img alt="logo" src={selectedItem.logo} />
+                        <div className="portfolio-modal-body-cat-icons">
+                          {this.renderCategoryIcons(selectedItem.categories)}
+                        </div>
+                        <div className="portfolio-modal-body-links">
+                          {this.renderItemLinkButtons(selectedItem.links)}
+                        </div>
+                      </Col>
+                      <Col className="portfolio-modal-body-col" xs={12} sm={8}>
+                        <h2>{selectedItem.title}</h2>
+                        <h5>{selectedItem.time}</h5>
+                        <div>
+                          <p className="portfolio-modal-body-desc">{selectedItem.desc}</p>
+                          <p>Keywords:</p>
+                          <p>{selectedItem.keywords}</p>
+                        </div>
+                      </Col>
+                    </Row>
+                  </Modal.Body>
+                </ReactCSSTransitionReplace>
+
               </Col>
 
               <Col xs={1}>
-                <button className="portfolio-modal-nav-button modal-right-button">
-                  <img alt="right arrow" src={this.state.isSmallScreen ? arrowRightWhiteIcon : arrowRightIcon} />
+                <button className="portfolio-modal-nav-button modal-right-button"
+                  style={{
+                    display: items.indexOf(selectedItem) >= (items.length - 1) ? 'none' : 'block'
+                  }}
+                  onClick={this.handleModalRightArrowClick.bind(this)}>
+                  <img alt="right arrow"
+                    src={isSmallScreen ? arrowRightWhiteIcon : arrowRightIcon} />
                 </button>
               </Col>
             </Row>
