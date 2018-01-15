@@ -4,12 +4,25 @@ import { Row, Col, Modal, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import androidIcon from '../img/icons/android.svg';
+import arrowLeftIcon from '../img/icons/arrow_left.svg';
+import arrowLeftWhiteIcon from '../img/icons/arrow_left_white.svg';
+import arrowRightIcon from '../img/icons/arrow_right.svg';
+import arrowRightWhiteIcon from '../img/icons/arrow_right_white.svg';
 import designIcon from '../img/icons/design.svg';
 import serverIcon from '../img/icons/server.svg';
 import webIcon from '../img/icons/web.svg';
 import playIcon from '../img/icons/google-play.svg';
 import githubIcon from '../img/icons/github.svg';
 import githubBlackIcon from '../img/icons/github-colored.svg';
+
+window.matchMedia = window.matchMedia || function() {
+  return {
+    matches : false,
+    addListener : function() {},
+    removeListener: function() {}
+  };
+};
+const mql = window.matchMedia(`(min-width: 768px)`);
 
 /**
 * Portfolio page rendering data dynamically
@@ -20,7 +33,23 @@ class Portfolio extends Component {
     currentCat: 'All',
     items: this.getItemsOfCategory('All'),
     selectedItem: null,
-    showModal: false
+    showModal: false,
+    isSmallScreen: false
+  }
+
+  constructor(props) {
+    super(props);
+    this.mediaQueryChanged = this.mediaQueryChanged.bind(this);
+  }
+
+  componentWillMount() {
+    mql.addListener(this.mediaQueryChanged);
+    this.setState({ mql, isSmallScreen: !mql.matches });
+  }
+
+  // When screen size changes from sm to md(mql.matches = true) and from md to sm(mql.matches = false)
+  mediaQueryChanged() {
+    this.setState({isSmallScreen: !this.state.mql.matches});
   }
 
   handleCategoryOnClick(e, category) {
@@ -199,7 +228,9 @@ class Portfolio extends Component {
                 backgroundImage: this.getBackgroundImageStyle(this.state.selectedItem)
               }}>
               <Col xs={1}>
-                <button className="portfolio-modal-nav-button modal-left-button" />
+                <button className="portfolio-modal-nav-button modal-left-button">
+                  <img alt="left arrow" src={this.state.isSmallScreen ? arrowLeftWhiteIcon : arrowLeftIcon} />
+                </button>
               </Col>
 
               <Col className="portfolio-modal-main" xs={10}>
@@ -231,7 +262,9 @@ class Portfolio extends Component {
               </Col>
 
               <Col xs={1}>
-                <button className="portfolio-modal-nav-button modal-right-button" />
+                <button className="portfolio-modal-nav-button modal-right-button">
+                  <img alt="right arrow" src={this.state.isSmallScreen ? arrowRightWhiteIcon : arrowRightIcon} />
+                </button>
               </Col>
             </Row>
             :

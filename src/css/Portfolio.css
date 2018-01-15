@@ -265,20 +265,36 @@ body.modal-open #root-view {
   justify-content: center;
 }
 
-.portfolio-modal-nav-button {
+.portfolio-modal-nav-button, .portfolio-modal-nav-button:focus {
+	position: absolute;
+	top: -35px;
+	bottom: -35px;
+	width: 70px;
+	height: 70px;
+	background-color: #FFFFFF;
+	border-radius: 40px;
+	border: 0;
+	box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24), 0 1.5px 6px rgba(0, 0, 0, 0.12);
+	transition: 0.25s;
+}
 
+.portfolio-modal-nav-button:hover {
+	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.23), 0 10px 40px rgba(0, 0, 0, 0.19);
+  transform: scale(1.03);
+}
+
+.portfolio-modal-nav-button > img {
+	width: 50px;
+	height: 50px;
+	user-select: none;
 }
 
 .modal-left-button {
-
+	right: 50px;
 }
 
 .modal-right-button {
-
-}
-
-.portfolio-modal-main {
-
+	left: 50px;
 }
 
 /* sm */
@@ -286,10 +302,22 @@ body.modal-open #root-view {
 	.portfolio-modal-link, .portfolio-modal-link:focus, .portfolio-modal-link:hover {
 		width: 100%;
 	}
+
+	.modal-left-button {
+		right: 27px;
+	}
+
+	.modal-right-button {
+		left: 27px;
+	}
 }
 
 /* xs */
 @media only screen and (max-width: 767px) {
+	.portfolio-modal-main {
+		padding: 0;
+	}
+
 	.portfolio-cat-control,
 	.portfolio-modal-body .row {
 		text-align: center;
@@ -311,6 +339,19 @@ body.modal-open #root-view {
 		display: inline-block;
 		margin: 10px;
 		width: 140px;
+	}
+
+	.portfolio-modal-nav-button, .portfolio-modal-nav-button:hover, .portfolio-modal-nav-button:focus {
+		background-color: transparent;
+		box-shadow: none;
+	}
+
+	.modal-left-button {
+		right: 0;
+	}
+
+	.modal-right-button {
+		left: 0;
 	}
 }
 

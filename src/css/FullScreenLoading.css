@@ -17,7 +17,7 @@
 /*Icon animation*/
 .fullscreen-loading-logo-animation {
   /*animation*/
-  background: linear-gradient(90deg, #0A81DF, #81D2FF, #0A81DF, #81D2FF, #0A81DF, #81D2FF, #0A81DF, #81D2FF);
+  background: linear-gradient(90deg, #0A81DF, #81D2FF, #0A81DF, #81D2FF, #0A81DF, #81D2FF, #0A81DF, #81D2FF, #0A81DF, #81D2FF);
   background-size: 400% 400%;
 
   -webkit-animation: SignInBackgroundAnimation 12s ease infinite;
@@ -57,7 +57,7 @@
 }
 
 
-/*Loading animation*/
+/*Loading text animation*/
 .fullscreen-loading-text {
   position: absolute;
   top: 50%;
