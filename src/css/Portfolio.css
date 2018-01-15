@@ -283,7 +283,7 @@ body.modal-open #root-view {
 
 /* sm */
 @media only screen and (min-width: 768px) and (max-width: 991px) {
-	.portfolio-modal-link, .portfolio-modal-link:focus {
+	.portfolio-modal-link, .portfolio-modal-link:focus, .portfolio-modal-link:hover {
 		width: 100%;
 	}
 }
@@ -303,7 +303,13 @@ body.modal-open #root-view {
 		margin: 0 2px;
 	}
 
-	.portfolio-modal-link {
+	.portfolio-modal-body-links {
+		text-align: center;
+	}
+
+	.portfolio-modal-link, .portfolio-modal-link:hover, .portfolio-modal-link:focus {
+		display: inline-block;
+		margin: 10px;
 		width: 140px;
 	}
 }
