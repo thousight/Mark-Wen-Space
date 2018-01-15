@@ -31,6 +31,8 @@ button:focus {
   text-shadow: 1px 1px 3px rgba(150, 150, 150, 1);
 	padding-top: 150px;
   padding-bottom: 200px;
+  user-select: none;
+  cursor: default;
 }
 
 .card {
@@ -44,7 +46,6 @@ button:focus {
 }
 
 .clickable-card {
-  box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24), 0 1.5px 6px rgba(0, 0, 0, 0.12);
   transition: 0.25s;
 }
 
