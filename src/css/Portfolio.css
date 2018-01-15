@@ -123,6 +123,7 @@
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	-webkit-background-size: cover;
+	text-align: center;
 }
 
 .portfolio-modal .modal-header {
@@ -143,6 +144,7 @@
 
 .portfolio-modal-body .row {
 	margin-bottom: 30px;
+	text-align: left;
 }
 
 .portfolio-modal-body .portfolio-modal-body-col {
@@ -212,7 +214,7 @@ body.modal-open #root-view {
 	margin-left: auto;
 	margin-right: auto;
 	padding: 10px;
-	width: 80.5%;
+	width: 62.5%;
 	user-select: none;
 }
 
@@ -257,10 +259,39 @@ body.modal-open #root-view {
 	background: linear-gradient(-135deg, #01E0BC, #83CF3F);
 }
 
+.portfolio-modal-nav-button-vertical-aligner {
+	display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
+.portfolio-modal-nav-button {
+
+}
+
+.modal-left-button {
+
+}
+
+.modal-right-button {
+
+}
+
+.portfolio-modal-main {
+
+}
+
+/* sm */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+	.portfolio-modal-link, .portfolio-modal-link:focus {
+		width: 100%;
+	}
+}
+
+/* xs */
 @media only screen and (max-width: 767px) {
 	.portfolio-cat-control,
-	.portfolio-modal-body {
+	.portfolio-modal-body .row {
 		text-align: center;
 	}
 

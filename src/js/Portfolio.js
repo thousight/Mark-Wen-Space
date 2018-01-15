@@ -194,36 +194,46 @@ class Portfolio extends Component {
           onHide={this.handleModalOnHide.bind(this)}
           bsStyle="lg">
           {this.state.selectedItem ?
-            <div className="portfolio-modal card"
+            <Row className="portfolio-modal portfolio-modal-nav-button-vertical-aligner card"
               style={{
                 backgroundImage: this.getBackgroundImageStyle(this.state.selectedItem)
               }}>
-              <Modal.Header closeButton>
-                <Modal.Title />
-              </Modal.Header>
-              <Modal.Body className="portfolio-modal-body">
-                <Row>
-                  <Col className="portfolio-modal-body-col" xs={12} sm={4} md={3} mdOffset={1}>
-                    <img alt="logo" src={this.state.selectedItem.logo} />
-                    <div className="portfolio-modal-body-cat-icons">
-                      {this.renderCategoryIcons(this.state.selectedItem.categories)}
-                    </div>
-                    <div className="portfolio-modal-body-links">
-                      {this.renderItemLinkButtons(this.state.selectedItem.links)}
-                    </div>
-                  </Col>
-                  <Col className="portfolio-modal-body-col" xs={12} sm={8} md={7}>
-                    <h2>{this.state.selectedItem.title}</h2>
-                    <h5>{this.state.selectedItem.time}</h5>
-                    <div>
-                      <p className="portfolio-modal-body-desc">{this.state.selectedItem.desc}</p>
-                      <p>Keywords:</p>
-                      <p>{this.state.selectedItem.keywords}</p>
-                    </div>
-                  </Col>
-                </Row>
-              </Modal.Body>
-            </div>
+              <Col xs={1}>
+                <button className="portfolio-modal-nav-button modal-left-button" />
+              </Col>
+
+              <Col className="portfolio-modal-main" xs={10}>
+                <Modal.Header closeButton>
+                  <Modal.Title />
+                </Modal.Header>
+                <Modal.Body className="portfolio-modal-body">
+                  <Row>
+                    <Col className="portfolio-modal-body-col" xs={12} sm={4}>
+                      <img alt="logo" src={this.state.selectedItem.logo} />
+                      <div className="portfolio-modal-body-cat-icons">
+                        {this.renderCategoryIcons(this.state.selectedItem.categories)}
+                      </div>
+                      <div className="portfolio-modal-body-links">
+                        {this.renderItemLinkButtons(this.state.selectedItem.links)}
+                      </div>
+                    </Col>
+                    <Col className="portfolio-modal-body-col" xs={12} sm={8}>
+                      <h2>{this.state.selectedItem.title}</h2>
+                      <h5>{this.state.selectedItem.time}</h5>
+                      <div>
+                        <p className="portfolio-modal-body-desc">{this.state.selectedItem.desc}</p>
+                        <p>Keywords:</p>
+                        <p>{this.state.selectedItem.keywords}</p>
+                      </div>
+                    </Col>
+                  </Row>
+                </Modal.Body>
+              </Col>
+
+              <Col xs={1}>
+                <button className="portfolio-modal-nav-button modal-right-button" />
+              </Col>
+            </Row>
             :
             null
           }
