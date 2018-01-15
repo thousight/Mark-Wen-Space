@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Row, Col } from 'react-bootstrap';
+import { Row, Col, Modal, OverlayTrigger, Tooltip } from 'react-bootstrap';
 
 import profilePic from '../img/profilePic.jpg';
 import smartphone from '../img/icons/smartphone.svg';
@@ -11,9 +11,17 @@ import badminton from '../img/icons/badminton.svg';
 * Static Home page
 */
 class Home extends PureComponent {
-	
+
 	shouldComponentUpdate(nextProps, nextState) {
 		return false;
+	}
+
+	getPopover(name) {
+		return (
+			<Tooltip id="hobbies" className="portfolio-modal-cat-icon-popover">
+				{name}
+			</Tooltip>
+		)
 	}
 
 	render() {
@@ -61,20 +69,24 @@ class Home extends PureComponent {
 								<h3>Hobbies</h3>
 								<Row className="home-hobbies-icons-wrapper">
 									<Col xs={6} sm={3}>
-										<img className="home-hobbies-icon" alt="smartphone" src={smartphone} />
-										<h4>Smartphone</h4>
+										<OverlayTrigger trigger={['hover', 'focus']} placement="bottom" overlay={this.getPopover('Smartphone')}>
+											<img className="home-hobbies-icon" alt="smartphone" src={smartphone} />
+										</OverlayTrigger>
 									</Col>
 									<Col xs={6} sm={3}>
-										<img className="home-hobbies-icon" alt="camera" src={camera} />
-										<h4>Photography</h4>
+										<OverlayTrigger trigger={['hover', 'focus']} placement="bottom" overlay={this.getPopover('Photography')}>
+											<img className="home-hobbies-icon" alt="camera" src={camera} />
+										</OverlayTrigger>
 									</Col>
 									<Col xs={6} sm={3}>
-										<img className="home-hobbies-icon" alt="car" src={car} />
-										<h4>Road Trips</h4>
+										<OverlayTrigger trigger={['hover', 'focus']} placement="bottom" overlay={this.getPopover('Road Trip')}>
+											<img className="home-hobbies-icon" alt="car" src={car} />
+										</OverlayTrigger>
 									</Col>
 									<Col xs={6} sm={3}>
-										<img className="home-hobbies-icon" alt="badminton" src={badminton} />
-										<h4>Badminton</h4>
+										<OverlayTrigger trigger={['hover', 'focus']} placement="bottom" overlay={this.getPopover('Badminton')}>
+											<img className="home-hobbies-icon" alt="badminton" src={badminton} />
+										</OverlayTrigger>
 									</Col>
 								</Row>
 							</div>

@@ -3,12 +3,21 @@
 	display: block;
 	position: relative;
 	margin-top: 80px;
+	padding-top: 10px;
+	padding-bottom: 25px;
+	text-align: center;
+}
+
+.footer img {
+	width: 80px;
+	height: 80px;
+	display: inline-block;
+	vertical-align: middle;
 }
 
 .legal-text {
 	margin: 0;
-	padding-top: 25px;
-	padding-bottom: 25px;
+	padding: 5px 0;
 	text-align: center;
 	color: #FFFFFF;
 }
