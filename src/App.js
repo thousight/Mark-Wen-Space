@@ -69,7 +69,7 @@ class App extends Component {
 
 	componentDidMount() {
 		// Fetch all static data from API
-		axios.get('http://mark-wen-space-v3-server.herokuapp.com/allStaticContent', { timeout: 20000 })
+		axios.get('https://mark-wen-space-v3-server.herokuapp.com/allStaticContent', { timeout: 20000 })
 		    .then(res => {
 					this.props.setStaticEDUContent(res.data.Edu);
 					this.props.setStaticEXPContent(res.data.Exp);
