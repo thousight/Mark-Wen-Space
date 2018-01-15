@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Row, Col, Modal, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import { Row, Col, OverlayTrigger, Tooltip } from 'react-bootstrap';
 
 import profilePic from '../img/profilePic.jpg';
 import smartphone from '../img/icons/smartphone.svg';
@@ -50,7 +50,7 @@ class Home extends PureComponent {
 
 				<div className="container">
 					<Row className="home-cards">
-						<Col xs={12} sm={10} smOffset={1}>
+						<Col xs={12} md={10} mdOffset={1}>
 							<div className="card home-intro-card">
 								<img className="home-profile-pic" alt="profile" src={profilePic} />
 								<h3>Hi, I'm Mark!</h3>
@@ -64,7 +64,7 @@ class Home extends PureComponent {
 								</p>
 							</div>
 						</Col>
-						<Col xs={12} sm={10} smOffset={1}>
+						<Col xs={12} md={10} mdOffset={1}>
 							<div className="card home-hobbies-card">
 								<h3>Hobbies</h3>
 								<Row className="home-hobbies-icons-wrapper">

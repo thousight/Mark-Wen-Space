@@ -110,7 +110,7 @@ class NavigationBar extends Component {
 		return (
 			<Navbar id="navbar" className="navbar-transparent" collapseOnSelect>
 				<Row>
-					<Col xs={12} sm={10} smOffset={1}>
+					<Col xs={12} md={10} mdOffset={1}>
 						<Navbar.Header>
 							{/* Logo */}
 							<img

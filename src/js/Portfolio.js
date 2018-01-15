@@ -48,6 +48,10 @@ class Portfolio extends Component {
     this.setState({ mql, isSmallScreen: !mql.matches });
   }
 
+  componentWillUnmount() {
+    this.state.mql.removeListener(this.mediaQueryChanged);
+  }
+
   // When screen size changes from sm to md(mql.matches = true) and from md to sm(mql.matches = false)
   mediaQueryChanged() {
     this.setState({isSmallScreen: !this.state.mql.matches});
@@ -185,7 +189,7 @@ class Portfolio extends Component {
 
         <div className="portfolio-content container">
           <Row>
-            <Col xs={12} sm={10} smOffset={1}>
+            <Col xs={12} md={10} mdOffset={1}>
               {/* Category Control */}
               <div className="portfolio-cat-control card">
                 {

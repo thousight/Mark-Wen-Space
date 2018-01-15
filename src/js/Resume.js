@@ -41,7 +41,7 @@ class Resume extends Component {
 						<h3>Skills</h3>
 					</div>
 					<Row>
-						<Col xs={12} sm={10} smOffset={1}>
+						<Col xs={12} md={10} mdOffset={1}>
 							<div className="card resume-skills-card">
 								{this.props.skillsContent.sort((a, b) => {return a.order - b.order}).map(category => {
 									return (
