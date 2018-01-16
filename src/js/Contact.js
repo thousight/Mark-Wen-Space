@@ -19,7 +19,7 @@ class Contact extends Component {
 
 		this.state = {
 			isShowRecaptchaModal: false,
-			isShowGoogleMaps: true
+			isGoogleAvailable: true
 		}
 
 		this.sendEmail = this.sendEmail.bind(this);
@@ -27,9 +27,9 @@ class Contact extends Component {
 	}
 
 	componentWillMount() {
-		// Check if user is in China based on timezone
-		if (new Date().getTimezoneOffset() / 60 === -8){
-			this.setState({isShowGoogleMaps: false});
+		// Check if google is available
+		if (!window['google']){
+			this.setState({isGoogleAvailable: false});
 		}
 	}
 
@@ -70,10 +70,14 @@ class Contact extends Component {
 	}
 
 	/**
-	* Show modal when submit email
+	* Show modal when submit email if recaptcha is available
 	*/
 	hanleEmailSubmit() {
-		this.setState({ isShowRecaptchaModal: true });
+		if (window['recaptcha'] && window['grecaptcha']) {
+			this.setState({ isShowRecaptchaModal: true });
+		} else {
+			this.sendEmail();
+		}
 	}
 
 	/**
@@ -94,7 +98,7 @@ class Contact extends Component {
 
 	render() {
 		let GetGoogleMaps = null;
-		if (this.state.isShowGoogleMaps) {
+		if (this.state.isGoogleAvailable) {
 			GetGoogleMaps = withGoogleMap(props => (
 			 <GoogleMap
 				 defaultZoom={15}
@@ -151,7 +155,7 @@ class Contact extends Component {
 						</Col>
 
 						{
-							this.state.isShowGoogleMaps ?
+							this.state.isGoogleAvailable ?
 								<Col xs={12} md={10} mdOffset={1}>
 									<div className="card clickable-card contact-map">
 										<GetGoogleMaps
