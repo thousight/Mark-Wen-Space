@@ -121,6 +121,7 @@
 .home-hobbies-icon {
 	width: 50px;
 	height: 50px;
+	margin: 25px;
 	display: inline-block;
 }
 
@@ -133,9 +134,5 @@
 
 	.home-title > p {
 		font-size: 14px;
-	}
-
-	.home-hobbies-icons-wrapper {
-		margin: 25px 0;
 	}
 }
