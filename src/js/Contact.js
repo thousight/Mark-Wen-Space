@@ -18,11 +18,23 @@ class Contact extends Component {
 		super(props);
 
 		this.state = {
-			isShowRecaptchaModal: false
+			isShowRecaptchaModal: false,
+			isShowGoogleMaps: true
 		}
 
 		this.sendEmail = this.sendEmail.bind(this);
 		this.hanleEmailSubmit = this.hanleEmailSubmit.bind(this);
+	}
+
+	componentWillMount() {
+		window.UserInfo.getInfo(data => {
+			console.log(data);
+			if (data.country.code === 'CN') {
+				this.setState({isShowGoogleMaps: false});
+			}
+		}, error => {
+			console.log(error);
+		});
 	}
 
 	componentDidMount() {
@@ -85,13 +97,16 @@ class Contact extends Component {
 	}
 
 	render() {
-		const GetGoogleMaps = withGoogleMap(props => (
-			<GoogleMap
-				defaultZoom={15}
-				defaultCenter={{ lat: 40.450627, lng: -86.943996 }} >
-					<Marker position={{ lat: 40.450627, lng: -86.943996 }} />
-			</GoogleMap>
-		));
+		let GetGoogleMaps = null;
+		if (this.state.isShowGoogleMaps) {
+			GetGoogleMaps = withGoogleMap(props => (
+			 <GoogleMap
+				 defaultZoom={15}
+				 defaultCenter={{ lat: 40.450627, lng: -86.943996 }} >
+					 <Marker position={{ lat: 40.450627, lng: -86.943996 }} />
+			 </GoogleMap>
+		 ))
+		}
 
 		return (
 			<div className="contact">
@@ -139,18 +154,23 @@ class Contact extends Component {
 							</div>
 						</Col>
 
-						<Col xs={12} md={10} mdOffset={1}>
-							<div className="card clickable-card contact-map">
-								<GetGoogleMaps
-									alt="Google Maps"
-									containerElement={
-										<div style={{ height: `100%` }} />
-									}
-									mapElement={
-										<div style={{ height: `100%` }} />
-									}  />
-							</div>
-						</Col>
+						{
+							this.state.isShowGoogleMaps ?
+								<Col xs={12} md={10} mdOffset={1}>
+									<div className="card clickable-card contact-map">
+										<GetGoogleMaps
+											alt="Google Maps"
+											containerElement={
+												<div style={{ height: `100%` }} />
+											}
+											mapElement={
+												<div style={{ height: `100%` }} />
+											}  />
+									</div>
+								</Col>
+								:
+								null
+						}
 					</Row>
 				</div>
 
