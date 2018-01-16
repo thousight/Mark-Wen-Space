@@ -27,14 +27,10 @@ class Contact extends Component {
 	}
 
 	componentWillMount() {
-		window.UserInfo.getInfo(data => {
-			console.log(data);
-			if (data.country.code === 'CN') {
-				this.setState({isShowGoogleMaps: false});
-			}
-		}, error => {
-			console.log(error);
-		});
+		// Check if user is in China based on timezone
+		if (new Date().getTimezoneOffset() / 60 === -8){
+			this.setState({isShowGoogleMaps: false});
+		}
 	}
 
 	componentDidMount() {
