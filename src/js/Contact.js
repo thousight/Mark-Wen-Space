@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Recaptcha from 'react-recaptcha';
 import { withGoogleMap, GoogleMap, Marker } from "react-google-maps";
+import { Map, Marker as BMapMarker } from 'react-bmap'
 import { Row, Col, Modal } from 'react-bootstrap';
 
 import envelope from '../img/icons/envelope.svg';
@@ -154,23 +155,28 @@ class Contact extends Component {
 							</div>
 						</Col>
 
-						{
-							this.state.isGoogleAvailable ?
+
 								<Col xs={12} md={10} mdOffset={1}>
 									<div className="card clickable-card contact-map">
-										<GetGoogleMaps
-											alt="Google Maps"
-											containerElement={
-												<div style={{ height: `100%` }} />
-											}
-											mapElement={
-												<div style={{ height: `100%` }} />
-											}  />
+										{
+											this.state.isGoogleAvailable ?
+												<GetGoogleMaps
+													alt="Google Maps"
+													containerElement={
+														<div style={{ height: `100%` }} />
+													}
+													mapElement={
+														<div style={{ height: `100%` }} />
+													}  />
+												:
+												<Map style={{height: '450px', position: 'relative'}} center={{lng: -86.943996, lat: 40.450627}} zoom="15">
+													<BMapMarker position={{lng: -86.943996, lat: 40.450627}} />
+												</Map>
+										}
+
 									</div>
 								</Col>
-								:
-								null
-						}
+
 					</Row>
 				</div>
 
