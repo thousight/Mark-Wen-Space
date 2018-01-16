@@ -66,6 +66,8 @@
 	text-align: center;
 	margin-top: 15px;
 	margin-bottom: 15px;
+	user-select: none;
+	cursor: default;
 }
 
 .contact-email-form,
