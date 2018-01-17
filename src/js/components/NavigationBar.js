@@ -82,6 +82,9 @@ class NavigationBar extends Component {
 	* @param: address(String)
 	*/
 	navItemOnClick(address) {
+		// Scroll to the top of the page
+		window.scrollTo(0, 0);
+
 		if (address === '/') {
 			// Sets active item in Redux and triggers navbar render()
 			this.props.setNavbarCurrentItem('Home');
@@ -92,15 +95,6 @@ class NavigationBar extends Component {
 
 		// Navigate user to address
 		this.props.history.push(address);
-
-		// Highlight currently selected item on Navbar
-		this.activeNavItem = document.getElementsByClassName('navbar-links-active');
-		for (let i = 0; i < this.activeNavItem.length; i++) {
-			this.activeNavItem[i].childNodes[0].style.borderColor = "#FFFFFF";
-		}
-
-		// Scroll to the top of the page
-		window.scrollTo(0, 0);
 	}
 
 	/**
@@ -116,7 +110,7 @@ class NavigationBar extends Component {
 		return (
 			<Navbar id="navbar" className="navbar-transparent" collapseOnSelect>
 				<Row>
-					<Col xs={12} sm={10} smOffset={1}>
+					<Col xs={12} md={10} mdOffset={1}>
 						<Navbar.Header>
 							{/* Logo */}
 							<img
@@ -136,7 +130,7 @@ class NavigationBar extends Component {
 						<Nav pullRight>
 							<NavItem className={this.getLinkClassNames('Home')} eventKey={1} onClick={() => {this.navItemOnClick('/')}}>Home</NavItem>
 							<NavItem className={this.getLinkClassNames('Resume')} eventKey={2} onClick={() => {this.navItemOnClick('/Resume')}}>Resume</NavItem>
-							{/* <NavItem className={this.getLinkClassNames('Portfolio')} eventKey={3} onClick={() => {this.navItemOnClick('/Portfolio')}}>Portfolio</NavItem> */}
+							<NavItem className={this.getLinkClassNames('Portfolio')} eventKey={3} onClick={() => {this.navItemOnClick('/Portfolio')}}>Portfolio</NavItem>
 							<NavItem className={this.getLinkClassNames('Contact')} eventKey={4} onClick={() => {this.navItemOnClick('/Contact')}}>Contact</NavItem>
 						</Nav>
 					</Col>

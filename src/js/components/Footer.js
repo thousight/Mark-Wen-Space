@@ -1,13 +1,17 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
+
+import WhiteLogoTransparentBG from '../../img/logo/WhiteLogoTransparentBG.png'
 
 /**
 * Footer that sticks to the bottom of the page
 */
-class Footer extends Component {
+class Footer extends PureComponent {
 	render() {
 		return (
 			<div className="footer">
-				<p className="legal-text">Mark Wen © 2017. ALL RIGHT RESERVED</p>
+				<img alt="mw logo" src={WhiteLogoTransparentBG} />
+				<p className="legal-text">Design & develop by Mark Wen</p>
+				<p className="legal-text">Copyright © {new Date().getFullYear()} Mark Wen. All rights reserved.</p>
 			</div>
 		);
 	}

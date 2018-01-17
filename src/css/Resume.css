@@ -8,22 +8,15 @@
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	-webkit-background-size: cover;
-	min-height: 550px;
-}
-
-.resume-title > h1 {
-	margin-top: 0;
-	text-align: center;
-	padding-top: 200px;
 }
 
 .resume-content {
-	margin-top: -85px;
+	margin-top: -105px;
 }
 
 .resume-subtitle {
 	text-align: center;
-	margin: 40px 0;
+	margin: 60px 0;
 }
 
 .resume-subtitle-img {

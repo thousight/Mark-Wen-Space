@@ -1,9 +1,14 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
 /**
 * Dot on timeline
 */
-class TimelineDot extends Component {
+class TimelineDot extends PureComponent {
+
+	shouldComponentUpdate(nextProps, nextState) {
+		return false;
+	}
+
 	render() {
 		return (
 			<div className="timeline-dot">

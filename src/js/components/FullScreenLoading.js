@@ -1,11 +1,16 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
 import BlueLogoTransparentBG from '../../img/logo/BlueLogoTransparentBG.png'
 
 /**
 * Loading screen when app starts
 */
-class FullScreenLoading extends Component {
+class FullScreenLoading extends PureComponent {
+	
+	shouldComponentUpdate(nextProps, nextState) {
+		return false;
+	}
+
 	render() {
 		return (
 			<div className="fullscreen-loading">

@@ -16,7 +16,7 @@ class Resume extends Component {
 	render() {
 		return (
 			<div className="resume">
-				<div className="resume-title">
+				<div className="resume-title banner-title">
 					<h1>Resume</h1>
 				</div>
 
@@ -41,7 +41,7 @@ class Resume extends Component {
 						<h3>Skills</h3>
 					</div>
 					<Row>
-						<Col xs={12} sm={10} smOffset={1}>
+						<Col xs={12} md={10} mdOffset={1}>
 							<div className="card resume-skills-card">
 								{this.props.skillsContent.sort((a, b) => {return a.order - b.order}).map(category => {
 									return (

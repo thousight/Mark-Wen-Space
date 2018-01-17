@@ -11,7 +11,6 @@ h1 {
 	color: #FFFFFF;
 	font-size: 3.2em;
 	font-weight: 400;
-	text-shadow: 1px 1px 3px rgba(150, 150, 150, 1);
 }
 
 a:focus, a:hover {
@@ -22,6 +21,20 @@ button:focus {
 	outline: none;
 }
 
+.banner-title {
+	min-height: 400px;
+}
+
+.banner-title > h1 {
+  margin-top: 0;
+	text-align: center;
+  text-shadow: 1px 1px 3px rgba(150, 150, 150, 1);
+	padding-top: 150px;
+  padding-bottom: 200px;
+  user-select: none;
+  cursor: default;
+}
+
 .card {
 	background-color: #FFFFFF;
 	color: #333333;
@@ -30,11 +43,15 @@ button:focus {
 	padding: 10px;
 	margin-top: 10px;
 	margin-bottom: 10px;
+}
+
+.clickable-card {
   transition: 0.25s;
 }
 
-.card:hover {
+.clickable-card:hover {
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.23), 0 10px 40px rgba(0, 0, 0, 0.19);
+  transform: scale(1.03);
 }
 
 .unclickable {
