@@ -35,7 +35,7 @@ class App extends Component {
 			loadingError: '',
 			homeBackgroundImageLoading: false,
 			resumeBackgroundImageLoading: false,
-			// portfolioBackgroundImageLoading: false,
+			portfolioBackgroundImageLoading: false,
 			contactBackgroundImageLoading: false
 		}
 	}
@@ -69,7 +69,7 @@ class App extends Component {
 
 	componentDidMount() {
 		// Fetch all static data from API
-		axios.get('https://mark-wen-space-v3-server.herokuapp.com/allStaticContent', { timeout: 20000 })
+		axios.get('https://mark-wen-space-v3-server.herokuapp.com/api/allStaticContent', { timeout: 20000 })
 		    .then(res => {
 					this.props.setStaticEDUContent(res.data.Edu);
 					this.props.setStaticEXPContent(res.data.Exp);
@@ -77,7 +77,7 @@ class App extends Component {
 					this.props.setStaticPortfolioContent(res.data.Portfolio);
 
 					// Dismiss full screen loading
-					setTimeout(() => {this.props.isStaticAPIFetched(true)}, 500);
+					setTimeout(() => {this.props.isStaticAPIFetched(true)}, 300);
 		    })
 		    .catch(error => {
 					this.props.isStaticAPIFetched(false);
