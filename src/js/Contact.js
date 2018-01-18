@@ -50,7 +50,7 @@ class Contact extends Component {
 	sendEmail() {
 		this.setState({ isShowRecaptchaModal: false });
 
-		axios.post('http://mark-wen-space-v3-server.herokuapp.com/api/email/sendContactMessage', {
+		axios.post('https://mark-wen-space-v3-server.herokuapp.com/api/email/sendContactMessage', {
 			fromEmail: `"${this.nameInput.value}" <${this.fromEmailInput.value}>`,
 			subject: this.subjectInput.value,
 			textBody: this.messageInput.value
