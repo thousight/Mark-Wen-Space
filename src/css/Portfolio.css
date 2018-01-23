@@ -75,43 +75,43 @@
 }
 
 .fade-enter {
-  opacity: 0.01;
+	opacity: 0.01;
 }
 
 .fade-enter.fade-enter-active {
-  opacity: 1;
-  transition: opacity 500ms ease-in;
+	opacity: 1;
+	transition: opacity 500ms ease-in;
 }
 
 .fade-leave {
-  opacity: 1;
+	opacity: 1;
 }
 
 .fade-leave.fade-leave-active {
-  opacity: 0.01;
-  transition: opacity 300ms ease-in;
+	opacity: 0.01;
+	transition: opacity 300ms ease-in;
 }
 
 .fade-up-enter {
 	transform: translateY(-20px);
-  opacity: 0.01;
+	opacity: 0.01;
 }
 
 .fade-up-enter.fade-up-enter-active {
-  opacity: 1;
+	opacity: 1;
 	transform: translateY(0);
-  transition: 0.25s 0.45s;
+	transition: 0.25s 0.45s;
 }
 
 .fade-up-leave {
-  opacity: 1;
+	opacity: 1;
 	transform: translateY(0);
 }
 
 .fade-up-leave.fade-up-leave-active {
-  opacity: 0.01;
+	opacity: 0.01;
 	transform: translateY(-20px);
-  transition: all 0.25s;
+	transition: all 0.25s;
 }
 
 .fade-up-height {
@@ -120,22 +120,22 @@
 
 /* Vertically Center Modal */
 .modal {
-  text-align: center;
-  padding: 0!important;
+	text-align: center;
+	padding: 0!important;
 }
 
 .modal:before {
-  content: '';
-  display: inline-block;
-  height: 100%;
-  vertical-align: middle;
-  margin-right: -4px;
+	content: '';
+	display: inline-block;
+	height: 100%;
+	vertical-align: middle;
+	margin-right: -4px;
 }
 
 .modal-dialog {
-  display: inline-block;
-  text-align: left;
-  vertical-align: middle;
+	display: inline-block;
+	text-align: left;
+	vertical-align: middle;
 }
 
 .portfolio-modal {
@@ -287,8 +287,8 @@ body.modal-open #root-view {
 
 .portfolio-modal-nav-button-vertical-aligner {
 	display: flex;
-  align-items: center;
-  justify-content: center;
+	align-items: center;
+	justify-content: center;
 }
 
 .portfolio-modal-nav-button, .portfolio-modal-nav-button:focus {
@@ -306,7 +306,13 @@ body.modal-open #root-view {
 
 .portfolio-modal-nav-button:hover {
 	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.23), 0 10px 40px rgba(0, 0, 0, 0.19);
-  transform: scale(1.03);
+	transform: scale(1.03);
+}
+
+.portfolio-modal-nav-button:active {
+	box-shadow: 0 6px 8px rgba(0,0,0,.24);
+	transform: scale(1.015);
+	transition: 0.1s;
 }
 
 .portfolio-modal-nav-button > img {
@@ -342,11 +348,11 @@ body.modal-open #root-view {
 @media only screen and (max-width: 767px) {
 	/* Disable Vertically Center Modal */
 	.modal:before {
-	  content: none;
+		content: none;
 	}
 
 	.modal-dialog {
-	  width: 93%;
+		width: 93%;
 		margin-top: 0;
 	}
 
