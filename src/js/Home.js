@@ -30,7 +30,7 @@ class Home extends PureComponent {
 				<div className="home-landing">
 					<div className="home-title">
 						<h1>Mark Wen</h1>
-						<p>Web and Android Developer</p>
+						<p>Full Stack Developer</p>
 					</div>
 					<div className="home-landing-icons-wrapper">
 						<a className="home-landing-icon home-landing-icon-file"
