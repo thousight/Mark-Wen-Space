@@ -58,9 +58,9 @@ class Home extends PureComponent {
 									My legal name is Guojie Wen since my Chinese name is 温国杰.
 									I'm a full-stack developer graduated from Purdue University
 									with a Computer and Information Technology bachelor degree.
-									I'm passionate about developing and designing websites and
-									mobile applications. I personally believe that every detail
-									worths tweaking, and it's always an enjoyable process.
+									I'm passionate about designing and developing websites as 
+									well as mobile applications. I personally believe that every 
+									detail worths tweaking, and it's always an enjoyable process.
 								</p>
 							</div>
 						</Col>
