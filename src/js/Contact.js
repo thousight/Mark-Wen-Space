@@ -98,13 +98,14 @@ class Contact extends Component {
 	}
 
 	render() {
-		let GetGoogleMaps = null;
+		let GetGoogleMaps = null, location = { lat: 39.9071868, lng: -86.0848447 }
+
 		if (this.state.isGoogleAvailable) {
 			GetGoogleMaps = withGoogleMap(props => (
 			 <GoogleMap
 				 defaultZoom={15}
-				 defaultCenter={{ lat: 40.450627, lng: -86.943996 }} >
-					 <Marker position={{ lat: 40.450627, lng: -86.943996 }} />
+				 defaultCenter={location} >
+					 <Marker position={location} />
 			 </GoogleMap>
 		 ))
 		}
@@ -118,7 +119,7 @@ class Contact extends Component {
 				<div className="container contact-content">
 					<Row>
 						<Col xs={12} sm={5} md={4} mdOffset={1}>
-							<div className="card clickable-card contact-info">
+							<div className="card contact-info">
 								<div className="contact-info-line">
 									<img className="contact-info-icon" alt="Email" src={envelope} />
 									<a href="mailto:markwenguojie94@gmail.com">markwenguojie94@gmail.com</a>
@@ -131,7 +132,11 @@ class Contact extends Component {
 									<img className="contact-info-icon" alt="Address" src={home} />
 									<div className="contact-info-line-address">
 										<a href="https://goo.gl/maps/f843LXUZbTL2" target="_blank" rel="noopener noreferrer">
-											2120 McCormick Rd. Apt. 721b <br />West Lafayette, IN 47906
+											8322 Lakeshore Trail East Drive
+											<br />
+											Apt. 921
+											<br />
+											Indianapolis, IN 46250
 										</a>
 									</div>
 								</div>
@@ -139,7 +144,7 @@ class Contact extends Component {
 						</Col>
 
 						<Col xs={12} sm={7} md={6}>
-							<div className="card clickable-card contact-email">
+							<div className="card contact-email">
 								<h4>Shoot me a message!</h4>
 
 								<input className="contact-email-form" id="name" type="text" placeholder="Name" aria-label="Name input field" />
@@ -156,7 +161,7 @@ class Contact extends Component {
 						</Col>
 
 						<Col xs={12} md={10} mdOffset={1}>
-							<div className="card clickable-card contact-map">
+							<div className="card contact-map">
 								{
 									this.state.isGoogleAvailable ?
 										<GetGoogleMaps
@@ -168,8 +173,8 @@ class Contact extends Component {
 												<div style={{ height: `100%` }} />
 											}  />
 										:
-										<Map style={{height: '450px', position: 'relative'}} center={{lng: -86.943996, lat: 40.450627}} zoom="15">
-											<BMapMarker position={{lng: -86.943996, lat: 40.450627}} />
+										<Map style={{height: '450px', position: 'relative'}} center={location} zoom="15">
+											<BMapMarker position={location} />
 										</Map>
 								}
 							</div>
