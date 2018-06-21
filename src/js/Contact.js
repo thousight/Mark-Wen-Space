@@ -98,13 +98,14 @@ class Contact extends Component {
 	}
 
 	render() {
-		let GetGoogleMaps = null;
+		let GetGoogleMaps = null, location = { lat: 39.9071868, lng: -86.0848447 }
+
 		if (this.state.isGoogleAvailable) {
 			GetGoogleMaps = withGoogleMap(props => (
 			 <GoogleMap
 				 defaultZoom={15}
-				 defaultCenter={{ lat: 40.450627, lng: -86.943996 }} >
-					 <Marker position={{ lat: 40.450627, lng: -86.943996 }} />
+				 defaultCenter={location} >
+					 <Marker position={location} />
 			 </GoogleMap>
 		 ))
 		}
@@ -131,7 +132,11 @@ class Contact extends Component {
 									<img className="contact-info-icon" alt="Address" src={home} />
 									<div className="contact-info-line-address">
 										<a href="https://goo.gl/maps/f843LXUZbTL2" target="_blank" rel="noopener noreferrer">
-											2120 McCormick Rd. Apt. 721b <br />West Lafayette, IN 47906
+											8322 Lakeshore Trail East Drive
+											<br />
+											Apt. 921
+											<br />
+											Indianapolis, IN 46250
 										</a>
 									</div>
 								</div>
@@ -168,8 +173,8 @@ class Contact extends Component {
 												<div style={{ height: `100%` }} />
 											}  />
 										:
-										<Map style={{height: '450px', position: 'relative'}} center={{lng: -86.943996, lat: 40.450627}} zoom="15">
-											<BMapMarker position={{lng: -86.943996, lat: 40.450627}} />
+										<Map style={{height: '450px', position: 'relative'}} center={location} zoom="15">
+											<BMapMarker position={location} />
 										</Map>
 								}
 							</div>
