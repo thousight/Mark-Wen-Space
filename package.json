@@ -6,6 +6,7 @@
     "axios": "^0.16.2",
     "babel-polyfill": "^6.26.0",
     "history": "^4.7.2",
+    "less-watch-compiler": "^1.11.3",
     "react": "^15.6.1",
     "react-addons-css-transition-group": "^15.6.0",
     "react-addons-transition-group": "^15.6.0",
@@ -22,12 +23,18 @@
     "redux": "^3.6.0"
   },
   "devDependencies": {
+    "babel-plugin-import": "^1.8.0",
+    "less-loader": "^4.1.0",
+    "react-app-rewire-less": "^2.1.2",
+    "react-app-rewired": "^1.5.2",
     "react-scripts": "1.0.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "build-css": "less-watch-compiler --run-once --main-file=index.less src/less/ src/less/",
+    "watch-css": "npm run build-css && less-watch-compiler --main-file=index.less src/less/ src/less/",
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test --env=jsdom",
     "eject": "react-scripts eject"
   }
 }

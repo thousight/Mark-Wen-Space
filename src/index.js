@@ -9,8 +9,8 @@ import { createStore } from 'redux';
 import rootReducer from './js/redux/reducers/index';
 import App from './App';
 
-import './css/bootstrap/bootstrap.min.css';
-import './index.css';
+import './style/bootstrap/bootstrap.min.css';
+import './index.less';
 
 /**
 * Index file where it renders all the JSX into public/index.html
