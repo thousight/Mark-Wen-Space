@@ -1,9 +1,9 @@
 .contact {
-	background-color: #FCFCFC;
+	background-color: @backgroundWhite;
 }
 
 .contact-title {
-	background: #FCFCFC url(../img/contact.jpg) bottom center no-repeat scroll;
+	background: @backgroundWhite url(../../img/contact.jpg) bottom center no-repeat scroll;
 	background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -18,8 +18,9 @@
 /**
 * Contact information card
 */
+
 .contact-info {
-	background: linear-gradient(135deg, #0A81DF, #3cb9ff);
+	background: @cardBackgroundBlue;
 	padding-top: 25px;
 	padding-bottom: 25px;
 	position: relative;
@@ -29,15 +30,11 @@
 	display: block;
 	margin: 15px auto;
 	width: 250px;
-}
-
-.contact-info-line > a {
-	margin-left: 10px;
-}
-
-.contact-info-line > a, .contact-info-line-address > a {
-	color: #FFFFFF;
-	vertical-align: middle;
+	&>a {
+		color: @white;
+		margin-left: 10px;
+		vertical-align: middle;
+	}
 }
 
 .contact-info-icon {
@@ -49,60 +46,68 @@
 .contact-info-line-address {
 	display: inline-block;
 	margin-left: 10px;
-	color: #FFFFFF;
+	color: @white;
 	vertical-align: middle;
+	&>a {
+		color: @white;
+		vertical-align: middle;
+	}
 }
 
 
 /**
 * Contact email card
 */
+
 .contact-email {
 	padding-top: 25px;
 	padding-bottom: 70px;
+	h4 {
+		text-align: center;
+		margin-top: 15px;
+		margin-bottom: 15px;
+		user-select: none;
+		cursor: default;
+	}
 }
 
-.contact-email > h4 {
-	text-align: center;
-	margin-top: 15px;
-	margin-bottom: 15px;
-	user-select: none;
-	cursor: default;
-}
-
-.contact-email-form,
-.contact-email-form:focus {
+.contact-email-form {
 	width: 90%;
 	display: block;
 	margin: 15px auto;
 	border: 0;
-	border-bottom: #008EFF 2px solid;
+	border-bottom: @primaryBlue 2px solid;
 	outline: none;
 	padding-left: 0;
 	padding-right: 0;
 	padding-top: 5px;
 	padding-bottom: 5px;
 	resize: vertical;
+	&::placeholder, &::-webkit-input-placeholder, &::-moz-placeholder, &::-ms-input-placeholder, &:-moz-placeholder {
+		color: @primaryBlue;
+		font-size: 13px;
+	}
+	&:focus {
+		width: 90%;
+		display: block;
+		margin: 15px auto;
+		border: 0;
+		border-bottom: @primaryBlue 2px solid;
+		outline: none;
+		padding-left: 0;
+		padding-right: 0;
+		padding-top: 5px;
+		padding-bottom: 5px;
+		resize: vertical;
+	}
 }
 
-.contact-email-form::placeholder {
-	color: #008EFF;
-	font-size: 13px;
-}
-.contact-email-form::-webkit-input-placeholder {
-	color: #008EFF;
-	font-size: 13px;
-}
-.contact-email-form::-moz-placeholder {
-	color: #008EFF;
-	font-size: 13px;
-}
-.contact-email-form::-ms-input-placeholder {
-	color: #008EFF;
-	font-size: 13px;
-}
+.contact-email-form::placeholder, 
+.contact-email-form::-webkit-input-placeholder, 
+.contact-email-form::-moz-placeholder,
+.contact-email-form::-ms-input-placeholder,
 .contact-email-form:-moz-placeholder {
-	color: #008EFF;
+	color: @primaryBlue;
 	font-size: 13px;
 }
 
@@ -113,18 +118,21 @@
 
 .contact-email-submit {
 	float: right;
-	background-color: #008EFF;
-	color: #FFFFFF;
+	background-color: @primaryBlue;
+	color: @white;
 	border-radius: 2.5px;
-	box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12), 0 3px 1px -2px rgba(0,0,0,.2);
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12), 0 3px 1px -2px rgba(0, 0, 0, .2);
 	padding: 5px;
 	user-select: none;
-}
-
-.contact-email-submit:hover,
-.contact-email-submit:focus {
-	color: #FFFFFF;
-	cursor: pointer;
+	&:hover, &:focus {
+		color: @white;
+		cursor: pointer;
+	}
+	& > p {
+		display: inline-block;
+		vertical-align: middle;
+		margin: 0 5px;
+	}
 }
 
 .contact-email-submit-icon {
@@ -134,13 +142,9 @@
 	vertical-align: middle;
 }
 
-.contact-email-submit > p {
-	display: inline-block;
-	vertical-align: middle;
-	margin: 0 5px;
-}
 
 /*Disable grammarly-ghost*/
+
 grammarly-ghost {
 	visibility: hidden;
 }
@@ -161,13 +165,16 @@ grammarly-ghost {
 /**
 * Google Maps
 */
+
 .contact-map {
 	height: 450px;
 	margin-top: 23px;
 	padding: 0;
 }
 
+
 /*On mobile size*/
+
 @media only screen and (max-width: 767px) {
 	.contact-email {
 		padding-bottom: 25px;

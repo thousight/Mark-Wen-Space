@@ -1,22 +1,22 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react'
+import ReactDOM from 'react-dom'
 import 'babel-polyfill'
-import { Router } from 'react-router-dom';
+import { Router } from 'react-router-dom'
 import createHistory from 'history/createBrowserHistory'
-import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { Provider } from 'react-redux'
+import { createStore } from 'redux'
 
-import rootReducer from './js/redux/reducers/index';
-import App from './App';
+import rootReducer from './js/redux/reducers/index'
+import App from './App'
 
-import './style/bootstrap/bootstrap.min.css';
-import './index.less';
+import './style/bootstrap/bootstrap.min.css'
+import './index.less'
 
 /**
 * Index file where it renders all the JSX into public/index.html
 */
-const store = createStore(rootReducer);
-const history = createHistory();
+const store = createStore(rootReducer)
+const history = createHistory()
 
 ReactDOM.render(
 	<Provider store={store}>
@@ -25,4 +25,8 @@ ReactDOM.render(
 	  </Router>
 	</Provider>,
   document.getElementById('root')
-);
+)
+
+if (module.hot) {
+	module.hot.accept()
+}

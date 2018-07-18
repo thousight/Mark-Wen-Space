@@ -9,11 +9,11 @@
 
 /*2 theme*/
 .navbar-transparent {
-	background-color: rgb(255, 255, 255);
+	background-color: @white;
 	background-color: rgba(255, 255, 255, 0);
 }
 .navbar-white {
-	background-color: rgb(255, 255, 255);
+	background-color: @white;
 	background-color: rgba(255, 255, 255, 0.96);
 	box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12), 0 3px 10px 1px rgba(0,0,0,.2);
 }
@@ -31,14 +31,14 @@
 
 /*Navbar links*/
 .navbar-transparent .navbar-nav > li > a {
-	color: #FFFFFF;
-	text-shadow: 1px 1px 3px rgba(150, 150, 150, 1);
+	color: @white;
+	text-shadow: @textShadow;
 	padding-bottom: 11px;
 	border-bottom: 4px solid transparent;
 	transition: 0.25s;
 }
 .navbar-white .navbar-nav > li > a {
-	color: #008EFF;
+	color: @primaryBlue;
 	padding-bottom: 11px;
 	border-bottom: 4px solid transparent;
 	transition: 0.25s;
@@ -55,15 +55,15 @@
 .navbar-white .navbar-nav > .navbar-links-active > a,
 .navbar-white .navbar-nav > li > a:focus,
 .navbar-white .navbar-nav > li > a:hover {
-	color: #008EFF;
-	border-bottom: 4px solid #008EFF;
+	color: @primaryBlue;
+	border-bottom: 4px solid @primaryBlue;
 }
 
 .navbar-transparent .navbar-nav > .navbar-links-active > a,
 .navbar-transparent .navbar-nav > li > a:focus,
 .navbar-transparent .navbar-nav > li > a:hover {
-	color: #FFFFFF;
-	border-bottom: 4px solid #FFFFFF;
+	color: @white;
+	border-bottom: 4px solid @white;
 }
 
 /*Navbar toggle*/
@@ -76,13 +76,13 @@
 }
 .navbar-default .navbar-toggle .icon-bar,
 .navbar-default .navbar-toggle-white .icon-bar {
-	background-color: #FFFFFF;
+	background-color: @white;
 }
 .navbar-default .navbar-toggle-white .icon-bar {
-	box-shadow: 1px 1px 3px rgba(150, 150, 150, 1);
+	box-shadow: @textShadow;
 }
 .navbar-default .navbar-toggle-dark .icon-bar {
-	background-color: #666666;
+	background-color: @darkGray;
 }
 
 
@@ -94,7 +94,7 @@
 	z-index: 999 !important;
 }
 .bm-menu {
-	background: #FFFFFF;
+	background: @white;
 	padding-top: 2.5em;
 	font-size: 1.3em;
 	box-shadow: -4px 0 10px 0 rgba(0,0,0,.14);
@@ -103,18 +103,18 @@
 /* List item */
 .bm-item-list > a {
 	padding: 10px 2em;
-	color: #008EFF;
+	color: @primaryBlue;
 }
 .bm-item-list > a:focus,
 .bm-item-list > a:hover {
 	padding: 5px;
-	color: #008EFF;
+	color: @primaryBlue;
 }
 .bm-item-list > a:focus, .bm-item-list > a:hover {
 	padding: 10px 2em;
 }
 .sidebar-active {
-	background-color: #CCCCCC;
+	background-color: @lightGray;
 }
 
 /* Overlay */

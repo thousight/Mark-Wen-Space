@@ -13,7 +13,7 @@
 	width: 50px;
 	height: 50px;
 	border-radius: 50px;
-	box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24), 0 1.5px 6px rgba(0, 0, 0, 0.12);
+	box-shadow: @buttonShadow;
 	display: block;
 	position: relative;
 	margin: 0 auto;
@@ -35,7 +35,7 @@
 	width: 20px;
 	height: 20px;
 	border-radius: 50px;
-	background-color: #FFFFFF;
+	background-color: @white;
 	margin: auto;
 	position: absolute;
 	top: 0;
@@ -58,7 +58,7 @@
 .timeline-line {
 	height: 100%;
 	width: 10px;
-	background-color: #CCCCCC;
+	background-color: @lightGray;
 	border-radius: 20px;
 	display: block;
 	margin: 0 auto;
@@ -101,18 +101,18 @@
 .timeline-card-banner-title {
 	margin: 0;
 	padding-top: 55px;
-	color: #FFFFFF;
-	text-shadow: 1px 1px 3px rgba(150, 150, 150, 1);
+	color: @white;
+	text-shadow: @textShadow;
 }
 
 .timeline-card-banner-list {
-	color: #FFFFFF;
+	color: @white;
 	list-style-type: none;
 	overflow: hidden;
 	padding-left: 0;
 	margin-top: 10px;
 	margin-bottom: 0;
-	text-shadow: 1px 1px 3px rgba(150, 150, 150, 1);
+	text-shadow: @textShadow;
 }
 
 .timeline-card-banner-list-item {

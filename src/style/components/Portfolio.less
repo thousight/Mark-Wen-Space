@@ -1,9 +1,9 @@
 .portfolio {
-	background-color: #FCFCFC;
+	background-color: @backgroundWhite;
 }
 
 .portfolio-title-banner {
-	background: #FCFCFC url(../img/portfolio.png) bottom center no-repeat scroll;
+	background: @backgroundWhite url(../../img/portfolio.png) bottom center no-repeat scroll;
 	background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -19,7 +19,7 @@
 }
 
 .portfolio-cat-link {
-	color: #008EFF;
+	color: @primaryBlue;
 	cursor: pointer;
 	display: inline-block;
 	margin: 0 13px;
@@ -31,8 +31,8 @@
 }
 
 .portfolio-cat-link-active, .portfolio-cat-link:hover {
-	border-bottom: 2px solid #008EFF;
-	color: #008EFF;
+	border-bottom: 2px solid @primaryBlue;
+	color: @primaryBlue;
 }
 
 .portfolio-item {
@@ -66,8 +66,9 @@
 }
 
 .portfolio-item > h5 {
-	color: #FFFFFF;
+	color: @white;
 	font-size: 14.5px;
+	font-weight: 400;
 	text-align: center;
 	width: 100%;
 	cursor: pointer;
@@ -139,7 +140,7 @@
 }
 
 .portfolio-modal {
-	color: #FFFFFF;
+	color: @white;
 	border-radius: 10px;
 	background-repeat: no-repeat;
 	background-position: center bottom;
@@ -159,7 +160,7 @@
 }
 
 .portfolio-modal .modal-header .close {
-	color: #FFFFFF;
+	color: @white;
 	opacity: 0;
 	transition: 0.25s;
 }
@@ -218,7 +219,7 @@ body.modal-open #root-view {
 }
 
 .portfolio-modal-cat-icon-popover .tooltip-inner {
-	box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24), 0 1.5px 6px rgba(0, 0, 0, 0.12);
+	box-shadow: @buttonShadow;
 }
 
 .portfolio-modal-body-cat-icons > img {
@@ -234,7 +235,7 @@ body.modal-open #root-view {
 
 .portfolio-modal-link,
 .portfolio-modal-link:focus {
-	color: #FFFFFF;
+	color: @white;
 	display: block;
 	margin-top: 10px;
 	margin-left: auto;
@@ -245,7 +246,7 @@ body.modal-open #root-view {
 }
 
 .portfolio-modal-link:hover {
-	color: #FFFFFF;
+	color: @white;
 }
 
 .portfolio-modal-link span {
@@ -273,12 +274,12 @@ body.modal-open #root-view {
 }
 
 .github-private-link, .github-private-link:hover {
-	background-color: #FFFFFF;
-	color: #333333;
+	background-color: @white;
+	color: @black;
 	cursor: not-allowed;
 	transition: 0;
 	transform: none;
-	box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24), 0 1.5px 6px rgba(0, 0, 0, 0.12);
+	box-shadow: @buttonShadow;
 }
 
 .play-store-link, .play-store-link:hover {
@@ -297,10 +298,10 @@ body.modal-open #root-view {
 	bottom: -35px;
 	width: 70px;
 	height: 70px;
-	background-color: #FFFFFF;
+	background-color: @white;
 	border-radius: 40px;
 	border: 0;
-	box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24), 0 1.5px 6px rgba(0, 0, 0, 0.12);
+	box-shadow: @buttonShadow;
 	transition: 0.25s;
 }
 
