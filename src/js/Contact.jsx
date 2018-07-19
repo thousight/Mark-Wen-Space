@@ -133,7 +133,7 @@ class Contact extends Component {
 								<div className="contact-info-line">
 									<img className="contact-info-icon" alt="Address" src={home} />
 									<div className="contact-info-line-address">
-										<a href="https://goo.gl/maps/f843LXUZbTL2" target="_blank" rel="noopener noreferrer">
+										<a href="https://goo.gl/maps/8Pb1tbu86472" target="_blank" rel="noopener noreferrer">
 											8322 Lakeshore Trail East Drive
 											<br />
 											Apt. 921
