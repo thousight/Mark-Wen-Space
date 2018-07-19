@@ -16,6 +16,9 @@
 
 .portfolio-cat-control {
 	text-align: right;
+	@media only screen and (max-width: 767px) {
+		text-align: center;
+	}
 }
 
 .portfolio-cat-link {
@@ -28,6 +31,9 @@
 	border-bottom: 2px solid transparent;
 	user-select: none;
 	transition: 0.25s;
+	@media only screen and (max-width: 767px) {
+		margin: 0 2px;
+	}
 }
 
 .portfolio-cat-link-active, .portfolio-cat-link:hover {
@@ -35,11 +41,16 @@
 	color: @primaryBlue;
 }
 
+.portfolio-item-wrapper {
+	@media only screen and (max-width: 424px) {
+		width: 100%;
+	}
+}
+
 .portfolio-item {
 	display: block;
 	margin: 15px auto;
 	cursor: pointer;
-
 	background-repeat: no-repeat;
 	background-position: center bottom;
 	background-attachment: scroll;
@@ -47,96 +58,62 @@
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	-webkit-background-size: cover;
-}
-
-.portfolio-item > img {
-	display: block;
-	object-fit: contain;
-	width: 140px;
-	height: 110px;
-	margin: 0 auto;
-	padding: 5px;
-	padding-top: 15px;
-	user-select: none;
-	transition: 0.25s;
-}
-
-.portfolio-item:hover > img {
-	transform: translateY(-10px);
-}
-
-.portfolio-item > h5 {
-	color: @white;
-	font-size: 14.5px;
-	font-weight: 400;
-	text-align: center;
-	width: 100%;
-	cursor: pointer;
-	user-select: none;
-}
-
-.fade-enter {
-	opacity: 0.01;
-}
-
-.fade-enter.fade-enter-active {
-	opacity: 1;
-	transition: opacity 500ms ease-in;
-}
-
-.fade-leave {
-	opacity: 1;
-}
-
-.fade-leave.fade-leave-active {
-	opacity: 0.01;
-	transition: opacity 300ms ease-in;
-}
-
-.fade-up-enter {
-	transform: translateY(-20px);
-	opacity: 0.01;
-}
-
-.fade-up-enter.fade-up-enter-active {
-	opacity: 1;
-	transform: translateY(0);
-	transition: 0.25s 0.45s;
-}
-
-.fade-up-leave {
-	opacity: 1;
-	transform: translateY(0);
-}
-
-.fade-up-leave.fade-up-leave-active {
-	opacity: 0.01;
-	transform: translateY(-20px);
-	transition: all 0.25s;
+	& > img {
+		display: block;
+		object-fit: contain;
+		width: 140px;
+		height: 110px;
+		margin: 0 auto;
+		padding: 5px;
+		padding-top: 15px;
+		user-select: none;
+		transition: 0.25s;
+	}
+	&:hover > img {
+		transform: translateY(-10px);
+	}
+	& > h5 {
+		color: @white;
+		font-size: 14.5px;
+		font-weight: 400;
+		text-align: center;
+		width: 100%;
+		cursor: pointer;
+		user-select: none;
+	}
 }
 
 .fade-up-height {
 	transition: height 0.25s;
 }
 
+
 /* Vertically Center Modal */
+
 .modal {
 	text-align: center;
 	padding: 0!important;
-}
-
-.modal:before {
-	content: '';
-	display: inline-block;
-	height: 100%;
-	vertical-align: middle;
-	margin-right: -4px;
+	&:before {
+		content: '';
+		display: inline-block;
+		height: 100%;
+		vertical-align: middle;
+		margin-right: -4px;
+		@media only screen and (max-width: 767px) {
+			/* Disable Vertically Center Modal */
+			content: none;
+		}
+	}
 }
 
 .modal-dialog {
 	display: inline-block;
 	text-align: left;
 	vertical-align: middle;
+	@media only screen and (max-width: 767px) {
+		width: 93%;
+		margin-top: 0;
+	}
 }
 
 .portfolio-modal {
@@ -151,55 +128,69 @@
 	-webkit-background-size: cover;
 	text-align: center;
 	transition: 0.25s;
+	@media only screen and (max-width: 767px) {
+		margin-top: 5px;
+	}
+	.modal-header {
+		border-bottom: none;
+		padding-top: 5px;
+		padding-bottom: 0;
+		.close {
+			color: @white;
+			opacity: 0;
+			transition: 0.25s;
+			@media only screen and (max-width: 767px) {
+				opacity: 1;
+			}
+		}
+		&:hover {
+			.close {
+				opacity: 1;
+			}
+		}
+	}
 }
 
-.portfolio-modal .modal-header {
-	border-bottom: none;
-	padding-top: 5px;
-	padding-bottom: 0;
+.portfolio-modal-main {
+	@media only screen and (max-width: 767px) {
+		padding: 0;
+	}
 }
 
-.portfolio-modal .modal-header .close {
-	color: @white;
-	opacity: 0;
-	transition: 0.25s;
-}
-
-.portfolio-modal .modal-header:hover .close {
-	opacity: 1;
-}
-
-.portfolio-modal-body .row {
-	margin-bottom: 30px;
-	text-align: left;
-}
-
-.portfolio-modal-body .portfolio-modal-body-col {
-	padding: 0 10px;
-}
-
-.portfolio-modal-body img {
-	display: block;
-	object-fit: contain;
-	width: 130px;
-	height: 130px;
-	margin: 25px auto;
-	user-select: none;
-}
-
-.portfolio-modal-body h2 {
-	font-size: 34px;
-}
-
-.portfolio-modal-body h5 {
-	font-size: 17px;
+.portfolio-modal-body {
+	.row {
+		margin-bottom: 30px;
+		text-align: left;
+		@media only screen and (max-width: 767px) {
+			text-align: center;
+		}
+	}
+	.portfolio-modal-body-col {
+		padding: 0 10px;
+	}
+	img {
+		display: block;
+		object-fit: contain;
+		width: 130px;
+		height: 130px;
+		margin: 25px auto;
+		user-select: none;
+	}
+	h2 {
+		font-size: 34px;
+	}
+	h5 {
+		font-size: 17px;
+	}
 }
 
 .portfolio-modal-body-desc {
 	padding: 25px 0;
 }
 
+
 /* Blur modal background */
+
 body.modal-open #root-view {
 	filter: blur(8px);
 	margin: -1px -7px;
@@ -211,30 +202,30 @@ body.modal-open #root-view {
 	position: relative;
 	text-align: center;
 	vertical-align: middle;
+	& > img {
+		display: inline-block;
+		width: 25px;
+		height: auto;
+		margin: 0 5px;
+	}
 }
 
 .portfolio-modal-cat-icon-popover {
 	user-select: none;
 	cursor: default;
-}
-
-.portfolio-modal-cat-icon-popover .tooltip-inner {
-	box-shadow: @buttonShadow;
-}
-
-.portfolio-modal-body-cat-icons > img {
-	display: inline-block;
-	width: 25px;
-	height: auto;
-	margin: 0 5px;
+	.tooltip-inner {
+		box-shadow: @buttonShadow;
+	}
 }
 
 .portfolio-modal-body-links {
 	text-align: left;
+	@media only screen and (max-width: 767px) {
+		text-align: center;
+	}
 }
 
-.portfolio-modal-link,
-.portfolio-modal-link:focus {
+.portfolio-modal-link {
 	color: @white;
 	display: block;
 	margin-top: 10px;
@@ -243,26 +234,43 @@ body.modal-open #root-view {
 	padding: 10px;
 	width: 62.5%;
 	user-select: none;
-}
-
-.portfolio-modal-link:hover {
-	color: @white;
-}
-
-.portfolio-modal-link span {
-	display: block;
-	width: 121px;
-	margin: 0 auto;
-	text-align: left;
-}
-
-.portfolio-modal-link img {
-	display: inline-block;
-	width: 20px;
-	height: auto;
-	margin-right: 10px;
-	margin-top: 0;
-	margin-bottom: 0;
+	&:focus {
+		color: @white;
+		display: block;
+		margin-top: 10px;
+		margin-left: auto;
+		margin-right: auto;
+		padding: 10px;
+		width: 62.5%;
+		user-select: none;
+	}
+	&:hover {
+		color: @white;
+	}
+	&, &:focus, &:hover {
+		@media only screen and (min-width: 768px) and (max-width: 991px) {
+			width: 100%;
+		}
+		@media only screen and (max-width: 767px) {
+			display: inline-block;
+			margin: 10px;
+			width: 140px;
+		}
+	}
+	span {
+		display: block;
+		width: 121px;
+		margin: 0 auto;
+		text-align: left;
+	}
+	img {
+		display: inline-block;
+		width: 20px;
+		height: auto;
+		margin-right: 10px;
+		margin-top: 0;
+		margin-bottom: 0;
+	}
 }
 
 .web-link, .web-link:hover {
@@ -292,7 +300,7 @@ body.modal-open #root-view {
 	justify-content: center;
 }
 
-.portfolio-modal-nav-button, .portfolio-modal-nav-button:focus {
+.portfolio-modal-nav-button {
 	position: absolute;
 	top: -35px;
 	bottom: -35px;
@@ -303,115 +311,62 @@ body.modal-open #root-view {
 	border: 0;
 	box-shadow: @buttonShadow;
 	transition: 0.25s;
-}
-
-.portfolio-modal-nav-button:hover {
-	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.23), 0 10px 40px rgba(0, 0, 0, 0.19);
-	transform: scale(1.03);
-}
-
-.portfolio-modal-nav-button:active {
-	box-shadow: 0 6px 8px rgba(0,0,0,.24);
-	transform: scale(1.015);
-	transition: 0.1s;
-}
-
-.portfolio-modal-nav-button > img {
-	width: 50px;
-	height: 50px;
-	user-select: none;
+	&:focus {
+		position: absolute;
+		top: -35px;
+		bottom: -35px;
+		width: 70px;
+		height: 70px;
+		background-color: @white;
+		border-radius: 40px;
+		border: 0;
+		box-shadow: @buttonShadow;
+		transition: 0.25s;
+	}
+	&:hover {
+		box-shadow: 0 6px 12px rgba(0, 0, 0, 0.23), 0 10px 40px rgba(0, 0, 0, 0.19);
+		transform: scale(1.03);
+	}
+	&:active {
+		box-shadow: 0 6px 8px rgba(0, 0, 0, .24);
+		transform: scale(1.015);
+		transition: 0.1s;
+	}
+	&, &:hover, &:focus {
+		@media only screen and (max-width: 767px) {
+			background-color: transparent;
+			box-shadow: none;
+		}
+	}
+	& > img {
+		width: 50px;
+		height: 50px;
+		user-select: none;
+	}
 }
 
 .modal-left-button {
 	right: 50px;
+	@media only screen and (min-width: 768px) and (max-width: 991px) {
+		right: 27px;
+	}
+	@media only screen and (max-width: 767px) {
+		right: -5px;
+	}
+	@media only screen and (max-width: 424px) {
+		right: -20px;
+	}
 }
 
 .modal-right-button {
 	left: 50px;
-}
-
-/* sm */
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-	.portfolio-modal-link, .portfolio-modal-link:focus, .portfolio-modal-link:hover {
-		width: 100%;
-	}
-
-	.modal-left-button {
-		right: 27px;
-	}
-
-	.modal-right-button {
+	@media only screen and (min-width: 768px) and (max-width: 991px) {
 		left: 27px;
 	}
-}
-
-/* xs */
-@media only screen and (max-width: 767px) {
-	/* Disable Vertically Center Modal */
-	.modal:before {
-		content: none;
-	}
-
-	.modal-dialog {
-		width: 93%;
-		margin-top: 0;
-	}
-
-	.portfolio-modal {
-		margin-top: 5px;
-	}
-
-	.portfolio-modal-main {
-		padding: 0;
-	}
-
-	.portfolio-cat-control,
-	.portfolio-modal-body .row {
-		text-align: center;
-	}
-
-	.portfolio-modal .modal-header .close {
-		opacity: 1;
-	}
-
-	.portfolio-cat-link {
-		margin: 0 2px;
-	}
-
-	.portfolio-modal-body-links {
-		text-align: center;
-	}
-
-	.portfolio-modal-link, .portfolio-modal-link:hover, .portfolio-modal-link:focus {
-		display: inline-block;
-		margin: 10px;
-		width: 140px;
-	}
-
-	.portfolio-modal-nav-button, .portfolio-modal-nav-button:hover, .portfolio-modal-nav-button:focus {
-		background-color: transparent;
-		box-shadow: none;
-	}
-
-	.modal-left-button {
-		right: -5px;
-	}
-
-	.modal-right-button {
+	@media only screen and (max-width: 767px) {
 		left: -5px;
 	}
-}
-
-@media only screen and (max-width: 424px) {
-	.portfolio-item-wrapper {
-		width: 100%;
-	}
-
-	.modal-left-button {
-		right: -20px;
-	}
-
-	.modal-right-button {
+	@media only screen and (max-width: 424px) {
 		left: -20px;
 	}
 }

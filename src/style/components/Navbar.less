@@ -7,15 +7,32 @@
 	z-index: 990;
 }
 
+
 /*2 theme*/
+
 .navbar-transparent {
 	background-color: @white;
 	background-color: rgba(255, 255, 255, 0);
+	/*Navbar links*/
+	.navbar-nav > li > a {
+		color: @white;
+		text-shadow: @textShadow;
+		padding-bottom: 11px;
+		border-bottom: 4px solid transparent;
+		transition: 0.25s;
+	}
 }
+
 .navbar-white {
 	background-color: @white;
 	background-color: rgba(255, 255, 255, 0.96);
-	box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12), 0 3px 10px 1px rgba(0,0,0,.2);
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12), 0 3px 10px 1px rgba(0, 0, 0, .2);
+	.navbar-nav > li > a {
+		color: @primaryBlue;
+		padding-bottom: 11px;
+		border-bottom: 4px solid transparent;
+		transition: 0.25s;
+	}
 }
 
 .navbar-brand {
@@ -27,21 +44,10 @@
 	width: 50px;
 	height: 50px;
 	cursor: pointer;
-}
-
-/*Navbar links*/
-.navbar-transparent .navbar-nav > li > a {
-	color: @white;
-	text-shadow: @textShadow;
-	padding-bottom: 11px;
-	border-bottom: 4px solid transparent;
-	transition: 0.25s;
-}
-.navbar-white .navbar-nav > li > a {
-	color: @primaryBlue;
-	padding-bottom: 11px;
-	border-bottom: 4px solid transparent;
-	transition: 0.25s;
+	@media only screen and (max-width: 767px) {
+		display: block;
+		margin: 0 auto;
+	}
 }
 
 .navbar-nav > .navbar-links-active > a {
@@ -52,72 +58,86 @@
 	border-bottom: 4px solid transparent;
 }
 
-.navbar-white .navbar-nav > .navbar-links-active > a,
-.navbar-white .navbar-nav > li > a:focus,
-.navbar-white .navbar-nav > li > a:hover {
+.navbar-white .navbar-nav > .navbar-links-active > a, .navbar-white .navbar-nav > li > a:focus, .navbar-white .navbar-nav > li > a:hover {
 	color: @primaryBlue;
 	border-bottom: 4px solid @primaryBlue;
 }
 
-.navbar-transparent .navbar-nav > .navbar-links-active > a,
-.navbar-transparent .navbar-nav > li > a:focus,
-.navbar-transparent .navbar-nav > li > a:hover {
+.navbar-transparent .navbar-nav > .navbar-links-active > a, .navbar-transparent .navbar-nav > li > a:focus, .navbar-transparent .navbar-nav > li > a:hover {
 	color: @white;
 	border-bottom: 4px solid @white;
 }
 
+
 /*Navbar toggle*/
-.navbar-default .navbar-toggle {
-	border: 0;
-	margin-top: -42px;
-}
-.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
-	background-color: transparent;
-}
-.navbar-default .navbar-toggle .icon-bar,
-.navbar-default .navbar-toggle-white .icon-bar {
-	background-color: @white;
-}
-.navbar-default .navbar-toggle-white .icon-bar {
-	box-shadow: @textShadow;
-}
-.navbar-default .navbar-toggle-dark .icon-bar {
-	background-color: @darkGray;
+
+.navbar-default {
+	.navbar-toggle {
+		border: 0;
+		margin-top: -42px;
+		&:focus, &:hover {
+			background-color: transparent;
+		}
+		.icon-bar {
+			background-color: @white;
+		}
+	}
+	.navbar-toggle-white {
+		.icon-bar {
+			background-color: @white;
+			box-shadow: @textShadow;
+		}
+	}
+	.navbar-toggle-dark {
+		.icon-bar {
+			background-color: @darkGray;
+		}
+	}
 }
 
 
 /**
 * Sidebar styles
 */
+
+
 /* General sidebar styles */
+
 .bm-menu-wrap {
 	z-index: 999 !important;
 }
+
 .bm-menu {
 	background: @white;
 	padding-top: 2.5em;
 	font-size: 1.3em;
-	box-shadow: -4px 0 10px 0 rgba(0,0,0,.14);
+	box-shadow: -4px 0 10px 0 rgba(0, 0, 0, .14);
 }
 
+
 /* List item */
+
 .bm-item-list > a {
 	padding: 10px 2em;
 	color: @primaryBlue;
 }
-.bm-item-list > a:focus,
-.bm-item-list > a:hover {
+
+.bm-item-list > a:focus, .bm-item-list > a:hover {
 	padding: 5px;
 	color: @primaryBlue;
 }
+
 .bm-item-list > a:focus, .bm-item-list > a:hover {
 	padding: 10px 2em;
 }
+
 .sidebar-active {
 	background-color: @lightGray;
 }
 
+
 /* Overlay */
+
 #sidebarOverlay {
 	position: fixed;
 	top: 0;
@@ -131,16 +151,14 @@
 	background-color: rgba(0, 0, 0, 0.3);
 }
 
+
 /*On mobile size*/
+
 @media only screen and (max-width: 767px) {
 	.nav {
 		display: none;
 	}
 	.navbar-header {
 		position: relative;
-	}
-	.navbar-logo {
-		display: block;
-		margin: 0 auto;
 	}
 }
