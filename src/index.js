@@ -10,7 +10,7 @@ import rootReducer from './js/redux/reducers/index'
 import App from './App'
 
 import './style/bootstrap/bootstrap.min.css'
-import './index.less'
+import './index.css'
 
 /**
 * Index file where it renders all the JSX into public/index.html
