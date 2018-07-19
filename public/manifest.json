@@ -1,0 +1,20 @@
+{
+    "short_name": "MarkWenSpace",
+    "name": "Mark Wen Space",
+    "icons": [
+      {
+        "src": "appIcon/favicon.ico",
+        "sizes": "192x192",
+        "type": "image/png"
+      },
+      {
+        "src": "appIcon/android-chrome-512x512.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ],
+    "start_url": "./index.html",
+    "display": "standalone",
+    "theme_color": "#008EFF",
+    "background_color": "#FCFCFC"
+  }

@@ -8,6 +8,7 @@ import { createStore } from 'redux'
 
 import rootReducer from './js/redux/reducers/index'
 import App from './App'
+import registerServiceWorker from './registerServiceWorker'
 
 import './style/bootstrap/bootstrap.min.css'
 import './index.css'
@@ -26,6 +27,8 @@ ReactDOM.render(
 	</Provider>,
   document.getElementById('root')
 )
+
+registerServiceWorker()
 
 if (module.hot) {
 	module.hot.accept()
