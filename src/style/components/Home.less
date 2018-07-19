@@ -1,0 +1,128 @@
+.home {
+	background-color: @backgroundWhite;
+}
+
+.home-landing {
+	background: @backgroundWhite url(../../img/home.jpg) center center no-repeat scroll;
+	background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	-webkit-background-size: cover;
+	min-height: 95vh;
+}
+
+.home-title {
+	text-align: center;
+	padding-top: 15vh;
+	cursor: default;
+	user-select: none;
+	& > h1 {
+		color: @white;
+		margin-bottom: 0;
+		font-size: 3.7em;
+		text-shadow: @textShadow;
+		@media only screen and (max-width: 767px) {
+			font-size: 3.3em;
+		}
+	}
+	& > p {
+		color: @white;
+		font-weight: 400;
+		font-size: 16px;
+		text-shadow: @textShadow;
+		@media only screen and (max-width: 767px) {
+			font-size: 14px;
+		}
+	}
+}
+
+.home-landing-icons-wrapper {
+	text-align: center;
+	margin-top: 15px;
+}
+
+.home-landing-icon {
+	width: 30px;
+	height: 30px;
+	display: inline-block;
+	margin: 0 5px;
+	user-select: none;
+	color: transparent;
+}
+
+.home-landing-icon-file {
+	background: url(../../img/icons/file.svg) center center no-repeat scroll;
+	&:hover, &:focus {
+		color: transparent;
+		background: url(../../img/icons/file-colored.svg) center center no-repeat scroll;
+	}
+}
+
+.home-landing-icon-linkedin {
+	background: url(../../img/icons/linkedin.svg) center center no-repeat scroll;
+	&:hover, &:focus {
+		color: transparent;
+		background: url(../../img/icons/linkedin-colored.svg) center center no-repeat scroll;
+	}
+}
+
+.home-landing-icon-github {
+	background: url(../../img/icons/github.svg) center center no-repeat scroll;
+	&:hover, &:focus {
+		color: transparent;
+		background: url(../../img/icons/github-colored.svg) center center no-repeat scroll;
+	}
+}
+
+.home-landing-icon-500px {
+	background: url(../../img/icons/500px.svg) center center no-repeat scroll;
+	&:hover, &:focus {
+		color: transparent;
+		background: url(../../img/icons/500px-colored.svg) center center no-repeat scroll;
+	}
+}
+
+.home-cards {
+	margin-top: -85px;
+}
+
+.home-intro-card {
+	text-align: center;
+	padding: 20px;
+	& > h3 {
+		margin-bottom: 20px;
+	}
+}
+
+.home-profile-pic {
+	width: 125px;
+	height: 125px;
+	border-radius: 100px;
+	box-shadow: 0 3px 10px 0 rgba(0, 0, 0, .16);
+	display: block;
+	margin: 0 auto;
+	margin-top: 10px;
+	user-select: none;
+}
+
+.home-hobbies-card {
+	background: @cardBackgroundBlue;
+	color: @white;
+	text-align: center;
+}
+
+.home-hobbies-icons-wrapper {
+	margin: 25px;
+}
+
+.home-hobbies-card h3, .home-hobbies-icons-wrapper h4 {
+	user-select: none;
+	cursor: default;
+}
+
+.home-hobbies-icon {
+	width: 50px;
+	height: 50px;
+	margin: 25px;
+	display: inline-block;
+}

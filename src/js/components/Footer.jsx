@@ -10,7 +10,7 @@ class Footer extends PureComponent {
 		return (
 			<div className="footer">
 				<img alt="mw logo" src={WhiteLogoTransparentBG} />
-				<p className="legal-text">Design & develop by Mark Wen</p>
+				<p className="legal-text">Design & Develop by Mark Wen</p>
 				<p className="legal-text">Copyright © {new Date().getFullYear()} Mark Wen. All rights reserved.</p>
 			</div>
 		);

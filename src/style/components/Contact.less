@@ -1,0 +1,182 @@
+.contact {
+	background-color: @backgroundWhite;
+}
+
+.contact-title {
+	background: @backgroundWhite url(../../img/contact.jpg) bottom center no-repeat scroll;
+	background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	-webkit-background-size: cover;
+}
+
+.contact-content {
+	margin-top: -70px;
+}
+
+
+/**
+* Contact information card
+*/
+
+.contact-info {
+	background: @cardBackgroundBlue;
+	padding-top: 25px;
+	padding-bottom: 25px;
+	position: relative;
+}
+
+.contact-info-line {
+	display: block;
+	margin: 15px auto;
+	width: 250px;
+	&>a {
+		color: @white;
+		margin-left: 10px;
+		vertical-align: middle;
+	}
+}
+
+.contact-info-icon {
+	width: 25px;
+	height: 25px;
+	display: inline-block;
+}
+
+.contact-info-line-address {
+	display: inline-block;
+	margin-left: 10px;
+	color: @white;
+	vertical-align: middle;
+	&>a {
+		color: @white;
+		vertical-align: middle;
+	}
+}
+
+
+/**
+* Contact email card
+*/
+
+.contact-email {
+	padding-top: 25px;
+	padding-bottom: 70px;
+	h4 {
+		text-align: center;
+		margin-top: 15px;
+		margin-bottom: 15px;
+		user-select: none;
+		cursor: default;
+	}
+	@media only screen and (max-width: 767px) {
+		padding-bottom: 25px;
+	}
+}
+
+.contact-email-form {
+	width: 90%;
+	display: block;
+	margin: 15px auto;
+	border: 0;
+	border-bottom: @primaryBlue 2px solid;
+	outline: none;
+	padding-left: 0;
+	padding-right: 0;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	resize: vertical;
+	&::placeholder, &::-webkit-input-placeholder, &::-moz-placeholder, &::-ms-input-placeholder, &:-moz-placeholder {
+		color: @primaryBlue;
+		font-size: 13px;
+	}
+	&:focus {
+		width: 90%;
+		display: block;
+		margin: 15px auto;
+		border: 0;
+		border-bottom: @primaryBlue 2px solid;
+		outline: none;
+		padding-left: 0;
+		padding-right: 0;
+		padding-top: 5px;
+		padding-bottom: 5px;
+		resize: vertical;
+	}
+}
+
+.contact-email-form::placeholder, .contact-email-form::-webkit-input-placeholder, .contact-email-form::-moz-placeholder, .contact-email-form::-ms-input-placeholder, .contact-email-form:-moz-placeholder {
+	color: @primaryBlue;
+	font-size: 13px;
+}
+
+.contact-email-form-submit-wrapper {
+	width: 90%;
+	margin: 0 auto;
+}
+
+.contact-email-submit {
+	float: right;
+	background-color: @primaryBlue;
+	color: @white;
+	border-radius: 2.5px;
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12), 0 3px 1px -2px rgba(0, 0, 0, .2);
+	padding: 5px;
+	user-select: none;
+	&:hover, &:focus {
+		color: @white;
+		cursor: pointer;
+	}
+	& > p {
+		display: inline-block;
+		vertical-align: middle;
+		margin: 0 5px;
+	}
+	@media only screen and (max-width: 767px) {
+		float: none;
+		display: block;
+		margin: 0 auto;
+		width: 90px;
+		text-align: center;
+	}
+}
+
+.contact-email-submit-icon {
+	width: 22px;
+	height: 22px;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+
+/*Disable grammarly-ghost*/
+
+grammarly-ghost {
+	visibility: hidden;
+}
+
+.modal-content {
+	background-color: transparent;
+	border: 0;
+	box-shadow: none;
+}
+
+.g-recaptcha {
+	width: 304px;
+	display: block;
+	margin: 0 auto;
+}
+
+
+/**
+* Google Maps
+*/
+
+.contact-map {
+	height: 450px;
+	margin-top: 23px;
+	padding: 0;
+	@media only screen and (max-width: 767px) {
+		padding-bottom: 25px;
+	}
+}

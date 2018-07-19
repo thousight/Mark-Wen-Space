@@ -1,14 +1,16 @@
-import React, { Component } from 'react';
-import axios from 'axios';
-import Recaptcha from 'react-recaptcha';
-import { withGoogleMap, GoogleMap, Marker } from "react-google-maps";
-import { Map, Marker as BMapMarker } from 'react-bmap';
-import { Row, Col, Modal } from 'react-bootstrap';
+import React, { Component } from 'react'
+import axios from 'axios'
+import Recaptcha from 'react-recaptcha'
+import { withGoogleMap, GoogleMap, Marker } from "react-google-maps"
+import { Map, Marker as BMapMarker } from 'react-bmap'
+import { Row, Col, Modal } from 'react-bootstrap'
 
-import envelope from '../img/icons/envelope.svg';
-import home from '../img/icons/home.svg';
-import phone from '../img/icons/phone.svg';
-import navigation from '../img/icons/navigation.svg';
+import { API_PATH } from './constants/strings'
+
+import envelope from '../img/icons/envelope.svg'
+import home from '../img/icons/home.svg'
+import phone from '../img/icons/phone.svg'
+import navigation from '../img/icons/navigation.svg'
 
 /**
 * Static Contact page, able to send email to Mark and view Google Maps
@@ -16,58 +18,58 @@ import navigation from '../img/icons/navigation.svg';
 class Contact extends Component {
 
 	constructor(props) {
-		super(props);
+		super(props)
 
 		this.state = {
 			isShowRecaptchaModal: false,
 			isGoogleAvailable: true
 		}
 
-		this.sendEmail = this.sendEmail.bind(this);
-		this.hanleEmailSubmit = this.hanleEmailSubmit.bind(this);
+		this.sendEmail = this.sendEmail.bind(this)
+		this.hanleEmailSubmit = this.hanleEmailSubmit.bind(this)
 	}
 
 	componentWillMount() {
 		// Check if google is available
 		if (!window['google']){
-			this.setState({isGoogleAvailable: false});
+			this.setState({isGoogleAvailable: false})
 		}
 	}
 
 	componentDidMount() {
 		// Grab variables
-		this.nameInput = document.getElementById("name");
-		this.fromEmailInput = document.getElementById("fromEmail");
-		this.subjectInput = document.getElementById("subject");
-		this.messageInput = document.getElementById("message");
-		this.submitButton = document.getElementById("submitButton");
-		this.submitText = document.getElementById("submitText");
+		this.nameInput = document.getElementById("name")
+		this.fromEmailInput = document.getElementById("fromEmail")
+		this.subjectInput = document.getElementById("subject")
+		this.messageInput = document.getElementById("message")
+		this.submitButton = document.getElementById("submitButton")
+		this.submitText = document.getElementById("submitText")
 	}
 
 	/**
 	* Dismis modal and send email through API
 	*/
 	sendEmail() {
-		this.setState({ isShowRecaptchaModal: false });
+		this.setState({ isShowRecaptchaModal: false })
 
-		axios.post('https://mark-wen-space-v3-server.herokuapp.com/api/email/sendContactEmail', {
+		axios.post(`${API_PATH}/email/sendContactEmail`, {
 			fromEmail: `"${this.nameInput.value}" <${this.fromEmailInput.value}>`,
 			subject: this.subjectInput.value,
 			textBody: this.messageInput.value
 		})
-		.then(res => {
+		.then(() => {
 			// Clear fields
-			this.nameInput.value = "";
-			this.fromEmailInput.value = "";
-			this.subjectInput.value = "";
-			this.messageInput.value = "";
+			this.nameInput.value = ""
+			this.fromEmailInput.value = ""
+			this.subjectInput.value = ""
+			this.messageInput.value = ""
 
-			this.setSubmitButtonMessage(true, "Email sent");
+			this.setSubmitButtonMessage(true, "Email sent")
 		})
 		.catch(error => {
-			console.log(error);
-			this.setSubmitButtonMessage(false, "Error, see console");
-		});
+			console.log(error)
+			this.setSubmitButtonMessage(false, "Error, see console")
+		})
 	}
 
 	/**
@@ -75,9 +77,9 @@ class Contact extends Component {
 	*/
 	hanleEmailSubmit() {
 		if (window['recaptcha'] && window['grecaptcha']) {
-			this.setState({ isShowRecaptchaModal: true });
+			this.setState({ isShowRecaptchaModal: true })
 		} else {
-			this.sendEmail();
+			this.sendEmail()
 		}
 	}
 
@@ -86,15 +88,15 @@ class Contact extends Component {
 	* @param: status(boolean), message(String)
 	*/
 	setSubmitButtonMessage(status, message) {
-		this.submitButton.style.background = status ? '#4caf50' : '#f44336';
-		this.submitButton.classList.add('unclickable');
-		this.submitText.innerHTML = message;
+		this.submitButton.style.background = status ? '#4caf50' : '#f44336'
+		this.submitButton.classList.add('unclickable')
+		this.submitText.innerHTML = message
 
 		setTimeout(() => {
-			this.submitButton.style.background = '#008EFF';
-			this.submitButton.classList.remove('unclickable');
-			this.submitText.innerHTML = 'Submit';
-		}, 3000);
+			this.submitButton.style.background = '#008EFF'
+			this.submitButton.classList.remove('unclickable')
+			this.submitText.innerHTML = 'Submit'
+		}, 3000)
 	}
 
 	render() {
@@ -190,8 +192,8 @@ class Contact extends Component {
 					/>
 				</Modal>
 			</div>
-		);
+		)
 	}
 }
 
-export default Contact;
+export default Contact
