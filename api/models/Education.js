@@ -8,11 +8,11 @@ const EduSchema = new Schema ({
   time: String,
   order: Number,
   image: String,
-  desc: [String],
-  style: {
-    type: Schema.Types.ObjectId, 
-    ref: 'Style'
-  }
-}, { timestamps: true })
+  desc: [ String ],
+  style: { type: Schema.Types.ObjectId,  ref: 'Style' }
+}, { 
+  timestamps: true,
+  collection: 'Educations'
+})
 
 export default mongoose.model('Education', EduSchema)

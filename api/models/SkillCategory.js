@@ -8,10 +8,10 @@ const SkillCatSchema = new Schema ({
   },
   order: Number,
   color: String,
-  skill: [{
-    type: Schema.Types.ObjectId, 
-    ref: 'Skill'
-  }]
-}, { timestamps: true })
+  skill: [{ type: Schema.Types.ObjectId, ref: 'Skill' }]
+}, { 
+  timestamps: true,
+  collection: 'SkillCategories'
+})
 
 export default mongoose.model('SkillCategory', SkillCatSchema)

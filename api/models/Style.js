@@ -4,6 +4,9 @@ const StyleSchema = new Schema ({
     primaryColor: String,
     secondaryColor: String,
     bannerImage: String
-}, { timestamps: true })
+}, { 
+    timestamps: true,
+    collection: 'Styles'
+})
 
 export default mongoose.model('Style', StyleSchema)

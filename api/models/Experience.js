@@ -8,11 +8,11 @@ var ExpSchema = new Schema ({
   time: String,
   order: Number,
   image: String,
-  desc: [String],
-  style: {
-    type: Schema.Types.ObjectId, 
-    ref: 'Style'
-  }
-}, { timestamps: true })
+  desc: [ String ],
+  style: { type: Schema.Types.ObjectId,  ref: 'Style' }
+}, { 
+  timestamps: true,
+  collection: 'Experiences'
+})
 
 export default mongoose.model('Experience', ExpSchema)

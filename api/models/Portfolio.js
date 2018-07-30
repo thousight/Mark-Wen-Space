@@ -6,13 +6,13 @@ const PortfolioSchema = new Schema ({
   time: String,
   desc: String,
   keywords: String,
-  categories: [String],
+  categories: [ String ],
   links: Object,
   order: Number,
-  style: {
-    type: Schema.Types.ObjectId, 
-    ref: 'Style'
-  }
-}, { timestamps: true })
+  style: { type: Schema.Types.ObjectId,  ref: 'Style' }
+}, { 
+  timestamps: true,
+  collection: 'Portfolios'
+})
 
 export default mongoose.model('Portfolio', PortfolioSchema)
