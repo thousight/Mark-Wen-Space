@@ -1,6 +1,16 @@
 import mongoose from 'mongoose'
 import Promise from 'bluebird'
+
+import Education from '../models/Education'
+import Experience from '../models/Experience'
+import Portfolio from '../models/Portfolio'
+import Skill from '../models/Skill'
+import SkillCategory from '../models/SkillCategory'
+import Style from '../models/Style'
+
 import config from '../../config'
+
+const validMongoIdRegex = /^[a-fA-F0-9]{24}$/
 
 export const connectToMongo = () => {
     // Connecting to MongoDB, markwen is read-only account
@@ -18,5 +28,7 @@ export const connectToMongo = () => {
         })
     })
 }
+
+export const isMongoId = id => (mongoose.Types.ObjectId.isValid(id) && validMongoIdRegex.test(id))
 
 export default mongoose
