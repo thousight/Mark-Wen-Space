@@ -1,9 +1,10 @@
-import { gql } from 'apollo-server-express'
-
+import addEducation from './addEducation'
 import allEducations from './allEducations'
 import getEducationById from './getEducationById'
+import updateEducation from './updateEducation'
+import deleteEducation from './deleteEducation'
 
-const typeDef = gql`
+const typeDef = `
   type Education {
     _id: String
     organization: String
@@ -21,6 +22,11 @@ const resolvers = {
   Query: {
     allEducations,
     getEducationById
+  },
+  Mutation: {
+    addEducation,
+    updateEducation,
+    deleteEducation
   }
 }
 

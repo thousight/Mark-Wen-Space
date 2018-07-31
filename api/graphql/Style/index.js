@@ -1,6 +1,6 @@
-import { gql } from 'apollo-server-express'
+import updateStyle from './updateStyle'
 
-const typeDef = gql`
+const typeDef = `
   type Style {
     _id: String
     primaryColor: String
@@ -11,6 +11,9 @@ const typeDef = gql`
 const resolvers = {
   Query: {
 
+  },
+  Mutation: {
+    updateStyle
   }
 }
 
