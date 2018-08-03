@@ -16,6 +16,8 @@ const typeDef = `
     image: String
     desc: [String]
     style: Style
+    createdAt: Date
+    updatedAt: Date
   }
 `
 const resolvers = {

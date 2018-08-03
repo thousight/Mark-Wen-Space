@@ -4,7 +4,7 @@ import getExperienceById from './getExperienceById'
 import updateExperience from './updateExperience'
 import deleteExperience from './deleteExperience'
 
-const typeDef = `
+const typeDef = `  
   type Experience {
     _id: String
     organization: String
@@ -16,6 +16,8 @@ const typeDef = `
     image: String
     desc: [String]
     style: Style
+    createdAt: Date
+    updatedAt: Date
   }
 `
 const resolvers = {

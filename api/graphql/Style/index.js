@@ -6,6 +6,8 @@ const typeDef = `
     primaryColor: String
     secondaryColor: String
     bannerImage: String
+    createdAt: Date
+    updatedAt: Date
   }
 `
 const resolvers = {

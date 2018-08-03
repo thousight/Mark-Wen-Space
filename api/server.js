@@ -53,7 +53,8 @@ connectToMongo().then(() => {
     if (err) {
       console.log(err)
     } else {
-      console.log('Listening on port ' + config.port + '.')
+      console.log(`Apollo GraphQL is running at ${graphqlServer.graphqlPath}`);
+      console.log(`Listening on port ${config.port}.`)
     }
   })
 })
