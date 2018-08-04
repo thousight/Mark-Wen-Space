@@ -16,9 +16,7 @@ export default (_, { organization,  city, state, degree, time, order, image, des
                         ...savedEdu._doc,
                         style: savedStyle
                     }
-                    let key = formRedisKeyWithMongoId(EDU, result._id)
-                    
-                    redis.set(key, JSON.stringify(result), (error) => {
+                    redis.set(formRedisKeyWithMongoId(EDU, result._id), JSON.stringify(result), (error) => {
                         error ? reject(error) : resolve(result)
                     })
                 }

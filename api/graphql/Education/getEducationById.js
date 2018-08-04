@@ -1,7 +1,7 @@
 import Promise from 'bluebird'
 
-import redis, { EDU, formRedisKeyWithMongoId, checkRedisError } from '../../libs/redis'
 import Education from '../../models/Education'
+import redis, { EDU, formRedisKeyWithMongoId, checkRedisError } from '../../libs/redis'
 import { isMongoId } from '../../libs/mongoose'
 
 export default (_, { _id  }) => new Promise((resolve, reject) => {
