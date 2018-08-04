@@ -17,7 +17,7 @@ export const connectToMongo = () => {
     // Change to non read-only account to write in the database
     mongoose.Promise = Promise
     return new Promise((resolve, reject) => {
-        mongoose.connect(process.env.MONGODB_URI ? process.env.MONGODB_URI : config.database, { useNewUrlParser: true }, err => {
+        mongoose.connect(process.env.MONGODB_URI ? process.env.MONGODB_URI : config.MONGODB_URI, { useNewUrlParser: true }, err => {
             if (err) {
                 console.log(err)
                 reject(err)

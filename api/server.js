@@ -47,7 +47,7 @@ app.use('/', express.static('dist/public'))
 graphqlServer.applyMiddleware({ app })
 
 connectToMongo().then(() => {
-  app.listen(config.port, err => {
+  app.listen(process.env.PORT || config.port, err => {
     if (err) {
       console.log(err)
     } else {
