@@ -6,7 +6,6 @@ import cors from 'cors'
 
 import graphqlServer from './graphql'
 import { connectToMongo } from './libs/mongoose'
-import config from '../config'
 
 // Initialize express.js
 const app = express()
@@ -47,12 +46,13 @@ app.use('/', express.static('dist/public'))
 graphqlServer.applyMiddleware({ app })
 
 connectToMongo().then(() => {
-  app.listen(process.env.PORT || config.port, err => {
+  let port = process.env.PORT || require('../config').port
+  app.listen(port, err => {
     if (err) {
       console.log(err)
     } else {
       console.log(`Apollo GraphQL is running at ${graphqlServer.graphqlPath}`);
-      console.log(`Listening on port ${config.port}.`)
+      console.log(`Listening on port ${port}.`)
     }
   })
 })

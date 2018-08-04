@@ -8,8 +8,6 @@ import Skill from '../models/Skill'
 import SkillCategory from '../models/SkillCategory'
 import Style from '../models/Style'
 
-import config from '../../config'
-
 const validMongoIdRegex = /^[a-fA-F0-9]{24}$/
 
 export const connectToMongo = () => {
@@ -17,7 +15,7 @@ export const connectToMongo = () => {
     // Change to non read-only account to write in the database
     mongoose.Promise = Promise
     return new Promise((resolve, reject) => {
-        mongoose.connect(process.env.MONGODB_URI ? process.env.MONGODB_URI : config.MONGODB_URI, { useNewUrlParser: true }, err => {
+        mongoose.connect(process.env.MONGODB_URI ? process.env.MONGODB_URI : require('../../config').MONGODB_URI, { useNewUrlParser: true }, err => {
             if (err) {
                 console.log(err)
                 reject(err)

@@ -1,8 +1,6 @@
 import redisPackage from 'redis'
 
-import config from '../../config'
-
-const redis = redisPackage.createClient(process.env.REDIS_URL ? process.env.REDIS_URL : config.REDIS_URL)
+const redis = redisPackage.createClient(process.env.REDIS_URL ? process.env.REDIS_URL : require('../../config').REDIS_URL)
 
 export const EDU = 'EDU'
 export const EXP = 'EXP'
