@@ -68,13 +68,13 @@ export default `
 
     # Portfolio
     addPortfolio(
-      title: String,
-      logo: String,
-      time: String,
-      desc: String,
-      keywords: String,
-      categories: [ String ],
-      order: Int,
+      title: String!,
+      logo: String!,
+      time: String!,
+      desc: String!,
+      keywords: String!,
+      categories: [ String ]!,
+      order: Int!,
       primaryColor: String!,
       secondaryColor: String!,
       bannerImage: String
@@ -99,32 +99,22 @@ export default `
 
     # SkillCategory
     addSkillCategory(
-      title: String,
-      logo: String,
-      time: String,
-      desc: String,
-      keywords: String,
-      categories: [ String ],
-      order: Int,
-      primaryColor: String!,
-      secondaryColor: String!,
-      bannerImage: String
+      categoryTitle: String,
+      order: Int!,
+      color: String!,
+      skills: [ Skill ],
     ): SkillCategory
 
     updateSkillCategory(
       _id: String!,
-      title: String,
-      logo: String,
-      time: String,
-      desc: String,
-      keywords: String,
-      categories: [ String ],
-      order: Int
+      categoryTitle: String,
+      order: Int,
+      color: String,
+      skills: [ Skill ],
     ): SkillCategory
 
     deleteSkillCategory(
-      _id: String!,
-      styleId: String!
+      _id: String!
     ): SkillCategory
 
 
@@ -132,7 +122,7 @@ export default `
     updateSkill(
       _id: String!,
       skillName: String,
-      percent: Int,
+      percent: Int
     ): Skill
 
 
