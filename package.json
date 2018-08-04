@@ -48,8 +48,8 @@
     "react-scripts": "^1.1.4"
   },
   "scripts": {
-    "build-css": "lessc --relative-urls ./src/index.less ./src/index.css",
-    "watch-css": "npm run build-css && lessc --relative-urls ./src/index.less ./src/index.css",
+    "build-css": "lessc --rewrite-urls=all ./src/index.less ./src/index.css",
+    "watch-css": "npm run build-css && lessc --rewrite-urls=all ./src/index.less ./src/index.css",
     "start": "node dist/server.js",
     "start:web": "react-app-rewired start",
     "start:api": "nodemon --ext js,json,gql --watch ./api/ --exec babel-node ./api/server.js --presets=env",
