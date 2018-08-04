@@ -102,7 +102,7 @@ export default `
       categoryTitle: String,
       order: Int!,
       color: String!,
-      skills: [ Skill ],
+      skills: [ String ],
     ): SkillCategory
 
     updateSkillCategory(
@@ -110,7 +110,7 @@ export default `
       categoryTitle: String,
       order: Int,
       color: String,
-      skills: [ Skill ],
+      skills: [ String ],
     ): SkillCategory
 
     deleteSkillCategory(
@@ -133,5 +133,13 @@ export default `
       secondaryColor: String,
       bannerImage: String
     ): Style
+
+
+    # Email
+    sendEmail(
+      fromEmail: String!, 
+      subject: String!,
+      textBody: String!
+    ): JSON
   }
 `
