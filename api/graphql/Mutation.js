@@ -119,6 +119,11 @@ export default `
 
 
     # Skill
+    addSkill(
+      skillName: String!,
+      percent: Int!
+    ): Skill
+    
     updateSkill(
       _id: String!,
       skillName: String,

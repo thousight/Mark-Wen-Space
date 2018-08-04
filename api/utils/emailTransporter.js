@@ -1,13 +1,29 @@
 import nodemailer from 'nodemailer'
 import smtpTransport from 'nodemailer-smtp-transport'
 
-import config from '../../config'
+const transporterAuth = () => {
+    let { EMAIL_USER, EMAIL_CLIENT_ID, EMAIL_CLIENT_SECRET, EMAIL_REFRESH_TOKEN, EMAIL_ACCESS_TOKEN } = process.env
+
+    if (!(EMAIL_USER && EMAIL_CLIENT_ID && EMAIL_CLIENT_SECRET && EMAIL_REFRESH_TOKEN && EMAIL_ACCESS_TOKEN)) {
+        return require('../../config').GmailOAuth
+    } else {
+        return {
+            type: 'OAuth2',
+            user: EMAIL_USER,
+            clientId: EMAIL_CLIENT_ID,
+            clientSecret: EMAIL_CLIENT_SECRET,
+            refreshToken: EMAIL_REFRESH_TOKEN,
+            accessToken: EMAIL_ACCESS_TOKEN,
+            expires: 3600
+        }
+    }
+}
 
 const transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
     port: 465,
     secure: true,
-    auth: config.GmailOAuth
+    auth: transporterAuth()
 })
 
 export const sendEmailToMark = (fromEmail, subject, textBody) => new Promise((resolve, reject) => {

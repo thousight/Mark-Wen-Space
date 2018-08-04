@@ -1,3 +1,4 @@
+import addSkill from './addSkill'
 import updateSkill from './updateSkill'
 
 const typeDef = `
@@ -14,6 +15,7 @@ const resolvers = {
 
   },
   Mutation: {
+    addSkill,
     updateSkill
   }
 }
