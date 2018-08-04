@@ -2,6 +2,7 @@ import Promise from 'bluebird'
 
 import Education from '../../models/Education'
 import Style from '../../models/Style'
+import redis, { EDU, formRedisKeyWithMongoId } from '../../libs/redis'
 import { handleMongoSaveError } from '../../utils/errorHandling'
 
 export default (_, { organization,  city, state, degree, time, order, image, desc, primaryColor, secondaryColor, bannerImage  }) => new Promise((resolve, reject) => {
@@ -11,9 +12,14 @@ export default (_, { organization,  city, state, degree, time, order, image, des
             let edu = new Education({ organization,  city, state, degree, time, order, image, desc, style: savedStyle._id })
             edu.save((eduError, savedEdu) => {
                 if (handleMongoSaveError(eduError, reject)) {
-                    resolve({
+                    let result = {
                         ...savedEdu._doc,
                         style: savedStyle
+                    }
+                    let key = formRedisKeyWithMongoId(EDU, result._id)
+                    
+                    redis.set(key, JSON.stringify(result), (error) => {
+                        error ? reject(error) : resolve(result)
                     })
                 }
             })

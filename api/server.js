@@ -15,9 +15,7 @@ const app = express()
 const whitelist = ['https://mark-wen-space-dev.herokuapp.com', 'https://mark-wen-space.herokuapp.com', 'https://www.markwen.space']
 app.use(cors({
   origin: (origin, callback) => {
-    if (whitelist.includes(origin)) {
-      callback(null, true)
-    } else if (process.env.NODE_ENV === undefined) { // Local
+    if (whitelist.includes(origin) || process.env.NODE_ENV === undefined) { // origin in whitelist or environment is local
       callback(null, true)
     } else {
       console.log('CORS blocked this origin:')
@@ -26,7 +24,7 @@ app.use(cors({
     }
   },
   methods: 'POST,GET,PUT,DELETE,OPTIONS',
-  allowedHeaders: 'Origin, X-Requested-With, Content-Type, Accept, token, X-Rate-Limit-Limit, X-Rate-Limit-Remaining, X-Rate-Limit-Reset',
+  allowedHeaders: 'Origin, Content-Type, Accept, token, X-Requested-With, X-Rate-Limit-Limit, X-Rate-Limit-Remaining, X-Rate-Limit-Reset',
   exposedHeaders: 'token'
 }))
 // Log every request to the console
