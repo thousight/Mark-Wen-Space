@@ -5,7 +5,7 @@ const redis = redisPackage.createClient(process.env.REDIS_URL ? process.env.REDI
 export const EDU = 'EDU'
 export const EXP = 'EXP'
 export const PORT = 'PORT'
-export const SKILLS = 'SKILLS'
+export const SKILLCATS = 'SKILLCATS'
 
 export const formRedisKeyWithMongoId = (key, id) => `${key}: ${id}`
 

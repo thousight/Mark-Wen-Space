@@ -4,6 +4,8 @@ import { ApolloServer, makeExecutableSchema } from 'apollo-server-express'
 import Education from './Education'
 import Experience from './Experience'
 import Portfolio from './Portfolio'
+import SkillCategory from './SkillCategory'
+import Skill from './Skill'
 import Style from './Style'
 import Query from './Query'
 import Mutation from './Mutation'
@@ -18,6 +20,8 @@ const schema = makeExecutableSchema({
         Education.typeDef,
         Experience.typeDef,
         Portfolio.typeDef,
+        SkillCategory.typeDef,
+        Skill.typeDef,
         Style.typeDef,
         Query,
         Mutation
@@ -27,7 +31,9 @@ const schema = makeExecutableSchema({
 
         Education.resolvers,
         Experience.resolvers,
+        SkillCategory.resolvers,
         Portfolio.resolvers,
+        Skill.resolvers,
         Style.resolvers
     ]
 })

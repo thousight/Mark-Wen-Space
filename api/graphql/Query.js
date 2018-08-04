@@ -11,5 +11,9 @@ export default `
     # Portfolio
     allPortfolios: [Portfolio]
     getPortfolioById(_id: String!): Portfolio
+
+    # SkillCategory
+    allSkillCategories: [SkillCategory]
+    getSkillCategoryById(_id: String!): SkillCategory
   }
 `
