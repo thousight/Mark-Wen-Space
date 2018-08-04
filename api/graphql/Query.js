@@ -7,5 +7,9 @@ export default `
     # Experience
     allExperiences: [Experience]
     getExperienceById(_id: String!): Experience
+
+    # Portfolio
+    allPortfolios: [Portfolio]
+    getPortfolioById(_id: String!): Portfolio
   }
 `

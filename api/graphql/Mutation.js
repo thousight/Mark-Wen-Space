@@ -66,6 +66,37 @@ export default `
     ): Experience
 
 
+    # Portfolio
+    addPortfolio(
+      title: String,
+      logo: String,
+      time: String,
+      desc: String,
+      keywords: String,
+      categories: [ String ],
+      order: Int,
+      primaryColor: String!,
+      secondaryColor: String!,
+      bannerImage: String
+    ): Portfolio
+
+    updatePortfolio(
+      _id: String!,
+      title: String,
+      logo: String,
+      time: String,
+      desc: String,
+      keywords: String,
+      categories: [ String ],
+      order: Int
+    ): Portfolio
+
+    deletePortfolio(
+      _id: String!,
+      styleId: String!
+    ): Portfolio
+
+
     # Style
     updateStyle(
       _id: String!,
