@@ -10,7 +10,7 @@ const typeDef = `
     organization: String
     city: String
     state: String
-    degree: String
+    title: String
     time: String
     order: Int
     image: String
