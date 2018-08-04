@@ -1,4 +1,4 @@
-import Promise from 'bluebird'
+
 
 import Portfolio from '../../models/Portfolio'
 import Style from '../../models/Style'

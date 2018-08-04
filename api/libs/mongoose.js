@@ -1,13 +1,6 @@
 import mongoose from 'mongoose'
 import Promise from 'bluebird'
 
-import Education from '../models/Education'
-import Experience from '../models/Experience'
-import Portfolio from '../models/Portfolio'
-import Skill from '../models/Skill'
-import SkillCategory from '../models/SkillCategory'
-import Style from '../models/Style'
-
 const validMongoIdRegex = /^[a-fA-F0-9]{24}$/
 
 export const connectToMongo = () => {

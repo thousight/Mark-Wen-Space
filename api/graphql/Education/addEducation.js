@@ -1,5 +1,3 @@
-import Promise from 'bluebird'
-
 import Education from '../../models/Education'
 import Style from '../../models/Style'
 import redis, { EDU, formRedisKeyWithMongoId } from '../../libs/redis'

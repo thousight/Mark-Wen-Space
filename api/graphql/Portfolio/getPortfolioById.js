@@ -1,4 +1,4 @@
-import Promise from 'bluebird'
+
 
 import Portfolio from '../../models/Portfolio'
 import redis, { PORT, formRedisKeyWithMongoId, checkRedisError } from '../../libs/redis'

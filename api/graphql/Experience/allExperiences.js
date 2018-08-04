@@ -1,5 +1,3 @@
-import Promise from 'bluebird'
-
 import Experience from '../../models/Experience'
 import redis, { EXP, formRedisKeyWithMongoId, checkRedisError } from '../../libs/redis'
 
