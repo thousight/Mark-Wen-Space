@@ -21,6 +21,7 @@ const store = createStore(rootReducer)
 const history = createHistory()
 // Apollo GraphQL client
 const graphqlURI = process.env.GRAPHQL_URI ? process.env.GRAPHQL_URI : 'http://localhost:2333/graphql'
+console.log(graphqlURI)
 const client = new ApolloClient({ uri: graphqlURI })
 
 ReactDOM.render(
