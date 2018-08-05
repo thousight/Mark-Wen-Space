@@ -1,19 +1,21 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Row, Col } from 'react-bootstrap';
+import React, { PureComponent } from 'react'
+import { connect } from 'react-redux'
+import { Row, Col } from 'react-bootstrap'
 
-import { Timeline, ProgressBar } from './components';
+import { Timeline, ProgressBar } from '../components'
 
-import suitcase from '../img/icons/suitcase.svg';
-import graduationCap from '../img/icons/graduationCap.svg';
-import code from '../img/icons/code.svg';
+import suitcase from '../../img/icons/suitcase.svg'
+import graduationCap from '../../img/icons/graduationCap.svg'
+import code from '../../img/icons/code.svg'
 
 
 /**
 * Resume page rendering data dynamically
 */
-class Resume extends Component {
+class Resume extends PureComponent {
 	render() {
+		const { allEducations, allExperiences, allSkillCategories } = this.props
+
 		return (
 			<div className="resume">
 				<div className="resume-title banner-title">
@@ -22,18 +24,19 @@ class Resume extends Component {
 
 				{/* Experience */}
 				<div className="resume-content container">
+
 					<div className="resume-subtitle">
 						<img className="resume-subtitle-img" alt="Experience" src={suitcase} />
 						<h3>Experience</h3>
 					</div>
-					<Timeline data={this.props.expContent} />
+					<Timeline data={allExperiences} />
 
 					{/* Education */}
 					<div className="resume-subtitle">
 						<img className="resume-subtitle-img" alt="Experience" src={graduationCap} />
 						<h3>Education</h3>
 					</div>
-					<Timeline data={this.props.eduContent} />
+					<Timeline data={allEducations} />
 
 					{/* Skills */}
 					<div className="resume-subtitle">
@@ -43,42 +46,33 @@ class Resume extends Component {
 					<Row>
 						<Col xs={12} md={10} mdOffset={1}>
 							<div className="card resume-skills-card">
-								{this.props.skillsContent.sort((a, b) => {return a.order - b.order}).map(category => {
-									return (
+								{
+									[ ...allSkillCategories ].sort((a, b) => (a.order - b.order)).map(category => (
 										<div key={category._id}>
 											<h4 className="resume-skill-category-title">
-												{category.skillsCat}
+												{category.categoryTitle}
 											</h4>
 											<Row>
-												{category.skill.map(skill => {
-													return (
+												{
+													category.skills.map(skill => (
 														<Col key={skill.skillName} xs={12} sm={4}>
 															<h5>{skill.skillName}</h5>
 															<ProgressBar percentage={skill.percent} color={category.color} />
 														</Col>
-													)
-												})}
-
+													))
+												}
 											</Row>
 										</div>
-									)
-								})}
+									))
+								}
 							</div>
 						</Col>
 					</Row>
 
 				</div>
 			</div>
-		);
+		)
 	}
 }
 
-const mapStateToProps = state => {
-	return {
-		eduContent: state.staticContent.eduContent,
-		expContent: state.staticContent.expContent,
-		skillsContent: state.staticContent.skillsContent
-	}
-}
-
-export default connect(mapStateToProps)(Resume);
+export default Resume
