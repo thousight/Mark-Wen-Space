@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react'
-import { connect } from 'react-redux'
 import { Row, Col } from 'react-bootstrap'
 
 import { Timeline, ProgressBar } from '../components'

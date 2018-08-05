@@ -20,20 +20,21 @@ const store = createStore(rootReducer)
 // Router history
 const history = createHistory()
 // Apollo GraphQL client
-const client = new ApolloClient({uri: 'http://localhost:2333/graphql'})
+const graphqlURI = process.env.GRAPHQL_URI ? process.env.GRAPHQL_URI : 'http://localhost:2333/graphql'
+const client = new ApolloClient({ uri: graphqlURI })
 
 ReactDOM.render(
-		<Provider store={store}>
-			<Router history={history}>
-				<ApolloProvider client={client}>
-					<App/>
-				</ApolloProvider>
-			</Router>
-		</Provider>
+	<Provider store={store}>
+		<Router history={history}>
+			<ApolloProvider client={client}>
+				<App/>
+			</ApolloProvider>
+		</Router>
+	</Provider>
 , document.getElementById('root'))
 
 registerServiceWorker()
 
 if (module.hot) {
-		module.hot.accept()
+	module.hot.accept()
 }

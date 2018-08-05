@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 import { Row, Col, Modal, OverlayTrigger, Tooltip } from 'react-bootstrap'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import ReactCSSTransitionReplace from 'react-css-transition-replace'
