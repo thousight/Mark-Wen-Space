@@ -40,7 +40,7 @@ export const sendEmailToMark = (name, fromEmail, subject, textBody) => new Promi
             }
         })
     } else {
-        reject('Invalid from email address')
+        reject('Invalid email address')
     }
     
 })

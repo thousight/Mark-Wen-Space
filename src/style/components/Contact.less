@@ -61,7 +61,7 @@
 
 .contact-email {
 	padding-top: 25px;
-	padding-bottom: 70px;
+	padding-bottom: 45px;
 	h4 {
 		text-align: center;
 		margin-top: 15px;
@@ -105,27 +105,27 @@
 	}
 }
 
-.contact-email-form::placeholder, .contact-email-form::-webkit-input-placeholder, .contact-email-form::-moz-placeholder, .contact-email-form::-ms-input-placeholder, .contact-email-form:-moz-placeholder {
-	color: @primaryBlue;
-	font-size: 13px;
-}
-
 .contact-email-form-submit-wrapper {
 	width: 90%;
 	margin: 0 auto;
+	text-align: right;
 }
 
 .contact-email-submit {
-	float: right;
 	background-color: @primaryBlue;
+	border: 0;
 	color: @white;
 	border-radius: 2.5px;
 	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12), 0 3px 1px -2px rgba(0, 0, 0, .2);
+	display: inline-block;
 	padding: 5px;
 	user-select: none;
+	transition: 0.25s;
 	&:hover, &:focus {
+		box-shadow: 0px 5px 7px 0 rgba(0, 0, 0, 0.14), 0px 5px 12px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
 		color: @white;
 		cursor: pointer;
+		transform: translateY(-2px);
 	}
 	& > p {
 		display: inline-block;
@@ -161,7 +161,7 @@ grammarly-ghost {
 	box-shadow: none;
 }
 
-.g-recaptcha {
+.recaptcha {
 	width: 304px;
 	display: block;
 	margin: 0 auto;

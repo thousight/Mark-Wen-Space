@@ -13,6 +13,7 @@ import App from './App'
 import registerServiceWorker from './registerServiceWorker'
 
 import './style/bootstrap/bootstrap.min.css'
+import 'react-toastify/dist/ReactToastify.css'
 import './index.css'
 
 // Redux store
