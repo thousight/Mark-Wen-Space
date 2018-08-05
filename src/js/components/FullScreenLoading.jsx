@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent } from 'react'
 
 import BlueLogoTransparentBG from '../../img/logo/BlueLogoTransparentBG.png'
 
@@ -8,7 +8,7 @@ import BlueLogoTransparentBG from '../../img/logo/BlueLogoTransparentBG.png'
 class FullScreenLoading extends PureComponent {
 	
 	shouldComponentUpdate(nextProps, nextState) {
-		return false;
+		return false
 	}
 
 	render() {
@@ -19,8 +19,8 @@ class FullScreenLoading extends PureComponent {
 				<h4 className="fullscreen-loading-text">Loading, please wait <span>.</span><span>.</span><span>.</span></h4>
 				<h5 className="fullscreen-loading-error-text">{this.props.errorText}</h5>
 			</div>
-		);
+		)
 	}
 }
 
-export default FullScreenLoading;
+export default FullScreenLoading

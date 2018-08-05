@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "apollo-boost": "^0.1.12",
     "apollo-server-express": "^2.0.0",
     "async": "^2.6.1",
     "axios": "^0.16.2",
@@ -23,6 +24,7 @@
     "react": "^15.6.1",
     "react-addons-css-transition-group": "^15.6.0",
     "react-addons-transition-group": "^15.6.0",
+    "react-apollo": "^2.1.9",
     "react-bmap": "^1.0.68",
     "react-bootstrap": "^0.31.2",
     "react-burger-menu": "^2.1.4",

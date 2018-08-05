@@ -1,35 +1,34 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Row, Col, Modal, OverlayTrigger, Tooltip } from 'react-bootstrap';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
-import ReactCSSTransitionReplace from 'react-css-transition-replace';
+import React, { Component } from 'react'
+import { Row, Col, Modal, OverlayTrigger, Tooltip } from 'react-bootstrap'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+import ReactCSSTransitionReplace from 'react-css-transition-replace'
 
-import androidIcon from '../img/icons/android.svg';
-import arrowLeftIcon from '../img/icons/arrow_left.svg';
-import arrowLeftWhiteIcon from '../img/icons/arrow_left_white.svg';
-import arrowRightIcon from '../img/icons/arrow_right.svg';
-import arrowRightWhiteIcon from '../img/icons/arrow_right_white.svg';
-import designIcon from '../img/icons/design.svg';
-import serverIcon from '../img/icons/server.svg';
-import webIcon from '../img/icons/web.svg';
-import playIcon from '../img/icons/google-play.svg';
-import githubIcon from '../img/icons/github.svg';
-import githubBlackIcon from '../img/icons/github-colored.svg';
+import androidIcon from '../../img/icons/android.svg'
+import arrowLeftIcon from '../../img/icons/arrow_left.svg'
+import arrowLeftWhiteIcon from '../../img/icons/arrow_left_white.svg'
+import arrowRightIcon from '../../img/icons/arrow_right.svg'
+import arrowRightWhiteIcon from '../../img/icons/arrow_right_white.svg'
+import designIcon from '../../img/icons/design.svg'
+import serverIcon from '../../img/icons/server.svg'
+import webIcon from '../../img/icons/web.svg'
+import playIcon from '../../img/icons/google-play.svg'
+import githubIcon from '../../img/icons/github.svg'
+import githubBlackIcon from '../../img/icons/github-colored.svg'
 
 window.matchMedia = window.matchMedia || function() {
   return {
     matches : false,
     addListener : function() {},
     removeListener: function() {}
-  };
-};
-const mql = window.matchMedia(`(min-width: 768px)`);
+  }
+}
+const mql = window.matchMedia(`(min-width: 768px)`)
 
 /**
 * Portfolio page rendering data dynamically
 */
 class Portfolio extends Component {
-  categories = ['All', 'Web', 'Android', 'Design', 'Backend'];
+  categories = ['All', 'Web', 'Android', 'Design', 'Backend']
   state = {
     currentCat: 'All',
     items: this.getItemsOfCategory('All'),
@@ -38,56 +37,54 @@ class Portfolio extends Component {
     isSmallScreen: false
   }
 
-  constructor(props) {
-    super(props);
-    this.mediaQueryChanged = this.mediaQueryChanged.bind(this);
-  }
+  mediaQueryChanged = this.mediaQueryChanged.bind(this)
 
   componentWillMount() {
-    mql.addListener(this.mediaQueryChanged);
-    this.setState({ mql, isSmallScreen: !mql.matches });
+    mql.addListener(this.mediaQueryChanged)
+    this.setState({ mql, isSmallScreen: !mql.matches })
   }
 
   componentWillUnmount() {
-    this.state.mql.removeListener(this.mediaQueryChanged);
+    this.state.mql.removeListener(this.mediaQueryChanged)
   }
 
   // When screen size changes from sm to md(mql.matches = true) and from md to sm(mql.matches = false)
   mediaQueryChanged() {
-    this.setState({isSmallScreen: !this.state.mql.matches});
+    this.setState({isSmallScreen: !this.state.mql.matches})
   }
 
   handleCategoryOnClick(e, category) {
-    e.preventDefault();
+    e.preventDefault()
     this.setState({
       currentCat: category,
       items: this.getItemsOfCategory(category)
-    });
+    })
   }
 
   getItemsOfCategory(category) {
+    let allPortfolios = [ ...this.props.allPortfolios ]
     if (category === 'All') {
-      return this.props.portfolioContent.sort((a, b) => a.order - b.order);
+      return allPortfolios.sort((a, b) => a.order - b.order)
     }
-    return this.props.portfolioContent.filter(a => a.categories.includes(category)).sort((a, b) => a.order - b.order);
+    return allPortfolios.filter(a => a.categories.includes(category)).sort((a, b) => a.order - b.order)
   }
 
   handleItemOnClick(item) {
     this.setState({
       showModal: true,
       selectedItem: item
-    });
+    })
   }
 
   handleModalOnHide() {
     this.setState({
       showModal: false,
       selectedItem: null
-    });
+    })
   }
 
   getBackgroundImageStyle(item) {
-    return `linear-gradient(-135deg, ${item.style.primaryColor}, ${item.style.secondaryColor})`;
+    return `linear-gradient(-135deg, ${item.style.primaryColor}, ${item.style.secondaryColor})`
   }
 
   renderCategoryIcons(categories) {
@@ -96,22 +93,22 @@ class Portfolio extends Component {
         <Tooltip id="category" className="portfolio-modal-cat-icon-popover">
           {category}
         </Tooltip>
-      );
+      )
       switch (category) {
         case 'Web':
-          icon = webIcon;
-          break;
+          icon = webIcon
+          break
         case 'Android':
-          icon = androidIcon;
-          break;
+          icon = androidIcon
+          break
         case 'Design':
-          icon = designIcon;
-          break;
+          icon = designIcon
+          break
         case 'Backend':
-          icon = serverIcon;
-          break;
+          icon = serverIcon
+          break
         default:
-          icon = null;
+          icon = null
       }
       return (
         <OverlayTrigger trigger={['hover', 'focus']} placement="bottom" overlay={popover} key={index}>
@@ -123,7 +120,7 @@ class Portfolio extends Component {
 
   renderItemLinkButtons(links) {
     return Object.keys(links).map((name, index) => {
-      let obj = links[name];
+      let obj = links[name]
       switch (obj.style) {
         case 'Website':
           return (
@@ -134,7 +131,7 @@ class Portfolio extends Component {
               key={index}>
               <span><img alt="link logo" src={webIcon} />{name}</span>
             </a>
-          );
+          )
         case 'Github':
           return (
             <a className="portfolio-modal-link github-link card clickable-card"
@@ -144,14 +141,14 @@ class Portfolio extends Component {
               key={index}>
               <span><img alt="link logo" src={githubIcon} />{name}</span>
             </a>
-          );
+          )
         case 'Github Private':
           return (
             <a className="portfolio-modal-link github-private-link card clickable-card"
               key={index}>
               <span><img alt="link logo" src={githubBlackIcon} />{name}</span>
             </a>
-          );
+          )
         case 'PlayStore':
           return (
             <a className="portfolio-modal-link play-store-link card clickable-card"
@@ -161,25 +158,25 @@ class Portfolio extends Component {
               key={index}>
               <span><img alt="link logo" src={playIcon} />Play Store</span>
             </a>
-          );
+          )
         default:
-          return null;
+          return null
       }
     })
   }
 
   handleModalLeftArrowClick() {
-    const { items, selectedItem } = this.state;
-    this.setState({selectedItem: items[items.indexOf(selectedItem) - 1]});
+    const { items, selectedItem } = this.state
+    this.setState({selectedItem: items[items.indexOf(selectedItem) - 1]})
   }
 
   handleModalRightArrowClick() {
-    const { items, selectedItem } = this.state;
-    this.setState({selectedItem: items[items.indexOf(selectedItem) + 1]});
+    const { items, selectedItem } = this.state
+    this.setState({selectedItem: items[items.indexOf(selectedItem) + 1]})
   }
 
   render() {
-    const { items, selectedItem, currentCat, showModal, isSmallScreen } = this.state;
+    const { items, selectedItem, currentCat, showModal, isSmallScreen } = this.state
 
     return (
       <div className="portfolio">
@@ -304,14 +301,8 @@ class Portfolio extends Component {
           }
         </Modal>
       </div>
-    );
+    )
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    portfolioContent: state.staticContent.portfolioContent
-  }
-}
-
-export default connect(mapStateToProps)(Portfolio);
+export default Portfolio

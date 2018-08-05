@@ -1,11 +1,11 @@
 import React, { PureComponent } from 'react';
 import { Row, Col, OverlayTrigger, Tooltip } from 'react-bootstrap';
 
-import profilePic from '../img/profilePic.jpg';
-import smartphone from '../img/icons/smartphone.svg';
-import camera from '../img/icons/camera.svg';
-import car from '../img/icons/car.svg';
-import badminton from '../img/icons/badminton.svg';
+import profilePic from '../../img/profilePic.jpg';
+import smartphone from '../../img/icons/smartphone.svg';
+import camera from '../../img/icons/camera.svg';
+import car from '../../img/icons/car.svg';
+import badminton from '../../img/icons/badminton.svg';
 
 /**
 * Static Home page

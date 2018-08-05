@@ -5,12 +5,12 @@ import { withGoogleMap, GoogleMap, Marker } from "react-google-maps"
 import { Map, Marker as BMapMarker } from 'react-bmap'
 import { Row, Col, Modal } from 'react-bootstrap'
 
-import { API_PATH } from './constants/strings'
+import { API_PATH } from '../constants/strings'
 
-import envelope from '../img/icons/envelope.svg'
-import home from '../img/icons/home.svg'
-import phone from '../img/icons/phone.svg'
-import navigation from '../img/icons/navigation.svg'
+import envelope from '../../img/icons/envelope.svg'
+import home from '../../img/icons/home.svg'
+import phone from '../../img/icons/phone.svg'
+import navigation from '../../img/icons/navigation.svg'
 
 /**
 * Static Contact page, able to send email to Mark and view Google Maps

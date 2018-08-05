@@ -11,7 +11,7 @@ import { connectToMongo } from './libs/mongoose'
 const app = express()
 
 // Handle CORS
-const whitelist = [undefined, 'https://mark-wen-space-dev.herokuapp.com', 'https://mark-wen-space.herokuapp.com', 'https://www.markwen.space']
+const whitelist = [ undefined, 'https://mark-wen-space-dev.herokuapp.com', 'https://mark-wen-space.herokuapp.com', 'https://www.markwen.space' ]
 app.use(cors({
   origin: (origin, callback) => {
     if (whitelist.includes(origin) || process.env.NODE_ENV === undefined) { // origin in whitelist or environment is local
