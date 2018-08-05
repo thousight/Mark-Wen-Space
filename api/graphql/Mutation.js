@@ -142,8 +142,9 @@ export default `
 
     # Email
     sendEmail(
+      name: String!,
       fromEmail: String!, 
-      subject: String!,
+      subject: String,
       textBody: String!
     ): JSON
   }

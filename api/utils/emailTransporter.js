@@ -25,10 +25,10 @@ const transporter = nodemailer.createTransport({
     auth: transporterAuth()
 })
 
-export const sendEmailToMark = (fromEmail, subject, textBody) => new Promise((resolve, reject) => {
+export const sendEmailToMark = (name, fromEmail, subject, textBody) => new Promise((resolve, reject) => {
     if (validateEmail(fromEmail)) {
         transporter.sendMail({
-            from: fromEmail,
+            from: `"${name}" <${fromEmail}>`,
             to: 'markwenguojie94@gmail.com',
             subject: `[markwen.space]: ${subject}`,
             text: textBody
