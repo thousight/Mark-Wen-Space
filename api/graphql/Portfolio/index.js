@@ -13,6 +13,7 @@ const typeDef = `
     desc: String
     keywords: String
     categories: [ String ]
+    links: JSON
     order: Int
     style: Style
     createdAt: Date
