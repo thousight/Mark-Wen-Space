@@ -3,7 +3,7 @@ import { withGoogleMap, GoogleMap, Marker } from "react-google-maps"
 import { Map, Marker as BMapMarker } from 'react-bmap'
 import { Row, Col } from 'react-bootstrap'
 
-import SendEmailForm from '../components/SendEmailForm'
+import { SendEmailForm, Footer } from '../components'
 
 import envelope from '../../img/icons/envelope.svg'
 import home from '../../img/icons/home.svg'
@@ -100,6 +100,8 @@ class Contact extends Component {
 						</Col>
 					</Row>
 				</div>
+
+				<Footer />
 			</div>
 		)
 	}

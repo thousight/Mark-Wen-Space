@@ -7,7 +7,7 @@ import gql from 'graphql-tag'
 import { ToastContainer } from 'react-toastify'
 
 import { Home, Resume, Portfolio, Contact } from './js/views'
-import { NavigationBar, Footer, Sidebar, FullScreenLoading } from './js/components'
+import { NavigationBar, Sidebar, FullScreenLoading } from './js/components'
 
 import homeBackground from './img/home.jpg'
 import resumeBackground from './img/resume.jpg'
@@ -151,8 +151,6 @@ class App extends Component {
 											toastClassName="toast-style"
 											closeButton={false}
 											autoClose={5000} />
-
-										<Footer />
 									</div>
 								:
 								<FullScreenLoading key={2} errorText={error ? error : ''} />

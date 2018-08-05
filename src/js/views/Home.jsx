@@ -1,11 +1,13 @@
-import React, { PureComponent } from 'react';
-import { Row, Col, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import React, { PureComponent } from 'react'
+import { Row, Col, OverlayTrigger, Tooltip } from 'react-bootstrap'
 
-import profilePic from '../../img/profilePic.jpg';
-import smartphone from '../../img/icons/smartphone.svg';
-import camera from '../../img/icons/camera.svg';
-import car from '../../img/icons/car.svg';
-import badminton from '../../img/icons/badminton.svg';
+import { Footer } from '../components'
+
+import profilePic from '../../img/profilePic.jpg'
+import smartphone from '../../img/icons/smartphone.svg'
+import camera from '../../img/icons/camera.svg'
+import car from '../../img/icons/car.svg'
+import badminton from '../../img/icons/badminton.svg'
 
 /**
 * Static Home page
@@ -13,7 +15,7 @@ import badminton from '../../img/icons/badminton.svg';
 class Home extends PureComponent {
 
 	shouldComponentUpdate(nextProps, nextState) {
-		return false;
+		return false
 	}
 
 	getPopover(name) {
@@ -93,9 +95,11 @@ class Home extends PureComponent {
 						</Col>
 					</Row>
 				</div>
+
+				<Footer />
 			</div>
-		);
+		)
 	}
 }
 
-export default Home;
+export default Home

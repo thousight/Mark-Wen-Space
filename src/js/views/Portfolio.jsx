@@ -3,6 +3,8 @@ import { Row, Col, Modal, OverlayTrigger, Tooltip } from 'react-bootstrap'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import ReactCSSTransitionReplace from 'react-css-transition-replace'
 
+import { Footer } from '../components'
+
 import androidIcon from '../../img/icons/android.svg'
 import arrowLeftIcon from '../../img/icons/arrow_left.svg'
 import arrowLeftWhiteIcon from '../../img/icons/arrow_left_white.svg'
@@ -300,6 +302,8 @@ class Portfolio extends Component {
             null
           }
         </Modal>
+
+        <Footer />
       </div>
     )
   }

@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import { Row, Col } from 'react-bootstrap'
 
-import { Timeline, ProgressBar } from '../components'
+import { Timeline, ProgressBar, Footer } from '../components'
 
 import suitcase from '../../img/icons/suitcase.svg'
 import graduationCap from '../../img/icons/graduationCap.svg'
@@ -69,6 +69,9 @@ class Resume extends PureComponent {
 					</Row>
 
 				</div>
+
+				<Footer />
+				
 			</div>
 		)
 	}
