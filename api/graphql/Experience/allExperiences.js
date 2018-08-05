@@ -1,5 +1,6 @@
 import Experience from '../../models/Experience'
 import redis, { EXP, formRedisKeyWithMongoId, checkRedisError } from '../../libs/redis'
+import { handleMongoSaveError } from '../../utils/errorHandling'
 
 export default (_, {  }) => new Promise((resolve, reject) => {
     redis.scan('0', 'MATCH', formRedisKeyWithMongoId(EXP, '*'), 'COUNT', 50, (error, reply) => {
@@ -7,7 +8,7 @@ export default (_, {  }) => new Promise((resolve, reject) => {
             reject(error)
         } else if (!reply[1] || reply[1].length <= 0) {
             Experience.find({}).populate('style').exec((mongoError, result) => {
-                if (checkRedisError(mongoError, reject)) {
+                if (handleMongoSaveError(mongoError, reject)) {
                     if (!result || result.length <= 0) {
                         resolve(result)
                     } else {

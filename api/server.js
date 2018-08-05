@@ -6,8 +6,10 @@ import cors from 'cors'
 
 import graphqlServer from './graphql'
 import { connectToMongo } from './libs/mongoose'
+import dotenv from 'dotenv'
 
-// Initialize express.js
+// Initialize variables
+dotenv.config()
 const app = express()
 
 // Handle CORS
@@ -46,7 +48,7 @@ app.use('/', express.static('dist/public'))
 graphqlServer.applyMiddleware({ app })
 
 connectToMongo().then(() => {
-  let port = process.env.PORT || require('../config').port
+  let port = process.env.PORT
   app.listen(port, err => {
     if (err) {
       console.log(err)

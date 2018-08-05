@@ -1,5 +1,6 @@
 import Education from '../../models/Education'
 import redis, { EDU, formRedisKeyWithMongoId, checkRedisError } from '../../libs/redis'
+import { handleMongoSaveError } from '../../utils/errorHandling'
 
 export default (_, {  }) => new Promise((resolve, reject) => {
     redis.scan('0', 'MATCH', formRedisKeyWithMongoId(EDU, '*'), 'COUNT', 50, (error, reply) => {
@@ -7,7 +8,7 @@ export default (_, {  }) => new Promise((resolve, reject) => {
             reject(error)
         } else if (!reply[1] || reply[1].length <= 0) {
             Education.find({}).populate('style').exec((mongoError, result) => {
-                if (checkRedisError(mongoError, reject)) {
+                if (handleMongoSaveError(mongoError, reject)) {
                     if (!result || result.length <= 0) {
                         resolve(result)
                     } else {

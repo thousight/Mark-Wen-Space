@@ -2,6 +2,7 @@
 
 import SkillCategory from '../../models/SkillCategory'
 import redis, { SKILLCATS, formRedisKeyWithMongoId, checkRedisError } from '../../libs/redis'
+import { handleMongoSaveError } from '../../utils/errorHandling'
 
 export default (_, {  }) => new Promise((resolve, reject) => {
     redis.scan('0', 'MATCH', formRedisKeyWithMongoId(SKILLCATS, '*'), 'COUNT', 50, (error, reply) => {
@@ -9,7 +10,7 @@ export default (_, {  }) => new Promise((resolve, reject) => {
             reject(error)
         } else if (!reply[1] || reply[1].length <= 0) {
             SkillCategory.find({}).populate('skills').exec((mongoError, result) => {
-                if (checkRedisError(mongoError, reject)) {
+                if (handleMongoSaveError(mongoError, reject)) {
                     if (!result || result.length <= 0) {
                         resolve(result)
                     } else {

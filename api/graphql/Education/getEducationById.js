@@ -1,5 +1,6 @@
 import Education from '../../models/Education'
 import redis, { EDU, formRedisKeyWithMongoId, checkRedisError } from '../../libs/redis'
+import { handleMongoSaveError } from '../../utils/errorHandling'
 import { isMongoId } from '../../libs/mongoose'
 
 export default (_, { _id  }) => new Promise((resolve, reject) => {
@@ -10,7 +11,9 @@ export default (_, { _id  }) => new Promise((resolve, reject) => {
                     resolve(JSON.parse(redisResult))
                 } else {
                     Education.findById(_id).populate('style').exec((error, result) => {
-                        error || !result ? reject(error) : resolve(result)
+                        if (handleMongoSaveError(error, redis)) {
+                            resolve(result)
+                        }
                     })
                 }
             }
