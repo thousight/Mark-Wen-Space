@@ -39,6 +39,7 @@ const QUERY_ALL_STATIC_CONTENT = gql`
 		city
 		state
 		title
+		time
 		desc
 		image
 		order

@@ -54,7 +54,7 @@ class Resume extends PureComponent {
 											</h4>
 											<Row>
 												{
-													category.skills.map(skill => (
+													[ ...category.skills ].sort((a, b) => (b.percent - a.percent)).map(skill => (
 														<Col key={skill.skillName} xs={12} sm={4}>
 															<h5>{skill.skillName}</h5>
 															<ProgressBar percentage={skill.percent} color={category.color} />
