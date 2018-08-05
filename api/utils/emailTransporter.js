@@ -1,5 +1,8 @@
 import nodemailer from 'nodemailer'
-import smtpTransport from 'nodemailer-smtp-transport'
+
+const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+
+export const validateEmail = email => email ? emailRegex.test(email.toLowerCase()) : false
 
 const transporterAuth = () => {
     let { EMAIL_USER, EMAIL_CLIENT_ID, EMAIL_CLIENT_SECRET, EMAIL_REFRESH_TOKEN, EMAIL_ACCESS_TOKEN } = process.env
@@ -23,18 +26,23 @@ const transporter = nodemailer.createTransport({
 })
 
 export const sendEmailToMark = (fromEmail, subject, textBody) => new Promise((resolve, reject) => {
-    transporter.sendMail({
-        from: fromEmail,
-        to: 'markwenguojie94@gmail.com',
-        subject: `[markwen.space]: ${subject}`,
-        text: textBody
-    }, (error, info) => {
-        if (error) {
-            reject(error)
-        } else {
-            resolve(info)
-        }
-    })
+    if (validateEmail(fromEmail)) {
+        transporter.sendMail({
+            from: fromEmail,
+            to: 'markwenguojie94@gmail.com',
+            subject: `[markwen.space]: ${subject}`,
+            text: textBody
+        }, (error, info) => {
+            if (error) {
+                reject(error)
+            } else {
+                resolve(info)
+            }
+        })
+    } else {
+        reject('Invalid from email address')
+    }
+    
 })
 
 export default transporter

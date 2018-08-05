@@ -20,11 +20,7 @@ const store = createStore(rootReducer)
 // Router history
 const history = createHistory()
 // Apollo GraphQL client
-const graphqlURI = process.env.REACT_APP_GRAPHQL_URI
-console.log(process.env)
-console.log(process.env.REACT_APP_GRAPHQL_URI)
-console.log(graphqlURI)
-const client = new ApolloClient({ uri: graphqlURI })
+const client = new ApolloClient({ uri: process.env.REACT_APP_GRAPHQL_URI })
 
 ReactDOM.render(
 	<Provider store={store}>
@@ -39,5 +35,7 @@ ReactDOM.render(
 registerServiceWorker()
 
 if (module.hot) {
-	module.hot.accept()
+	module.hot.accept('./js/redux/reducers', () => {
+		store.replaceReducer(require('./js/redux/reducers/index'));
+	})
 }
