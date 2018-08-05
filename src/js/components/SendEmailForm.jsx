@@ -32,9 +32,13 @@ class SendEmailForm extends Component {
 	* When a email is successfully sent, toast a message
 	*/
     componentWillReceiveProps(nextProps) {
-        // Update selected order in users list when selected order is done editing
-        if (this.props.loading && !nextProps.loading && !nextProps.error) {
-            toast('Email successfully sent!')
+        if (this.props.loading && !nextProps.loading) {
+            let { error } = nextProps
+            if (error) {
+                toast.error(error.message ? error.message : 'Something is wrong when sending email')
+            } else {
+                toast('Email successfully sent!')
+            }
         }
     }
 
@@ -63,7 +67,7 @@ class SendEmailForm extends Component {
 
     render() {
         const { name, fromEmail, subject, message, isShowRecaptchaModal } = this.state
-        const { sendEmail, loading, error } = this.props
+        const { sendEmail, loading } = this.props
         
         return (
             <div className="card contact-email">
@@ -119,21 +123,12 @@ class SendEmailForm extends Component {
     }
 }
 
-export default () => {
-    return (
-        <Mutation mutation={SEND_EMAIL}>
-                {(sendEmail, { loading, error }) => {
-                    if (error) {
-                        toast.error(error.message ? error.message : 'Something is wrong when sending email')
-                    }
-
-                    return (
-                        <SendEmailForm
-                            sendEmail ={sendEmail}
-                            loading={loading}
-                            error={error} />
-                    )
-                }}
-            </Mutation>
-    )
-}
+export default () => (
+    <Mutation mutation={SEND_EMAIL}>
+        {(sendEmail, { loading, error }) => (
+            <SendEmailForm sendEmail ={sendEmail}
+                loading={loading}
+                error={error} />
+        )}
+    </Mutation>
+)
