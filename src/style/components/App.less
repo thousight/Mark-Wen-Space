@@ -1,10 +1,11 @@
 body {
-	/*Set base font*/
+	/* Set base font */
 	font-family: 'Open Sans', 'Segoe UI', 'Lato', 'Arial', sans-serif;
 	background-color: @backgroundWhite;
 	color: @black;
 	margin: 0;
 	min-width: 320px;
+	overflow-y: scroll;
 }
 
 h1 {
@@ -56,8 +57,23 @@ button:focus {
 	pointer-events: none;
 }
 
+.hidden {
+	visibility: hidden;
+}
 
-/*Component fade in/out animation*/
+
+/* Toastify Styles */
+.Toastify__toast-container--top-right {
+	margin-top: 40px;
+}
+
+div.toast-style {
+	border-radius: 10px;
+	border-width: 0;
+	box-shadow: 0 6px 12px rgba(0,0,0,.24);  
+}
+
+/* Component fade in/out animation */
 
 .fade-enter {
 	opacity: 0.01;

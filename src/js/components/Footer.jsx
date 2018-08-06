@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent } from 'react'
 
 import WhiteLogoTransparentBG from '../../img/logo/WhiteLogoTransparentBG.png'
 
@@ -13,8 +13,8 @@ class Footer extends PureComponent {
 				<p className="legal-text">Design & Develop by Mark Wen</p>
 				<p className="legal-text">Copyright © {new Date().getFullYear()} Mark Wen. All rights reserved.</p>
 			</div>
-		);
+		)
 	}
 }
 
-export default Footer;
+export default Footer

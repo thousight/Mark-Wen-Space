@@ -1,8 +1,8 @@
-import React, { PureComponent } from 'react';
-import { Row, Col } from 'react-bootstrap';
+import React, { PureComponent } from 'react'
+import { Row, Col } from 'react-bootstrap'
 
-import TimelineDot from './TimelineDot';
-import TimelineCard from './TimelineCard';
+import TimelineDot from './TimelineDot'
+import TimelineCard from './TimelineCard'
 
 /**
 * Main timeline component that works with both Exp and Edu data
@@ -10,10 +10,12 @@ import TimelineCard from './TimelineCard';
 class Timeline extends PureComponent {
 
 	shouldComponentUpdate(nextProps, nextState) {
-		return false;
+		return false
 	}
 
 	render() {
+		const { data } = this.props
+		
 		return (
 			<div className="timeline">
 				<Row>
@@ -23,8 +25,8 @@ class Timeline extends PureComponent {
 								<div className="timeline-line" />
 							</div>
 						</div>
-						{this.props.data.sort((a, b) => {return a.order - b.order}).map(obj => {
-							return(
+						{
+							[ ...data ].sort((a, b) => (a.order - b.order)).map(obj => (
 								<Row key={obj._id}>
 									<Col className="timeline-dot-col" xs={2}>
 										<TimelineDot primaryColor={obj.style.primaryColor} secondaryColor={obj.style.secondaryColor} />
@@ -35,21 +37,21 @@ class Timeline extends PureComponent {
 											title={obj.title == null ? obj.degree : obj.title}
 											location={obj.city + ', ' + obj.state}
 											time={obj.time}
-										 	content={obj.desc}
-										 	icon={obj.image}
-										 	bannerImage={obj.style.bannerImage == null ?
+											content={obj.desc}
+											icon={obj.image}
+											bannerImage={obj.style.bannerImage == null ?
 												`linear-gradient(135deg, ${obj.style.primaryColor}, ${obj.style.secondaryColor})`
 												:
 												`url(${obj.style.bannerImage})`} />
 									</Col>
 								</Row>
-							);
-						})}
+							))
+						}
 					</Col>
 				</Row>
 			</div>
-		);
+		)
 	}
 }
 
-export default Timeline;
+export default Timeline

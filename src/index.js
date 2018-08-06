@@ -5,31 +5,39 @@ import { Router } from 'react-router-dom'
 import createHistory from 'history/createBrowserHistory'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
+import ApolloClient from 'apollo-boost'
+import { ApolloProvider } from 'react-apollo'
 
 import rootReducer from './js/redux/reducers/index'
 import App from './App'
 import registerServiceWorker from './registerServiceWorker'
 
 import './style/bootstrap/bootstrap.min.css'
+import 'react-toastify/dist/ReactToastify.css'
+import './style/fontello.css'
 import './index.css'
 
-/**
-* Index file where it renders all the JSX into public/index.html
-*/
+// Redux store
 const store = createStore(rootReducer)
+// Router history
 const history = createHistory()
+// Apollo GraphQL client
+const client = new ApolloClient({ uri: process.env.REACT_APP_GRAPHQL_URI })
 
 ReactDOM.render(
 	<Provider store={store}>
 		<Router history={history}>
-			<App />
-	  </Router>
-	</Provider>,
-  document.getElementById('root')
-)
+			<ApolloProvider client={client}>
+				<App/>
+			</ApolloProvider>
+		</Router>
+	</Provider>
+, document.getElementById('root'))
 
 registerServiceWorker()
 
 if (module.hot) {
-	module.hot.accept()
+	module.hot.accept('./js/redux/reducers', () => {
+		store.replaceReducer(require('./js/redux/reducers/index'));
+	})
 }

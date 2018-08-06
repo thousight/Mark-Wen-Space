@@ -1,1 +1,0 @@
-export const API_PATH = 'https://mark-wen-space-v3-server.herokuapp.com/api'

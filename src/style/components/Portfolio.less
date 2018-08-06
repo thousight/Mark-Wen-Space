@@ -12,6 +12,7 @@
 
 .portfolio-content {
 	margin-top: -70px;
+	padding-bottom: 30px;
 }
 
 .portfolio-cat-control {
@@ -191,7 +192,7 @@
 
 /* Blur modal background */
 
-body.modal-open #root-view {
+body.modal-open #root {
 	filter: blur(8px);
 	margin: -1px -7px;
 }
@@ -202,12 +203,12 @@ body.modal-open #root-view {
 	position: relative;
 	text-align: center;
 	vertical-align: middle;
-	& > img {
-		display: inline-block;
-		width: 25px;
-		height: auto;
-		margin: 0 5px;
-	}
+}
+
+.portfolio-category-icon {
+	display: inline-block;
+	font-size: 23px;
+	margin: 0 2px;
 }
 
 .portfolio-modal-cat-icon-popover {
@@ -231,8 +232,8 @@ body.modal-open #root-view {
 	margin-top: 10px;
 	margin-left: auto;
 	margin-right: auto;
-	padding: 10px;
-	width: 62.5%;
+	padding: 7.5px;
+	width: 150px;
 	user-select: none;
 	&:focus {
 		color: @white;
@@ -240,8 +241,8 @@ body.modal-open #root-view {
 		margin-top: 10px;
 		margin-left: auto;
 		margin-right: auto;
-		padding: 10px;
-		width: 62.5%;
+		padding: 7.5px;
+		width: 150px;
 		user-select: none;
 	}
 	&:hover {
@@ -250,26 +251,27 @@ body.modal-open #root-view {
 	&, &:focus, &:hover {
 		@media only screen and (min-width: 768px) and (max-width: 991px) {
 			width: 100%;
+			padding: 7.5px 5px;
 		}
 		@media only screen and (max-width: 767px) {
 			display: inline-block;
 			margin: 10px;
-			width: 140px;
+			padding: 7.5px 5px;
 		}
 	}
-	span {
+	div {
 		display: block;
-		width: 121px;
-		margin: 0 auto;
+		width: 130px;
 		text-align: left;
 	}
-	img {
-		display: inline-block;
-		width: 20px;
-		height: auto;
-		margin-right: 10px;
-		margin-top: 0;
-		margin-bottom: 0;
+	.font-icon {
+		font-size: 23px;
+		vertical-align: middle;
+		margin-right: 5px;
+	}
+	p {
+		display: inline;
+		vertical-align: middle;
 	}
 }
 
@@ -338,10 +340,16 @@ body.modal-open #root-view {
 			box-shadow: none;
 		}
 	}
-	& > img {
-		width: 50px;
-		height: 50px;
-		user-select: none;
+}
+
+.portfolio-modal-arrow {
+	font-size: 25px;
+	user-select: none;
+	&.blue {
+		color: @primaryBlue;
+	}
+	&.white {
+		color: @white;
 	}
 }
 

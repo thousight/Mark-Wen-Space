@@ -39,46 +39,43 @@
 .home-landing-icons-wrapper {
 	text-align: center;
 	margin-top: 15px;
+	vertical-align: top;
 }
 
 .home-landing-icon {
-	width: 30px;
-	height: 30px;
+	width: 48px;
+	height: 48px;
+	color: @white;
+	font-size: 30px;
 	display: inline-block;
-	margin: 0 5px;
 	user-select: none;
-	color: transparent;
+	transition: 0.25s;
+	vertical-align: bottom;
 }
 
-.home-landing-icon-file {
-	background: url(../../img/icons/file.svg) center center no-repeat scroll;
+.home-landing-icon-resume {
+	font-size: 28px;
 	&:hover, &:focus {
-		color: transparent;
-		background: url(../../img/icons/file-colored.svg) center center no-repeat scroll;
+		color: @yellow;
 	}
 }
 
 .home-landing-icon-linkedin {
-	background: url(../../img/icons/linkedin.svg) center center no-repeat scroll;
 	&:hover, &:focus {
-		color: transparent;
-		background: url(../../img/icons/linkedin-colored.svg) center center no-repeat scroll;
+		color: @linkedinBlue;
 	}
 }
 
 .home-landing-icon-github {
-	background: url(../../img/icons/github.svg) center center no-repeat scroll;
 	&:hover, &:focus {
-		color: transparent;
-		background: url(../../img/icons/github-colored.svg) center center no-repeat scroll;
+		color: @black;
 	}
 }
 
 .home-landing-icon-500px {
-	background: url(../../img/icons/500px.svg) center center no-repeat scroll;
+	font-size: 28px;
 	&:hover, &:focus {
-		color: transparent;
-		background: url(../../img/icons/500px-colored.svg) center center no-repeat scroll;
+		color: @500pxBlue;
 	}
 }
 
