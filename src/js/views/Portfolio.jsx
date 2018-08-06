@@ -5,18 +5,6 @@ import ReactCSSTransitionReplace from 'react-css-transition-replace'
 
 import { Footer } from '../components'
 
-import androidIcon from '../../img/icons/android.svg'
-import arrowLeftIcon from '../../img/icons/arrow_left.svg'
-import arrowLeftWhiteIcon from '../../img/icons/arrow_left_white.svg'
-import arrowRightIcon from '../../img/icons/arrow_right.svg'
-import arrowRightWhiteIcon from '../../img/icons/arrow_right_white.svg'
-import designIcon from '../../img/icons/design.svg'
-import serverIcon from '../../img/icons/server.svg'
-import webIcon from '../../img/icons/web.svg'
-import playIcon from '../../img/icons/google-play.svg'
-import githubIcon from '../../img/icons/github.svg'
-import githubBlackIcon from '../../img/icons/github-colored.svg'
-
 window.matchMedia = window.matchMedia || function() {
   return {
     matches : false,
@@ -98,23 +86,23 @@ class Portfolio extends Component {
       )
       switch (category) {
         case 'Web':
-          icon = webIcon
+          icon = 'web'
           break
         case 'Android':
-          icon = androidIcon
+          icon = 'android'
           break
         case 'Design':
-          icon = designIcon
+          icon = 'design'
           break
         case 'Backend':
-          icon = serverIcon
+          icon = 'server'
           break
         default:
           icon = null
       }
       return (
         <OverlayTrigger trigger={['hover', 'focus']} placement="bottom" overlay={popover} key={index}>
-          <img alt={`${category} icon`} src={icon} />
+          <span className={`portfolio-category-icon icon-${icon}`} />
         </OverlayTrigger>
       )
     })
@@ -131,7 +119,10 @@ class Portfolio extends Component {
               target="_blank"
               rel="noopener noreferrer"
               key={index}>
-              <span><img alt="link logo" src={webIcon} />{name}</span>
+              <div>
+                <span className="font-icon icon-web" />
+                <p>{name}</p>
+              </div>
             </a>
           )
         case 'Github':
@@ -141,14 +132,20 @@ class Portfolio extends Component {
               target="_blank"
               rel="noopener noreferrer"
               key={index}>
-              <span><img alt="link logo" src={githubIcon} />{name}</span>
+              <div>
+                <span className="font-icon icon-github" />
+                <p>{name}</p>
+              </div>
             </a>
           )
         case 'Github Private':
           return (
             <a className="portfolio-modal-link github-private-link card clickable-card"
               key={index}>
-              <span><img alt="link logo" src={githubBlackIcon} />{name}</span>
+              <div>
+                <span className="font-icon icon-github" />
+                <p>{name}</p>
+              </div>
             </a>
           )
         case 'PlayStore':
@@ -158,7 +155,10 @@ class Portfolio extends Component {
               target="_blank"
               rel="noopener noreferrer"
               key={index}>
-              <span><img alt="link logo" src={playIcon} />Play Store</span>
+              <div>
+                <span className="font-icon icon-android" />
+                <p>Play Store</p>
+              </div>
             </a>
           )
         default:
@@ -249,8 +249,7 @@ class Portfolio extends Component {
                     display: items.indexOf(selectedItem) <= 0 ? 'none' : 'block'
                   }}
                   onClick={this.handleModalLeftArrowClick.bind(this)}>
-                  <img alt="left arrow"
-                    src={isSmallScreen ? arrowLeftWhiteIcon : arrowLeftIcon} />
+                  <span className={`portfolio-modal-arrow icon-left-open ${isSmallScreen ? 'white' : 'blue'}`} />
                 </button>
               </Col>
 
@@ -293,9 +292,8 @@ class Portfolio extends Component {
                     display: items.indexOf(selectedItem) >= (items.length - 1) ? 'none' : 'block'
                   }}
                   onClick={this.handleModalRightArrowClick.bind(this)}>
-                  <img alt="right arrow"
-                    src={isSmallScreen ? arrowRightWhiteIcon : arrowRightIcon} />
-                </button>
+                    <span className={`portfolio-modal-arrow icon-right-open ${isSmallScreen ? 'white' : 'blue'}`} />
+                  </button>
               </Col>
             </Row>
             :

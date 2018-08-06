@@ -5,10 +5,6 @@ import { Row, Col } from 'react-bootstrap'
 
 import { SendEmailForm, Footer } from '../components'
 
-import envelope from '../../img/icons/envelope.svg'
-import home from '../../img/icons/home.svg'
-import phone from '../../img/icons/phone.svg'
-
 /**
 * Static Contact page, able to send email to Mark and view Google Maps
 */
@@ -51,15 +47,15 @@ class Contact extends Component {
 						<Col xs={12} sm={5} md={4} mdOffset={1}>
 							<div className="card contact-info">
 								<div className="contact-info-line">
-									<img className="contact-info-icon" alt="Email" src={envelope} />
+									<span className="contact-info-icon icon-mail" />
 									<a href="mailto:markwenguojie94@gmail.com">markwenguojie94@gmail.com</a>
 								</div>
 								<div className="contact-info-line">
-									<img className="contact-info-icon" alt="Phone" src={phone} />
+									<span className="contact-info-icon icon-phone" />
 									<a href="tel:510-505-4398">(510) 505-4398</a>
 								</div>
 								<div className="contact-info-line">
-									<img className="contact-info-icon" alt="Address" src={home} />
+									<span className="contact-info-icon icon-home" />
 									<div className="contact-info-line-address">
 										<a href="https://goo.gl/maps/8Pb1tbu86472" target="_blank" rel="noopener noreferrer">
 											8322 Lakeshore Trail East Drive

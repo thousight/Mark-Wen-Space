@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
-import { Row, Col, OverlayTrigger, Tooltip } from 'react-bootstrap'
+import { Row, Col } from 'react-bootstrap'
 
-import { Footer } from '../components'
+import { HomeIcon, Footer } from '../components'
 
 import profilePic from '../../img/profilePic.jpg'
 import smartphone from '../../img/icons/smartphone.svg'
@@ -18,14 +18,6 @@ class Home extends PureComponent {
 		return false
 	}
 
-	getPopover(name) {
-		return (
-			<Tooltip id="hobbies" className="portfolio-modal-cat-icon-popover">
-				{name}
-			</Tooltip>
-		)
-	}
-
 	render() {
 		return (
 			<div className="home">
@@ -35,37 +27,13 @@ class Home extends PureComponent {
 						<p>Full Stack Developer</p>
 					</div>
 					<div className="home-landing-icons-wrapper">
-						<OverlayTrigger trigger={['hover', 'focus']} placement="bottom" overlay={this.getPopover('Resume')}>
-							<a className="home-landing-icon home-landing-icon-file"
-								href="https://drive.google.com/file/d/0B3-82hcS8hjnSkdOaXREQWJQY2M/view?usp=sharing"
-								target="_blank" rel="noopener noreferrer">
-								Resume
-							</a>
-						</OverlayTrigger>
+						<HomeIcon name="Resume" link="https://drive.google.com/file/d/0B3-82hcS8hjnSkdOaXREQWJQY2M/view?usp=sharing" />
 
-						<OverlayTrigger trigger={['hover', 'focus']} placement="bottom" overlay={this.getPopover('LinkedIn')}>
-							<a className="home-landing-icon home-landing-icon-linkedin"
-								href="https://linkedin.com/in/guojiewen"
-								target="_blank" rel="noopener noreferrer">
-								LinkedIn
-							</a>
-						</OverlayTrigger>
+						<HomeIcon name="LinkedIn" link="https://linkedin.com/in/guojiewen" />
 
-						<OverlayTrigger trigger={['hover', 'focus']} placement="bottom" overlay={this.getPopover('Github')}>
-							<a className="home-landing-icon home-landing-icon-github"
-								href="https://github.com/thousight"
-								target="_blank" rel="noopener noreferrer">
-								Github
-							</a>
-						</OverlayTrigger>
+						<HomeIcon name="Github" link="https://github.com/thousight" />
 
-						<OverlayTrigger trigger={['hover', 'focus']} placement="bottom" overlay={this.getPopover('500px')}>
-							<a className="home-landing-icon home-landing-icon-500px"
-								href="https://500px.com/markwenguojie94"
-								target="_blank" rel="noopener noreferrer">
-								500px
-							</a>
-						</OverlayTrigger>
+						<HomeIcon name="500px" link="https://500px.com/markwenguojie94" />
 					</div>
 				</div>
 
@@ -90,24 +58,16 @@ class Home extends PureComponent {
 								<h3>Hobbies</h3>
 								<Row className="home-hobbies-icons-wrapper">
 									<Col xs={6} sm={3}>
-										<OverlayTrigger trigger={['hover', 'focus']} placement="bottom" overlay={this.getPopover('Smartphone')}>
-											<img className="home-hobbies-icon" alt="smartphone" src={smartphone} />
-										</OverlayTrigger>
+										<HomeIcon name="Smartphone" icon={smartphone} />
 									</Col>
 									<Col xs={6} sm={3}>
-										<OverlayTrigger trigger={['hover', 'focus']} placement="bottom" overlay={this.getPopover('Photography')}>
-											<img className="home-hobbies-icon" alt="camera" src={camera} />
-										</OverlayTrigger>
+										<HomeIcon name="Photography" icon={camera} />
 									</Col>
 									<Col xs={6} sm={3}>
-										<OverlayTrigger trigger={['hover', 'focus']} placement="bottom" overlay={this.getPopover('Road Trip')}>
-											<img className="home-hobbies-icon" alt="car" src={car} />
-										</OverlayTrigger>
+										<HomeIcon name="Road Trip" icon={car} />
 									</Col>
 									<Col xs={6} sm={3}>
-										<OverlayTrigger trigger={['hover', 'focus']} placement="bottom" overlay={this.getPopover('Badminton')}>
-											<img className="home-hobbies-icon" alt="badminton" src={badminton} />
-										</OverlayTrigger>
+										<HomeIcon name="Badminton" icon={badminton} />
 									</Col>
 								</Row>
 							</div>

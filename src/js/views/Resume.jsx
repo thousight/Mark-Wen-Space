@@ -3,10 +3,6 @@ import { Row, Col } from 'react-bootstrap'
 
 import { Timeline, ProgressBar, Footer } from '../components'
 
-import suitcase from '../../img/icons/suitcase.svg'
-import graduationCap from '../../img/icons/graduationCap.svg'
-import code from '../../img/icons/code.svg'
-
 
 /**
 * Resume page rendering data dynamically
@@ -25,21 +21,21 @@ class Resume extends PureComponent {
 				<div className="resume-content container">
 
 					<div className="resume-subtitle">
-						<img className="resume-subtitle-img" alt="Experience" src={suitcase} />
+						<span className="resume-subtitle-icon icon-suitcase" />
 						<h3>Experience</h3>
 					</div>
 					<Timeline data={allExperiences} />
 
 					{/* Education */}
 					<div className="resume-subtitle">
-						<img className="resume-subtitle-img" alt="Experience" src={graduationCap} />
+						<span className="resume-subtitle-icon icon-graduation-cap" />
 						<h3>Education</h3>
 					</div>
 					<Timeline data={allEducations} />
 
 					{/* Skills */}
 					<div className="resume-subtitle">
-						<img className="resume-subtitle-img" alt="Experience" src={code} />
+						<span className="resume-subtitle-icon icon-code" />
 						<h3>Skills</h3>
 					</div>
 					<Row>

@@ -1,9 +1,8 @@
-import React, { PureComponent } from 'react';
-import { Row, Col } from 'react-bootstrap';
+import React, { PureComponent } from 'react'
+import { Row, Col } from 'react-bootstrap'
 
-import calendar from '../../../img/icons/calendar-time.svg';
-import pin from '../../../img/icons/location-pin.svg';
-import occupation from '../../../img/icons/occupation.svg';
+import occupation from '../../../img/icons/occupation.svg'
+import pin from '../../../img/icons/location-pin.svg'
 
 /**
 * Individual card item on the timeline
@@ -11,7 +10,7 @@ import occupation from '../../../img/icons/occupation.svg';
 class TimelineCard extends PureComponent {
 
 	shouldComponentUpdate(nextProps, nextState) {
-		return false;
+		return false
 	}
 
 	render() {
@@ -37,7 +36,7 @@ class TimelineCard extends PureComponent {
 											<p>{location}</p>
 										</li>
 										<li className="timeline-card-banner-list-item">
-											<img className="timeline-card-banner-icons" alt="time period" src={calendar} />
+											<span className="timeline-card-banner-icon icon-calendar" />
 											<p>{time}</p>
 										</li>
 									</ul>
@@ -64,8 +63,8 @@ class TimelineCard extends PureComponent {
 					</Col>
 				</Row>
 			</div>
-		);
+		)
 	}
 }
 
-export default TimelineCard;
+export default TimelineCard

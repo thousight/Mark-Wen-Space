@@ -1,5 +1,6 @@
 import Footer from './Footer';
 import FullScreenLoading from './FullScreenLoading';
+import HomeIcon from './HomeIcon';
 import NavigationBar from './NavigationBar';
 import ProgressBar from './ProgressBar';
 import Sidebar from './Sidebar';
@@ -9,6 +10,7 @@ import Timeline from './timeline/Timeline';
 export {
 	Footer,
 	FullScreenLoading,
+	HomeIcon,
 	NavigationBar,
 	ProgressBar,
 	Sidebar,
