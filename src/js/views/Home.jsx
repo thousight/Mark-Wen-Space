@@ -35,18 +35,37 @@ class Home extends PureComponent {
 						<p>Full Stack Developer</p>
 					</div>
 					<div className="home-landing-icons-wrapper">
-						<a className="home-landing-icon home-landing-icon-file"
-							href="https://drive.google.com/file/d/0B3-82hcS8hjnSkdOaXREQWJQY2M/view?usp=sharing"
-							target="_blank" rel="noopener noreferrer">Resume</a>
-						<a className="home-landing-icon home-landing-icon-linkedin"
-							href="https://linkedin.com/in/guojiewen"
-							target="_blank" rel="noopener noreferrer">LinkedIn</a>
-						<a className="home-landing-icon home-landing-icon-github"
-							href="https://github.com/thousight"
-							target="_blank" rel="noopener noreferrer">Github</a>
-						<a className="home-landing-icon home-landing-icon-500px"
-							href="https://500px.com/markwenguojie94"
-							target="_blank" rel="noopener noreferrer">500px</a>
+						<OverlayTrigger trigger={['hover', 'focus']} placement="bottom" overlay={this.getPopover('Resume')}>
+							<a className="home-landing-icon home-landing-icon-file"
+								href="https://drive.google.com/file/d/0B3-82hcS8hjnSkdOaXREQWJQY2M/view?usp=sharing"
+								target="_blank" rel="noopener noreferrer">
+								Resume
+							</a>
+						</OverlayTrigger>
+
+						<OverlayTrigger trigger={['hover', 'focus']} placement="bottom" overlay={this.getPopover('LinkedIn')}>
+							<a className="home-landing-icon home-landing-icon-linkedin"
+								href="https://linkedin.com/in/guojiewen"
+								target="_blank" rel="noopener noreferrer">
+								LinkedIn
+							</a>
+						</OverlayTrigger>
+
+						<OverlayTrigger trigger={['hover', 'focus']} placement="bottom" overlay={this.getPopover('Github')}>
+							<a className="home-landing-icon home-landing-icon-github"
+								href="https://github.com/thousight"
+								target="_blank" rel="noopener noreferrer">
+								Github
+							</a>
+						</OverlayTrigger>
+
+						<OverlayTrigger trigger={['hover', 'focus']} placement="bottom" overlay={this.getPopover('500px')}>
+							<a className="home-landing-icon home-landing-icon-500px"
+								href="https://500px.com/markwenguojie94"
+								target="_blank" rel="noopener noreferrer">
+								500px
+							</a>
+						</OverlayTrigger>
 					</div>
 				</div>
 
