@@ -15,7 +15,7 @@ import registerServiceWorker from './registerServiceWorker'
 import './style/bootstrap/bootstrap.min.css'
 import 'react-toastify/dist/ReactToastify.css'
 import './style/fontello.css'
-import './index.less'
+import './index.css'
 
 // Redux store
 const store = createStore(rootReducer)
