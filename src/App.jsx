@@ -4,7 +4,7 @@ import { Switch, Route } from 'react-router-dom'
 import { withRouter } from 'react-router'
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
-import { ToastContainer } from 'react-toastify'
+import { ToastContainer, toast } from 'react-toastify'
 
 import { Home, Resume, Portfolio, Contact } from './js/views'
 import { NavigationBar, Sidebar, FullScreenLoading } from './js/components'
@@ -117,8 +117,7 @@ class App extends Component {
 					let isLoading = !loading && !error && imagesLoading.length === this.backgroundImages.length
 
 					if (error) {
-						console.log(error);
-						
+						toast.error(typeof error === 'string' ? error : 'Something went wrong when loading... Please check your network connectivity and if you are using https instead of http.')
 					}
 
 					return (
@@ -158,7 +157,7 @@ class App extends Component {
 											autoClose={5000} />
 									</div>
 								:
-								<FullScreenLoading key={2} errorText={error ? error.message : ''} />
+								<FullScreenLoading key={2} />
 							}
 						</ReactCSSTransitionGroup>
 					)
