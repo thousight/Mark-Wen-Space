@@ -153,7 +153,7 @@ class App extends Component {
 											autoClose={5000} />
 									</div>
 								:
-								<FullScreenLoading key={2} errorText={error ? error : ''} />
+								<FullScreenLoading key={2} errorText={error.message ? error.message : ''} />
 							}
 						</ReactCSSTransitionGroup>
 					)
