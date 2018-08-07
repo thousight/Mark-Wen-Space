@@ -116,7 +116,7 @@ class App extends Component {
 					}
 					let isLoading = !loading && !error && imagesLoading.length === this.backgroundImages.length
 
-					if (error) {
+					if (!loading && error) {
 						toast.error(typeof error === 'string' ? error : 'Something went wrong when loading... Please check your network connectivity and if you are using https instead of http.')
 					}
 
