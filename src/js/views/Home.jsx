@@ -39,7 +39,7 @@ class Home extends PureComponent {
 
 				<div className="container">
 					<Row className="home-cards">
-						<Col xs={12} md={10} mdOffset={1}>
+						<Col xs={12} md={10} mdOffset={1} lg={12} lgOffset={0}>
 							<div className="card home-intro-card">
 								<img className="home-profile-pic" alt="profile" src={profilePic} />
 								<h3>Hi, I'm Mark!</h3>
@@ -53,7 +53,7 @@ class Home extends PureComponent {
 								</p>
 							</div>
 						</Col>
-						<Col xs={12} md={10} mdOffset={1}>
+						<Col xs={12} md={10} mdOffset={1} lg={12} lgOffset={0}>
 							<div className="card home-hobbies-card">
 								<h3>Hobbies</h3>
 								<Row className="home-hobbies-icons-wrapper">

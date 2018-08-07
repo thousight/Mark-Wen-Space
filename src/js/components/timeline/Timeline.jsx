@@ -19,7 +19,7 @@ class Timeline extends PureComponent {
 		return (
 			<div className="timeline">
 				<Row>
-					<Col xs={12} md={10} mdOffset={1}>
+					<Col xs={12} md={10} mdOffset={1} lg={12} lgOffset={0}>
 						<div className="row">
 							<div className="col-xs-2 timeline-line-wrapper">
 								<div className="timeline-line" />
