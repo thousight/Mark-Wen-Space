@@ -39,7 +39,7 @@ class Resume extends PureComponent {
 						<h3>Skills</h3>
 					</div>
 					<Row>
-						<Col xs={12} md={10} mdOffset={1}>
+						<Col xs={12} md={10} mdOffset={1} lg={12} lgOffset={0}>
 							<div className="card resume-skills-card">
 								{
 									[ ...allSkillCategories ].sort((a, b) => (a.order - b.order)).map(category => (
@@ -47,9 +47,9 @@ class Resume extends PureComponent {
 											<h4 className="resume-skill-category-title">
 												{category.categoryTitle}
 											</h4>
-											<Row>
+											<Row className="resume-skill-category">
 												{
-													[ ...category.skills ].sort((a, b) => (b.percent - a.percent)).map(skill => (
+													[ ...category.skills ].sort((a, b) => (b.percent - a.percent)).map((skill, index) => (
 														<Col key={skill.skillName} xs={12} sm={4}>
 															<h5>{skill.skillName}</h5>
 															<ProgressBar percentage={skill.percent} color={category.color} />
