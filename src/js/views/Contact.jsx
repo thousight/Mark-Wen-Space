@@ -44,7 +44,7 @@ class Contact extends Component {
 				<div className="container contact-content">
 					<Row>
 						{/* Basic Contact Info */}
-						<Col xs={12} sm={5} md={4} mdOffset={1}>
+						<Col xs={12} sm={5} md={4} mdOffset={1} lg={5} lgOffset={0}>
 							<div className="card contact-info">
 								<div className="contact-info-line">
 									<span className="contact-info-icon icon-mail" />
@@ -70,12 +70,12 @@ class Contact extends Component {
 						</Col>
 
 						{/* Send Email Message */}
-						<Col xs={12} sm={7} md={6}>
+						<Col xs={12} sm={7} md={6} lg={7} lgOffset={0}>
 							<SendEmailForm />
 						</Col>
 
 						{/* Maps */}
-						<Col xs={12} md={10} mdOffset={1}>
+						<Col xs={12} md={10} mdOffset={1} lg={12} lgOffset={0}>
 							<div className="card contact-map">
 								{
 									this.state.isGoogleAvailable ?

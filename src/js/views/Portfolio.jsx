@@ -188,7 +188,7 @@ class Portfolio extends Component {
 
         <div className="portfolio-content container">
           <Row>
-            <Col xs={12} md={10} mdOffset={1}>
+            <Col xs={12} md={10} mdOffset={1} lg={12} lgOffset={0}>
               {/* Category Control */}
               <div className="portfolio-cat-control card">
                 {
