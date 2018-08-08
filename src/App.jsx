@@ -114,7 +114,7 @@ class App extends Component {
 					if (!loading && data) {
 						// this.props.setStaticContent(data)
 					}
-					let isLoading = !loading && !error && imagesLoading.length === this.backgroundImages.length 
+					let isLoading = !loading && !error && imagesLoading.length === this.backgroundImages.length
 
 					return (
 						<ReactCSSTransitionGroup
@@ -153,7 +153,7 @@ class App extends Component {
 											autoClose={5000} />
 									</div>
 								:
-								<FullScreenLoading key={2} errorText={error ? error : ''} />
+								<FullScreenLoading key={2} error={error} />
 							}
 						</ReactCSSTransitionGroup>
 					)
