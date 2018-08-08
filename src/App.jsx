@@ -116,10 +116,6 @@ class App extends Component {
 					}
 					let isLoading = !loading && !error && imagesLoading.length === this.backgroundImages.length
 
-					if (!loading && error) {
-						toast.error(typeof error === 'string' ? error : 'Something went wrong when loading... Please check your network connectivity and if you are using https instead of http.')
-					}
-
 					return (
 						<ReactCSSTransitionGroup
 							transitionName="fade"
@@ -157,7 +153,7 @@ class App extends Component {
 											autoClose={5000} />
 									</div>
 								:
-								<FullScreenLoading key={2} />
+								<FullScreenLoading key={2} error={error} />
 							}
 						</ReactCSSTransitionGroup>
 					)

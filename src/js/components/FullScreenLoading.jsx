@@ -17,6 +17,14 @@ const FullScreenLoading = () => (
 						<span>.</span>
 						<span>.</span>
 				</h4>
+				<h5 className="fullscreen-loading-error-text">
+						{
+							error
+								? 'Something went wrong when loading... Please check your network connectivity and ' +
+										'if you are using https instead of http.'
+								: ''
+						}
+				</h5>
 		</div>
 )
 
