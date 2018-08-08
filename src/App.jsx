@@ -4,7 +4,7 @@ import { Switch, Route } from 'react-router-dom'
 import { withRouter } from 'react-router'
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
-import { ToastContainer, toast } from 'react-toastify'
+import { ToastContainer } from 'react-toastify'
 
 import { Home, Resume, Portfolio, Contact } from './js/views'
 import { NavigationBar, Sidebar, FullScreenLoading } from './js/components'
