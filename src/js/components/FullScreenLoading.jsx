@@ -5,7 +5,7 @@ import BlueLogoTransparentBG from '../../img/logo/BlueLogoTransparentBG.png'
 /**
 * Loading screen when app starts
 */
-const FullScreenLoading = () => (
+const FullScreenLoading = ({ error }) => (
 		<div className="fullscreen-loading">
 				<img
 						className="fullscreen-loading-logo"
