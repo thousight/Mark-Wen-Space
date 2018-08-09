@@ -5,8 +5,9 @@ import { getRandomInt } from '../utils/number'
 
 import notFoundCenter from '../../img/NotFoundCenter.svg'
 
-const RAINDROP_MAX_AMOUNT = 15
-const RAINDROP_MIN_AMOUNT = 10
+const RAINDROP_MAX_AMOUNT = 20
+const RAINDROP_MIN_AMOUNT = 12
+const RAINDROP_MOVEMENT_STRENGTH = 25
 
 /**
 * Static Not Found center text and image
@@ -15,8 +16,12 @@ export default class NotFound extends Component {
 
   state = {
     centerImageLoaded: false,
+    shiftTop: 0,
+    shiftLeft: 0,
+    midCircleRect: null
   }
 
+  onMouseMove = this.onMouseMove.bind(this)
 
   getMidCircleHeight = this.getMidCircleHeight.bind(this)
 
@@ -24,20 +29,37 @@ export default class NotFound extends Component {
 
   midCircle = null
 
+  windowWidth = window.innerWidth
+
+  windowHeight = window.innerHeight
+
+  componentDidMount() {
+    this.getMidCircleHeight()
+  }
+
+  onMouseMove({ pageX, pageY }) {
+    this.setState({
+      shiftLeft: (RAINDROP_MOVEMENT_STRENGTH / this.windowWidth) * (pageX - this.windowWidth / 2) * -1 - 25,
+      shiftTop: (RAINDROP_MOVEMENT_STRENGTH / this.windowHeight) * (pageY - this.windowHeight / 2) * -1 - 25
+    })
+  }
+
   getMidCircleHeight() {
     if (this.midCircle) {
-      console.log( this.midCircle.getBoundingClientRect());
-      
-      return this.midCircle.getBoundingClientRect()
+      this.setState({ midCircleRect: this.midCircle.getBoundingClientRect() }) 
     }
-    return 680
   }
   
   render() {
-    const { centerImageLoaded } = this.state
+    const {
+      centerImageLoaded,
+      shiftTop,
+      shiftLeft,
+      midCircleRect,
+    } = this.state
 
     return (
-      <div className="not-found-page">
+      <div className="not-found-page"  onMouseMove={this.onMouseMove}>
         <div className="not-found-center-wrapper">
           <div className="not-found-center-circle">
             <div
@@ -63,7 +85,9 @@ export default class NotFound extends Component {
             this.numberOfRaindrops.map((_, index) => (
               <NotFoundRaindrop
                 key={`raindrop_${index}`}
-                midCircleRect={this.getMidCircleHeight()}
+                midCircleRect={midCircleRect}
+                shiftTop={shiftTop}
+                shiftLeft={shiftLeft}
               />
             ))
           }
