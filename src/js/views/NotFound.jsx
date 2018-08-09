@@ -17,17 +17,12 @@ export default class NotFound extends Component {
     centerImageLoaded: false,
   }
 
-  onMouseMove = this.onMouseMove.bind(this)
 
   getMidCircleHeight = this.getMidCircleHeight.bind(this)
 
   numberOfRaindrops = Array.apply(null, Array(getRandomInt(RAINDROP_MIN_AMOUNT, RAINDROP_MAX_AMOUNT)))
 
   midCircle = null
-
-  onMouseMove({ pageX, pageY }) {
-    
-  }
 
   getMidCircleHeight() {
     if (this.midCircle) {
@@ -42,7 +37,7 @@ export default class NotFound extends Component {
     const { centerImageLoaded } = this.state
 
     return (
-      <div className="not-found-page"  onMouseMove={this.onMouseMove}>
+      <div className="not-found-page">
         <div className="not-found-center-wrapper">
           <div className="not-found-center-circle">
             <div

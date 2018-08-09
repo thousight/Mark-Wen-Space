@@ -26,8 +26,8 @@ export default class NotFoundRaindrop extends PureComponent {
 
   getVerticalPos(space) {
     return Math.random() > 0.5 
-                ? this.getUpperHalfPositionStr(this.windowHeight, space)
-                : this.getLowerHalfPositionStr(this.windowHeight, space)
+    ? this.getUpperHalfPositionStr(this.windowHeight, space)
+    : this.getLowerHalfPositionStr(this.windowHeight, space)
   }
 
   getUpperHalfPositionStr(total, space) {
