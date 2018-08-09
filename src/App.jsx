@@ -6,7 +6,13 @@ import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
 import { ToastContainer } from 'react-toastify'
 
-import { Home, Resume, Portfolio, Contact } from './js/views'
+import {
+	Home,
+	Resume,
+	Portfolio,
+	Contact,
+	NotFound
+} from './js/views'
 import { NavigationBar, Sidebar, FullScreenLoading } from './js/components'
 
 import homeBackground from './img/home.jpg'
@@ -143,6 +149,7 @@ class App extends Component {
 												)} />
 												<Route path="/portfolio" component={() => (<Portfolio allPortfolios={data.allPortfolios} />)} />
 												<Route path="/contact" component={Contact} />
+												<Route component={NotFound} />
 											</Switch>
 
 										</ReactCSSTransitionGroup>
