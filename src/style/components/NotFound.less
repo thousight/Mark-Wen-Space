@@ -22,6 +22,21 @@
   align-items: center;
   justify-content: center;
   padding: 85px;
+  @media only screen and (min-width: 768px) and (max-width: 992px) {
+		max-width: 640px;
+    max-height: 640px;
+    padding: 75px;
+  }
+  @media only screen and (min-width: 425px) and (max-width: 767px) {
+		max-width: 420px;
+    max-height: 420px;
+    padding: 50px;
+  }
+  @media only screen and (max-width: 424px) {
+		max-width: 320px;
+    max-height: 320px;
+    padding: 45px;
+	}
 }
 
 .not-found-center-svg {
@@ -33,7 +48,18 @@
   bottom: 0;
   right: 0;
   width: 70%;
-  max-width: 670px;
+  max-width: 650px;
   opacity: 0;
   transition: 2s;
+
+  @media only screen and (min-width: 768px) and (max-width: 992px) {
+		max-width: 470px;
+  }
+  @media only screen and (min-width: 425px) and (max-width: 767px) {
+		max-width: 385px;
+    width: 80%;
+  }
+  @media only screen and (max-width: 424px) {
+    width: 80%;
+	}
 }
