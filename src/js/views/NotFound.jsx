@@ -16,6 +16,15 @@ export default class NotFound extends Component {
 
     return (
       <div className="not-found-page">
+        <div className="not-found-center-wrapper">
+          <div className="not-found-center-circle">
+            <div className="not-found-center-circle">
+              <div className="not-found-center-circle">
+              </div>
+            </div>
+          </div>
+        </div>
+        
         <img 
           className="not-found-center-svg"
           alt='Not found'
