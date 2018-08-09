@@ -1,5 +1,8 @@
 .not-found-page {
   background: @cardBackgroundBlue;
+  overflow: hidden;
+  position: fixed;
+  width: 100vw;
 }
 
 .not-found-center-wrapper {
@@ -42,7 +45,6 @@
 .not-found-center-svg {
   position: absolute;
   margin: auto;
-  position: absolute;
   top: -5%;
   left: 0;
   bottom: 0;
@@ -51,6 +53,7 @@
   max-width: 650px;
   opacity: 0;
   transition: 2s;
+  user-select: none;
 
   @media only screen and (min-width: 768px) and (max-width: 992px) {
 		max-width: 470px;
@@ -62,4 +65,20 @@
   @media only screen and (max-width: 424px) {
     width: 80%;
 	}
+}
+
+.not-found-raindrops-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.not-found-raindrop {
+  position: absolute;
+  background-color: @white;
+  border-radius: 20px;
+  margin: 10px;
+  transform: rotate(45deg)
 }
