@@ -1,12 +1,29 @@
-import React from 'react'
+import React, { Component } from 'react'
+
+import notFoundCenter from '../../img/NotFoundCenter.svg'
 
 /**
-* Static Not Found page
+* Static Not Found center text and image
 */
-const NotFound = () => (
-	<div className="not-found-page">
-		NotFound
-	</div>
-)
+export default class NotFound extends Component {
 
-export default NotFound
+  state = {
+    centerImageLoaded: false
+  }
+
+  render() {
+    const { centerImageLoaded } = this.state
+
+    return (
+      <div className="not-found-page">
+        <img 
+          className="not-found-center-svg"
+          alt='Not found'
+          src={notFoundCenter}
+          style={{ opacity: centerImageLoaded ? 1 : 0 }}
+          onLoad={() => this.setState({ centerImageLoaded: true })}
+        />
+      </div>
+    )
+  }
+}
