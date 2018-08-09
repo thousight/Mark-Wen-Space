@@ -8,6 +8,7 @@ const RAINDROP_MAX_WIDTH = 23
 const RAINDROP_MIN_WIDTH = 13
 const RAINDROP_MAX_OPACITY = 50
 const RAINDROP_MIN_OPACITY = 15
+const RAINDROP_POSITION_SOFTENER = 90
 
 export default class NotFoundRaindrop extends PureComponent {
 
@@ -19,14 +20,22 @@ export default class NotFoundRaindrop extends PureComponent {
   
   getHorizontalPos(space) {
     return Math.random() > 0.5 
-                ? `${getRandomInt(this.windowWidth/2 + space, this.windowWidth) / this.windowWidth * 100}%`
-                : `${getRandomInt(0, this.windowWidth/2 - space) / this.windowWidth * 100}%`
+    ? this.getUpperHalfPositionStr(this.windowWidth, space)
+    : this.getLowerHalfPositionStr(this.windowWidth, space)
   }
 
   getVerticalPos(space) {
     return Math.random() > 0.5 
-                ? `${getRandomInt(this.windowHeight/2 + space, this.windowHeight) / this.windowHeight * 100}%`
-                : `${getRandomInt(0, this.windowHeight/2 - space) / this.windowHeight * 100}%`
+                ? this.getUpperHalfPositionStr(this.windowHeight, space)
+                : this.getLowerHalfPositionStr(this.windowHeight, space)
+  }
+
+  getUpperHalfPositionStr(total, space) {
+    return `${getRandomInt(total / 2 + space, total) / total * RAINDROP_POSITION_SOFTENER}%`
+  }
+
+  getLowerHalfPositionStr(total, space) {
+    return `${getRandomInt(0, total / 2 - space) / total * RAINDROP_POSITION_SOFTENER}%`
   }
 
   render() {
