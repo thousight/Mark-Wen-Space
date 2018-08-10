@@ -10,6 +10,7 @@ const RAINDROP_MAX_OPACITY = 50
 const RAINDROP_MIN_OPACITY = 15
 const RAINDROP_POSITION_SOFTENER = 90
 const RAINDROP_JIGGLING_AMOUNT = 5
+const RAINDROP_JIGGLING_TRANSITION = '100ms'
 
 export default class NotFoundRaindrop extends Component {
 
@@ -42,13 +43,13 @@ export default class NotFoundRaindrop extends Component {
       this.setState({
         x: `calc(${this.staticX} - ${shiftLeft}px + ${getRandomInt(-1 * RAINDROP_JIGGLING_AMOUNT, RAINDROP_JIGGLING_AMOUNT)}px)`,
         y: `calc(${this.staticY} - ${shiftTop}px + ${getRandomInt(-1 * RAINDROP_JIGGLING_AMOUNT, RAINDROP_JIGGLING_AMOUNT)}px)`,
-        transition:  '150ms',
+        transition:  RAINDROP_JIGGLING_TRANSITION,
       })
     }
   }
-  
+
   getHorizontalPos(space) {
-    return Math.random() > 0.5 
+    return Math.floor(Math.random() * 2) > 0.5 
     ? this.getUpperHalfPositionStr(this.windowWidth, space)
     : this.getLowerHalfPositionStr(this.windowWidth, space)
   }

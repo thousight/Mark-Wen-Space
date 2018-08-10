@@ -5,8 +5,8 @@ import { getRandomInt } from '../utils/number'
 
 import notFoundCenter from '../../img/NotFoundCenter.svg'
 
-const RAINDROP_MAX_AMOUNT = window.innerWidth >= 768 ? 20 : 10
-const RAINDROP_MIN_AMOUNT = window.innerWidth >= 768 ? 12 : 7
+const RAINDROP_MAX_AMOUNT = window.innerWidth >= 768 ? 20 : 13
+const RAINDROP_MIN_AMOUNT = window.innerWidth >= 768 ? 12 : 9
 const RAINDROP_MOVEMENT_STRENGTH = 25
 
 /**
