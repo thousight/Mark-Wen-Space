@@ -32,8 +32,8 @@ export default class FullScreenLoading extends Component {
 						<p className="fullscreen-loading-error-text">
 								{
 									error
-									? 'Something went wrong when loading... \nPlease check your network connectivity an' +
-											'd if you are using https instead of http.'
+									? '\nSomething went wrong when loading... \n\nPlease check your network connectivity \n' +
+											'and if you are using https instead of http.'
 									: ''
 								}
 						</p>
