@@ -9,12 +9,14 @@ const RAINDROP_MIN_WIDTH = 13
 const RAINDROP_MAX_OPACITY = 50
 const RAINDROP_MIN_OPACITY = 15
 const RAINDROP_POSITION_SOFTENER = 90
+const RAINDROP_JIGGLING_AMOUNT = 5
 
 export default class NotFoundRaindrop extends Component {
 
   state = {
     x: '90%',
     y: 0,
+    transition: '0'
   }
 
   width = `${getRandomInt(RAINDROP_MIN_WIDTH, RAINDROP_MAX_WIDTH)}px`
@@ -29,7 +31,7 @@ export default class NotFoundRaindrop extends Component {
     let { midCircleRect, shiftTop, shiftLeft } = this.props
     if (midCircleRect && !prevProps.midCircleRect) {
       this.staticX = this.getHorizontalPos(midCircleRect.width / 2)
-      this.staticY = this.getVerticalPos(midCircleRect.height / 2)
+      this.staticY = '1px'
       this.setState({
         x: this.staticX,
         y: this.staticY,
@@ -38,8 +40,9 @@ export default class NotFoundRaindrop extends Component {
 
     if (shiftLeft !== prevProps.shiftLeft || shiftTop !== prevProps.shiftTop) {
       this.setState({
-        x: `calc(${this.staticX} - ${shiftLeft}px)`,
-        y: `calc(${this.staticY} - ${shiftTop}px)`,
+        x: `calc(${this.staticX} - ${shiftLeft}px + ${getRandomInt(-1 * RAINDROP_JIGGLING_AMOUNT, RAINDROP_JIGGLING_AMOUNT)}px)`,
+        y: `calc(${this.staticY} - ${shiftTop}px + ${getRandomInt(-1 * RAINDROP_JIGGLING_AMOUNT, RAINDROP_JIGGLING_AMOUNT)}px)`,
+        transition:  '150ms',
       })
     }
   }
@@ -48,12 +51,6 @@ export default class NotFoundRaindrop extends Component {
     return Math.random() > 0.5 
     ? this.getUpperHalfPositionStr(this.windowWidth, space)
     : this.getLowerHalfPositionStr(this.windowWidth, space)
-  }
-
-  getVerticalPos(space) {
-    return Math.random() > 0.5 
-    ? this.getUpperHalfPositionStr(this.windowHeight, space)
-    : this.getLowerHalfPositionStr(this.windowHeight, space)
   }
 
   getUpperHalfPositionStr(total, space) {
@@ -66,7 +63,7 @@ export default class NotFoundRaindrop extends Component {
 
   render() {
     const { key } = this.props
-    const { x, y } = this.state
+    const { x, y, transition } = this.state
 
     return (
       <div
@@ -78,6 +75,7 @@ export default class NotFoundRaindrop extends Component {
             opacity: this.opacity,
             top: y,
             left: x,
+            transition,
           }}
         />
     )
