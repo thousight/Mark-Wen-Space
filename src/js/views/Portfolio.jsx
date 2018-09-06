@@ -18,7 +18,10 @@ const mql = window.matchMedia(`(min-width: 768px)`)
 * Portfolio page rendering data dynamically
 */
 class Portfolio extends Component {
+  mediaQueryChanged = this.mediaQueryChanged.bind(this)
+
   categories = ['All', 'Web', 'Android', 'Design', 'Backend']
+
   state = {
     currentCat: 'All',
     items: this.getItemsOfCategory('All'),
@@ -26,8 +29,6 @@ class Portfolio extends Component {
     showModal: false,
     isSmallScreen: false
   }
-
-  mediaQueryChanged = this.mediaQueryChanged.bind(this)
 
   componentWillMount() {
     mql.addListener(this.mediaQueryChanged)

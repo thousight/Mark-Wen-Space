@@ -1,14 +1,9 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent } from 'react'
 
 /**
 * Dot on timeline
 */
-class TimelineDot extends PureComponent {
-
-	shouldComponentUpdate(nextProps, nextState) {
-		return false;
-	}
-
+export default class TimelineDot extends PureComponent {
 	render() {
 		return (
 			<div className="timeline-dot">
@@ -16,8 +11,6 @@ class TimelineDot extends PureComponent {
 				<div className="timeline-inner-dot" style={{ backgroundColor: this.props.secondaryColor }} />
 				<div className="timeline-center-dot" />
 			</div>
-		);
+		)
 	}
 }
-
-export default TimelineDot;

@@ -7,12 +7,7 @@ import pin from '../../../img/icons/location-pin.svg'
 /**
 * Individual card item on the timeline
 */
-class TimelineCard extends PureComponent {
-
-	shouldComponentUpdate(nextProps, nextState) {
-		return false
-	}
-
+export default class TimelineCard extends PureComponent {
 	render() {
 		const { organization, title, location, time, icon, content, bannerImage } = this.props
 
@@ -66,5 +61,3 @@ class TimelineCard extends PureComponent {
 		)
 	}
 }
-
-export default TimelineCard

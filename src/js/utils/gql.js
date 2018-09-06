@@ -1,7 +1,5 @@
 import gql from 'graphql-tag'
 
-
-
 export const QUERY_ALL_STATIC_CONTENT = gql`
 {
 	allEducations {

@@ -4,7 +4,7 @@ import { OverlayTrigger, Tooltip } from 'react-bootstrap'
 /**
 * Handling icons specifically for Home page
 */
-class HomeIcon extends PureComponent {
+export default class HomeIcon extends PureComponent {
     getPopover(name) {
 		return (
 			<Tooltip id="hobbies" className="portfolio-modal-cat-icon-popover">
@@ -15,6 +15,7 @@ class HomeIcon extends PureComponent {
     
 	render() {
         const { icon, name, link } = this.props
+
 		return (
 			<OverlayTrigger trigger={['hover', 'focus']} placement="bottom" overlay={this.getPopover(name)}>
                 {
@@ -31,5 +32,3 @@ class HomeIcon extends PureComponent {
 		)
 	}
 }
-
-export default HomeIcon

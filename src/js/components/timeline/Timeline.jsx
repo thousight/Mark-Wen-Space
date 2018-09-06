@@ -7,12 +7,7 @@ import TimelineCard from './TimelineCard'
 /**
 * Main timeline component that works with both Exp and Edu data
 */
-class Timeline extends PureComponent {
-
-	shouldComponentUpdate(nextProps, nextState) {
-		return false
-	}
-
+export default class Timeline extends PureComponent {
 	render() {
 		const { data } = this.props
 		
@@ -53,5 +48,3 @@ class Timeline extends PureComponent {
 		)
 	}
 }
-
-export default Timeline

@@ -42,7 +42,6 @@ export const sendEmailToMark = (name, fromEmail, subject, textBody) => new Promi
     } else {
         reject('Invalid email address')
     }
-    
 })
 
 export default transporter
