@@ -3,7 +3,6 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import { Switch, Route } from 'react-router-dom'
 import { withRouter } from 'react-router'
 import { Query } from 'react-apollo'
-import gql from 'graphql-tag'
 import { ToastContainer } from 'react-toastify'
 
 import {
@@ -14,78 +13,12 @@ import {
 	NotFound
 } from './js/views'
 import { NavigationBar, Sidebar, FullScreenLoading } from './js/components'
+import { QUERY_ALL_STATIC_CONTENT } from './js/utils/gql'
 
 import homeBackground from './img/home.jpg'
 import resumeBackground from './img/resume.jpg'
 import portfolioBackground from './img/portfolio.png'
 import contactBackground from './img/contact.jpg'
-
-
-const QUERY_ALL_STATIC_CONTENT = gql`
-{
-	allEducations {
-		_id
-		organization
-		city
-		state
-		degree
-		time
-		order
-		image
-		desc
-		style {
-			primaryColor
-			secondaryColor
-			bannerImage
-		}
-	}
-
-	allExperiences {
-		_id
-		organization
-		city
-		state
-		title
-		time
-		desc
-		image
-		order
-		style {
-			primaryColor
-			secondaryColor
-			bannerImage
-		}
-	}
-
-	allPortfolios {
-		_id
-		title
-		logo
-		time
-		desc
-		keywords
-		categories
-		links
-		order
-		style {
-			primaryColor
-			secondaryColor
-		}
-	}
-
-	allSkillCategories {
-		_id
-		categoryTitle
-		order
-		color
-		skills {
-			_id
-			skillName
-			percent
-		}
-	}
-}
-`
 
 
 /**

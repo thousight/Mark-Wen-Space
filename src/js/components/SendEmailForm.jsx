@@ -1,22 +1,13 @@
 import React, { Component } from 'react'
 import { Modal } from 'react-bootstrap'
-import gql from 'graphql-tag'
 import { Mutation } from 'react-apollo'
 import Recaptcha from 'react-recaptcha'
 import { toast } from 'react-toastify'
 
+import { SEND_EMAIL } from '../../js/utils/gql'
+
 import navigation from '../../img/icons/navigation.svg'
 
-const SEND_EMAIL = gql`
-	mutation SendEmail($name: String!, $fromEmail: String!, $subject: String, $textBody: String!) {
-		sendEmail(
-			name: $name
-			fromEmail: $fromEmail
-			subject: $subject
-			textBody: $textBody
-		)
-	}
-`
 
 class SendEmailForm extends Component {
 
