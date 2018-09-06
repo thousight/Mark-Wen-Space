@@ -26,7 +26,7 @@ class Contact extends Component {
 		const location = { lat: 39.9071868, lng: -86.0848447 }
 
 		if (this.state.isGoogleAvailable) {
-			GetGoogleMaps = withGoogleMap(props => (
+			GetGoogleMaps = withGoogleMap(() => (
 			 <GoogleMap
 				 defaultZoom={15}
 				 defaultCenter={location} >
