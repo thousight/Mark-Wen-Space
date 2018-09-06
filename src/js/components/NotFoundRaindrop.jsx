@@ -17,7 +17,7 @@ export default class NotFoundRaindrop extends Component {
   state = {
     x: '90%',
     y: 0,
-    transition: '0'
+    transition: '0',
   }
 
   width = `${getRandomInt(RAINDROP_MIN_WIDTH, RAINDROP_MAX_WIDTH)}px`

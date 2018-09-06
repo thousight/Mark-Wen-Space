@@ -7,7 +7,7 @@ import { Timeline, ProgressBar, Footer } from '../components'
 /**
 * Resume page rendering data dynamically
 */
-class Resume extends PureComponent {
+export default class Resume extends PureComponent {
 	render() {
 		const { allEducations, allExperiences, allSkillCategories } = this.props
 
@@ -72,5 +72,3 @@ class Resume extends PureComponent {
 		)
 	}
 }
-
-export default Resume

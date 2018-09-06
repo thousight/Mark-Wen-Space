@@ -13,7 +13,6 @@ const RAINDROP_MOVEMENT_STRENGTH = 25
 * Static Not Found center text and image
 */
 export default class NotFound extends Component {
-
   state = {
     centerImageLoaded: false,
     shiftTop: 0,

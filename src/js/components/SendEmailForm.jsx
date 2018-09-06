@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { Modal } from 'react-bootstrap'
+import { withRouter } from 'react-router'
 import { Mutation } from 'react-apollo'
 import Recaptcha from 'react-recaptcha'
+import { Modal } from 'react-bootstrap'
 import { toast } from 'react-toastify'
 
 import { SEND_EMAIL } from '../../js/utils/gql'
@@ -10,27 +11,20 @@ import navigation from '../../img/icons/navigation.svg'
 
 
 class SendEmailForm extends Component {
+    handleEmailSubmit = this.handleEmailSubmit.bind(this)
+
+    handleSendEmail = this.handleSendEmail.bind(this)
+
+    sendEmail = null
+
+    isEmailResponseToasted = true
 
     state = {
         name: '',
         fromEmail: '',
         subject: '',
         message: '',
-        isShowRecaptchaModal: false
-    }
-
-    /**
-	* When a email is successfully sent, toast a message
-	*/
-    componentWillReceiveProps(nextProps) {
-        if (this.props.loading && !nextProps.loading) {
-            let { error } = nextProps
-            if (error) {
-                toast.error(error.message ? error.message : 'Something is wrong when sending email')
-            } else {
-                toast('Email successfully sent!')
-            }
-        }
+        isShowRecaptchaModal: false,
     }
 
 	/**
@@ -43,83 +37,109 @@ class SendEmailForm extends Component {
 	/**
 	* Show modal when submit email if recaptcha is available
 	*/
-	hanleEmailSubmit(callback) {
+	handleEmailSubmit(e) {
+        e.preventDefault()
+
 		if (window['recaptcha'] && window['grecaptcha']) {
 			this.setState({ isShowRecaptchaModal: true })
 		} else {
-			callback()
-		}
+            this.handleSendEmail()
+        }
     }
     
-    handleSendEmail(sendEmail, name, fromEmail, subject, message) {
-        sendEmail({ variables: { name, fromEmail, subject, textBody: message } })
+    handleSendEmail() {
+        const { name, fromEmail, subject, message } = this.state
+
+        if (this.sendEmail) {
+            this.sendEmail({
+                variables: {
+                    name,
+                    fromEmail,
+                    subject,
+                    textBody: message,
+                },
+            })
+        }
+        this.isEmailResponseToasted = false
         this.setState({ isShowRecaptchaModal: false })
     }
 
     render() {
-        const { name, fromEmail, subject, message, isShowRecaptchaModal } = this.state
-        const { sendEmail, loading } = this.props
+        const {
+            name,
+            fromEmail,
+            subject,
+            message,
+            isShowRecaptchaModal,
+        } = this.state
         
         return (
-            <div className="card contact-email">
-                <h4>Shoot me a message!</h4>
+            <Mutation mutation={SEND_EMAIL}>
+                {(sendEmail, { loading, error, data }) => {
+                    this.sendEmail = sendEmail
 
-                <form onSubmit={e => {
-                        e.preventDefault()
-                        this.hanleEmailSubmit(() => this.handleSendEmail(sendEmail, name, fromEmail, subject, message))
-                    }}>
-                    <input className="contact-email-form" 
-                        value={name}
-                        onChange={e => this.updateEmailInputFields('name', e.target.value)}
-                        type="text"
-                        placeholder="Name" 
-                        aria-label="Name input field" />
+                    if (!loading && !this.isEmailResponseToasted && error) {
+                        toast.error(error.message ? error.message : 'Something is wrong when sending email')
+                        this.isEmailResponseToasted = true
+                    }
 
-                    <input className="contact-email-form" 
-                        value={fromEmail} 
-                        onChange={e => this.updateEmailInputFields('fromEmail', e.target.value)}
-                        type="email" 
-                        placeholder="Email"
-                        aria-label="Email input field" />
+                    if (!loading && !this.isEmailResponseToasted && data) {
+                        toast('Email successfully sent!')
+                        this.isEmailResponseToasted = true
+                    }
 
-                    <input className="contact-email-form" 
-                        value={subject} 
-                        onChange={e => this.updateEmailInputFields('subject', e.target.value)}
-                        type="text" 
-                        placeholder="Subject" 
-                        aria-label="Subject input field" />
-
-                    <textarea className="contact-email-form" 
-                        value={message} 
-                        onChange={e => this.updateEmailInputFields('message', e.target.value)}
-                        type="text" 
-                        placeholder="Message" 
-                        aria-label="Message input field" />
-
-                    <div className="contact-email-form-submit-wrapper">
-                        <button className="contact-email-submit" type="submit">
-                            <img className="contact-email-submit-icon" alt="submit" src={navigation} />
-                            <p>{loading ? 'Loading' : 'Submit'}</p>
-                        </button>
-                    </div>
-                </form>
-                <Modal show={isShowRecaptchaModal} onHide={() => { this.setState({ isShowRecaptchaModal: false }) }}>
-                    <Recaptcha
-                        className="recaptcha"
-                        sitekey={process.env.REACT_APP_RECAPTCHA}
-                        verifyCallback={() => this.handleSendEmail(sendEmail, name, fromEmail, subject, message)} />
-                </Modal>
-            </div>
+                    return (
+                        <div className="card contact-email">
+                            <h4>Shoot me a message!</h4>
+    
+                            <form onSubmit={this.handleEmailSubmit}>
+                                <input className="contact-email-form" 
+                                    value={name}
+                                    onChange={e => this.updateEmailInputFields('name', e.target.value)}
+                                    type="text"
+                                    placeholder="Name" 
+                                    aria-label="Name input field" />
+    
+                                <input className="contact-email-form" 
+                                    value={fromEmail} 
+                                    onChange={e => this.updateEmailInputFields('fromEmail', e.target.value)}
+                                    type="email" 
+                                    placeholder="Email"
+                                    aria-label="Email input field" />
+    
+                                <input className="contact-email-form" 
+                                    value={subject} 
+                                    onChange={e => this.updateEmailInputFields('subject', e.target.value)}
+                                    type="text" 
+                                    placeholder="Subject" 
+                                    aria-label="Subject input field" />
+    
+                                <textarea className="contact-email-form" 
+                                    value={message} 
+                                    onChange={e => this.updateEmailInputFields('message', e.target.value)}
+                                    type="text" 
+                                    placeholder="Message" 
+                                    aria-label="Message input field" />
+    
+                                <div className="contact-email-form-submit-wrapper">
+                                    <button className="contact-email-submit" type="submit">
+                                        <img className="contact-email-submit-icon" alt="submit" src={navigation} />
+                                        <p>{loading ? 'Loading' : 'Submit'}</p>
+                                    </button>
+                                </div>
+                            </form>
+                            <Modal show={isShowRecaptchaModal} onHide={() => this.setState({ isShowRecaptchaModal: false })}>
+                                <Recaptcha
+                                    className="recaptcha"
+                                    sitekey={process.env.REACT_APP_RECAPTCHA}
+                                    verifyCallback={this.handleSendEmail} />
+                            </Modal>
+                        </div>
+                    )
+                }}
+            </Mutation>
         )
     }
 }
 
-export default () => (
-    <Mutation mutation={SEND_EMAIL}>
-        {(sendEmail, { loading, error }) => (
-            <SendEmailForm sendEmail ={sendEmail}
-                loading={loading}
-                error={error} />
-        )}
-    </Mutation>
-)
+export default withRouter(SendEmailForm)

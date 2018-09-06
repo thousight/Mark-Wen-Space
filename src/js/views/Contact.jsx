@@ -8,10 +8,9 @@ import { SendEmailForm, Footer } from '../components'
 /**
 * Static Contact page, able to send email to Mark and view Google Maps
 */
-class Contact extends Component {
-
+export default class Contact extends Component {
 	state = {
-		isGoogleAvailable: true
+		isGoogleAvailable: true,
 	}
 
 	componentWillMount() {
@@ -102,5 +101,3 @@ class Contact extends Component {
 		)
 	}
 }
-
-export default Contact

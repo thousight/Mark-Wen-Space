@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
+import { bindActionCreators } from 'redux'
 import {
 	Navbar,
 	Nav,
@@ -7,9 +9,8 @@ import {
 	Row,
 	Col,
 } from 'react-bootstrap'
-import { connect } from 'react-redux'
+
 import { toggleSidebar, setNavbarCurrentItem } from '../redux/actions'
-import { bindActionCreators } from 'redux'
 
 import BlueLogoTransparentBG from '../../img/logo/BlueLogoTransparentBG.png'
 import WhiteLogoTransparentBG from '../../img/logo/WhiteLogoTransparentBG.png'

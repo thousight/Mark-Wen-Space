@@ -7,7 +7,7 @@ import BlueLogoTransparentBG from '../../img/logo/BlueLogoTransparentBG.png'
 */
 export default class FullScreenLoading extends Component {
 	state = {
-    centerImageLoaded: false
+    centerImageLoaded: false,
 	}
 	
 	render() {
