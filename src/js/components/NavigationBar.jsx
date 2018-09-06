@@ -1,6 +1,12 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router'
-import { Navbar, Nav, NavItem, Row, Col } from 'react-bootstrap'
+import {
+	Navbar,
+	Nav,
+	NavItem,
+	Row,
+	Col,
+} from 'react-bootstrap'
 import { connect } from 'react-redux'
 import { toggleSidebar, setNavbarCurrentItem } from '../redux/actions'
 import { bindActionCreators } from 'redux'
@@ -14,24 +20,24 @@ import WhiteLogoTransparentBG from '../../img/logo/WhiteLogoTransparentBG.png'
 */
 class NavigationBar extends Component {
 
-	constructor(props) {
-		super(props)
+	handleScroll = this.handleScroll.bind(this)
 
-		// Bind functions
-		this.handleScroll = this.handleScroll.bind(this)
-		this.toggleOnClick = this.toggleOnClick.bind(this)
-		this.getLinkClassNames = this.getLinkClassNames.bind(this)
-		this.navItemOnClick = this.navItemOnClick.bind(this)
+	toggleOnClick = this.toggleOnClick.bind(this)
+
+	getLinkClassNames = this.getLinkClassNames.bind(this)
+
+	navItemOnClick = this.navItemOnClick.bind(this)
+
+	state= {
+		logo: WhiteLogoTransparentBG,
+		navbarClassName: 'navbar-transparent',
+		navbarBackgroundColor: 'rgba(255, 255, 255, 0)',
+		toggleClassName: 'navbar-toggle-white',
 	}
 
 	componentDidMount() {
 		// Select the currently selected nav item based on url
 		this.navItemOnClick(this.props.location.pathname)
-
-		// Get elements
-		this.navbar = document.getElementById('navbar')
-		this.logo = document.getElementById('navbar-logo')
-		this.toggle = document.getElementById('navbar-toggle')
 
 		// Add scroll listener
 		window.addEventListener('scroll', this.handleScroll)
@@ -47,25 +53,24 @@ class NavigationBar extends Component {
 	handleScroll() {
 		if (window.scrollY <= 0) {
 			// If user scrolls to the top
-			// swap navbar theme
-			this.navbar.classList.add('navbar-transparent')
-			this.navbar.classList.remove('navbar-white')
-			this.logo.src = WhiteLogoTransparentBG
-			this.navbar.style.backgroundColor = 'rgba(255, 255, 255, 0)'
-			this.toggle.classList.add('navbar-toggle-white')
-			this.toggle.classList.remove('navbar-toggle-dark')
+			this.setState({
+				logo: WhiteLogoTransparentBG,
+				navbarClassName: 'navbar-transparent',
+				navbarBackgroundColor: 'rgba(255, 255, 255, 0)',
+				toggleClassName: 'navbar-toggle-white',
+			})
 		} else {
-			this.navbar.classList.add('navbar-white')
-			this.navbar.classList.remove('navbar-transparent')
-			this.navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.96)'
-			this.toggle.classList.add('navbar-toggle-dark')
-			this.toggle.classList.remove('navbar-toggle-white')
-			this.logo.src = BlueLogoTransparentBG
+			this.setState({
+				logo: BlueLogoTransparentBG,
+				navbarClassName: 'navbar-white',
+				navbarBackgroundColor: 'rgba(255, 255, 255, 0.96)',
+				toggleClassName: 'navbar-toggle-dark',
+			})
 		}
 
 		if (window.scrollY > 0 && window.scrollY <= 30) {
 			// Smoothing background color transition
-			this.navbar.style.backgroundColor = 'rgba(255, 255, 255, ' + window.scrollY / 30 * 0.96 + ')'
+				this.setState({ navbarBackgroundColor: `rgba(255, 255, 255, ${window.scrollY / 30 * 0.96})` })
 		}
 	}
 
@@ -82,19 +87,23 @@ class NavigationBar extends Component {
 	* @param: address(String)
 	*/
 	navItemOnClick(address) {
+		const {
+			setNavbarCurrentItem,
+			history,
+		} = this.props
 		// Scroll to the top of the page
 		window.scrollTo(0, 0)
 
 		if (address === '/') {
 			// Sets active item in Redux and triggers navbar render()
-			this.props.setNavbarCurrentItem('Home')
+			setNavbarCurrentItem('Home')
 		} else {
 			// Since address would be '/Resume' format, take out '/'
-			this.props.setNavbarCurrentItem(address.substr(1, address.length - 1))
+			setNavbarCurrentItem(address.substr(1, address.length - 1))
 		}
 
 		// Navigate user to address
-		this.props.history.push(address)
+		history.push(address)
 	}
 
 	/**
@@ -107,31 +116,66 @@ class NavigationBar extends Component {
 	}
 
 	render() {
+		const {
+			logo,
+			navbarClassName,
+			navbarBackgroundColor,
+			toggleClassName,
+		} = this.state
+
 		return (
-			<Navbar id="navbar" className="navbar-transparent" collapseOnSelect>
+			<Navbar
+				collapseOnSelect
+				className={navbarClassName}
+				style={{ backgroundColor: navbarBackgroundColor }}
+			>
 				<Row>
 					<Col xs={12} md={10} mdOffset={1} lg={12} lgOffset={0}>
 						<Navbar.Header>
 							{/* Logo */}
 							<img
-								id="navbar-logo"
 								className="navbar-logo"
-								src={window.scrollY === 0 ? WhiteLogoTransparentBG : BlueLogoTransparentBG}
+								src={logo}
 								alt="MW Logo"
 								onClick={() => {this.navItemOnClick("/")}}/>
 
 							{/* Toggle */}
-							<a className="navbar-toggle navbar-toggle-white" id="navbar-toggle" onClick={this.toggleOnClick}>
+							<a className={`navbar-toggle ${toggleClassName}`} onClick={this.toggleOnClick}>
 								<span className="icon-bar" />
 								<span className="icon-bar" />
 								<span className="icon-bar" />
 							</a>
 						</Navbar.Header>
+
 						<Nav pullRight>
-							<NavItem className={this.getLinkClassNames('Home')} eventKey={1} onClick={() => {this.navItemOnClick('/')}}>Home</NavItem>
-							<NavItem className={this.getLinkClassNames('Resume')} eventKey={2} onClick={() => {this.navItemOnClick('/Resume')}}>Resume</NavItem>
-							<NavItem className={this.getLinkClassNames('Portfolio')} eventKey={3} onClick={() => {this.navItemOnClick('/Portfolio')}}>Portfolio</NavItem>
-							<NavItem className={this.getLinkClassNames('Contact')} eventKey={4} onClick={() => {this.navItemOnClick('/Contact')}}>Contact</NavItem>
+							<NavItem
+								className={this.getLinkClassNames('Home')}
+								eventKey={1}
+								onClick={() => {this.navItemOnClick('/')}}
+							>
+								Home
+							</NavItem>
+							<NavItem
+								className={this.getLinkClassNames('Resume')}
+								eventKey={2}
+								onClick={() => {this.navItemOnClick('/Resume')}}
+							>
+								Resume
+							</NavItem>
+							<NavItem
+								className={this.getLinkClassNames('Portfolio')}
+								eventKey={3}
+								onClick={() => {this.navItemOnClick('/Portfolio')}}
+							>
+								Portfolio
+							</NavItem>
+							<NavItem
+								className={this.getLinkClassNames('Contact')}
+								eventKey={4}
+								onClick={() => {this.navItemOnClick('/Contact')}}
+							>
+								Contact
+							</NavItem>
 						</Nav>
 					</Col>
 				</Row>
@@ -140,17 +184,13 @@ class NavigationBar extends Component {
 	}
 }
 
-const mapDispatchToProps = dispatch => {
-	return bindActionCreators({
-		toggleSidebar,
-		setNavbarCurrentItem
-	}, dispatch)
-}
+const mapDispatchToProps = dispatch => bindActionCreators({
+	toggleSidebar,
+	setNavbarCurrentItem,
+}, dispatch)
 
-const mapStateToProps = state => {
-	return {
-		appSettings: state.appSettings
-	}
-}
+const mapStateToProps = state => ({
+	appSettings: state.appSettings,
+})
 
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter(NavigationBar))
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(NavigationBar))
