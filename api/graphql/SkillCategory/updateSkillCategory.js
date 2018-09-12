@@ -8,8 +8,10 @@ export default (_, skillCat) => new Promise((resolve, reject) => {
             if (updateError || !result) {
                 reject(updateError)
             } else {
-                redis.set(formRedisKeyWithMongoId(SKILLCATS, result._id), JSON.stringify(result), (error) => {
-                    error ? reject(error) : resolve(result)
+                result.populate('skills', (_, populateResult) => {
+                    redis.set(formRedisKeyWithMongoId(SKILLCATS, populateResult._id), JSON.stringify(populateResult), (error) => {
+                        error ? reject(error) : resolve(populateResult)
+                    })
                 })
             }
         })
