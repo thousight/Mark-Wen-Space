@@ -10,21 +10,24 @@ const RAINDROP_MIN_AMOUNT = window.innerWidth >= 768 ? 12 : 9
 const RAINDROP_MOVEMENT_STRENGTH = 25
 
 /**
-* Static Not Found center text and image
-*/
+ * Static Not Found center text and image
+ */
 export default class NotFound extends Component {
   state = {
     centerImageLoaded: false,
     shiftTop: 0,
     shiftLeft: 0,
-    midCircleRect: null
+    midCircleRect: null,
   }
 
   onMouseMove = this.onMouseMove.bind(this)
 
   getMidCircleHeight = this.getMidCircleHeight.bind(this)
 
-  numberOfRaindrops = Array.apply(null, Array(getRandomInt(RAINDROP_MIN_AMOUNT, RAINDROP_MAX_AMOUNT)))
+  numberOfRaindrops = Array.apply(
+    null,
+    Array(getRandomInt(RAINDROP_MIN_AMOUNT, RAINDROP_MAX_AMOUNT)),
+  )
 
   midCircle = null
 
@@ -38,58 +41,60 @@ export default class NotFound extends Component {
 
   onMouseMove({ pageX, pageY }) {
     this.setState({
-      shiftLeft: (RAINDROP_MOVEMENT_STRENGTH / this.windowWidth) * (pageX - this.windowWidth / 2) * -1 - 25,
-      shiftTop: (RAINDROP_MOVEMENT_STRENGTH / this.windowHeight) * (pageY - this.windowHeight / 2) * -1 - 25
+      shiftLeft:
+        (RAINDROP_MOVEMENT_STRENGTH / this.windowWidth) *
+          (pageX - this.windowWidth / 2) *
+          -1 -
+        25,
+      shiftTop:
+        (RAINDROP_MOVEMENT_STRENGTH / this.windowHeight) *
+          (pageY - this.windowHeight / 2) *
+          -1 -
+        25,
     })
   }
 
   getMidCircleHeight() {
     if (this.midCircle) {
-      this.setState({ midCircleRect: this.midCircle.getBoundingClientRect() }) 
+      this.setState({ midCircleRect: this.midCircle.getBoundingClientRect() })
     }
   }
-  
+
   render() {
-    const {
-      centerImageLoaded,
-      shiftTop,
-      shiftLeft,
-      midCircleRect,
-    } = this.state
+    const { centerImageLoaded, shiftTop, shiftLeft, midCircleRect } = this.state
 
     return (
-      <div className="not-found-page"  onMouseMove={this.onMouseMove}>
+      <div className="not-found-page" onMouseMove={this.onMouseMove}>
         <div className="not-found-center-wrapper">
           <div className="not-found-center-circle">
             <div
               className="not-found-center-circle"
-              ref={midCircle => this.midCircle = midCircle}
+              ref={midCircle => {
+                this.midCircle = midCircle
+              }}
             >
-              <div className="not-found-center-circle">
-              </div>
+              <div className="not-found-center-circle" />
             </div>
           </div>
         </div>
-        
-        <img 
+
+        <img
           className="not-found-center-svg"
-          alt='Not found'
+          alt="Not found"
           src={notFoundCenter}
           style={{ opacity: centerImageLoaded ? 1 : 0 }}
           onLoad={() => this.setState({ centerImageLoaded: true })}
         />
 
         <div className="not-found-raindrops-container">
-          {
-            this.numberOfRaindrops.map((_, index) => (
-              <NotFoundRaindrop
-                key={`raindrop_${index}`}
-                midCircleRect={midCircleRect}
-                shiftTop={shiftTop}
-                shiftLeft={shiftLeft}
-              />
-            ))
-          }
+          {this.numberOfRaindrops.map((_, index) => (
+            <NotFoundRaindrop
+              key={`raindrop_${index}`}
+              midCircleRect={midCircleRect}
+              shiftTop={shiftTop}
+              shiftLeft={shiftLeft}
+            />
+          ))}
         </div>
       </div>
     )

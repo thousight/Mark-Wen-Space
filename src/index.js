@@ -25,19 +25,20 @@ const history = createHistory()
 const client = new ApolloClient({ uri: process.env.REACT_APP_GRAPHQL_URI })
 
 ReactDOM.render(
-	<Provider store={store}>
-		<Router history={history}>
-			<ApolloProvider client={client}>
-				<App/>
-			</ApolloProvider>
-		</Router>
-	</Provider>
-, document.getElementById('root'))
+  <Provider store={store}>
+    <Router history={history}>
+      <ApolloProvider client={client}>
+        <App />
+      </ApolloProvider>
+    </Router>
+  </Provider>,
+  document.getElementById('root'),
+)
 
 registerServiceWorker()
 
 if (module.hot) {
-	module.hot.accept('./js/redux/reducers', () => {
-		store.replaceReducer(require('./js/redux/reducers/index'));
-	})
+  module.hot.accept('./js/redux/reducers', () => {
+    store.replaceReducer(rootReducer)
+  })
 }

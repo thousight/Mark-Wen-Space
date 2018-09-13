@@ -9,7 +9,9 @@
     "semi": "off",
     "no-tabs": "off",
     "no-shadow": "off",
+    "no-underscore-dangle": "off",
     "class-methods-use-this": "off",
+    "react/prefer-stateless-function": "off",
     "import/no-named-as-default": "off",
     "react/prop-types": "off",
     "react/jsx-filename-extension": [
