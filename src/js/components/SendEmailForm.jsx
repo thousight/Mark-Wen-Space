@@ -39,7 +39,7 @@ class SendEmailForm extends Component {
   handleEmailSubmit(e) {
     e.preventDefault()
 
-    if (window['recaptcha'] && window['grecaptcha']) {
+    if (window.recaptcha && window.grecaptcha) {
       this.setState({ isShowRecaptchaModal: true })
     } else {
       this.handleSendEmail()

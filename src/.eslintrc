@@ -8,6 +8,7 @@
   "rules": {
     "semi": "off",
     "no-tabs": "off",
+    "no-shadow": "off",
     "class-methods-use-this": "off",
     "import/no-named-as-default": "off",
     "react/prop-types": "off",

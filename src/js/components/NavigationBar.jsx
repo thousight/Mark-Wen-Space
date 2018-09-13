@@ -29,8 +29,9 @@ class NavigationBar extends Component {
   }
 
   componentDidMount() {
+    const { location } = this.props
     // Select the currently selected nav item based on url
-    this.navItemOnClick(this.props.location.pathname)
+    this.navItemOnClick(location.pathname)
 
     // Add scroll listener
     window.addEventListener('scroll', this.handleScroll)
@@ -38,6 +39,17 @@ class NavigationBar extends Component {
 
   componentWillUnmount() {
     window.removeEventListener('scroll', this.handleScroll)
+  }
+
+  /**
+   * Set active link
+   * @param: address(String)
+   */
+  getLinkClassNames(address) {
+    const { appSettings } = this.props
+    return appSettings.navbarSelectedItem === address
+      ? 'navbar-links-active'
+      : ''
   }
 
   /**
@@ -71,16 +83,6 @@ class NavigationBar extends Component {
   }
 
   /**
-   * Set active link
-   * @param: address(String)
-   */
-  getLinkClassNames(address) {
-    return this.props.appSettings.navbarSelectedItem === address
-      ? 'navbar-links-active'
-      : ''
-  }
-
-  /**
    * Make NavItem active and direct user to the page
    * @param: address(String)
    */
@@ -106,8 +108,9 @@ class NavigationBar extends Component {
    * @param: event(JS click event object)
    */
   toggleOnClick(event) {
+    const { toggleSidebar } = this.props
     event.preventDefault()
-    this.props.toggleSidebar(true)
+    toggleSidebar(true)
   }
 
   render() {
@@ -128,33 +131,34 @@ class NavigationBar extends Component {
           <Col xs={12} md={10} mdOffset={1} lg={12} lgOffset={0}>
             <Navbar.Header>
               {/* Logo */}
-              <img
-                className="navbar-logo"
-                src={logo}
-                alt="MW Logo"
-                onClick={() => {
-                  this.navItemOnClick('/')
-                }}
-              />
+              <div
+                onClick={() => this.navItemOnClick('/')}
+                onKeyPress={() => this.navItemOnClick('/')}
+                role="link"
+                tabIndex={0}
+              >
+                <img className="navbar-logo" src={logo} alt="MW Logo" />
+              </div>
 
               {/* Toggle */}
-              <a
+              <div
                 className={`navbar-toggle ${toggleClassName}`}
                 onClick={this.toggleOnClick}
+                onKeyPress={this.toggleOnClick}
+                role="link"
+                tabIndex={0}
               >
                 <span className="icon-bar" />
                 <span className="icon-bar" />
                 <span className="icon-bar" />
-              </a>
+              </div>
             </Navbar.Header>
 
             <Nav pullRight>
               <NavItem
                 className={this.getLinkClassNames('Home')}
                 eventKey={1}
-                onClick={() => {
-                  this.navItemOnClick('/')
-                }}
+                onClick={() => this.navItemOnClick('/')}
               >
                 Home
               </NavItem>
