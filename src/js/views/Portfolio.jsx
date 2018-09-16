@@ -34,12 +34,31 @@ class Portfolio extends Component {
   }
 
   componentWillUnmount() {
-    this.state.mql.removeListener(this.mediaQueryChanged)
+    const { mql } = this.state
+    mql.removeListener(this.mediaQueryChanged)
   }
 
-  // When screen size changes from sm to md(mql.matches = true) and from md to sm(mql.matches = false)
-  mediaQueryChanged() {
-    this.setState({ isSmallScreen: !this.state.mql.matches })
+  getBackgroundImageStyle(item) {
+    return `linear-gradient(-135deg, ${item.style.primaryColor}, ${
+      item.style.secondaryColor
+    })`
+  }
+
+  getItemsOfCategory(category) {
+    const { allPortfolios } = this.props
+    if (category === 'All') {
+      return allPortfolios.sort((a, b) => a.order - b.order)
+    }
+    return allPortfolios
+      .filter(a => a.categories.includes(category))
+      .sort((a, b) => a.order - b.order)
+  }
+
+  handleModalOnHide = () => {
+    this.setState({
+      showModal: false,
+      selectedItem: null,
+    })
   }
 
   handleCategoryOnClick(e, category) {
@@ -50,16 +69,6 @@ class Portfolio extends Component {
     })
   }
 
-  getItemsOfCategory(category) {
-    let allPortfolios = [...this.props.allPortfolios]
-    if (category === 'All') {
-      return allPortfolios.sort((a, b) => a.order - b.order)
-    }
-    return allPortfolios
-      .filter(a => a.categories.includes(category))
-      .sort((a, b) => a.order - b.order)
-  }
-
   handleItemOnClick(item) {
     this.setState({
       showModal: true,
@@ -67,27 +76,32 @@ class Portfolio extends Component {
     })
   }
 
-  handleModalOnHide() {
-    this.setState({
-      showModal: false,
-      selectedItem: null,
-    })
+  // When screen size changes from sm to md(mql.matches = true) and from md to sm(mql.matches = false)
+  mediaQueryChanged() {
+    this.setState(prevState => ({ isSmallScreen: !prevState.mql.matches }))
   }
 
-  getBackgroundImageStyle(item) {
-    return `linear-gradient(-135deg, ${item.style.primaryColor}, ${
-      item.style.secondaryColor
-    })`
+  handleModalLeftArrowClick() {
+    const { items, selectedItem } = this.state
+    this.setState({ selectedItem: items[items.indexOf(selectedItem) - 1] })
+  }
+
+  handleModalRightArrowClick() {
+    const { items, selectedItem } = this.state
+    this.setState({ selectedItem: items[items.indexOf(selectedItem) + 1] })
   }
 
   renderCategoryIcons(categories) {
-    return categories.map((category, index) => {
-      let icon,
-        popover = (
-          <Tooltip id="category" className="portfolio-modal-cat-icon-popover">
-            {category}
-          </Tooltip>
-        )
+    let icon
+    let popover
+
+    return categories.map(category => {
+      popover = (
+        <Tooltip id="category" className="portfolio-modal-cat-icon-popover">
+          {category}
+        </Tooltip>
+      )
+
       switch (category) {
         case 'Web':
           icon = 'web'
@@ -109,7 +123,7 @@ class Portfolio extends Component {
           trigger={['hover', 'focus']}
           placement="bottom"
           overlay={popover}
-          key={index}
+          key={category}
         >
           <span className={`portfolio-category-icon icon-${icon}`} />
         </OverlayTrigger>
@@ -118,8 +132,8 @@ class Portfolio extends Component {
   }
 
   renderItemLinkButtons(links) {
-    return Object.keys(links).map((name, index) => {
-      let obj = links[name]
+    return Object.keys(links).map(name => {
+      const obj = links[name]
       switch (obj.style) {
         case 'Website':
           return (
@@ -128,7 +142,7 @@ class Portfolio extends Component {
               href={obj.url}
               target="_blank"
               rel="noopener noreferrer"
-              key={index}
+              key={obj.url}
             >
               <div>
                 <span className="font-icon icon-web" />
@@ -143,7 +157,7 @@ class Portfolio extends Component {
               href={obj.url}
               target="_blank"
               rel="noopener noreferrer"
-              key={index}
+              key={obj.url}
             >
               <div>
                 <span className="font-icon icon-github" />
@@ -155,7 +169,8 @@ class Portfolio extends Component {
           return (
             <a
               className="portfolio-modal-link github-private-link card clickable-card"
-              key={index}
+              key={obj.url}
+              href={obj.url}
             >
               <div>
                 <span className="font-icon icon-github" />
@@ -170,7 +185,7 @@ class Portfolio extends Component {
               href={obj.url}
               target="_blank"
               rel="noopener noreferrer"
-              key={index}
+              key={obj.url}
             >
               <div>
                 <span className="font-icon icon-android" />
@@ -182,16 +197,6 @@ class Portfolio extends Component {
           return null
       }
     })
-  }
-
-  handleModalLeftArrowClick() {
-    const { items, selectedItem } = this.state
-    this.setState({ selectedItem: items[items.indexOf(selectedItem) - 1] })
-  }
-
-  handleModalRightArrowClick() {
-    const { items, selectedItem } = this.state
-    this.setState({ selectedItem: items[items.indexOf(selectedItem) + 1] })
   }
 
   render() {
@@ -214,19 +219,18 @@ class Portfolio extends Component {
             <Col xs={12} md={10} mdOffset={1} lg={12} lgOffset={0}>
               {/* Category Control */}
               <div className="portfolio-cat-control card">
-                {this.categories.map((item, index) => {
-                  return (
-                    <a
-                      className={`portfolio-cat-link ${
-                        currentCat === item ? 'portfolio-cat-link-active' : ''
-                      }`}
-                      key={index}
-                      onClick={event => this.handleCategoryOnClick(event, item)}
-                    >
-                      {item}
-                    </a>
-                  )
-                })}
+                {this.categories.map(item => (
+                  <button
+                    className={`portfolio-cat-link ${
+                      currentCat === item ? 'portfolio-cat-link-active' : ''
+                    }`}
+                    key={item}
+                    type="button"
+                    onClick={event => this.handleCategoryOnClick(event, item)}
+                  >
+                    {item}
+                  </button>
+                ))}
               </div>
 
               {/* Items Display */}
@@ -236,28 +240,29 @@ class Portfolio extends Component {
                   transitionEnterTimeout={250}
                   transitionLeaveTimeout={250}
                 >
-                  {items.map((item, index) => {
-                    return (
-                      <Col
-                        className="portfolio-item-wrapper"
-                        xs={6}
-                        sm={4}
-                        md={3}
-                        key={index}
+                  {items.map((item, index) => (
+                    <Col
+                      className="portfolio-item-wrapper"
+                      xs={6}
+                      sm={4}
+                      md={3}
+                      key={item._id}
+                    >
+                      <div
+                        className="portfolio-item card clickable-card"
+                        onClick={() => this.handleItemOnClick(item)}
+                        onKeyPress={() => this.handleItemOnClick(item)}
+                        role="button"
+                        tabIndex={index + 10}
+                        style={{
+                          backgroundImage: this.getBackgroundImageStyle(item),
+                        }}
                       >
-                        <div
-                          className="portfolio-item card clickable-card"
-                          onClick={e => this.handleItemOnClick(item)}
-                          style={{
-                            backgroundImage: this.getBackgroundImageStyle(item),
-                          }}
-                        >
-                          <img alt="logo" src={item.logo} />
-                          <h5>{item.title}</h5>
-                        </div>
-                      </Col>
-                    )
-                  })}
+                        <img alt="logo" src={item.logo} />
+                        <h5>{item.title}</h5>
+                      </div>
+                    </Col>
+                  ))}
                 </ReactCSSTransitionGroup>
               </Row>
             </Col>
@@ -268,7 +273,7 @@ class Portfolio extends Component {
         <Modal
           containerClassName="portfolio-modal-wrapper"
           show={showModal}
-          onHide={this.handleModalOnHide.bind(this)}
+          onHide={this.handleModalOnHide}
           bsStyle="lg"
         >
           {selectedItem ? (
@@ -285,6 +290,7 @@ class Portfolio extends Component {
                     display:
                       items.indexOf(selectedItem) <= 0 ? 'none' : 'block',
                   }}
+                  type="button"
                   onClick={this.handleModalLeftArrowClick.bind(this)}
                 >
                   <span
@@ -343,6 +349,7 @@ class Portfolio extends Component {
                         ? 'none'
                         : 'block',
                   }}
+                  type="button"
                   onClick={this.handleModalRightArrowClick.bind(this)}
                 >
                   <span

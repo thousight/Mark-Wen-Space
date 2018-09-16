@@ -1,380 +1,390 @@
 .portfolio {
-	background-color: @backgroundWhite;
+  background-color: @backgroundWhite;
 }
 
 .portfolio-title-banner {
-	background: @backgroundWhite url(../../img/portfolio.png) bottom center no-repeat scroll;
-	background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	-webkit-background-size: cover;
+  background: @backgroundWhite url(../../img/portfolio.png) bottom center
+    no-repeat scroll;
+  background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -webkit-background-size: cover;
 }
 
 .portfolio-content {
-	margin-top: -70px;
-	padding-bottom: 30px;
+  margin-top: -70px;
+  padding-bottom: 30px;
 }
 
 .portfolio-cat-control {
-	text-align: right;
-	@media only screen and (max-width: 767px) {
-		text-align: center;
-	}
+  text-align: right;
+  @media only screen and (max-width: 767px) {
+    text-align: center;
+  }
 }
 
 .portfolio-cat-link {
-	color: @primaryBlue;
-	cursor: pointer;
-	display: inline-block;
-	margin: 0 13px;
-	padding: 7px;
-	padding-bottom: 5px;
-	border-bottom: 2px solid transparent;
-	user-select: none;
-	transition: 0.25s;
-	@media only screen and (max-width: 767px) {
-		margin: 0 2px;
-	}
+  color: @primaryBlue;
+  cursor: pointer;
+  display: inline-block;
+  border: none;
+  margin: 0 13px;
+  padding: 7px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid transparent;
+  user-select: none;
+  transition: 0.25s;
+  @media only screen and (max-width: 767px) {
+    margin: 0 2px;
+  }
 }
 
-.portfolio-cat-link-active, .portfolio-cat-link:hover {
-	border-bottom: 2px solid @primaryBlue;
-	color: @primaryBlue;
+.portfolio-cat-link-active,
+.portfolio-cat-link:hover {
+  border-bottom: 2px solid @primaryBlue;
+  color: @primaryBlue;
 }
 
 .portfolio-item-wrapper {
-	@media only screen and (max-width: 424px) {
-		width: 100%;
-	}
+  @media only screen and (max-width: 424px) {
+    width: 100%;
+  }
 }
 
 .portfolio-item {
-	display: block;
-	margin: 15px auto;
-	cursor: pointer;
-	background-repeat: no-repeat;
-	background-position: center bottom;
-	background-attachment: scroll;
-	background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
+  display: block;
+  margin: 15px auto;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-attachment: scroll;
+  background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
 	-webkit-background-size: cover;
-	& > img {
-		display: block;
-		object-fit: contain;
-		width: 140px;
-		height: 110px;
-		margin: 0 auto;
-		padding: 5px;
-		padding-top: 15px;
-		user-select: none;
-		transition: 0.25s;
-	}
-	&:hover > img {
-		transform: translateY(-10px);
-	}
-	& > h5 {
-		color: @white;
-		font-size: 14.5px;
-		font-weight: 400;
-		text-align: center;
-		width: 100%;
-		cursor: pointer;
-		user-select: none;
-	}
+	outline: none;
+  & > img {
+    display: block;
+    object-fit: contain;
+    width: 140px;
+    height: 110px;
+    margin: 0 auto;
+    padding: 5px;
+    padding-top: 15px;
+    user-select: none;
+    transition: 0.25s;
+  }
+  &:hover > img {
+    transform: translateY(-10px);
+  }
+  & > h5 {
+    color: @white;
+    font-size: 14.5px;
+    font-weight: 400;
+    text-align: center;
+    width: 100%;
+    cursor: pointer;
+    user-select: none;
+  }
 }
 
 .fade-up-height {
-	transition: height 0.25s;
+  transition: height 0.25s;
 }
-
 
 /* Vertically Center Modal */
 
 .modal {
-	text-align: center;
-	padding: 0!important;
-	&:before {
-		content: '';
-		display: inline-block;
-		height: 100%;
-		vertical-align: middle;
-		margin-right: -4px;
-		@media only screen and (max-width: 767px) {
-			/* Disable Vertically Center Modal */
-			content: none;
-		}
-	}
+  text-align: center;
+  padding: 0 !important;
+  &:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -4px;
+    @media only screen and (max-width: 767px) {
+      /* Disable Vertically Center Modal */
+      content: none;
+    }
+  }
 }
 
 .modal-dialog {
-	display: inline-block;
-	text-align: left;
-	vertical-align: middle;
-	@media only screen and (max-width: 767px) {
-		width: 93%;
-		margin-top: 0;
-	}
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+  @media only screen and (max-width: 767px) {
+    width: 93%;
+    margin-top: 0;
+  }
 }
 
 .portfolio-modal {
-	color: @white;
-	border-radius: 10px;
-	background-repeat: no-repeat;
-	background-position: center bottom;
-	background-attachment: scroll;
-	background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	-webkit-background-size: cover;
-	text-align: center;
-	transition: 0.25s;
-	@media only screen and (max-width: 767px) {
-		margin-top: 5px;
-	}
-	.modal-header {
-		border-bottom: none;
-		padding-top: 5px;
-		padding-bottom: 0;
-		.close {
-			color: @white;
-			opacity: 0;
-			transition: 0.25s;
-			@media only screen and (max-width: 767px) {
-				opacity: 1;
-			}
-		}
-		&:hover {
-			.close {
-				opacity: 1;
-			}
-		}
-	}
+  color: @white;
+  border-radius: 10px;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-attachment: scroll;
+  background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -webkit-background-size: cover;
+  text-align: center;
+  transition: 0.25s;
+  @media only screen and (max-width: 767px) {
+    margin-top: 5px;
+  }
+  .modal-header {
+    border-bottom: none;
+    padding-top: 5px;
+    padding-bottom: 0;
+    .close {
+      color: @white;
+      opacity: 0;
+      transition: 0.25s;
+      @media only screen and (max-width: 767px) {
+        opacity: 1;
+      }
+    }
+    &:hover {
+      .close {
+        opacity: 1;
+      }
+    }
+  }
 }
 
 .portfolio-modal-main {
-	@media only screen and (max-width: 767px) {
-		padding: 0;
-	}
+  @media only screen and (max-width: 767px) {
+    padding: 0;
+  }
 }
 
 .portfolio-modal-body {
-	.row {
-		margin-bottom: 30px;
-		text-align: left;
-		@media only screen and (max-width: 767px) {
-			text-align: center;
-		}
-	}
-	.portfolio-modal-body-col {
-		padding: 0 10px;
-	}
-	img {
-		display: block;
-		object-fit: contain;
-		width: 130px;
-		height: 130px;
-		margin: 25px auto;
-		user-select: none;
-	}
-	h2 {
-		font-size: 34px;
-	}
-	h5 {
-		font-size: 17px;
-	}
+  .row {
+    margin-bottom: 30px;
+    text-align: left;
+    @media only screen and (max-width: 767px) {
+      text-align: center;
+    }
+  }
+  .portfolio-modal-body-col {
+    padding: 0 10px;
+  }
+  img {
+    display: block;
+    object-fit: contain;
+    width: 130px;
+    height: 130px;
+    margin: 25px auto;
+    user-select: none;
+  }
+  h2 {
+    font-size: 34px;
+  }
+  h5 {
+    font-size: 17px;
+  }
 }
 
 .portfolio-modal-body-desc {
-	padding: 25px 0;
+  padding: 25px 0;
 }
-
 
 /* Blur modal background */
 
 body.modal-open #root {
-	filter: blur(8px);
-	margin: -1px -7px;
+  filter: blur(8px);
+  margin: -1px -7px;
 }
 
 .portfolio-modal-body-cat-icons {
-	margin-top: 30px;
-	margin-bottom: 20px;
-	position: relative;
-	text-align: center;
-	vertical-align: middle;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
 }
 
 .portfolio-category-icon {
-	display: inline-block;
-	font-size: 23px;
-	margin: 0 2px;
+  display: inline-block;
+  font-size: 23px;
+  margin: 0 2px;
 }
 
 .portfolio-modal-cat-icon-popover {
-	user-select: none;
-	cursor: default;
-	.tooltip-inner {
-		box-shadow: @buttonShadow;
-	}
+  user-select: none;
+  cursor: default;
+  .tooltip-inner {
+    box-shadow: @buttonShadow;
+  }
 }
 
 .portfolio-modal-body-links {
-	text-align: left;
-	@media only screen and (max-width: 767px) {
-		text-align: center;
-	}
+  text-align: left;
+  @media only screen and (max-width: 767px) {
+    text-align: center;
+  }
 }
 
 .portfolio-modal-link {
-	color: @white;
-	display: block;
-	margin-top: 10px;
-	margin-left: auto;
-	margin-right: auto;
-	padding: 7.5px;
-	width: 150px;
-	user-select: none;
-	&:focus {
-		color: @white;
-		display: block;
-		margin-top: 10px;
-		margin-left: auto;
-		margin-right: auto;
-		padding: 7.5px;
-		width: 150px;
-		user-select: none;
-	}
-	&:hover {
-		color: @white;
-	}
-	&, &:focus, &:hover {
-		@media only screen and (min-width: 768px) and (max-width: 991px) {
-			width: 100%;
-			padding: 7.5px 5px;
-		}
-		@media only screen and (max-width: 767px) {
-			display: inline-block;
-			margin: 10px;
-			padding: 7.5px 5px;
-		}
-	}
-	div {
-		display: block;
-		width: 130px;
-		text-align: left;
-	}
-	.font-icon {
-		font-size: 23px;
-		vertical-align: middle;
-		margin-right: 5px;
-	}
-	p {
-		display: inline;
-		vertical-align: middle;
-	}
+  color: @white;
+  display: block;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 7.5px;
+  width: 150px;
+  user-select: none;
+  &:focus {
+    color: @white;
+    display: block;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 7.5px;
+    width: 150px;
+    user-select: none;
+  }
+  &:hover {
+    color: @white;
+  }
+  &,
+  &:focus,
+  &:hover {
+    @media only screen and (min-width: 768px) and (max-width: 991px) {
+      width: 100%;
+      padding: 7.5px 5px;
+    }
+    @media only screen and (max-width: 767px) {
+      display: inline-block;
+      margin: 10px;
+      padding: 7.5px 5px;
+    }
+  }
+  div {
+    display: block;
+    width: 130px;
+    text-align: left;
+  }
+  .font-icon {
+    font-size: 23px;
+    vertical-align: middle;
+    margin-right: 5px;
+  }
+  p {
+    display: inline;
+    vertical-align: middle;
+  }
 }
 
-.web-link, .web-link:hover {
-	background: linear-gradient(-135deg, #9C60D8, #5A52B6);
+.web-link,
+.web-link:hover {
+  background: linear-gradient(-135deg, #9c60d8, #5a52b6);
 }
 
-.github-link, .github-link:hover {
-	background-color: #24292E;
+.github-link,
+.github-link:hover {
+  background-color: #24292e;
 }
 
-.github-private-link, .github-private-link:hover {
-	background-color: @white;
-	color: @black;
-	cursor: not-allowed;
-	transition: 0;
-	transform: none;
-	box-shadow: @buttonShadow;
+.github-private-link,
+.github-private-link:hover {
+  background-color: @white;
+  color: @black;
+  cursor: not-allowed;
+  transition: 0;
+  transform: none;
+  box-shadow: @buttonShadow;
 }
 
-.play-store-link, .play-store-link:hover {
-	background: linear-gradient(-135deg, #01E0BC, #83CF3F);
+.play-store-link,
+.play-store-link:hover {
+  background: linear-gradient(-135deg, #01e0bc, #83cf3f);
 }
 
 .portfolio-modal-nav-button-vertical-aligner {
-	display: flex;
-	align-items: center;
-	justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .portfolio-modal-nav-button {
-	position: absolute;
-	top: -35px;
-	bottom: -35px;
-	width: 70px;
-	height: 70px;
-	background-color: @white;
-	border-radius: 40px;
-	border: 0;
-	box-shadow: @buttonShadow;
-	transition: 0.25s;
-	&:focus {
-		position: absolute;
-		top: -35px;
-		bottom: -35px;
-		width: 70px;
-		height: 70px;
-		background-color: @white;
-		border-radius: 40px;
-		border: 0;
-		box-shadow: @buttonShadow;
-		transition: 0.25s;
-	}
-	&:hover {
-		box-shadow: 0 6px 12px rgba(0, 0, 0, 0.23), 0 10px 40px rgba(0, 0, 0, 0.19);
-		transform: scale(1.03);
-	}
-	&:active {
-		box-shadow: 0 6px 8px rgba(0, 0, 0, .24);
-		transform: scale(1.015);
-		transition: 0.1s;
-	}
-	&, &:hover, &:focus {
-		@media only screen and (max-width: 767px) {
-			background-color: transparent;
-			box-shadow: none;
-		}
-	}
+  position: absolute;
+  top: -35px;
+  bottom: -35px;
+  width: 70px;
+  height: 70px;
+  background-color: @white;
+  border-radius: 40px;
+  border: 0;
+  box-shadow: @buttonShadow;
+  transition: 0.25s;
+  &:focus {
+    position: absolute;
+    top: -35px;
+    bottom: -35px;
+    width: 70px;
+    height: 70px;
+    background-color: @white;
+    border-radius: 40px;
+    border: 0;
+    box-shadow: @buttonShadow;
+    transition: 0.25s;
+  }
+  &:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.23), 0 10px 40px rgba(0, 0, 0, 0.19);
+    transform: scale(1.03);
+  }
+  &:active {
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.24);
+    transform: scale(1.015);
+    transition: 0.1s;
+  }
+  &,
+  &:hover,
+  &:focus {
+    @media only screen and (max-width: 767px) {
+      background-color: transparent;
+      box-shadow: none;
+    }
+  }
 }
 
 .portfolio-modal-arrow {
-	font-size: 25px;
-	user-select: none;
-	&.blue {
-		color: @primaryBlue;
-	}
-	&.white {
-		color: @white;
-	}
+  font-size: 25px;
+  user-select: none;
+  &.blue {
+    color: @primaryBlue;
+  }
+  &.white {
+    color: @white;
+  }
 }
 
 .modal-left-button {
-	right: 50px;
-	@media only screen and (min-width: 768px) and (max-width: 991px) {
-		right: 27px;
-	}
-	@media only screen and (max-width: 767px) {
-		right: -5px;
-	}
-	@media only screen and (max-width: 424px) {
-		right: -20px;
-	}
+  right: 50px;
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    right: 27px;
+  }
+  @media only screen and (max-width: 767px) {
+    right: -5px;
+  }
+  @media only screen and (max-width: 424px) {
+    right: -20px;
+  }
 }
 
 .modal-right-button {
-	left: 50px;
-	@media only screen and (min-width: 768px) and (max-width: 991px) {
-		left: 27px;
-	}
-	@media only screen and (max-width: 767px) {
-		left: -5px;
-	}
-	@media only screen and (max-width: 424px) {
-		left: -20px;
-	}
+  left: 50px;
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    left: 27px;
+  }
+  @media only screen and (max-width: 767px) {
+    left: -5px;
+  }
+  @media only screen and (max-width: 424px) {
+    left: -20px;
+  }
 }

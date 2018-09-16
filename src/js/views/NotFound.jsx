@@ -24,10 +24,9 @@ export default class NotFound extends Component {
 
   getMidCircleHeight = this.getMidCircleHeight.bind(this)
 
-  numberOfRaindrops = Array.apply(
-    null,
-    Array(getRandomInt(RAINDROP_MIN_AMOUNT, RAINDROP_MAX_AMOUNT)),
-  )
+  numberOfRaindrops = [
+    ...Array(getRandomInt(RAINDROP_MIN_AMOUNT, RAINDROP_MAX_AMOUNT)),
+  ]
 
   midCircle = null
 

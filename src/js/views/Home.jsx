@@ -47,14 +47,15 @@ export default class Home extends PureComponent {
                   alt="profile"
                   src={profilePic}
                 />
-                <h3>Hi, I'm Mark!</h3>
+                <h3>Hi, I&lsquo;m Mark!</h3>
                 <p>
                   My legal name is Guojie Wen since my Chinese name is 温国杰.
-                  I'm a full-stack developer graduated from Purdue University
-                  with a Computer and Information Technology bachelor degree.
-                  I'm passionate about designing and developing websites as well
-                  as mobile applications. I personally believe that every detail
-                  worths tweaking, and it's always an enjoyable process.
+                  I&lsquo;m a full-stack developer graduated from Purdue
+                  University with a Computer and Information Technology bachelor
+                  degree. I&lsquo;m passionate about designing and developing
+                  websites as well as mobile applications. I personally believe
+                  that every detail worths tweaking, and it&lsquo;s always an
+                  enjoyable process.
                 </p>
               </div>
             </Col>
