@@ -1,167 +1,170 @@
 .timeline-dot-col {
-	display: inline-block;
-	vertical-align: middle;
-	float: none;
+  display: inline-block;
+  vertical-align: middle;
+  float: none;
 }
 
 .timeline-dot {
-	display: block;
-	position: relative;
+  display: block;
+  position: relative;
 }
 
 .timeline-outer-dot {
-	width: 50px;
-	height: 50px;
-	border-radius: 50px;
-	box-shadow: @buttonShadow;
-	display: block;
-	position: relative;
-	margin: 0 auto;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  box-shadow: @buttonShadow;
+  display: block;
+  position: relative;
+  margin: 0 auto;
 }
 
 .timeline-inner-dot {
-	width: 35px;
-	height: 35px;
-	border-radius: 50px;
-	margin: auto;
-	position: absolute;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
+  width: 35px;
+  height: 35px;
+  border-radius: 50px;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 }
 
 .timeline-center-dot {
-	width: 20px;
-	height: 20px;
-	border-radius: 50px;
-	background-color: @white;
-	margin: auto;
-	position: absolute;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  background-color: @white;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 }
 
 .timeline-card-col {
-	display: inline-block;
-	vertical-align: middle;
-	float: none;
+  display: inline-block;
+  vertical-align: middle;
+  float: none;
 }
 
 .timeline-line-wrapper {
-	position: absolute;
-	height: 100%;
+  position: absolute;
+  height: 100%;
 }
 
 .timeline-line {
-	height: 100%;
-	width: 10px;
-	background-color: @lightGray;
-	border-radius: 20px;
-	display: block;
-	margin: 0 auto;
+  height: 100%;
+  width: 10px;
+  background-color: @lightGray;
+  border-radius: 20px;
+  display: block;
+  margin: 0 auto;
 }
 
 .timeline-card {
-	padding: 0;
+  padding: 0;
 }
 
 .timeline-card-icon-wrapper {
-	position: relative;
-	padding: 0;
-	padding-left: 20px;
+  position: relative;
+  padding: 0;
+  padding-left: 20px;
 }
 
 .timeline-card-icon {
-	width: 80%;
-	height: 80%;
-	border-radius: 100%;
-	display: block;
-	margin: 0 auto;
-	margin-top: -50%;
-	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12), 0 3px 1px -2px rgba(0, 0, 0, .2);
-	z-index: 5;
+  width: 80%;
+  height: 80%;
+  border-radius: 100%;
+  display: block;
+  margin: 0 auto;
+  margin-top: -50%;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12),
+    0 3px 1px -2px rgba(0, 0, 0, 0.2);
+  z-index: 5;
 }
 
 .timeline-card-banner {
-	background-repeat: no-repeat;
-	background-position: center bottom;
-	background-attachment: scroll;
-	background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	-webkit-background-size: cover;
-	border-top-right-radius: 5px;
-	border-top-left-radius: 5px;
-	min-height: 130px;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-attachment: scroll;
+  background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -webkit-background-size: cover;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  min-height: 130px;
 }
 
 .timeline-card-banner-title {
-	margin: 0;
-	padding-top: 55px;
-	color: @white;
-	text-shadow: @textShadow;
+  margin: 0;
+  padding-top: 55px;
+  color: @white;
+  text-shadow: @textShadow;
 }
 
 .timeline-card-banner-list {
-	color: @white;
-	list-style-type: none;
-	overflow: hidden;
-	padding-left: 0;
-	margin-top: 10px;
-	margin-bottom: 0;
-	text-shadow: @textShadow;
-	@media only screen and (max-width: 767px) {
-		overflow: visible;
-	}
+  color: @white;
+  list-style-type: none;
+  overflow: hidden;
+  padding-left: 0;
+  margin-top: 10px;
+  margin-bottom: 0;
+  text-shadow: @textShadow;
+  @media only screen and (max-width: 767px) {
+    overflow: visible;
+  }
 }
 
 .timeline-card-banner-list-item {
-	display: inline-block;
-	padding-right: 10px;
-	margin: 5px 0;
-	& > p {
-		display: inline;
-		vertical-align: middle;
-		font-size: 13px;
-	}
-	@media only screen and (max-width: 767px) {
-		display: block;
-	}
+  display: inline-block;
+  padding-right: 10px;
+  margin: 5px 0;
+  & > p {
+    display: inline;
+    vertical-align: middle;
+    font-size: 13px;
+  }
+  @media only screen and (max-width: 767px) {
+    display: block;
+  }
 }
 
 .timeline-card-banner-icons {
-	width: 20px;
-	height: 20px;
-	display: inline-block;
-	margin-right: 5px;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  margin-right: 5px;
 }
 
 .timeline-card-banner-icon {
-	display: inline-block;
-	font-size: 20px;
-	margin-right: 5px;
-	vertical-align: middle;
-	margin-left: -3px;
+  display: inline-block;
+  font-size: 20px;
+  margin-right: 5px;
+  vertical-align: middle;
+  margin-left: -3px;
 }
 
 .timeline-card-desc {
-	margin-top: 10px;
-	padding-bottom: 10px;
-	padding-right: 10px;
-	min-height: 60px;
+  margin-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 10px;
+  min-height: 60px;
 }
-
 
 /*On mobile size*/
 
 @media only screen and (max-width: 767px) {
-	.timeline-dot-col, .timeline-card-icon, .timeline-line-wrapper {
-		display: none;
-	}
-	.timeline-card-banner, .timeline-card-desc {
-		padding: 10px;
-	}
+  .timeline-dot-col,
+  .timeline-card-icon,
+  .timeline-line-wrapper {
+    display: none;
+  }
+  .timeline-card-banner,
+  .timeline-card-desc {
+    padding: 10px;
+  }
 }

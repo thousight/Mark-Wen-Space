@@ -13,7 +13,6 @@ const RAINDROP_JIGGLING_AMOUNT = 5
 const RAINDROP_JIGGLING_TRANSITION = '100ms'
 
 export default class NotFoundRaindrop extends Component {
-
   state = {
     x: '90%',
     y: 0,
@@ -21,15 +20,21 @@ export default class NotFoundRaindrop extends Component {
   }
 
   width = `${getRandomInt(RAINDROP_MIN_WIDTH, RAINDROP_MAX_WIDTH)}px`
+
   height = `${getRandomInt(RAINDROP_MIN_LENGTH, RAINDROP_MAX_LENGTH)}px`
+
   opacity = getRandomInt(RAINDROP_MIN_OPACITY, RAINDROP_MAX_OPACITY) / 100
+
   staticX = '90%'
+
   staticY = 0
+
   windowWidth = window.innerWidth
+
   windowHeight = window.innerHeight
-  
+
   componentDidUpdate(prevProps) {
-    let { midCircleRect, shiftTop, shiftLeft } = this.props
+    const { midCircleRect, shiftTop, shiftLeft } = this.props
     if (midCircleRect && !prevProps.midCircleRect) {
       this.staticX = this.getHorizontalPos(midCircleRect.width / 2)
       this.staticY = '1px'
@@ -41,25 +46,33 @@ export default class NotFoundRaindrop extends Component {
 
     if (shiftLeft !== prevProps.shiftLeft || shiftTop !== prevProps.shiftTop) {
       this.setState({
-        x: `calc(${this.staticX} - ${shiftLeft}px + ${getRandomInt(-1 * RAINDROP_JIGGLING_AMOUNT, RAINDROP_JIGGLING_AMOUNT)}px)`,
-        y: `calc(${this.staticY} - ${shiftTop}px + ${getRandomInt(-1 * RAINDROP_JIGGLING_AMOUNT, RAINDROP_JIGGLING_AMOUNT)}px)`,
-        transition:  RAINDROP_JIGGLING_TRANSITION,
+        x: `calc(${this.staticX} - ${shiftLeft}px + ${getRandomInt(
+          -1 * RAINDROP_JIGGLING_AMOUNT,
+          RAINDROP_JIGGLING_AMOUNT,
+        )}px)`,
+        y: `calc(${this.staticY} - ${shiftTop}px + ${getRandomInt(
+          -1 * RAINDROP_JIGGLING_AMOUNT,
+          RAINDROP_JIGGLING_AMOUNT,
+        )}px)`,
+        transition: RAINDROP_JIGGLING_TRANSITION,
       })
     }
   }
 
   getHorizontalPos(space) {
-    return Math.floor(Math.random() * 2) > 0.5 
-    ? this.getUpperHalfPositionStr(this.windowWidth, space)
-    : this.getLowerHalfPositionStr(this.windowWidth, space)
+    return Math.floor(Math.random() * 2) > 0.5
+      ? this.getUpperHalfPositionStr(this.windowWidth, space)
+      : this.getLowerHalfPositionStr(this.windowWidth, space)
   }
 
   getUpperHalfPositionStr(total, space) {
-    return `${getRandomInt(total / 2 + space, total) / total * RAINDROP_POSITION_SOFTENER}%`
+    return `${(getRandomInt(total / 2 + space, total) / total) *
+      RAINDROP_POSITION_SOFTENER}%`
   }
 
   getLowerHalfPositionStr(total, space) {
-    return `${getRandomInt(0, total / 2 - space) / total * RAINDROP_POSITION_SOFTENER}%`
+    return `${(getRandomInt(0, total / 2 - space) / total) *
+      RAINDROP_POSITION_SOFTENER}%`
   }
 
   render() {
@@ -68,17 +81,17 @@ export default class NotFoundRaindrop extends Component {
 
     return (
       <div
-          key={key}
-          className="not-found-raindrop"
-          style={{
-            width: this.width,
-            height: this.height,
-            opacity: this.opacity,
-            top: y,
-            left: x,
-            transition,
-          }}
-        />
+        key={key}
+        className="not-found-raindrop"
+        style={{
+          width: this.width,
+          height: this.height,
+          opacity: this.opacity,
+          top: y,
+          left: x,
+          transition,
+        }}
+      />
     )
   }
 }
