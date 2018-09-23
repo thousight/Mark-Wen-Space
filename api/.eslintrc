@@ -10,6 +10,7 @@
     "no-useless-escape": "off",
     "prefer-promise-reject-errors": "off",
     "class-methods-use-this": "off",
-    "import/no-named-as-default": "off"
+    "import/no-named-as-default": "off",
+    "import/prefer-default-export": "off"
   }
 }

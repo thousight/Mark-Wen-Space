@@ -11,15 +11,13 @@ const typeDef = `
   }
 `
 const resolvers = {
-  Query: {
-
-  },
+  Query: {},
   Mutation: {
-    updateStyle
-  }
+    updateStyle,
+  },
 }
 
 export default {
   typeDef,
-  resolvers
+  resolvers,
 }

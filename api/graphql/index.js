@@ -17,35 +17,35 @@ import Date from './Scalar/Date'
 import json from './Scalar/Json'
 
 const schema = makeExecutableSchema({
-    typeDefs: [
-        Date.typeDef,
-        json.typeDef,
+  typeDefs: [
+    Date.typeDef,
+    json.typeDef,
 
-        Education.typeDef,
-        Experience.typeDef,
-        Portfolio.typeDef,
-        SkillCategory.typeDef,
-        Skill.typeDef,
-        Style.typeDef,
+    Education.typeDef,
+    Experience.typeDef,
+    Portfolio.typeDef,
+    SkillCategory.typeDef,
+    Skill.typeDef,
+    Style.typeDef,
 
-        Email.typeDef,
+    Email.typeDef,
 
-        Query,
-        Mutation
-    ],
-    resolvers: [
-        Date.resolver,
-        json.resolver,
+    Query,
+    Mutation,
+  ],
+  resolvers: [
+    Date.resolver,
+    json.resolver,
 
-        Education.resolvers,
-        Experience.resolvers,
-        SkillCategory.resolvers,
-        Portfolio.resolvers,
-        Skill.resolvers,
-        Style.resolvers,
+    Education.resolvers,
+    Experience.resolvers,
+    SkillCategory.resolvers,
+    Portfolio.resolvers,
+    Skill.resolvers,
+    Style.resolvers,
 
-        Email.resolvers
-    ]
+    Email.resolvers,
+  ],
 })
 
 const apolloServer = new ApolloServer({ schema })

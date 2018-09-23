@@ -14,11 +14,11 @@ export const SKILLCATS = 'SKILLCATS'
 export const formRedisKeyWithMongoId = (key, id) => `${key}: ${id}`
 
 export const checkRedisError = (error, reject) => {
-    if (error) {
-        reject(error)
-        return false
-    }
-    return true
+  if (error) {
+    reject(error)
+    return false
+  }
+  return true
 }
 
 export default redis

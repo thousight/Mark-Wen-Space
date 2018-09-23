@@ -1,12 +1,15 @@
 import mongoose, { Schema } from 'mongoose'
 
-const StyleSchema = new Schema ({
+const StyleSchema = new Schema(
+  {
     primaryColor: String,
     secondaryColor: String,
-    bannerImage: String
-}, { 
+    bannerImage: String,
+  },
+  {
     timestamps: true,
-    collection: 'Styles'
-})
+    collection: 'Styles',
+  },
+)
 
 export default mongoose.model('Style', StyleSchema)
