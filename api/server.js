@@ -57,7 +57,13 @@ app.use(bodyParser.json())
 
 // Serving public view
 app.use(express.static('files'))
-app.use('/', express.static('dist/public'))
+// app.use('/', express.static('dist/public'))
+app.use('*', (req, res, next) => {
+  if (req.baseUrl !== graphqlServer.graphqlPath) {
+    return express.static('dist/public')(req, res, next)
+  }
+  return next()
+})
 // Registering graphql
 graphqlServer.applyMiddleware({ app })
 
