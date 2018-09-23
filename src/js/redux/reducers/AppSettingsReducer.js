@@ -1,11 +1,11 @@
 import {
   SIDEBAR_STATE,
-  NAVBAR_SELECTED_ITEM
+  NAVBAR_SELECTED_ITEM,
 } from '../actions'
 
 const initialState = {
   isSidebarOpen: false,
-  navbarSelectedItem: 'Home'
+  navbarSelectedItem: 'Home',
 }
 
 const AppSettingsReducer = (state = initialState, action) => {
@@ -14,12 +14,12 @@ const AppSettingsReducer = (state = initialState, action) => {
     case SIDEBAR_STATE:
       return {
         ...state,
-        isSidebarOpen: payload
+        isSidebarOpen: payload,
       }
     case NAVBAR_SELECTED_ITEM:
       return {
         ...state,
-        navbarSelectedItem: payload
+        navbarSelectedItem: payload,
       }
     default:
       return state

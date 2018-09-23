@@ -8,15 +8,13 @@ const typeDef = `
   }
 `
 const resolvers = {
-  Query: {
-
-  },
+  Query: {},
   Mutation: {
-    sendEmail
-  }
+    sendEmail,
+  },
 }
 
 export default {
   typeDef,
-  resolvers
+  resolvers,
 }

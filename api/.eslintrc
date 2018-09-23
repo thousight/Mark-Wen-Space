@@ -1,0 +1,16 @@
+{
+  "extends": ["airbnb-base", "plugin:prettier/recommended"],
+  "parser": "babel-eslint",
+  "rules": {
+    "semi": "off",
+    "no-tabs": "off",
+    "no-shadow": "off",
+    "no-console": "off",
+    "no-underscore-dangle": "off",
+    "no-useless-escape": "off",
+    "prefer-promise-reject-errors": "off",
+    "class-methods-use-this": "off",
+    "import/no-named-as-default": "off",
+    "import/prefer-default-export": "off"
+  }
+}

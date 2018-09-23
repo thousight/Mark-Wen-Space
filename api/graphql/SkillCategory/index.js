@@ -18,16 +18,16 @@ const typeDef = `
 const resolvers = {
   Query: {
     allSkillCategories,
-    getSkillCategoryById
+    getSkillCategoryById,
   },
   Mutation: {
     addSkillCategory,
     updateSkillCategory,
-    deleteSkillCategory
-  }
+    deleteSkillCategory,
+  },
 }
 
 export default {
   typeDef,
-  resolvers
+  resolvers,
 }

@@ -1,11 +1,14 @@
 import mongoose, { Schema } from 'mongoose'
 
-const SkillSchema = new Schema ({
+const SkillSchema = new Schema(
+  {
     skillName: String,
-    percent: Number
-}, { 
+    percent: Number,
+  },
+  {
     timestamps: true,
-    collection: 'Skills'
-  })
+    collection: 'Skills',
+  },
+)
 
 export default mongoose.model('Skill', SkillSchema)

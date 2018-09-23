@@ -13,13 +13,13 @@ const resolver = {
         return new Date(ast.value) // ast value is always in string format
       }
       return null
-    }
-  })
+    },
+  }),
 }
 
 export default {
-    typeDef: `
+  typeDef: `
         scalar Date
     `,
-    resolver
+  resolver,
 }
