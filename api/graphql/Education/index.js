@@ -23,16 +23,16 @@ const typeDef = `
 const resolvers = {
   Query: {
     allEducations,
-    getEducationById
+    getEducationById,
   },
   Mutation: {
     addEducation,
     updateEducation,
-    deleteEducation
-  }
+    deleteEducation,
+  },
 }
 
 export default {
   typeDef,
-  resolvers
+  resolvers,
 }

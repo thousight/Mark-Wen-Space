@@ -11,16 +11,14 @@ const typeDef = `
   }
 `
 const resolvers = {
-  Query: {
-
-  },
+  Query: {},
   Mutation: {
     addSkill,
-    updateSkill
-  }
+    updateSkill,
+  },
 }
 
 export default {
   typeDef,
-  resolvers
+  resolvers,
 }

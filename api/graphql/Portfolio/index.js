@@ -23,16 +23,16 @@ const typeDef = `
 const resolvers = {
   Query: {
     allPortfolios,
-    getPortfolioById
+    getPortfolioById,
   },
   Mutation: {
     addPortfolio,
     updatePortfolio,
-    deletePortfolio
-  }
+    deletePortfolio,
+  },
 }
 
 export default {
   typeDef,
-  resolvers
+  resolvers,
 }

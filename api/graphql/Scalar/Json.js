@@ -1,12 +1,12 @@
 import GraphQLJSON from 'graphql-type-json'
 
 const resolver = {
-    JSON: GraphQLJSON
+  JSON: GraphQLJSON,
 }
 
 export default {
-    typeDef: `
+  typeDef: `
         scalar JSON
     `,
-    resolver
+  resolver,
 }
