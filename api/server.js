@@ -58,6 +58,14 @@ app.use(bodyParser.json())
 // Serving public view
 app.use(express.static('files'))
 app.use('/', express.static('dist/public'))
+app.get('*', (req, res, next) => {
+  if (!req.url.includes(graphqlServer.graphqlPath)) {
+    return res
+      .set('Content-Type', 'text/html')
+      .sendFile(__dirname + '/public/index.html')
+  }
+  return next()
+})
 // Registering graphql
 graphqlServer.applyMiddleware({ app })
 
