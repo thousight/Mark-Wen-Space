@@ -46,10 +46,11 @@ class Portfolio extends Component {
 
   getItemsOfCategory(category) {
     const { allPortfolios } = this.props
+    const portfolios = [...allPortfolios]
     if (category === 'All') {
-      return allPortfolios.sort((a, b) => a.order - b.order)
+      return portfolios.sort((a, b) => a.order - b.order)
     }
-    return allPortfolios
+    return portfolios
       .filter(a => a.categories.includes(category))
       .sort((a, b) => a.order - b.order)
   }
