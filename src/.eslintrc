@@ -10,10 +10,12 @@
     "no-tabs": "off",
     "no-shadow": "off",
     "no-underscore-dangle": "off",
+    "linebreak-style": "off",
     "class-methods-use-this": "off",
     "react/prefer-stateless-function": "off",
     "import/no-named-as-default": "off",
     "react/prop-types": "off",
+    "react/jsx-one-expression-per-line": "off",
     "react/no-did-update-set-state": "off",
     "react/jsx-filename-extension": [
       "error",

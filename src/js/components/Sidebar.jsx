@@ -5,6 +5,8 @@ import { slide as Menu } from 'react-burger-menu'
 import { connect } from 'react-redux'
 import { toggleSidebar, setNavbarCurrentItem } from '../redux/actions'
 
+import WhiteLogoTransparentBG from '../../img/logo/WhiteLogoTransparentBG.png'
+
 /**
  * Side navbar, only shows when user taps on the toggle in navbar
  */
@@ -69,38 +71,37 @@ class Sidebar extends Component {
           customCrossIcon={false}
         >
           <Link
+            className="sidebar-logo"
+            to="/"
+            onClick={() => this.linkOnClick('/')}
+          >
+            <img alt="MW Logo" src={WhiteLogoTransparentBG} />
+          </Link>
+          <Link
             className={this.getLinkClassNames('Home')}
             to="/"
-            onClick={() => {
-              this.linkOnClick('/')
-            }}
+            onClick={() => this.linkOnClick('/')}
           >
             Home
           </Link>
           <Link
             className={this.getLinkClassNames('Resume')}
             to="/Resume"
-            onClick={() => {
-              this.linkOnClick('/Resume')
-            }}
+            onClick={() => this.linkOnClick('/Resume')}
           >
             Resume
           </Link>
           <Link
             className={this.getLinkClassNames('Portfolio')}
             to="/Portfolio"
-            onClick={() => {
-              this.linkOnClick('/Portfolio')
-            }}
+            onClick={() => this.linkOnClick('/Portfolio')}
           >
             Portfolio
           </Link>
           <Link
             className={this.getLinkClassNames('Contact')}
             to="/Contact"
-            onClick={() => {
-              this.linkOnClick('/Contact')
-            }}
+            onClick={() => this.linkOnClick('/Contact')}
           >
             Contact
           </Link>
