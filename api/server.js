@@ -60,9 +60,10 @@ app.use(express.static('files'))
 app.use('/', express.static('dist/public'))
 app.get('*', (req, res, next) => {
   if (!req.url.includes(graphqlServer.graphqlPath)) {
+    const currentDirectory = __dirname
     return res
       .set('Content-Type', 'text/html')
-      .sendFile(__dirname + '/public/index.html')
+      .sendFile(`${currentDirectory}/public/index.html`)
   }
   return next()
 })
