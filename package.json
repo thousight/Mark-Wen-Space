@@ -70,7 +70,7 @@
     "start:web": "cross-env PORT=3000 react-app-rewired start",
     "start:api": "nodemon --ext js,json,gql --watch ./api/ --exec babel-node ./api/server.js --presets=env",
     "develop": "npm-run-all --parallel start:web start:api",
-    "build": "react-app-rewired build && babel ./api -d dist && mv build dist/public",
+    "build": "rm -rf dist && rm -rf build && react-app-rewired build && babel ./api -d dist && mv build dist/public",
     "postinstall": "npm run build-css",
     "test": "react-app-rewired test --env=jsdom",
     "eject": "react-scripts eject"
