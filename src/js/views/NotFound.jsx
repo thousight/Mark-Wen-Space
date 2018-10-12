@@ -20,10 +20,6 @@ export default class NotFound extends Component {
     midCircleRect: null,
   }
 
-  onMouseMove = this.onMouseMove.bind(this)
-
-  getMidCircleHeight = this.getMidCircleHeight.bind(this)
-
   numberOfRaindrops = [
     ...Array(getRandomInt(RAINDROP_MIN_AMOUNT, RAINDROP_MAX_AMOUNT)),
   ]
@@ -38,7 +34,7 @@ export default class NotFound extends Component {
     this.getMidCircleHeight()
   }
 
-  onMouseMove({ pageX, pageY }) {
+  onMouseMove = ({ pageX, pageY }) => {
     this.setState({
       shiftLeft:
         (RAINDROP_MOVEMENT_STRENGTH / this.windowWidth) *
@@ -53,7 +49,7 @@ export default class NotFound extends Component {
     })
   }
 
-  getMidCircleHeight() {
+  getMidCircleHeight = () => {
     if (this.midCircle) {
       this.setState({ midCircleRect: this.midCircle.getBoundingClientRect() })
     }
