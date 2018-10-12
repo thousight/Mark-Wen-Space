@@ -14,7 +14,7 @@ class Sidebar extends Component {
   /**
    * Set active link
    */
-  getLinkClassNames(address) {
+  getLinkClassNames = address => {
     const { appSettings } = this.props
 
     return appSettings.navbarSelectedItem === address ? 'sidebar-active' : ''

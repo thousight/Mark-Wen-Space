@@ -13,14 +13,6 @@ import WhiteLogoTransparentBG from '../../img/logo/WhiteLogoTransparentBG.png'
  * Top navbar, change transparency based on scroll
  */
 class NavigationBar extends Component {
-  handleScroll = this.handleScroll.bind(this)
-
-  toggleOnClick = this.toggleOnClick.bind(this)
-
-  getLinkClassNames = this.getLinkClassNames.bind(this)
-
-  navItemOnClick = this.navItemOnClick.bind(this)
-
   state = {
     logo: WhiteLogoTransparentBG,
     navbarClassName: 'navbar-transparent',
@@ -45,7 +37,7 @@ class NavigationBar extends Component {
    * Set active link
    * @param: address(String)
    */
-  getLinkClassNames(address) {
+  getLinkClassNames = address => {
     const { appSettings } = this.props
     return appSettings.navbarSelectedItem === address
       ? 'navbar-links-active'
@@ -55,7 +47,7 @@ class NavigationBar extends Component {
   /**
    * Animate navbar background transparency change
    */
-  handleScroll() {
+  handleScroll = () => {
     if (window.scrollY <= 0) {
       // If user scrolls to the top
       this.setState({
@@ -86,7 +78,7 @@ class NavigationBar extends Component {
    * Make NavItem active and direct user to the page
    * @param: address(String)
    */
-  navItemOnClick(address) {
+  navItemOnClick = address => {
     const { setNavbarCurrentItem, history } = this.props
     // Scroll to the top of the page
     window.scrollTo(0, 0)
@@ -107,7 +99,7 @@ class NavigationBar extends Component {
    * Open sidebar on click
    * @param: event(JS click event object)
    */
-  toggleOnClick(event) {
+  toggleOnClick = event => {
     const { toggleSidebar } = this.props
     event.preventDefault()
     toggleSidebar(true)
@@ -132,6 +124,7 @@ class NavigationBar extends Component {
             <Navbar.Header>
               {/* Logo */}
               <div
+                className="navbar-logo-wrapper"
                 onClick={() => this.navItemOnClick('/')}
                 onKeyPress={() => this.navItemOnClick('/')}
                 role="link"

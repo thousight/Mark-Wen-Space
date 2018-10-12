@@ -10,13 +10,7 @@ import { SEND_EMAIL } from '../utils/gql'
 import navigation from '../../img/icons/navigation.svg'
 
 class SendEmailForm extends Component {
-  handleEmailSubmit = this.handleEmailSubmit.bind(this)
-
-  handleSendEmail = this.handleSendEmail.bind(this)
-
   sendEmail = null
-
-  isEmailResponseToasted = true
 
   state = {
     name: '',
@@ -27,16 +21,9 @@ class SendEmailForm extends Component {
   }
 
   /**
-   * Change input values
-   */
-  updateEmailInputFields(key, value) {
-    this.setState({ [key]: value })
-  }
-
-  /**
    * Show modal when submit email if recaptcha is available
    */
-  handleEmailSubmit(e) {
+  handleEmailSubmit = e => {
     e.preventDefault()
 
     if (window.recaptcha && window.grecaptcha) {
@@ -46,7 +33,7 @@ class SendEmailForm extends Component {
     }
   }
 
-  handleSendEmail() {
+  handleSendEmail = () => {
     const { name, fromEmail, subject, message } = this.state
 
     if (this.sendEmail) {
@@ -59,8 +46,24 @@ class SendEmailForm extends Component {
         },
       })
     }
-    this.isEmailResponseToasted = false
     this.setState({ isShowRecaptchaModal: false })
+  }
+
+  /**
+   * Change input values
+   */
+  updateEmailInputFields(key, value) {
+    this.setState({ [key]: value })
+  }
+
+  handleMutationUpdate(_, { error, data }) {
+    if (error) {
+      toast.error(
+        error.message ? error.message : 'Something is wrong when sending email',
+      )
+    } else if (data) {
+      toast('Email successfully sent!')
+    }
   }
 
   render() {
@@ -73,23 +76,9 @@ class SendEmailForm extends Component {
     } = this.state
 
     return (
-      <Mutation mutation={SEND_EMAIL}>
-        {(sendEmail, { loading, error, data }) => {
+      <Mutation mutation={SEND_EMAIL} update={this.handleMutationUpdate}>
+        {(sendEmail, { loading }) => {
           this.sendEmail = sendEmail
-
-          if (!loading && !this.isEmailResponseToasted && error) {
-            toast.error(
-              error.message
-                ? error.message
-                : 'Something is wrong when sending email',
-            )
-            this.isEmailResponseToasted = true
-          }
-
-          if (!loading && !this.isEmailResponseToasted && data) {
-            toast('Email successfully sent!')
-            this.isEmailResponseToasted = true
-          }
 
           return (
             <div className="card contact-email">
