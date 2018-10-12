@@ -16,8 +16,6 @@ const mql = window.matchMedia(`(min-width: 768px)`)
  * Portfolio page rendering data dynamically
  */
 class Portfolio extends Component {
-  mediaQueryChanged = this.mediaQueryChanged.bind(this)
-
   categories = ['All', 'Web', 'Android', 'Design', 'Backend']
 
   state = {
@@ -55,6 +53,11 @@ class Portfolio extends Component {
       .sort((a, b) => a.order - b.order)
   }
 
+  // When screen size changes from sm to md(mql.matches = true) and from md to sm(mql.matches = false)
+  mediaQueryChanged = () => {
+    this.setState(prevState => ({ isSmallScreen: !prevState.mql.matches }))
+  }
+
   handleModalOnHide = () => {
     this.setState({
       showModal: false,
@@ -75,11 +78,6 @@ class Portfolio extends Component {
       showModal: true,
       selectedItem: item,
     })
-  }
-
-  // When screen size changes from sm to md(mql.matches = true) and from md to sm(mql.matches = false)
-  mediaQueryChanged() {
-    this.setState(prevState => ({ isSmallScreen: !prevState.mql.matches }))
   }
 
   handleModalLeftArrowClick() {
