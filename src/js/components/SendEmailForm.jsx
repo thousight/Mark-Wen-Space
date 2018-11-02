@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import { Mutation } from 'react-apollo'
+import { Formik, Field } from 'formik'
 import Recaptcha from 'react-recaptcha'
 import { Modal } from 'react-bootstrap'
 import { toast } from 'react-toastify'
@@ -13,48 +14,35 @@ class SendEmailForm extends Component {
   sendEmail = null
 
   state = {
-    name: '',
-    fromEmail: '',
-    subject: '',
-    message: '',
     isShowRecaptchaModal: false,
   }
 
   /**
    * Show modal when submit email if recaptcha is available
    */
-  handleEmailSubmit = e => {
-    e.preventDefault()
-
+  handleEmailSubmit = sendEmail => values => {
     if (window.recaptcha && window.grecaptcha) {
       this.setState({ isShowRecaptchaModal: true })
     } else {
-      this.handleSendEmail()
+      this.handleSendEmail(sendEmail, values)()
     }
   }
 
-  handleSendEmail = () => {
-    const { name, fromEmail, subject, message } = this.state
+  handleSendEmail = (sendEmail, values) => () => {
+    const { name, fromEmail, subject, message } = values
 
-    if (this.sendEmail) {
-      this.sendEmail({
-        variables: {
-          name,
-          fromEmail,
-          subject,
-          textBody: message,
-        },
-      })
-    }
-    this.setState({ isShowRecaptchaModal: false })
+    sendEmail({
+      variables: {
+        name,
+        fromEmail,
+        subject,
+        textBody: message,
+      },
+    })
+    this.hideRecaptchaModal()
   }
 
-  /**
-   * Change input values
-   */
-  updateEmailInputFields(key, value) {
-    this.setState({ [key]: value })
-  }
+  hideRecaptchaModal = () => this.setState({ isShowRecaptchaModal: false })
 
   handleMutationUpdate(_, { error, data }) {
     if (error) {
@@ -67,70 +55,55 @@ class SendEmailForm extends Component {
   }
 
   render() {
-    const {
-      name,
-      fromEmail,
-      subject,
-      message,
-      isShowRecaptchaModal,
-    } = this.state
+    const { isShowRecaptchaModal } = this.state
 
     return (
       <Mutation mutation={SEND_EMAIL} update={this.handleMutationUpdate}>
-        {(sendEmail, { loading }) => {
-          this.sendEmail = sendEmail
+        {(sendEmail, { loading }) => (
+          <Formik onSubmit={this.handleEmailSubmit(sendEmail)}>
+            {({ handleSubmit, values }) => (
+              <div className="card contact-email">
+                <h4>Shoot me a message!</h4>
 
-          return (
-            <div className="card contact-email">
-              <h4>Shoot me a message!</h4>
-
-              <form onSubmit={this.handleEmailSubmit}>
-                <input
+                <Field
                   className="contact-email-form"
-                  value={name}
-                  onChange={e =>
-                    this.updateEmailInputFields('name', e.target.value)
-                  }
+                  name="name"
                   type="text"
                   placeholder="Name"
                   aria-label="Name input field"
                 />
 
-                <input
+                <Field
                   className="contact-email-form"
-                  value={fromEmail}
-                  onChange={e =>
-                    this.updateEmailInputFields('fromEmail', e.target.value)
-                  }
-                  type="email"
+                  name="fromEmail"
+                  type="text"
                   placeholder="Email"
-                  aria-label="Email input field"
+                  aria-label="From email input field"
                 />
 
-                <input
+                <Field
                   className="contact-email-form"
-                  value={subject}
-                  onChange={e =>
-                    this.updateEmailInputFields('subject', e.target.value)
-                  }
+                  name="subject"
                   type="text"
                   placeholder="Subject"
                   aria-label="Subject input field"
                 />
 
-                <textarea
+                <Field
                   className="contact-email-form"
-                  value={message}
-                  onChange={e =>
-                    this.updateEmailInputFields('message', e.target.value)
-                  }
+                  name="message"
+                  component="textarea"
                   type="text"
                   placeholder="Message"
                   aria-label="Message input field"
                 />
 
                 <div className="contact-email-form-submit-wrapper">
-                  <button className="contact-email-submit" type="submit">
+                  <button
+                    className="contact-email-submit"
+                    type="submit"
+                    onClick={handleSubmit}
+                  >
                     <img
                       className="contact-email-submit-icon"
                       alt="submit"
@@ -139,20 +112,20 @@ class SendEmailForm extends Component {
                     <p>{loading ? 'Loading' : 'Submit'}</p>
                   </button>
                 </div>
-              </form>
-              <Modal
-                show={isShowRecaptchaModal}
-                onHide={() => this.setState({ isShowRecaptchaModal: false })}
-              >
-                <Recaptcha
-                  className="recaptcha"
-                  sitekey={process.env.REACT_APP_RECAPTCHA}
-                  verifyCallback={this.handleSendEmail}
-                />
-              </Modal>
-            </div>
-          )
-        }}
+                <Modal
+                  show={isShowRecaptchaModal}
+                  onHide={this.hideRecaptchaModal}
+                >
+                  <Recaptcha
+                    className="recaptcha"
+                    sitekey={process.env.REACT_APP_RECAPTCHA}
+                    verifyCallback={this.handleSendEmail(sendEmail, values)}
+                  />
+                </Modal>
+              </div>
+            )}
+          </Formik>
+        )}
       </Mutation>
     )
   }
