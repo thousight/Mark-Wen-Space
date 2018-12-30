@@ -66,11 +66,27 @@ export const QUERY_ALL_STATIC_CONTENT = gql`
   }
 `
 
-export const SEND_EMAIL = gql `
+export const SEND_EMAIL = gql`
   mutation SendEmail(
-    $name: String!,
-    $fromEmail: String!,
-    $subject: String,
+    $name: String!
+    $fromEmail: String!
+    $subject: String
+    $textBody: String!
+  ) {
+    sendEmail(
+      name: $name
+      fromEmail: $fromEmail
+      subject: $subject
+      textBody: $textBody
+    )
+  }
+`
+
+export const LOG_IN = gql`
+  mutation SendEmail(
+    $name: String!
+    $fromEmail: String!
+    $subject: String
     $textBody: String!
   ) {
     sendEmail(
