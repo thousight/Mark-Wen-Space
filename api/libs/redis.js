@@ -10,6 +10,7 @@ export const EDU = 'EDU'
 export const EXP = 'EXP'
 export const PORT = 'PORT'
 export const SKILLCATS = 'SKILLCATS'
+export const USER = 'USER'
 
 export const formRedisKeyWithMongoId = (key, id) => `${key}: ${id}`
 

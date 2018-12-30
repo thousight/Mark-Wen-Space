@@ -84,6 +84,6 @@ export const SEND_EMAIL = gql`
 
 export const LOG_IN = gql`
   mutation LogIn($username: String!, $password: String!) {
-    sendEmail(username: $username, password: $password)
+    logIn(username: $username, password: $password)
   }
 `
