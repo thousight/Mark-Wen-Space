@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
-import { Row, Col } from 'react-bootstrap'
+import { Row, Col, Modal } from 'react-bootstrap'
 
-import { HomeIcon, Footer } from '../components'
+import { HomeIcon, Footer, LoginForm } from '../components'
 
 import profilePic from '../../img/profilePic.jpg'
 import smartphone from '../../img/icons/smartphone.svg'
@@ -13,7 +13,16 @@ import badminton from '../../img/icons/badminton.svg'
  * Static Home page
  */
 export default class Home extends PureComponent {
+  state = {
+    showLoginForm: false,
+  }
+
+  toggleLoginForm = () =>
+    this.setState(({ showLoginForm }) => ({ showLoginForm: !showLoginForm }))
+
   render() {
+    const { showLoginForm } = this.state
+
     return (
       <div className="home">
         <div className="home-landing">
@@ -42,11 +51,17 @@ export default class Home extends PureComponent {
           <Row className="home-cards">
             <Col xs={12} md={10} mdOffset={1} lg={12} lgOffset={0}>
               <div className="card home-intro-card">
-                <img
-                  className="home-profile-pic"
-                  alt="profile"
-                  src={profilePic}
-                />
+                <button
+                  className="home-profile-toggle"
+                  type="button"
+                  onDoubleClick={this.toggleLoginForm}
+                >
+                  <img
+                    className="home-profile-pic"
+                    alt="profile"
+                    src={profilePic}
+                  />
+                </button>
                 <h3>Hi, I&lsquo;m Mark!</h3>
                 <p>
                   My legal name is Guojie Wen since my Chinese name is 温国杰.
@@ -82,6 +97,17 @@ export default class Home extends PureComponent {
         </div>
 
         <Footer />
+
+        <Modal
+          bsClass="login-form-modal"
+          show={showLoginForm}
+          onHide={this.toggleLoginForm}
+          bsStyle="lg"
+        >
+          <Modal.Body>
+            <LoginForm />
+          </Modal.Body>
+        </Modal>
       </div>
     )
   }
