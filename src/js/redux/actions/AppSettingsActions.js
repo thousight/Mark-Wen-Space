@@ -1,7 +1,4 @@
-import {
-  SIDEBAR_STATE,
-  NAVBAR_SELECTED_ITEM,
-} from './actionTypes'
+import { SIDEBAR_STATE, NAVBAR_SELECTED_ITEM } from './actionTypes'
 
 /**
  * Set sidebar open (true) or not (false)

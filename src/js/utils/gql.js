@@ -83,17 +83,7 @@ export const SEND_EMAIL = gql`
 `
 
 export const LOG_IN = gql`
-  mutation SendEmail(
-    $name: String!
-    $fromEmail: String!
-    $subject: String
-    $textBody: String!
-  ) {
-    sendEmail(
-      name: $name
-      fromEmail: $fromEmail
-      subject: $subject
-      textBody: $textBody
-    )
+  mutation LogIn($username: String!, $password: String!) {
+    sendEmail(username: $username, password: $password)
   }
 `

@@ -5,7 +5,7 @@ import WhiteLogoTransparentBG from '../../img/logo/WhiteLogoTransparentBG.png'
 /**
  * Footer that sticks to the bottom of the page
  */
-class Footer extends PureComponent {
+export default class Footer extends PureComponent {
   render() {
     return (
       <div className="footer">
@@ -18,5 +18,3 @@ class Footer extends PureComponent {
     )
   }
 }
-
-export default Footer

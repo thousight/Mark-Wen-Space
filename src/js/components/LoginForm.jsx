@@ -6,22 +6,29 @@ import { Formik, Field } from 'formik'
 import { LOG_IN } from '../utils/gql'
 
 class LoginForm extends PureComponent {
+  handleLogInSubmit = handleLogIn => values =>
+    handleLogIn({ variables: values })
+
+  handleLogInUpdate(cache, { data }) {
+    if (data) {
+      console.log(data)
+      const { history } = this.props
+      history.push('/admin')
+    }
+  }
+
   render() {
     return (
       <div className="card login-form">
-        <Mutation
-          mutation={LOG_IN}
-          update={this.handleSendEmailUpdate}
-          onError={this.handleSendEmailError}
-        >
-          {(handleLogIn, { loading }) => (
-            <Formik onSubmit={handleLogIn}>
-              {({ handleSubmit, values }) => (
+        <Mutation mutation={LOG_IN} update={this.handleLogInUpdate}>
+          {(handleLogIn, { loading, error }) => (
+            <Formik onSubmit={this.handleLogInSubmit(handleLogIn)}>
+              {({ handleSubmit }) => (
                 <div>
                   <Field
                     className="contact-email-form"
                     name="username"
-                    type="text"
+                    type="email"
                     placeholder="Username"
                     aria-label="Username input field"
                   />
@@ -32,6 +39,9 @@ class LoginForm extends PureComponent {
                     placeholder="Password"
                     aria-label="Password input field"
                   />
+                  <p className="login-form-error">
+                    {error && 'Error occurred when log in, please retry'}
+                  </p>
                   <button
                     className="contact-email-submit"
                     type="button"
