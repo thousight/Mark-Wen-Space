@@ -44,21 +44,28 @@ class SendEmailForm extends Component {
 
   hideRecaptchaModal = () => this.setState({ isShowRecaptchaModal: false })
 
-  handleMutationUpdate(_, { error, data }) {
-    if (error) {
-      toast.error(
-        error.message ? error.message : 'Something is wrong when sending email',
-      )
-    } else if (data) {
+  handleSendEmailUpdate(_, { data }) {
+    if (data) {
       toast('Email successfully sent!')
     }
+  }
+
+  handleSendEmailError(error) {
+    console.log(error)
+    toast.error(
+      error.message ? error.message : 'Something is wrong when sending email',
+    )
   }
 
   render() {
     const { isShowRecaptchaModal } = this.state
 
     return (
-      <Mutation mutation={SEND_EMAIL} update={this.handleMutationUpdate}>
+      <Mutation
+        mutation={SEND_EMAIL}
+        update={this.handleSendEmailUpdate}
+        onError={this.handleSendEmailError}
+      >
         {(sendEmail, { loading }) => (
           <Formik onSubmit={this.handleEmailSubmit(sendEmail)}>
             {({ handleSubmit, values }) => (
