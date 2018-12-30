@@ -10,6 +10,7 @@
     "no-tabs": "off",
     "no-shadow": "off",
     "no-underscore-dangle": "off",
+    "no-console": "off",
     "linebreak-style": "off",
     "class-methods-use-this": "off",
     "react/prefer-stateless-function": "off",
