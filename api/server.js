@@ -4,9 +4,13 @@ import compression from 'compression'
 import morgan from 'morgan'
 import cors from 'cors'
 import dotenv from 'dotenv'
+import flash from 'connect-flash'
+import session from 'express-session'
 
 import graphqlServer from './graphql'
+import useAPI from './controllers'
 import { connectToMongo } from './libs/mongoose'
+import usePassport from './libs/passport'
 
 // Initialize variables
 dotenv.config()
@@ -54,12 +58,25 @@ app.use(
 )
 // Parse application/json
 app.use(bodyParser.json())
+// Enabling session
+app.use(
+  session({
+    cookie: { maxAge: 60000 },
+    secret: 'woot',
+    resave: false,
+    saveUninitialized: false,
+  }),
+)
+// Enabling flash message
+app.use(flash())
 
 // Serving public view
 app.use(express.static('files'))
 app.use('/', express.static('dist/public'))
 app.get('*', (req, res, next) => {
-  if (!req.url.includes(graphqlServer.graphqlPath)) {
+  if (
+    !(req.url.includes(graphqlServer.graphqlPath) || req.url.includes('/api'))
+  ) {
     const currentDirectory = __dirname
     return res
       .set('Content-Type', 'text/html')
@@ -67,9 +84,13 @@ app.get('*', (req, res, next) => {
   }
   return next()
 })
-// Registering graphql
+// Registering passport
+usePassport(app)
+// Registering API router
+useAPI(app)
+// Registering GraphQL
 graphqlServer.applyMiddleware({ app })
-
+// Registering MongoDB
 connectToMongo().then(() => {
   const port = process.env.PORT
   app.listen(port, err => {
@@ -77,6 +98,7 @@ connectToMongo().then(() => {
       console.log(err)
     } else {
       console.log(`Apollo GraphQL is running at ${graphqlServer.graphqlPath}`)
+      console.log(`API is running at /api`)
       console.log(`Listening on port ${port}.`)
     }
   })
