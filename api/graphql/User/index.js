@@ -1,8 +1,8 @@
-import logIn from './logIn'
-import signUp from './signUp'
+import getUserById from './getUserById'
+import updateUserById from './updateUserById'
 
 const typeDef = `
-  type Skill {
+  type User {
     _id: String
     firstName: String
     lastName: String
@@ -15,10 +15,11 @@ const typeDef = `
   }
 `
 const resolvers = {
-  Query: {},
+  Query: {
+    getUserById,
+  },
   Mutation: {
-    logIn,
-    signUp,
+    updateUserById,
   },
 }
 
