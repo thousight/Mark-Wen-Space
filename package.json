@@ -6,7 +6,7 @@
     "apollo-boost": "^0.1.12",
     "apollo-server-express": "^2.0.0",
     "async": "^2.6.1",
-    "axios": "^0.16.2",
+    "axios": "^0.18.0",
     "babel-polyfill": "^6.26.0",
     "bcrypt-nodejs": "^0.0.3",
     "bluebird": "^3.5.1",
@@ -44,7 +44,9 @@
     "react-tap-event-plugin": "^2.0.1",
     "react-toastify": "^4.1.0",
     "redis": "^2.8.0",
-    "redux": "^3.6.0"
+    "redux": "^3.6.0",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

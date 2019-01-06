@@ -17,6 +17,7 @@ const app = express()
 // Handle CORS
 const whitelist = [
   undefined,
+  'http://localhost:3000',
   'https://mark-wen-space-dev.herokuapp.com',
   'https://mark-wen-space.herokuapp.com',
   'https://www.markwen.space',
@@ -36,8 +37,8 @@ app.use(
     },
     methods: 'POST,GET,PUT,DELETE,OPTIONS',
     allowedHeaders:
-      'Origin, Content-Type, Accept, token, X-Requested-With, X-Rate-Limit-Limit, X-Rate-Limit-Remaining, X-Rate-Limit-Reset',
-    exposedHeaders: 'token',
+      'Origin, Content-Type, Accept, Authorization, X-Requested-With, X-Rate-Limit-Limit, X-Rate-Limit-Remaining, X-Rate-Limit-Reset',
+    exposedHeaders: 'Authorization',
   }),
 )
 // Log every request to the console

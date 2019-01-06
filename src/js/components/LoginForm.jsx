@@ -1,62 +1,66 @@
 import React, { PureComponent } from 'react'
-import { withRouter } from 'react-router-dom'
-import { Mutation } from 'react-apollo'
+import { connect } from 'react-redux'
 import { Formik, Field } from 'formik'
 
-import { LOG_IN } from '../utils/gql'
+import { login } from '../redux/actions/AuthActions'
 
 class LoginForm extends PureComponent {
-  handleLogInSubmit = handleLogIn => values =>
-    handleLogIn({ variables: values })
-
-  handleLogInUpdate(cache, { data }) {
-    if (data) {
-      console.log(data)
-      const { history } = this.props
-      history.push('/admin')
-    }
+  handleLogInSubmit = values => {
+    const { login } = this.props
+    login(values)
   }
 
   render() {
+    const { loading, error: apiError } = this.props
+
     return (
       <div className="card login-form">
-        <Mutation mutation={LOG_IN} update={this.handleLogInUpdate}>
-          {(handleLogIn, { loading, error }) => (
-            <Formik onSubmit={this.handleLogInSubmit(handleLogIn)}>
-              {({ handleSubmit }) => (
-                <div>
-                  <Field
-                    className="contact-email-form"
-                    name="username"
-                    type="email"
-                    placeholder="Username"
-                    aria-label="Username input field"
-                  />
-                  <Field
-                    className="contact-email-form"
-                    name="password"
-                    type="password"
-                    placeholder="Password"
-                    aria-label="Password input field"
-                  />
-                  <p className="login-form-error">
-                    {error && 'Error occurred when log in, please retry'}
-                  </p>
-                  <button
-                    className="contact-email-submit"
-                    type="button"
-                    onClick={handleSubmit}
-                  >
-                    {loading ? 'Loading' : 'Log In'}
-                  </button>
-                </div>
-              )}
-            </Formik>
+        <Formik onSubmit={this.handleLogInSubmit}>
+          {({ handleSubmit, error }) => (
+            <div>
+              <Field
+                className="contact-email-form"
+                name="username"
+                type="email"
+                placeholder="Username"
+                aria-label="Username input field"
+              />
+              <Field
+                className="contact-email-form"
+                name="password"
+                type="password"
+                placeholder="Password"
+                aria-label="Password input field"
+              />
+              <p className="login-form-error">
+                {(error || apiError) &&
+                  'Error occurred when log in, please retry'}
+              </p>
+              <button
+                className="contact-email-submit"
+                type="button"
+                onClick={handleSubmit}
+              >
+                {loading ? 'Loading' : 'Log In'}
+              </button>
+            </div>
           )}
-        </Mutation>
+        </Formik>
       </div>
     )
   }
 }
 
-export default withRouter(LoginForm)
+const mapStateToProps = state => ({
+  loading: state.auth.loading,
+  error: state.auth.error,
+})
+
+const mapDispatchToProps = {
+  login,
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(LoginForm)
