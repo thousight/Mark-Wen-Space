@@ -5,6 +5,7 @@ import User from '../../models/User'
 const localStrategy = new LocalStrategy((username, password, done) => {
   User.findOne({ username }, (err, user) => {
     if (err) {
+      console.log(err)
       return done(err)
     }
     if (!user) {

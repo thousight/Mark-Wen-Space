@@ -2,6 +2,7 @@ import passport from 'passport'
 
 import User from '../../models/User'
 import localStrategy from './localStrategy'
+import jtwStrategy from './jwtStrategy'
 
 passport.serializeUser((user, done) => {
   done(null, user.id)
@@ -17,6 +18,7 @@ const usePassport = app => {
   app.use(passport.initialize())
   app.use(passport.session())
   passport.use(localStrategy)
+  passport.use(jtwStrategy)
 }
 
 export default usePassport

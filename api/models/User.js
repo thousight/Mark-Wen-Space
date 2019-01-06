@@ -11,6 +11,7 @@ const userSchema = new Schema(
     password: { type: String, required: true },
     image: String,
     type: { type: String, default: 'Visitor' },
+    creator: { type: Schema.Types.ObjectId, ref: 'User' },
   },
   {
     timestamps: true,
@@ -18,7 +19,7 @@ const userSchema = new Schema(
   },
 )
 
-userSchema.pre('save', next => {
+userSchema.pre('save', function(next) { // eslint-disable-line
   const user = this
 
   if (!user.isModified('password')) {
@@ -41,7 +42,8 @@ userSchema.pre('save', next => {
   })
 })
 
-userSchema.methods.comparePassword = candidatePassword =>
-  bcrypt.compareSync(candidatePassword, this.password)
+userSchema.methods.comparePassword = function(candidatePassword) { // eslint-disable-line
+  return bcrypt.compareSync(candidatePassword, this.password)
+}
 
 export default mongoose.model('User', userSchema)
