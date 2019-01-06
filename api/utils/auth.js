@@ -1,4 +1,7 @@
 import jwt from 'jsonwebtoken'
+import passport from 'passport'
+
+import { authOption } from '../libs/passport'
 
 export const createToken = user =>
   jwt.sign(
@@ -23,3 +26,5 @@ export const filterReturningUser = user => ({
   updatedAt: user.updatedAt,
   createdAt: user.createdAt,
 })
+
+export const protectedRoute = passport.authenticate('jwt', authOption)

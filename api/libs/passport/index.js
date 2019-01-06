@@ -21,4 +21,8 @@ const usePassport = app => {
   passport.use(jtwStrategy)
 }
 
+export const authOption = {
+  session: false,
+}
+
 export default usePassport
