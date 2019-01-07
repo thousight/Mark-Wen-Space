@@ -6,7 +6,9 @@ import cors from 'cors'
 import dotenv from 'dotenv'
 
 import graphqlServer from './graphql'
+import useAPI from './controllers'
 import { connectToMongo } from './libs/mongoose'
+import usePassport from './libs/passport'
 
 // Initialize variables
 dotenv.config()
@@ -15,6 +17,7 @@ const app = express()
 // Handle CORS
 const whitelist = [
   undefined,
+  'http://localhost:3000',
   'https://mark-wen-space-dev.herokuapp.com',
   'https://mark-wen-space.herokuapp.com',
   'https://www.markwen.space',
@@ -34,8 +37,8 @@ app.use(
     },
     methods: 'POST,GET,PUT,DELETE,OPTIONS',
     allowedHeaders:
-      'Origin, Content-Type, Accept, token, X-Requested-With, X-Rate-Limit-Limit, X-Rate-Limit-Remaining, X-Rate-Limit-Reset',
-    exposedHeaders: 'token',
+      'Origin, Content-Type, Accept, Authorization, X-Requested-With, X-Rate-Limit-Limit, X-Rate-Limit-Remaining, X-Rate-Limit-Reset',
+    exposedHeaders: 'Authorization',
   }),
 )
 // Log every request to the console
@@ -59,7 +62,9 @@ app.use(bodyParser.json())
 app.use(express.static('files'))
 app.use('/', express.static('dist/public'))
 app.get('*', (req, res, next) => {
-  if (!req.url.includes(graphqlServer.graphqlPath)) {
+  if (
+    !(req.url.includes(graphqlServer.graphqlPath) || req.url.includes('/api'))
+  ) {
     const currentDirectory = __dirname
     return res
       .set('Content-Type', 'text/html')
@@ -67,9 +72,13 @@ app.get('*', (req, res, next) => {
   }
   return next()
 })
-// Registering graphql
+// Registering passport
+usePassport(app)
+// Registering API router
+useAPI(app)
+// Registering GraphQL
 graphqlServer.applyMiddleware({ app })
-
+// Registering MongoDB
 connectToMongo().then(() => {
   const port = process.env.PORT
   app.listen(port, err => {
@@ -77,6 +86,7 @@ connectToMongo().then(() => {
       console.log(err)
     } else {
       console.log(`Apollo GraphQL is running at ${graphqlServer.graphqlPath}`)
+      console.log(`API is running at /api`)
       console.log(`Listening on port ${port}.`)
     }
   })

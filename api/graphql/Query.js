@@ -15,5 +15,11 @@ export default `
     # SkillCategory
     allSkillCategories: [SkillCategory]
     getSkillCategoryById(_id: String!): SkillCategory
+
+    # User
+    getUserById(
+      _id: String!,
+      token: String!,
+    ): User
   }
 `

@@ -1,7 +1,4 @@
-import {
-  SIDEBAR_STATE,
-  NAVBAR_SELECTED_ITEM,
-} from '../actions'
+import { SIDEBAR_STATE, NAVBAR_SELECTED_ITEM } from '../actions'
 
 const initialState = {
   isSidebarOpen: false,

@@ -4,7 +4,7 @@ import { Switch, Route, withRouter } from 'react-router-dom'
 import { Query } from 'react-apollo'
 import { ToastContainer } from 'react-toastify'
 
-import { Home, Resume, Portfolio, Contact, NotFound } from './js/views'
+import { Admin, Home, Resume, Portfolio, Contact, NotFound } from './js/views'
 import { NavigationBar, Sidebar, FullScreenLoading } from './js/components'
 import { QUERY_ALL_STATIC_CONTENT } from './js/utils/gql'
 
@@ -77,6 +77,7 @@ class App extends Component {
                 >
                   <Switch key={location.pathname} location={location}>
                     <Route exact path="/" component={Home} />
+                    <Route path="/admin" component={Admin} />
                     <Route
                       path="/resume"
                       component={() => (

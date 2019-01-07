@@ -269,12 +269,7 @@ class Portfolio extends Component {
         </div>
 
         {/* Item Details Modal */}
-        <Modal
-          containerClassName="portfolio-modal-wrapper"
-          show={showModal}
-          onHide={this.handleModalOnHide}
-          bsStyle="lg"
-        >
+        <Modal show={showModal} onHide={this.handleModalOnHide} bsStyle="lg">
           {selectedItem ? (
             <Row
               className="portfolio-modal portfolio-modal-nav-button-vertical-aligner card"

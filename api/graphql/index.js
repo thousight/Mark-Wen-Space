@@ -7,6 +7,7 @@ import Portfolio from './Portfolio'
 import SkillCategory from './SkillCategory'
 import Skill from './Skill'
 import Style from './Style'
+import User from './User'
 // Functional
 import Email from './Email'
 // Query and Mutation definitions
@@ -27,6 +28,7 @@ const schema = makeExecutableSchema({
     SkillCategory.typeDef,
     Skill.typeDef,
     Style.typeDef,
+    User.typeDef,
 
     Email.typeDef,
 
@@ -43,6 +45,7 @@ const schema = makeExecutableSchema({
     Portfolio.resolvers,
     Skill.resolvers,
     Style.resolvers,
+    User.resolvers,
 
     Email.resolvers,
   ],

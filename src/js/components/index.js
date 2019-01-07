@@ -1,6 +1,7 @@
 import Footer from './Footer'
 import FullScreenLoading from './FullScreenLoading'
 import HomeIcon from './HomeIcon'
+import LoginForm from './LoginForm'
 import NavigationBar from './NavigationBar'
 import NotFoundRaindrop from './NotFoundRaindrop'
 import ProgressBar from './ProgressBar'
@@ -12,6 +13,7 @@ export {
   Footer,
   FullScreenLoading,
   HomeIcon,
+  LoginForm,
   NavigationBar,
   NotFoundRaindrop,
   ProgressBar,

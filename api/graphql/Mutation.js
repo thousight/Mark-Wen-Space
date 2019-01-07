@@ -147,5 +147,17 @@ export default `
       subject: String,
       textBody: String!
     ): JSON
+
+    # User
+    updateUserById(
+      _id: String!,
+      firstName: String,
+      lastName: String,
+      username: String,
+      password: String,
+      image: String,
+      type: String,
+      token: String!,
+    ): User
   }
 `
