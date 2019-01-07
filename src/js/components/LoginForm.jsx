@@ -4,6 +4,8 @@ import { Formik, Field } from 'formik'
 
 import { login } from '../redux/actions/AuthActions'
 
+import Logo from '../../img/logo/WhiteLogoTransparentBG.png'
+
 class LoginForm extends PureComponent {
   handleLogInSubmit = values => {
     const { login } = this.props
@@ -14,10 +16,14 @@ class LoginForm extends PureComponent {
     const { loading, error: apiError } = this.props
 
     return (
-      <div className="card login-form">
+      <div className="login-form card">
+        <div className="login-form-gradient">
+          <img src={Logo} alt="logo" />
+        </div>
         <Formik onSubmit={this.handleLogInSubmit}>
           {({ handleSubmit, error }) => (
             <div>
+              <h2>Log In</h2>
               <Field
                 className="contact-email-form"
                 name="username"
