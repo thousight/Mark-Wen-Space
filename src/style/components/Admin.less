@@ -1,10 +1,21 @@
 .admin {
-  width: calc(100% - 300px);
+  display: flex;
+  flex-direction: column;
   margin-left: 300px;
-  & > h1 {
-    color: @black;
-    margin-top: 0;
-    padding-top: 20;
+  min-height: 100vh;
+  width: calc(100% - 300px);
+  .content {
+    padding-left: 20px;
+    padding-right: 20px;
+    h1 {
+      color: @black;
+      margin-top: 0;
+      padding-top: 20;
+    }
+  }
+  .footer {
+    margin-top: auto;
+    margin-bottom: 0;
   }
   @media only screen and (max-width: 767px) {
     width: 100%;
@@ -23,5 +34,6 @@
   }
   .sidebar-logo {
     margin-right: 0;
+    user-select: none;
   }
 }

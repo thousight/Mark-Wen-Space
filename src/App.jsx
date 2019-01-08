@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
-import { Switch, Route, withRouter } from 'react-router-dom'
 import { Query } from 'react-apollo'
 import { ToastContainer } from 'react-toastify'
 
-import { PublicSwitch, AdminSwitch } from './js/navigation'
+import RootSwitch from './js/navigation'
 import { FullScreenLoading } from './js/components'
 import { QUERY_ALL_STATIC_CONTENT } from './js/utils/gql'
 
@@ -52,7 +51,6 @@ class App extends Component {
 
   render() {
     const { imagesLoading } = this.state
-    const { location } = this.props
 
     return (
       <Query query={QUERY_ALL_STATIC_CONTENT}>
@@ -67,23 +65,7 @@ class App extends Component {
             !error &&
             imagesLoading.length === preloadImages.length ? (
               <div key={1}>
-                {/* <Sidebar />
-                <NavigationBar /> */}
-
-                <ReactCSSTransitionGroup
-                  transitionName="fade"
-                  transitionEnterTimeout={500}
-                  transitionLeaveTimeout={500}
-                >
-                  <Switch key={location.pathname} location={location}>
-                    <Route exact path="/admin" component={AdminSwitch} />
-                    <Route
-                      path="/"
-                      component={() => <PublicSwitch data={data} />}
-                    />
-                  </Switch>
-                </ReactCSSTransitionGroup>
-
+                <RootSwitch data={data} />
                 <ToastContainer
                   toastClassName="toast-style"
                   closeButton={false}
@@ -100,4 +82,4 @@ class App extends Component {
   }
 }
 
-export default withRouter(App)
+export default App
