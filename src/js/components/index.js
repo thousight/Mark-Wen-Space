@@ -6,6 +6,7 @@ import HomeIcon from './HomeIcon'
 import LoginForm from './LoginForm'
 import NavigationBar from './NavigationBar'
 import NotFoundRaindrop from './NotFoundRaindrop'
+import PageHeader from './PageHeader'
 import ProgressBar from './ProgressBar'
 import PublicSidebar from './sidebars/PublicSidebar'
 import SendEmailForm from './SendEmailForm'
@@ -20,6 +21,7 @@ export {
   LoginForm,
   NavigationBar,
   NotFoundRaindrop,
+  PageHeader,
   ProgressBar,
   PublicSidebar,
   SendEmailForm,
