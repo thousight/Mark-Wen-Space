@@ -21,10 +21,6 @@ class NavigationBar extends Component {
   }
 
   componentDidMount() {
-    const { location } = this.props
-    // Select the currently selected nav item based on url
-    this.navItemOnClick(location.pathname)
-
     // Add scroll listener
     window.addEventListener('scroll', this.handleScroll)
   }

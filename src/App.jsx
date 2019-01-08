@@ -4,8 +4,8 @@ import { Switch, Route, withRouter } from 'react-router-dom'
 import { Query } from 'react-apollo'
 import { ToastContainer } from 'react-toastify'
 
-import { Admin, Home, Resume, Portfolio, Contact, NotFound } from './js/views'
-import { NavigationBar, Sidebar, FullScreenLoading } from './js/components'
+import { PublicSwitch, AdminSwitch } from './js/navigation'
+import { FullScreenLoading } from './js/components'
 import { QUERY_ALL_STATIC_CONTENT } from './js/utils/gql'
 
 import homeBackground from './img/home.jpg'
@@ -37,7 +37,7 @@ class App extends Component {
     preloadImages.map(image => this.loadImage(image))
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
+  shouldComponentUpdate(_, nextState) {
     return nextState.imagesLoading.length === preloadImages.length
   }
 
@@ -67,8 +67,8 @@ class App extends Component {
             !error &&
             imagesLoading.length === preloadImages.length ? (
               <div key={1}>
-                <Sidebar />
-                <NavigationBar />
+                {/* <Sidebar />
+                <NavigationBar /> */}
 
                 <ReactCSSTransitionGroup
                   transitionName="fade"
@@ -76,26 +76,11 @@ class App extends Component {
                   transitionLeaveTimeout={500}
                 >
                   <Switch key={location.pathname} location={location}>
-                    <Route exact path="/" component={Home} />
-                    <Route path="/admin" component={Admin} />
+                    <Route exact path="/admin" component={AdminSwitch} />
                     <Route
-                      path="/resume"
-                      component={() => (
-                        <Resume
-                          allEducations={data.allEducations}
-                          allExperiences={data.allExperiences}
-                          allSkillCategories={data.allSkillCategories}
-                        />
-                      )}
+                      path="/"
+                      component={() => <PublicSwitch data={data} />}
                     />
-                    <Route
-                      path="/portfolio"
-                      component={() => (
-                        <Portfolio allPortfolios={data.allPortfolios} />
-                      )}
-                    />
-                    <Route path="/contact" component={Contact} />
-                    <Route component={NotFound} />
                   </Switch>
                 </ReactCSSTransitionGroup>
 
