@@ -9,7 +9,7 @@ export const createToken = user =>
       _id: user._id,
       username: user.username,
     },
-    process.env.JTW_SECRET,
+    process.env.JWT_SECRET,
     {
       issuer: process.env.JWT_ISSUER,
       expiresIn: '7d',
