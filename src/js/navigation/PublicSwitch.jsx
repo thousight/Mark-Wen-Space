@@ -12,20 +12,16 @@ const PublicSwitch = ({ data, location }) => (
     <Fade>
       <Switch key={location.key}>
         <Route exact path="/" component={Home} />
-        <Route
-          path="/resume"
-          component={() => (
-            <Resume
-              allEducations={data.allEducations}
-              allExperiences={data.allExperiences}
-              allSkillCategories={data.allSkillCategories}
-            />
-          )}
-        />
-        <Route
-          path="/portfolio"
-          component={() => <Portfolio allPortfolios={data.allPortfolios} />}
-        />
+        <Route path="/resume">
+          <Resume
+            allEducations={data.allEducations}
+            allExperiences={data.allExperiences}
+            allSkillCategories={data.allSkillCategories}
+          />
+        </Route>
+        <Route path="/portfolio">
+          <Portfolio allPortfolios={data.allPortfolios} />
+        </Route>
         <Route path="/contact" component={Contact} />
         <Route component={NotFound} />
       </Switch>

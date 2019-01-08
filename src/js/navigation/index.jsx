@@ -7,7 +7,9 @@ import PublicSwitch from './PublicSwitch'
 const RootSwitch = ({ data, location }) => (
   <Switch location={location}>
     <Route path="/admin" component={AdminSwitch} />
-    <Route path="/" component={() => <PublicSwitch data={data} />} />
+    <Route path="/">
+      <PublicSwitch data={data} />
+    </Route>
   </Switch>
 )
 
