@@ -2,11 +2,11 @@ import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 
 import { Home, Resume, Portfolio, Contact, NotFound } from '../views'
-import { NavigationBar, Sidebar } from '../components'
+import { NavigationBar, PublicSidebar } from '../components'
 
 const PublicSwitch = ({ data }) => (
   <div>
-    <Sidebar />
+    <PublicSidebar />
     <NavigationBar />
     <Switch>
       <Route exact path="/" component={Home} />

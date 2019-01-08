@@ -5,11 +5,13 @@ import LoginForm from './LoginForm'
 import NavigationBar from './NavigationBar'
 import NotFoundRaindrop from './NotFoundRaindrop'
 import ProgressBar from './ProgressBar'
-import Sidebar from './Sidebar'
+import AdminSidebar from './sidebars/AdminSidebar'
+import PublicSidebar from './sidebars/PublicSidebar'
 import SendEmailForm from './SendEmailForm'
 import Timeline from './timeline/Timeline'
 
 export {
+  AdminSidebar,
   Footer,
   FullScreenLoading,
   HomeIcon,
@@ -17,7 +19,7 @@ export {
   NavigationBar,
   NotFoundRaindrop,
   ProgressBar,
-  Sidebar,
+  PublicSidebar,
   SendEmailForm,
   Timeline,
 }

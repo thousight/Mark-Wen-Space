@@ -1,5 +1,27 @@
 .admin {
+  width: calc(100% - 300px);
+  margin-left: 300px;
   & > h1 {
     color: @black;
+    margin-top: 0;
+    padding-top: 20;
+  }
+  @media only screen and (max-width: 767px) {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+.admin-sidebar {
+  .bm-item {
+    border-top-left-radius: 0;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 30px;
+    margin-left: 0;
+    margin-right: 10px;
+  }
+  .sidebar-logo {
+    margin-right: 0;
   }
 }

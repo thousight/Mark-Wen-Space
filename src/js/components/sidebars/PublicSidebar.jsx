@@ -3,14 +3,14 @@ import { bindActionCreators } from 'redux'
 import { Link } from 'react-router-dom'
 import { slide as Menu } from 'react-burger-menu'
 import { connect } from 'react-redux'
-import { toggleSidebar, setNavbarCurrentItem } from '../redux/actions'
+import { toggleSidebar, setNavbarCurrentItem } from '../../redux/actions'
 
-import WhiteLogoTransparentBG from '../../img/logo/WhiteLogoTransparentBG.png'
+import WhiteLogoTransparentBG from '../../../img/logo/WhiteLogoTransparentBG.png'
 
 /**
  * Side navbar, only shows when user taps on the toggle in navbar
  */
-class Sidebar extends Component {
+class PublicSidebar extends Component {
   /**
    * Set active link
    */
@@ -129,4 +129,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Sidebar)
+)(PublicSidebar)
