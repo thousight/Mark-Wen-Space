@@ -1,21 +1,32 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import { Switch, Route } from 'react-router-dom'
 
-import { Wedding } from '../views'
-import { AdminSidebar, Footer } from '../components'
+import { Admin, Wedding, NotFound } from '../views'
+import { AdminSidebar, Fade, Footer } from '../components'
 
-const AdminSwitch = () => (
-  <div>
-    <AdminSidebar />
-    <div className="admin">
-      <div className="content">
-        <Switch>
-          <Route path="/admin/wedding" component={Wedding} />
-        </Switch>
+const AdminSwitch = ({ currentUser }) =>
+  currentUser ? (
+    <div>
+      <AdminSidebar />
+      <div className="admin-switch">
+        <div className="content">
+          <Fade>
+            <Switch key={window.location.key}>
+              <Route path="/admin/wedding" component={Wedding} />
+              <Route path="/admin" component={Admin} />
+            </Switch>
+          </Fade>
+        </div>
+        <Footer />
       </div>
-      <Footer />
     </div>
-  </div>
-)
+  ) : (
+    <NotFound />
+  )
 
-export default AdminSwitch
+const mapStateToProps = state => ({
+  currentUser: state.auth.currentUser,
+})
+
+export default connect(mapStateToProps)(AdminSwitch)

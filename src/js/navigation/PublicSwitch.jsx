@@ -11,7 +11,6 @@ const PublicSwitch = ({ data, location }) => (
 
     <Fade>
       <Switch key={location.key}>
-        <Route exact path="/" component={Home} />
         <Route path="/resume">
           <Resume
             allEducations={data.allEducations}
@@ -23,6 +22,7 @@ const PublicSwitch = ({ data, location }) => (
           <Portfolio allPortfolios={data.allPortfolios} />
         </Route>
         <Route path="/contact" component={Contact} />
+        <Route path="/" component={Home} />
         <Route component={NotFound} />
       </Switch>
     </Fade>

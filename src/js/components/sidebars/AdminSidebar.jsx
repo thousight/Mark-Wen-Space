@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { toggleAdminSidebar } from '../../redux/actions'
 import { Link } from 'react-router-dom'
 import { slide as Menu } from 'react-burger-menu'
+
+import { toggleAdminSidebar } from '../../redux/actions'
 
 import WhiteLogoTransparentBG from '../../../img/logo/WhiteLogoTransparentBG.png'
 

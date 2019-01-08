@@ -1,7 +1,9 @@
 import React, { PureComponent } from 'react'
+import { connect } from 'react-redux'
 import { Row, Col, Modal } from 'react-bootstrap'
 
 import { HomeIcon, Footer, LoginForm } from '../components'
+import history from '../utils/history'
 
 import profilePic from '../../img/profilePic.jpg'
 import smartphone from '../../img/icons/smartphone.svg'
@@ -12,13 +14,20 @@ import badminton from '../../img/icons/badminton.svg'
 /**
  * Static Home page
  */
-export default class Home extends PureComponent {
+class Home extends PureComponent {
   state = {
     showLoginForm: false,
   }
 
-  toggleLoginForm = () =>
-    this.setState(({ showLoginForm }) => ({ showLoginForm: !showLoginForm }))
+  toggleLoginForm = () => {
+    const { currentUser } = this.props
+
+    if (currentUser) {
+      history.push('/admin')
+    } else {
+      this.setState(({ showLoginForm }) => ({ showLoginForm: !showLoginForm }))
+    }
+  }
 
   render() {
     const { showLoginForm } = this.state
@@ -112,3 +121,9 @@ export default class Home extends PureComponent {
     )
   }
 }
+
+const mapStateToProps = state => ({
+  currentUser: state.auth.currentUser,
+})
+
+export default connect(mapStateToProps)(Home)
