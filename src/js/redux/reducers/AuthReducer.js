@@ -1,4 +1,4 @@
-import { LOGIN, LOGIN_SUCCESS, LOGIN_FAILURE } from '../actions'
+import { LOGIN, LOGIN_SUCCESS, LOGIN_FAILURE, LOG_OUT } from '../actions'
 
 const initialState = {
   loading: false,
@@ -28,6 +28,8 @@ const AppSettingsReducer = (state = initialState, action) => {
         error: payload,
         loading: false,
       }
+    case LOG_OUT:
+      return initialState
     default:
       return state
   }

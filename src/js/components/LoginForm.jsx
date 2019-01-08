@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import { Formik, Field } from 'formik'
 
-import { login } from '../redux/actions/AuthActions'
+import { login } from '../redux/actions'
 
 import Logo from '../../img/logo/WhiteLogoTransparentBG.png'
 

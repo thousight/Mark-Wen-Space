@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { slide as Menu } from 'react-burger-menu'
 
-import { toggleAdminSidebar } from '../../redux/actions'
+import { toggleAdminSidebar, logout } from '../../redux/actions'
 
 import WhiteLogoTransparentBG from '../../../img/logo/WhiteLogoTransparentBG.png'
 
@@ -56,7 +56,7 @@ class AdminSidebar extends Component {
     }
     // Scroll to the top of the page
     window.scrollTo(0, 0)
-    this.setState({ currentlySelected: address })
+    this.setState({ currentlySelected: address.substring(7) })
   }
 
   /**
@@ -70,6 +70,11 @@ class AdminSidebar extends Component {
   toggleSidebar = isOpen => {
     const { toggleAdminSidebar } = this.props
     toggleAdminSidebar(isOpen)
+  }
+
+  handleLogout = () => {
+    const { logout } = this.props
+    logout()
   }
 
   render() {
@@ -110,11 +115,18 @@ class AdminSidebar extends Component {
             Wedding
           </Link>
           <Link
-            className={this.getLinkClassNames('Home')}
+            className={this.getLinkClassNames()}
             to="/"
             onClick={() => this.linkOnClick('/')}
           >
             Back to public
+          </Link>
+          <Link
+            className={this.getLinkClassNames()}
+            to="/"
+            onClick={this.handleLogout}
+          >
+            Log out
           </Link>
         </Menu>
       </div>
@@ -128,6 +140,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
   toggleAdminSidebar,
+  logout,
 }
 
 export default connect(

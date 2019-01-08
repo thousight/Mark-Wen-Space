@@ -38,7 +38,7 @@ app.use(
     methods: 'POST,GET,PUT,DELETE,OPTIONS',
     allowedHeaders:
       'Origin, Content-Type, Accept, Authorization, X-Requested-With, X-Rate-Limit-Limit, X-Rate-Limit-Remaining, X-Rate-Limit-Reset',
-    exposedHeaders: 'Authorization',
+    exposedHeaders: 'Authorization, token',
   }),
 )
 // Log every request to the console

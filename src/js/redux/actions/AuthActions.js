@@ -1,11 +1,10 @@
-import { LOGIN, LOGIN_SUCCESS, LOGIN_FAILURE } from './actionTypes'
+import { LOGIN, LOGIN_SUCCESS, LOGIN_FAILURE, LOG_OUT } from './actionTypes'
 
 import api from '../../utils/api'
 import history from '../../utils/history'
 
-export const login = values => async dispatch => { // eslint-disable-line
+export const login = values => async dispatch => {
   dispatch({ type: LOGIN })
-
   try {
     const res = await api.post('/user/login/email', values)
     localStorage.setItem('Authorization', res.headers.token)
@@ -19,5 +18,12 @@ export const login = values => async dispatch => { // eslint-disable-line
       type: LOGIN_FAILURE,
       payload: error,
     })
+  }
+}
+
+export const logout = () => {
+  localStorage.removeItem('Authorization')
+  return {
+    type: LOG_OUT,
   }
 }

@@ -22,7 +22,7 @@ class Home extends PureComponent {
   toggleLoginForm = () => {
     const { currentUser } = this.props
 
-    if (currentUser) {
+    if (currentUser && currentUser.type === 'Admin') {
       history.push('/admin')
     } else {
       this.setState(({ showLoginForm }) => ({ showLoginForm: !showLoginForm }))
