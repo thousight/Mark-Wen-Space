@@ -1,6 +1,7 @@
 /**
  * Application settings
  */
+export const ADMIN_SIDEBAR_STATE = 'ADMIN_SIDEBAR_STATE'
 export const SIDEBAR_STATE = 'SIDEBAR_STATE'
 export const NAVBAR_SELECTED_ITEM = 'NAVBAR_SELECTED_ITEM'
 

@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 import { Row, Col, Modal, OverlayTrigger, Tooltip } from 'react-bootstrap'
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import ReactCSSTransitionReplace from 'react-css-transition-replace'
 
-import { Footer } from '../components'
+import { Fade, Footer } from '../components'
 
 window.matchMedia = window.matchMedia || {
   matches: false,
@@ -234,10 +233,10 @@ class Portfolio extends Component {
 
               {/* Items Display */}
               <Row>
-                <ReactCSSTransitionGroup
+                <Fade
                   transitionName="fade"
-                  transitionEnterTimeout={250}
-                  transitionLeaveTimeout={250}
+                  enterTimeout={250}
+                  leaveTimeout={250}
                 >
                   {items.map((item, index) => (
                     <Col
@@ -262,7 +261,7 @@ class Portfolio extends Component {
                       </div>
                     </Col>
                   ))}
-                </ReactCSSTransitionGroup>
+                </Fade>
               </Row>
             </Col>
           </Row>

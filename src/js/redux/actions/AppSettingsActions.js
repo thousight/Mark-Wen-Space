@@ -1,4 +1,17 @@
-import { SIDEBAR_STATE, NAVBAR_SELECTED_ITEM } from './actionTypes'
+import {
+  ADMIN_SIDEBAR_STATE,
+  SIDEBAR_STATE,
+  NAVBAR_SELECTED_ITEM,
+} from './actionTypes'
+
+/**
+ * Set sidebar open (true) or not (false)
+ * @param: payload(boolean)
+ */
+export const toggleAdminSidebar = payload => ({
+  type: ADMIN_SIDEBAR_STATE,
+  payload,
+})
 
 /**
  * Set sidebar open (true) or not (false)

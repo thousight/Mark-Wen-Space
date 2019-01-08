@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import { Query } from 'react-apollo'
 import { ToastContainer } from 'react-toastify'
 
 import RootSwitch from './js/navigation'
-import { FullScreenLoading } from './js/components'
+import { Fade, FullScreenLoading } from './js/components'
 import { QUERY_ALL_STATIC_CONTENT } from './js/utils/gql'
 
 import homeBackground from './img/home.jpg'
@@ -55,11 +54,7 @@ class App extends Component {
     return (
       <Query query={QUERY_ALL_STATIC_CONTENT}>
         {({ loading, error, data }) => (
-          <ReactCSSTransitionGroup
-            transitionName="fade"
-            transitionEnterTimeout={700}
-            transitionLeaveTimeout={700}
-          >
+          <Fade>
             {// Check if API content are fetched and background images are loaded
             !loading &&
             !error &&
@@ -75,7 +70,7 @@ class App extends Component {
             ) : (
               <FullScreenLoading key={2} error={error} />
             )}
-          </ReactCSSTransitionGroup>
+          </Fade>
         )}
       </Query>
     )

@@ -21,6 +21,15 @@ class NavigationBar extends Component {
   }
 
   componentDidMount() {
+    const { setNavbarCurrentItem } = this.props
+    const address = window.location.pathname
+    if (address === '/') {
+      // Sets active item in Redux and triggers navbar render()
+      setNavbarCurrentItem('Home')
+    } else {
+      // Since address would be '/Resume' format, take out '/'
+      setNavbarCurrentItem(address.substr(1, address.length - 1))
+    }
     // Add scroll listener
     window.addEventListener('scroll', this.handleScroll)
   }

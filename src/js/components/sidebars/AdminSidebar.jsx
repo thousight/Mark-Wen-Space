@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { toggleAdminSidebar } from '../../redux/actions'
 import { Link } from 'react-router-dom'
 import { slide as Menu } from 'react-burger-menu'
 
@@ -11,8 +13,7 @@ const mql = window.matchMedia(`(min-width: 768px)`)
  */
 class AdminSidebar extends Component {
   state = {
-    currentlySelected: null,
-    isOpen: true,
+    currentlySelected: '',
     isSmallScreen: false,
   }
 
@@ -39,7 +40,8 @@ class AdminSidebar extends Component {
    */
   mediaQueryChanged = () => {
     const isSmallScreen = !mql.matches
-    this.setState({ isSmallScreen, isOpen: !isSmallScreen })
+    this.toggleSidebar(!isSmallScreen)
+    this.setState({ isSmallScreen })
   }
 
   /**
@@ -64,13 +66,14 @@ class AdminSidebar extends Component {
     this.toggleSidebar(false)
   }
 
-  toggleSidebar = setOpen =>
-    this.setState(({ isOpen }) =>
-      setOpen === undefined ? { isOpen: !isOpen } : { isOpen: setOpen },
-    )
+  toggleSidebar = isOpen => {
+    const { toggleAdminSidebar } = this.props
+    toggleAdminSidebar(isOpen)
+  }
 
   render() {
-    const { isOpen, isSmallScreen } = this.state
+    const { isAdminSidebarOpen } = this.props
+    const { isSmallScreen } = this.state
 
     return (
       <div className="admin-sidebar">
@@ -81,13 +84,13 @@ class AdminSidebar extends Component {
           onClick={this.overlayOnClick}
           onKeyPress={this.overlayOnClick}
           style={{
-            display: isSmallScreen && isOpen ? 'block' : 'none',
+            display: isSmallScreen && isAdminSidebarOpen ? 'block' : 'none',
           }}
         />
         <Menu
           noOverlay
           width="300px"
-          isOpen={isOpen}
+          isOpen={isAdminSidebarOpen}
           customBurgerIcon={false}
           customCrossIcon={false}
         >
@@ -118,4 +121,15 @@ class AdminSidebar extends Component {
   }
 }
 
-export default AdminSidebar
+const mapStateToProps = state => ({
+  isAdminSidebarOpen: state.appSettings.isAdminSidebarOpen,
+})
+
+const mapDispatchToProps = {
+  toggleAdminSidebar,
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(AdminSidebar)
