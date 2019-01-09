@@ -4,8 +4,8 @@ import { authOption } from '../../libs/passport'
 import { createToken, filterReturningUser } from '../../utils/auth'
 import { mongoErrorMsg, mongoNotFoundMsg } from '../../constants/messages'
 
-const emailLoginMiddleware = (req, res) =>
-  passport.authenticate('local', authOption, (error, user) => {
+const passportLoginController = strategy => (req, res) =>
+  passport.authenticate(strategy, authOption, (error, user) => {
     if (error) {
       console.log({ error })
       return res.status(400).json({
@@ -25,4 +25,4 @@ const emailLoginMiddleware = (req, res) =>
     })
   })(req, res)
 
-export default emailLoginMiddleware
+export default passportLoginController

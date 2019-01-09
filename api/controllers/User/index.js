@@ -1,15 +1,14 @@
 import { Router } from 'express'
 
-import emailLoginMiddleware from './emailLoginMiddleware'
 import emailSignupController from './emailSignupController'
-import tokenLoginMiddleware from './tokenLoginMiddleware'
+import passportLoginController from './passportLoginController'
 
 import { protectedRoute } from '../../utils/auth'
 
 const router = Router()
 
-router.get('/login/token', tokenLoginMiddleware)
-router.post('/login/email', emailLoginMiddleware)
+router.get('/login/token', passportLoginController('jwt'))
+router.post('/login/email', passportLoginController('local'))
 router.post('/signup/email', protectedRoute, emailSignupController)
 
 export default router
