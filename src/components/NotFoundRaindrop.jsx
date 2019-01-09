@@ -76,12 +76,10 @@ export default class NotFoundRaindrop extends Component {
   }
 
   render() {
-    const { key } = this.props
     const { x, y, transition } = this.state
 
     return (
       <div
-        key={key}
         className="not-found-raindrop"
         style={{
           width: this.width,

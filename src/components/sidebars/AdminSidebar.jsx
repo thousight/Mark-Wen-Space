@@ -6,6 +6,10 @@ import { slide as Menu } from 'react-burger-menu'
 import { toggleAdminSidebar, logout } from '../../redux/actions'
 
 import WhiteLogoTransparentBG from '../../img/logo/WhiteLogoTransparentBG.png'
+import profileIcon from '../../img/icons/occupation.svg'
+import weddingIcon from '../../img/icons/wedding-invite.svg'
+import backIcon from '../../img/icons/back.svg'
+import logoutIcon from '../../img/icons/logout.svg'
 
 const mql = window.matchMedia(`(min-width: 768px)`)
 
@@ -115,28 +119,40 @@ class AdminSidebar extends Component {
             to="/admin/me"
             onClick={() => this.linkOnClick('/admin/me')}
           >
-            Hi, {firstName}
+            <span>
+              <img alt="profile" src={profileIcon} />
+              Hi, {firstName}
+            </span>
           </Link>
           <Link
             className={this.getLinkClassNames('wedding')}
             to="/admin/wedding"
             onClick={() => this.linkOnClick('/admin/wedding')}
           >
-            Wedding
+            <span>
+              <img alt="wedding" src={weddingIcon} />
+              Wedding
+            </span>
           </Link>
           <Link
             className={this.getLinkClassNames()}
             to="/"
             onClick={() => this.linkOnClick('/')}
           >
-            Back to public
+            <span>
+              <img alt="back" src={backIcon} />
+              Back to public
+            </span>
           </Link>
           <Link
             className={this.getLinkClassNames()}
             to="/"
             onClick={this.handleLogout}
           >
-            Log out
+            <span>
+              <img alt="log out" src={logoutIcon} />
+              Log out
+            </span>
           </Link>
         </Menu>
       </div>
