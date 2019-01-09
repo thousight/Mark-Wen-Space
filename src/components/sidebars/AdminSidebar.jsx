@@ -78,7 +78,10 @@ class AdminSidebar extends Component {
   }
 
   render() {
-    const { isAdminSidebarOpen } = this.props
+    const {
+      isAdminSidebarOpen,
+      currentUser: { firstName, image },
+    } = this.props
     const { isSmallScreen } = this.state
 
     return (
@@ -105,7 +108,14 @@ class AdminSidebar extends Component {
             to="/admin"
             onClick={() => this.linkOnClick('/admin')}
           >
-            <img alt="MW Logo" src={WhiteLogoTransparentBG} />
+            <img alt="MW Logo" src={image || WhiteLogoTransparentBG} />
+          </Link>
+          <Link
+            className={this.getLinkClassNames('me')}
+            to="/admin/me"
+            onClick={() => this.linkOnClick('/admin/me')}
+          >
+            Hi, {firstName}
           </Link>
           <Link
             className={this.getLinkClassNames('wedding')}
@@ -136,6 +146,7 @@ class AdminSidebar extends Component {
 
 const mapStateToProps = state => ({
   isAdminSidebarOpen: state.appSettings.isAdminSidebarOpen,
+  currentUser: state.auth.currentUser,
 })
 
 const mapDispatchToProps = {

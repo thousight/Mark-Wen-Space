@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Row, Col, Modal, OverlayTrigger, Tooltip } from 'react-bootstrap'
 import ReactCSSTransitionReplace from 'react-css-transition-replace'
 
-import { Fade, Footer } from '../components'
+import { Fade, Footer } from '../../components'
 
 window.matchMedia = window.matchMedia || {
   matches: false,

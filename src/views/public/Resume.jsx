@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import { Row, Col } from 'react-bootstrap'
 
-import { Timeline, ProgressBar, Footer } from '../components'
+import { Timeline, ProgressBar, Footer } from '../../components'
 
 /**
  * Resume page rendering data dynamically

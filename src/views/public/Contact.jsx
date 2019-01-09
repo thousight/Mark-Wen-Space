@@ -3,7 +3,7 @@ import { withGoogleMap, GoogleMap, Marker } from 'react-google-maps'
 import { Map, Marker as BMapMarker } from 'react-bmap'
 import { Row, Col } from 'react-bootstrap'
 
-import { SendEmailForm, Footer } from '../components'
+import { SendEmailForm, Footer } from '../../components'
 
 /**
  * Static Contact page, able to send email to Mark and view Google Maps

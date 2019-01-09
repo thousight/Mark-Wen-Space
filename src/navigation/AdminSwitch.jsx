@@ -1,8 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, Redirect } from 'react-router-dom'
 
-import { Admin, Wedding, NotFound } from '../views'
+import { Admin, Wedding, Me } from '../views'
 import { AdminSidebar, Fade, Footer } from '../components'
 
 const AdminSwitch = ({ currentUser }) =>
@@ -14,6 +14,7 @@ const AdminSwitch = ({ currentUser }) =>
           <Fade>
             <Switch key={window.location.key}>
               <Route path="/admin/wedding" component={Wedding} />
+              <Route path="/admin/me" component={Me} />
               <Route path="/admin" component={Admin} />
             </Switch>
           </Fade>
@@ -22,7 +23,7 @@ const AdminSwitch = ({ currentUser }) =>
       </div>
     </div>
   ) : (
-    <NotFound />
+    <Redirect to="/not-found" />
   )
 
 const mapStateToProps = state => ({

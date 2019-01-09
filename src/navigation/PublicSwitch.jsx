@@ -22,7 +22,7 @@ const PublicSwitch = ({ data, location }) => (
           <Portfolio allPortfolios={data.allPortfolios} />
         </Route>
         <Route path="/contact" component={Contact} />
-        <Route path="/" component={Home} />
+        <Route exact path="/" component={Home} />
         <Route component={NotFound} />
       </Switch>
     </Fade>

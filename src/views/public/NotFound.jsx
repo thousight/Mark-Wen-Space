@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 
-import { NotFoundRaindrop } from '../components'
-import { getRandomInt } from '../utils/number'
+import { NotFoundRaindrop } from '../../components'
+import { getRandomInt } from '../../utils/number'
 
-import notFoundCenter from '../img/NotFoundCenter.svg'
+import notFoundCenter from '../../img/NotFoundCenter.svg'
 
 const RAINDROP_MAX_AMOUNT = window.innerWidth >= 768 ? 20 : 13
 const RAINDROP_MIN_AMOUNT = window.innerWidth >= 768 ? 12 : 9

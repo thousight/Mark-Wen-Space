@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 
-import { PageHeader } from '../components'
+import { PageHeader } from '../../components'
 
 export default class Wedding extends PureComponent {
   render() {
