@@ -121,7 +121,7 @@ class AdminSidebar extends Component {
           >
             <span>
               <img alt="profile" src={profileIcon} />
-              Hi, {firstName}
+              <p>Hi, {firstName}</p>
             </span>
           </Link>
           <Link
@@ -131,7 +131,7 @@ class AdminSidebar extends Component {
           >
             <span>
               <img alt="wedding" src={weddingIcon} />
-              Wedding
+              <p>Wedding</p>
             </span>
           </Link>
           <Link
@@ -141,7 +141,7 @@ class AdminSidebar extends Component {
           >
             <span>
               <img alt="back" src={backIcon} />
-              Back to public
+              <p>Back to public</p>
             </span>
           </Link>
           <Link
@@ -151,7 +151,7 @@ class AdminSidebar extends Component {
           >
             <span>
               <img alt="log out" src={logoutIcon} />
-              Log out
+              <p>Log out</p>
             </span>
           </Link>
         </Menu>

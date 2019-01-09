@@ -1,6 +1,8 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 
+import { PageHeader } from '../../components'
+
 class Admin extends PureComponent {
   render() {
     const {
@@ -8,9 +10,12 @@ class Admin extends PureComponent {
     } = this.props
 
     return (
-      <div className="admin">
-        <h1>Hi, {firstName}</h1>
-      </div>
+      <PageHeader
+        title={`Hi, ${firstName}`}
+        backgroundClassName="wedding-background"
+      >
+        <div className="admin" />
+      </PageHeader>
     )
   }
 }
