@@ -30,7 +30,6 @@
     "passport-local": "^1.0.0",
     "react": "^15.6.1",
     "react-addons-css-transition-group": "^15.6.0",
-    "react-addons-transition-group": "^15.6.0",
     "react-apollo": "^2.1.9",
     "react-bmap": "^1.0.68",
     "react-bootstrap": "^0.31.2",

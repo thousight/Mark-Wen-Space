@@ -1,12 +1,10 @@
 import React, { Component } from 'react'
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
-import { Switch, Route, withRouter } from 'react-router-dom'
 import { Query } from 'react-apollo'
 import { ToastContainer } from 'react-toastify'
 
-import { Admin, Home, Resume, Portfolio, Contact, NotFound } from './js/views'
-import { NavigationBar, Sidebar, FullScreenLoading } from './js/components'
-import { QUERY_ALL_STATIC_CONTENT } from './js/utils/gql'
+import RootSwitch from './navigation'
+import { Fade, FullScreenLoading } from './components'
+import { QUERY_ALL_STATIC_CONTENT } from './utils/gql'
 
 import homeBackground from './img/home.jpg'
 import resumeBackground from './img/resume.jpg'
@@ -33,11 +31,11 @@ class App extends Component {
     imagesLoading: [],
   }
 
-  componentWillMount() {
-    preloadImages.map(image => this.loadImage(image))
+  componentDidMount() {
+    preloadImages.forEach(image => this.loadImage(image))
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
+  shouldComponentUpdate(_, nextState) {
     return nextState.imagesLoading.length === preloadImages.length
   }
 
@@ -52,53 +50,17 @@ class App extends Component {
 
   render() {
     const { imagesLoading } = this.state
-    const { location } = this.props
 
     return (
       <Query query={QUERY_ALL_STATIC_CONTENT}>
         {({ loading, error, data }) => (
-          <ReactCSSTransitionGroup
-            transitionName="fade"
-            transitionEnterTimeout={700}
-            transitionLeaveTimeout={700}
-          >
+          <Fade>
             {// Check if API content are fetched and background images are loaded
             !loading &&
             !error &&
             imagesLoading.length === preloadImages.length ? (
               <div key={1}>
-                <Sidebar />
-                <NavigationBar />
-
-                <ReactCSSTransitionGroup
-                  transitionName="fade"
-                  transitionEnterTimeout={500}
-                  transitionLeaveTimeout={500}
-                >
-                  <Switch key={location.pathname} location={location}>
-                    <Route exact path="/" component={Home} />
-                    <Route path="/admin" component={Admin} />
-                    <Route
-                      path="/resume"
-                      component={() => (
-                        <Resume
-                          allEducations={data.allEducations}
-                          allExperiences={data.allExperiences}
-                          allSkillCategories={data.allSkillCategories}
-                        />
-                      )}
-                    />
-                    <Route
-                      path="/portfolio"
-                      component={() => (
-                        <Portfolio allPortfolios={data.allPortfolios} />
-                      )}
-                    />
-                    <Route path="/contact" component={Contact} />
-                    <Route component={NotFound} />
-                  </Switch>
-                </ReactCSSTransitionGroup>
-
+                <RootSwitch data={data} />
                 <ToastContainer
                   toastClassName="toast-style"
                   closeButton={false}
@@ -108,11 +70,11 @@ class App extends Component {
             ) : (
               <FullScreenLoading key={2} error={error} />
             )}
-          </ReactCSSTransitionGroup>
+          </Fade>
         )}
       </Query>
     )
   }
 }
 
-export default withRouter(App)
+export default App

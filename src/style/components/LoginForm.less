@@ -41,11 +41,14 @@
   }
   & > div > h2 {
     color: @black;
+    cursor: default;
     text-align: center;
     margin-top: 0;
     margin-bottom: 20px;
+    user-select: none;
   }
-  & > div > input {
+  & > div > input,
+  & > div > input:focus {
     width: 75%;
   }
   & .contact-email-submit {
@@ -76,30 +79,13 @@
 
 .login-form-gradient {
   /*animation*/
-  background: linear-gradient(
-    90deg,
-    #0a81df,
-    #3cb9ff,
-    #0a81df,
-    #3cb9ff,
-    #0a81df,
-    #3cb9ff,
-    #0a81df,
-    #3cb9ff,
-    #0a81df,
-    #3cb9ff
-  );
-  background-size: 800% 800%;
+  background: linear-gradient(135deg, #0a81df, #09a7ff);
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
-
-  -webkit-animation: SignInBackgroundAnimation 30s ease infinite;
-  -moz-animation: SignInBackgroundAnimation 30s ease infinite;
-  -o-animation: SignInBackgroundAnimation 30s ease infinite;
-  animation: SignInBackgroundAnimation 30s ease infinite;
 
   & > img {
     width: 300px;
     height: 300px;
+    user-select: none;
   }
 }
