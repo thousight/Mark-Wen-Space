@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import { Query } from 'react-apollo'
 import { ToastContainer } from 'react-toastify'
 
-import RootSwitch from './js/navigation'
-import { Fade, FullScreenLoading } from './js/components'
-import { QUERY_ALL_STATIC_CONTENT } from './js/utils/gql'
+import RootSwitch from './navigation'
+import { Fade, FullScreenLoading } from './components'
+import { QUERY_ALL_STATIC_CONTENT } from './utils/gql'
 
 import homeBackground from './img/home.jpg'
 import resumeBackground from './img/resume.jpg'

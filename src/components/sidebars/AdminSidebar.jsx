@@ -5,7 +5,7 @@ import { slide as Menu } from 'react-burger-menu'
 
 import { toggleAdminSidebar, logout } from '../../redux/actions'
 
-import WhiteLogoTransparentBG from '../../../img/logo/WhiteLogoTransparentBG.png'
+import WhiteLogoTransparentBG from '../../img/logo/WhiteLogoTransparentBG.png'
 
 const mql = window.matchMedia(`(min-width: 768px)`)
 

@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react'
 import { Row, Col } from 'react-bootstrap'
 
-import occupation from '../../../img/icons/occupation.svg'
-import pin from '../../../img/icons/location-pin.svg'
+import occupation from '../../img/icons/occupation.svg'
+import pin from '../../img/icons/location-pin.svg'
 
 /**
  * Individual card item on the timeline

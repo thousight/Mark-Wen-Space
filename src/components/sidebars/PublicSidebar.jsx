@@ -5,7 +5,7 @@ import { slide as Menu } from 'react-burger-menu'
 import { connect } from 'react-redux'
 import { toggleSidebar, setNavbarCurrentItem } from '../../redux/actions'
 
-import WhiteLogoTransparentBG from '../../../img/logo/WhiteLogoTransparentBG.png'
+import WhiteLogoTransparentBG from '../../img/logo/WhiteLogoTransparentBG.png'
 
 /**
  * Side navbar, only shows when user taps on the toggle in navbar

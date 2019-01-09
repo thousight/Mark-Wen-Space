@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 
-import WhiteLogoTransparentBG from '../../img/logo/WhiteLogoTransparentBG.png'
+import WhiteLogoTransparentBG from '../img/logo/WhiteLogoTransparentBG.png'
 
 /**
  * Footer that sticks to the bottom of the page

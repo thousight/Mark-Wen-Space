@@ -9,8 +9,8 @@ import { createLogger } from 'redux-logger'
 import ApolloClient from 'apollo-boost'
 import { ApolloProvider } from 'react-apollo'
 
-import rootReducer from './js/redux/reducers/index'
-import history from './js/utils/history'
+import rootReducer from './redux/reducers/index'
+import history from './utils/history'
 import App from './App'
 import registerServiceWorker from './registerServiceWorker'
 
@@ -42,7 +42,7 @@ ReactDOM.render(
 registerServiceWorker()
 
 if (module.hot) {
-  module.hot.accept('./js/redux/reducers', () => {
+  module.hot.accept('./redux/reducers', () => {
     store.replaceReducer(rootReducer)
   })
 }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import BlueLogoTransparentBG from '../../img/logo/BlueLogoTransparentBG.png'
+import BlueLogoTransparentBG from '../img/logo/BlueLogoTransparentBG.png'
 
 /**
  * Loading screen when app starts

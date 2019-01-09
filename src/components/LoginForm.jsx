@@ -4,7 +4,7 @@ import { Formik, Field } from 'formik'
 
 import { login } from '../redux/actions'
 
-import Logo from '../../img/logo/WhiteLogoTransparentBG.png'
+import Logo from '../img/logo/WhiteLogoTransparentBG.png'
 
 class LoginForm extends PureComponent {
   handleLogInSubmit = values => {

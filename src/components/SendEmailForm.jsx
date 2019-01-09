@@ -8,7 +8,7 @@ import { toast } from 'react-toastify'
 
 import { SEND_EMAIL } from '../utils/gql'
 
-import navigation from '../../img/icons/navigation.svg'
+import navigation from '../img/icons/navigation.svg'
 
 class SendEmailForm extends Component {
   sendEmail = null
