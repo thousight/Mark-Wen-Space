@@ -31,8 +31,8 @@ class App extends Component {
     imagesLoading: [],
   }
 
-  componentWillMount() {
-    preloadImages.map(image => this.loadImage(image))
+  componentDidMount() {
+    preloadImages.forEach(image => this.loadImage(image))
   }
 
   shouldComponentUpdate(_, nextState) {

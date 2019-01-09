@@ -1,13 +1,21 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+
+import { tokenLogin } from '../redux/actions'
 
 import BlueLogoTransparentBG from '../img/logo/BlueLogoTransparentBG.png'
 
 /**
  * Loading screen when app starts
  */
-export default class FullScreenLoading extends Component {
+class FullScreenLoading extends Component {
   state = {
     centerImageLoaded: false,
+  }
+
+  componentDidMount() {
+    const { tokenLogin } = this.props
+    tokenLogin()
   }
 
   render() {
@@ -40,3 +48,10 @@ export default class FullScreenLoading extends Component {
     )
   }
 }
+
+export default connect(
+  null,
+  {
+    tokenLogin,
+  },
+)(FullScreenLoading)
