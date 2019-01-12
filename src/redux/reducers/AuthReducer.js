@@ -32,6 +32,11 @@ const AppSettingsReducer = (state = initialState, action) => {
         loading: false,
       }
     case TOKEN_LOGIN_FAILURE:
+      console.log(payload)
+      return {
+        ...state,
+        loading: false,
+      }
     case LOGIN_FAILURE:
       console.log(payload)
       return {
