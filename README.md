@@ -1,4 +1,7 @@
 # Mark Wen Space
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/thousight/Mark-Wen-Space.svg)](https://greenkeeper.io/)
+
 Mark Wen's personal website.
 
 ## Planned Features
