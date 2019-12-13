@@ -46,16 +46,6 @@ export default class Contact extends Component {
             <Col xs={12} sm={5} md={4} mdOffset={1} lg={5} lgOffset={0}>
               <div className="card contact-info">
                 <div className="contact-info-line">
-                  <span className="contact-info-icon icon-mail" />
-                  <a href="mailto:markwenguojie94@gmail.com">
-                    markwenguojie94@gmail.com
-                  </a>
-                </div>
-                <div className="contact-info-line">
-                  <span className="contact-info-icon icon-phone" />
-                  <a href="tel:510-505-4398">(510) 505-4398</a>
-                </div>
-                <div className="contact-info-line">
                   <span className="contact-info-icon icon-home" />
                   <div className="contact-info-line-address">
                     <a
