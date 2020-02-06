@@ -13,7 +13,7 @@ export default class Contact extends Component {
     isGoogleAvailable: true,
   }
 
-  componentWillMount() {
+  componentDidMount() {
     // Check if google is available
     if (!window.google) {
       this.setState({ isGoogleAvailable: false })

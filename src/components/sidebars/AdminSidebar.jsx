@@ -22,7 +22,7 @@ class AdminSidebar extends Component {
     isSmallScreen: false,
   }
 
-  componentWillMount() {
+  componentDidMount() {
     mql.addListener(this.mediaQueryChanged)
     this.setState({ isSmallScreen: !mql.matches })
   }

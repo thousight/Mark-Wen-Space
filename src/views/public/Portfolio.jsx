@@ -25,7 +25,7 @@ class Portfolio extends Component {
     isSmallScreen: false,
   }
 
-  componentWillMount() {
+  componentDidMount() {
     mql.addListener(this.mediaQueryChanged)
     this.setState({ mql, isSmallScreen: !mql.matches })
   }
